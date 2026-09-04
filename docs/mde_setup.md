@@ -202,6 +202,7 @@ To create a model directly in the same Eclipse instance:
   1. Right-click `metamodel/DiningRoom.ecore` > New > Other..., filter `genmodel`, pick **EMF Generator Model** (under "Eclipse Modeling Framework") > Next
   2. It should default to `DiningRoom.ecore` as the source — confirm > Next
   3. On the "Select a Root Model Object or Package" page, check the `DiningRoom` package > Finish
+  4. Right-click the root `DiningRoom` node in the `.genmodel` tree editor > **Generate Model Code** — this generates the actual Java classes (`Room`, `Furniture`, `Table`, `Chair`, `DiningRoomPackage`, `DiningRoomFactory`, etc.) into `DiningRoom/src` and updates `DiningRoom/META-INF/MANIFEST.MF` with an `Export-Package` entry. Skipping this step doesn't break the Xtext wizard itself, but the generated Xtext project's code references these classes by type, so you'll get a wave of "cannot be resolved to a type"/"cannot be resolved to a variable" errors (20+) the moment you run *Generate Xtext Artifacts* below if they don't exist yet
 - Right-click in the Project Explorer New > Other > Xtext project From Existing Ecore Models
 - Add the EPackage from the EMF generator model `DiningRoom.genmodel`: in the wizard's EPackages section, click **Add...**, browse to `metamodel/DiningRoom.genmodel`, and check the `DiningRoom` package listed inside it
 - Select Entry rule: `Room - DiningRoom`
@@ -241,15 +242,18 @@ Chair returns Chair:
 
 ###### Launch second Eclipse instance
 - When the file `DiningRoomTextual.xtext` is automatically open, right-click in file the Run AS > *Generate Xtext artifacts*
-- In the run button (green play button in the toolbar) select *Graphical* to launch the Eclipse instance
+- Launch a runtime Eclipse to test the generated editor: right-click the `diningRoomTextual.ui` project (or any project in the workspace) > Run As > **Eclipse Application** — this creates and runs a fresh configuration immediately. (The original tutorial's instruction to reuse a `Graphical` configuration here refers to the one from the "Create instances" section, which requires the discontinued Eugenia/GMF editor and was skipped — this step doesn't actually depend on it; any runtime Eclipse Application launch works)
 
 Note that the xtext and mwe2 files are located under `diningRoomTextual/src/geodes.sms.diningroom/`
 
 ###### Create model
-- Right-click the `DiningRoomModels` project, select New > File, and create a file called `Room.drm`, click Next and call the file name `Room1.dr`
-- Accept to convert the project into an Xtext project
-- Create the model by typing in textual syntax. use CTRL+SPACE to know what comes next
-- Validation works automatically
+This all happens in the **runtime Eclipse instance** (the second, child Eclipse window from the previous step) — not your main development Eclipse.
+
+1. In the runtime instance, create a project to hold the model file: File > New > Project... > General > **Project** (a plain project — it doesn't need to be a Java or Plug-in project), name it `DiningRoomModels`, Finish.
+2. Right-click `DiningRoomModels` > New > File. Set the file name to `Room1.drm` (the `.drm` extension matters — it's what was set as "Extensions" when you created the Xtext project earlier; a different extension won't trigger the DSL editor). Finish.
+3. The file opens, and since a plain project has no idea what `.drm` is yet, Eclipse should pop up a dialog asking whether to add the Xtext nature to the project — click **Yes**/accept it. (If no dialog appears and the file opens as plain text instead of getting syntax coloring, close it, right-click `DiningRoomModels` > Configure, and look for an option to add the Xtext nature manually, or delete and recreate the file.)
+4. With the file open and empty, place your cursor in it and press **Ctrl+Space** — this pops up a content-assist menu showing every keyword valid at that position (per your grammar, the entry rule is `Room`, so at the very start it should offer `Room` as the only/first option). Select it (or type it) to insert the keyword, then keep pressing Ctrl+Space after each token — it'll suggest what can legally come next (an identifier for the name, then `{`, then `furniture`, etc.), the same way autocomplete works in any code editor. This is the fastest way to build a valid model without having to memorize your own grammar.
+5. As you type, invalid content gets underlined immediately (e.g. a reference to a `Chair` that doesn't exist, or a missing required token) — there's no separate "Validate" menu action to run, unlike the reflective-editor/GMF paths from earlier; it's continuous, like a spell-checker.
 
 <a name="save-xmi"></a>
 ###### Save as XMI

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: diningRoomTextual.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: diningRoomTextual.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: diningRoomTextual.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: diningRoomTextual,
+ DiningRoom,
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.44.0"
+Import-Package: org.junit.jupiter.api;version="[6.0.0,7.0.0)",
+ org.junit.jupiter.api.extension;version="[6.0.0,7.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-25
+Export-Package: geodes.sms.diningroom.tests;x-internal=true

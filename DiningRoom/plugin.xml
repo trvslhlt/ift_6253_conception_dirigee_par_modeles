@@ -18,4 +18,12 @@
       </markerResolutionGenerator>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated DiningRoom -->
+      <package
+            uri="dr"
+            class="DiningRoom.DiningRoomPackage"
+            genModel="metamodel/DiningRoom.genmodel"/>
+   </extension>
+
 </plugin>

@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: diningRoomTextual
+Bundle-ManifestVersion: 2
+Bundle-Name: diningRoomTextual
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: diningRoomTextual; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: DiningRoom,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.44.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-25
+Export-Package: geodes.sms.diningroom.parser.antlr.internal,
+ geodes.sms.diningroom.parser.antlr,
+ geodes.sms.diningroom.generator,
+ geodes.sms.diningroom,
+ geodes.sms.diningroom.services,
+ geodes.sms.diningroom.serializer,
+ geodes.sms.diningroom.scoping,
+ geodes.sms.diningroom.validation,
+ geodes.sms.diningroom.formatting2
+Import-Package: org.apache.log4j
