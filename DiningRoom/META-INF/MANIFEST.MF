@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DiningRoom
+Bundle-SymbolicName: DiningRoom
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: DiningRoom
+Bundle-RequiredExecutionEnvironment: JavaSE-25
