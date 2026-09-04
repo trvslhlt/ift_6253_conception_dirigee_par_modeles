@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="DiningRoom" nsURI="dr" nsPrefix="geodes.sms.diningroom">
+  <eClassifiers xsi:type="ecore:EClass" name="Room">
+    <eAnnotations source="gmf.diagram">
+      <details key="model.extension" value="dr"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="furniture" upperBound="-1"
+        eType="#//Furniture" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Furniture" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Furniture">
+    <eAnnotations source="gmf.node">
+      <details key="color" value="63,63,63"/>
+      <details key="figure" value="rectangle"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="id"/>
+      <details key="label.color" value="255,255,255"/>
+      <details key="size" value="200,40"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="around" upperBound="-1"
+        eType="#//Chair">
+      <eAnnotations source="gmf.link"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chair" eSuperTypes="#//Furniture">
+    <eAnnotations source="gmf.node">
+      <details key="color" value="255,146,79"/>
+      <details key="figure" value="ellipse"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="id"/>
+      <details key="size" value="50,50"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

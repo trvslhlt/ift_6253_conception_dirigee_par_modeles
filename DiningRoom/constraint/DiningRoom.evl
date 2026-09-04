@@ -1,0 +1,13 @@
+context Furniture {
+  constraint HasName {
+    check: self.name.isDefined() and self.name.size() > 0
+    message: self.eClass().name + " must have a non-empty name"
+  }
+}
+
+context Table {
+  constraint NoSelfSurrounding {
+    check: not self.around.includes(self)
+    message: "Table " + self.name + " cannot be surrounded by itself"
+  }
+}

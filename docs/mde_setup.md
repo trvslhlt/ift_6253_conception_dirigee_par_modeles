@@ -50,27 +50,45 @@ This tutorial explains how to install and use Eclipse to create a DSL. It is bas
 
 ## Create the DSL metamodel
 
+> **What/why/takeaway:** This section defines the *abstract syntax* of a small DSL — a dining room made of furniture (tables and chairs) — as an Ecore metamodel. This is the foundational artifact in MDE: it's the vocabulary and structure (classes, attributes, references) that every later step in this guide builds on — constraints validate against it, the graphical/textual concrete syntaxes are views onto it, and the model-to-model/model-to-text transformations read and write instances of it. The DiningRoom example itself isn't the point; what to take away is the *recipe* — how to pick a root class, mark a class abstract when it should never be instantiated directly, and designate an attribute as the class's `ID` — since that recipe is what you'll reapply when defining a metamodel for your own DSL.
+
 ###### Create a new project
 - Right-click in the Project Explorer New > Other > Plug-in Project
 - Project name: `DiningRoom`
 - Click Next twice and uncheck *Create a plug-in using one of the templates*
+- On the page before the template selector, also uncheck *"This plug-in will make contributions to the UI"* — leaving it checked adds an unnecessary `org.eclipse.swt`/`org.eclipse.jface` Require-Bundle to the manifest even with no template selected, since that's a separate wizard option from the template choice. If you already created the project and see those two entries in `META-INF/MANIFEST.MF`, just delete those two lines — this plugin doesn't need a UI dependency.
 
 ###### Create the metamodel
 - In the project, create a New folder called `metamodel`
-- Create an Ecore Model called `DiningRoom.ecore`
-- Right-click on the ecore file > Initialize Ecore diagram with values:
-  - Name: `DiningRoom`
-  - Ns URI: `geodes.sms.diningroom`
-  - NS Prefix: `dr`
-- Create a class `Room` (that is the **root class** of the metamodel)
+- Create the `.ecore` file itself via New > Other..., filter `ecore`, and pick **Ecore Model** specifically (not *Ecore Diagram*, which is a different, Sirius-based wizard covered below) — plain "New > File" with a `.ecore` name produces an empty/invalid file and errors when opened
+  - Parent folder: `metamodel`, file name: `DiningRoom.ecore`
+  - When asked for the root "Model Object", choose **EPackage**
+- Right-click the `.ecore` file > **Initialize Ecore Diagram...** — in current Eclipse Modeling Tools this routes through Sirius's Ecore Tools rather than the old GMF-only flow, so the steps look different from a dialog that just asks for Name/Ns URI/NS Prefix up front:
+  1. It first asks for an `.aird` file to store the diagram's visual layout (separate from the `.ecore` file, which stays the actual semantic model) — create a new one alongside the `.ecore` file, e.g. `metamodel/DiningRoom.aird`
+  2. Pick a representation type: **Entities in a Class Diagram**
+  3. Pick the root semantic element: the (as-yet-unnamed) `EPackage` under `DiningRoom.ecore`; leave/rename "Name of the representation" as you like (cosmetic only) and Finish
+  - This opens an empty class diagram canvas with a palette (Class, Datatype, Enumeration, Reference, SuperType, etc.) but does **not** prompt for Name/Ns URI/NS Prefix — set those by switching to the `DiningRoom.ecore` tab (its tree editor), selecting the root package node, and setting these fields in the **Properties** view (Window > Show View > Properties if it isn't open):
+    - Name: `DiningRoom`
+    - Ns URI: `geodes.sms.diningroom`
+    - NS Prefix: `dr`
+- Back on the class diagram canvas, drag **Class** from the palette to create `Room` (that is the **root class** of the metamodel)
 - Create a class Furniture. Double-click it and mark it *Abstract*
 - Drag-drop an attribute <a name="id"></a>
   - Name: `name`
   - uncheck *ordered*, uncheck *unique*, check *ID* to make it the **identifier** of the class.
-- Continue building your class diagram
+- Create a class `Table`; use the palette's **SuperType** relation to make it extend `Furniture`; add attributes `x` and `y`, both type `EInt`
+- Create a class `Chair`; make it extend `Furniture` the same way; add attribute `order`, type `EInt`
+- On `Room`, drag-drop a containment **Reference** to `Furniture` named `furniture`, multiplicity `0..*` — this is what holds all the furniture in a room
+- On `Table`, drag-drop a (non-containment) **Reference** to `Chair` named `around`, multiplicity `0..*` — this is the reference the later `@gmf.link` annotation attaches to
 - Save
 
+> These classes/attributes/references match the full metamodel shown in the Emfatic example further down — building them now means that example (and the `@gmf` annotation steps that follow) apply directly to what's already in your diagram instead of introducing new elements implicitly.
+
 ###### Create the metamodel using Emfatic
+> **Bigger problem: Eugenia/GMF itself is discontinued, so this whole subsection is a dead end.** The point of the `@gmf.*` annotations below is to feed Eugenia, which generates a GMF-based graphical editor from them. Per Epsilon's own docs (https://www.eclipse.org/epsilon/doc/eugenia/), following the Eclipse Foundation's archival of the GMF Tooling project, "Eugenia has been discontinued from [Epsilon] version 2.5 onwards" — and this guide installs Epsilon 2.8. So `Eugenia > Generate GMF editor` will not appear in any context menu; that's not a step you're missing, the tool simply isn't in the version installed. Epsilon's own docs recommend **Eclipse Sirius** as the actively-maintained replacement for building a graphical editor — which is what you already used for the class diagram earlier — but a Sirius editor *for DiningRoom model instances* (as opposed to the metamodel diagram you already have) would be a separate, larger effort this guide doesn't cover. **Recommended path: skip straight to [Create a textual concrete syntax for the DSL](#create-a-textual-concrete-syntax-for-the-dsl)** — it's unaffected by any of this and gives you a fully working way to create and edit `DiningRoom` model instances via Xtext. The Emfatic/`@gmf` annotation content below is left for reference/learning only.
+>
+> **Emfatic itself may also not be installed, separately from the above.** As of this writing it has no Eclipse Marketplace listing, its Eclipse project page 404s, and its GitHub repo (`eclipse-emfatic/emfatic`) has zero releases to point an update site at. If you don't see *Generate Emfatic Source* on the ecore file's context menu, that's why — not a step you missed.
+
 - Right-click on the ecore file, *Generate Emfatic Source*
 - Open `DiningRoom.emf`
 - Edit it as needed (see https://www.eclipse.org/emfatic/ for details)
@@ -103,8 +121,31 @@ class Chair extends Furniture {
 }
 ```
 - Save
-- Right-click emf file, click Eugenia > Generate GMF editor
-- Right-click ecore file, click Register EPackages
+
+###### Add the @gmf annotations without Emfatic
+If Emfatic isn't available, add the same annotations from the example above directly to the `.ecore` model as `EAnnotation`s instead of writing them as Emfatic text — more tedious than Emfatic's one-line `@gmf.node(...)` syntax, but produces the identical annotations Eugenia reads in the next step. Each `@gmf.*(...)` line in the example becomes: one `EAnnotation` child on the element it's attached to, with its `Source` set to the annotation name, plus one `EStringToStringMapEntry` child of that `EAnnotation` per key/value pair inside the parentheses. Do this in the `DiningRoom.ecore` tree editor tab (not the class diagram):
+
+**On `Room`:**
+1. Right-click `Room` > New Child > **EAnnotation**; select it, set Source: `gmf.diagram`
+2. Right-click that EAnnotation > New Child > **EStringToStringMapEntry**; set Key `model.extension`, Value `dr`
+
+**On `Table`:**
+1. Right-click `Table` > New Child > **EAnnotation**; select it, set Source: `gmf.node`
+2. Right-click that EAnnotation > New Child > **EStringToStringMapEntry**, six times, setting Key/Value to each pair: `color`→`63,63,63`, `figure`→`rectangle`, `label.icon`→`false`, `label`→`id`, `label.color`→`255,255,255`, `size`→`200,40`
+
+**On `Table.around` (the reference, not `Table` itself):**
+1. Expand `Table` in the tree to find the `around` reference; right-click it > New Child > **EAnnotation**; select it, set Source: `gmf.link`
+2. Right-click that EAnnotation > New Child > **EStringToStringMapEntry**, four times: `target.decoration`→`arrow`, `source.decoration`→`none`, `style`→`solid`, `color`→`0,0,0`
+3. Easy to miss: `around` needs its own `gmf.link` annotation separate from `Table`'s `gmf.node` one — if `around` in the tree has no expand-arrow next to it, that annotation hasn't been added yet
+
+**On `Chair`:**
+1. Right-click `Chair` > New Child > **EAnnotation**; select it, set Source: `gmf.node`
+2. Right-click that EAnnotation > New Child > **EStringToStringMapEntry**, five times: `color`→`255,146,79`, `figure`→`ellipse`, `label.icon`→`false`, `label`→`id`, `size`→`50,50`
+
+- Save
+
+- ~~Right-click the `.ecore` file (or the `.emf` file if you used Emfatic), click Eugenia > Generate GMF editor~~ — not available; see the discontinued-Eugenia note above. Skip to [Create a textual concrete syntax for the DSL](#create-a-textual-concrete-syntax-for-the-dsl)
+- Right-click ecore file, click Register EPackages — still worth doing regardless of the above; this registers the metamodel's EPackage globally so other tools (Xtext, ATL, ETL...) can reference it by URI without browsing to the file each time
 
 ###### Create constraints
 - Create a folder called `constraint`
@@ -113,28 +154,20 @@ class Chair extends Furniture {
 - Save
 
 ###### Update the manifest
-- Edit `META-INF > MANIFEST.MF` file following the steps in https://www.eclipse.org/epsilon/doc/articles/evl-gmf-integration/
-- Go to the *build.properties* tab and change `model` to `metamodel`
-- Go to the *Dependencies* tab, add `org.eclipse.ui.ide` and `org.eclipse.epsilon.evl.emf.validation` to the list of dependencies
-- Go to the *Extensions* tab and add the `org.eclipse.epsilon.evl.emf.validation extension`
-  - On the right, namespaceURI: `geodes.sms.diningroom`
-  - constraints: select `DiningRoom.evl`
-- Add a new extension `org.eclipse.ui.ide.markerResolution` and below it we create two *markerResolutionGenerator* with the following details:
-  - class: `org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator`, markerType: `DiningRoom.diagram.diagnostic`
-  - class: `org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator`, markerType: `org.eclipse.emf.ecore.diagnostic`
-- Save
+The underlying mechanism follows https://www.eclipse.org/epsilon/doc/articles/evl-gmf-integration/, but you can make all of these edits directly in the plain text/XML files instead of via the PDE manifest editor's GUI tabs — faster if you're comfortable editing them by hand:
+- `META-INF/MANIFEST.MF`: add to `Require-Bundle`: `org.eclipse.ui.ide` and `org.eclipse.epsilon.evl.emf.validation`
+  - Also add `;singleton:=true` to the `Bundle-SymbolicName` line (e.g. `Bundle-SymbolicName: DiningRoom;singleton:=true`) — any plugin that declares extensions/extension-points must be a singleton, or PDE reports an error
+- `plugin.xml` (create this file at the project root if it doesn't exist): add two extensions
+  - `org.eclipse.epsilon.evl.emf.validation`, with one `constraintsBinding` child — attributes `namespaceURI="geodes.sms.diningroom"` and `constraints="constraint/DiningRoom.evl"` (note: the element is `constraintsBinding`, plural, matching Epsilon's actual extension-point schema — not `constraintBinding`)
+  - `org.eclipse.ui.ide.markerResolution`, with one `markerResolutionGenerator` child — `class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"`, `markerType="org.eclipse.emf.ecore.diagnostic"`. (Skip the `<pkg>.diagram.diagnostic` marker type the original GMF-integration article also adds — that marker type only exists on a GMF diagram, which you don't have since Eugenia is discontinued; including it produces a permanent "Referenced identifier ... cannot be found" warning in the Problems view for no benefit)
+- `build.properties`: add `plugin.xml` as its own entry in `bin.includes` — PDE's builder wants it listed explicitly and doesn't treat a bare `.` entry as covering it, even though `.` does include the file when actually packaging
+- Save everything, then right-click the project > Refresh so Eclipse picks up the new/changed files
+- To trigger validation: right-click your model instance (e.g. `Room` in the reflective editor) > **Validate** — not "Diagram > Validate", which assumes a GMF editor you don't have
 
-> To add the two *markerResolutionGenerators* above, you can right-click on `org.eclipse.ui.ide.markerResolution` > New > `markerResolutionGenerator`. If this option is not available, then add a right-click on `org.eclipse.ui.ide.markerResolution` > New > `Generic` and in the Body text, write the following:
-```
-<markerResolutionGenerator class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator" markertype="DiningRoom.diagram.diagnostic"/>
-```
-> Then, create a second generic and write:
-```
-<markerResolutionGenerator class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator" markertype="org.eclipse.emf.ecore.diagnostic"/>
-```
-> Finally, drag and drop them under `org.eclipse.ui.ide.markerResolution` and delete the two empty Generic.
 
 ## Create instances
+
+> **What/why/takeaway:** Now that the metamodel exists, create actual instances of it — model data that conforms to the `DiningRoom` classes/attributes/references you just defined. Nothing downstream (constraints, transformations, generated text) has anything to operate on until a concrete `.xmi` model exists. Two ways are shown below: a *dynamic instance*, built directly in this Eclipse via the generic reflective editor with zero generated tooling, and a *graphical instance*, built in a second, child Eclipse instance using a GMF editor generated by Eugenia. **The graphical-instance path depends on Eugenia, which is discontinued as of Epsilon 2.5** (see the note under "Create the metamodel using Emfatic") — since this guide installs Epsilon 2.8, there's no generated GMF editor to launch, so "Launch second Eclipse instance" / "Create model" below won't work. Use the dynamic instance for now, and once you reach [Create a textual concrete syntax for the DSL](#create-a-textual-concrete-syntax-for-the-dsl), that Xtext editor is the working replacement for authoring `DiningRoom` instances outside the reflective tree editor.
 
 <a name="dynamic-instance"></a>
 ###### Create a model dynamically
@@ -146,13 +179,13 @@ To create a model directly in the same Eclipse instance:
 - In this tree view of your model, right-click on Room > New Child > Tables to create an instance of a table
 - You can set its attribute values in the Properties view
 
-###### Launch second Eclipse instance
+###### Launch second Eclipse instance *(requires the Eugenia-generated GMF editor — not available, see above)*
 - Right-click the `DiningRoom` project, Run as > Run configurations
 - Create a new configuration under *Eclipse Application* called `Graphical`
 - If you need more heap for the child Eclipse instance, in the *Arguments* tab, under VM arguments paste: `-Xms512M -Xmx1024M` (drop the tutorial's `-XX:PermSize`/`-XX:MaxPermSize` flags — PermGen was removed in Java 8+ and those flags will fail to launch on this machine's JDK 25)
 - Apply then Run
 
-###### Create model
+###### Create model *(requires the Eugenia-generated GMF editor — not available, see above)*
 - Create a new Modeling project called `DiningRoomModels`
 - Right-click the project, New > Other > DiningRoom diagram, and create a file called `Room1.dr_diagram`, click Next and call the file name `Room1.dr`
 - Create the model by clicking the object in the palette and then in the canvas 
@@ -161,6 +194,8 @@ To create a model directly in the same Eclipse instance:
 - Right-click on Room and click *Validate*
 
 ## Create a textual concrete syntax for the DSL
+
+> **What/why/takeaway:** Generate a second, text-based editor for the *same* `DiningRoom` metamodel using Xtext — a grammar-driven parser/editor with auto-complete and validation, as an alternative to the graphical (GMF) editor from the previous section. Why: a metamodel is the abstract syntax; a metamodel can have many concrete syntaxes (graphical, textual, tabular...) that are just different front-ends for authoring the same underlying model instances — Xtext derives its grammar straight from the Ecore model so both views round-trip to identical `.xmi` data. This section also covers the fiddly-but-important detail of qualified names and saving Xtext's internal model out as plain XMI, which matters the moment you want other tools (ATL, ETL, Henshin) to consume what was authored as text. Takeaway: concrete syntax is a projection, not a copy of your metamodel — you can add, swap, or drop a concrete syntax without ever touching the metamodel's semantics.
 
 ###### Create a new Xtext project
 - Right-click in the Project Explorer New > Other > Xtext project From Existing Ecore Models
@@ -253,6 +288,8 @@ public class Helper {
 - When you modify an Xtext file like `Room.drm` and save, it will automatically generate `Room.xmi`.
 
 ## Create a model-to-model transformation
+
+> **What/why/takeaway:** Transform one model instance into another by rule instead of by hand — model-to-model (M2M) transformation, one of the core operations in MDE (deriving, migrating, or integrating models). The example here is deliberately trivial (copying a `DiningRoom` model to another `DiningRoom` model) so the *mechanics* of a transformation rule are visible without unrelated modeling complexity layered on top. Two languages do the identical job so you can compare them: **ATL**, a dedicated, standalone M2M transformation tool with its own project type and IN/OUT-typed models, common in industry tooling; and **ETL**, part of the Epsilon family, sharing syntax/semantics with EVL (used earlier for constraints) — convenient if you're already invested in Epsilon. Takeaway: don't fixate on which is "correct" — notice what's structurally identical in both (a `rule` binds a source type to a target type and maps/derives fields), since that pattern is what transfers to whichever M2M tool your own project ends up using.
 
 ### Using ATL
 
@@ -358,6 +395,8 @@ rule copyChair
 
 ## Create a model-to-text transformation
 
+> **What/why/takeaway:** Generate plain text (or source code, config, docs — anything textual) from a model instance — model-to-text (M2T) transformation, which is how MDE work turns into an artifact something outside Eclipse can actually consume. Two approaches are shown: Epsilon's **EGL/EGX** pair, where EGX is a rule-driven "dispatcher" that says which template applies to which model element and EGL is the template language itself (similar to JSP/ERB — literal text with `[% ... %]` code blocks); and **Xtend**, hooked directly into the Xtext-generated project's save action, wired to trigger every time you save a `.drm` textual model. Takeaway: EGL/EGX is a standalone, on-demand generation run you trigger explicitly; the Xtend variant is continuous, firing automatically as the DSL author edits and saves text — which one fits your own DSL depends on whether generation should be a deliberate build step or feel instantaneous to the model author.
+
 ### Using EGL
 
 Follow the steps in the Book2Page tutorial https://www.eclipse.org/epsilon/doc/articles/code-generation-tutorial-egl/
@@ -446,6 +485,8 @@ private def dispatch translate(Table t) '''
 
 ## Create an inplace model transformation
 
+> **What/why/takeaway:** Use Henshin to write graph-transformation rules that edit a model instance directly — *in place* — rather than reading a source model and writing a separate target model, e.g. incrementing a `Table`'s `x` coordinate on the model that's already there. Why: not every model change is naturally a "read model A, produce model B" M2M transformation; sometimes you want live, rule-based edits applied to a single evolving model, the way a graph-rewriting or simulation system works — this is the pattern behind stepwise model evolution, refactoring, and simulating a system's state changes over time. Takeaway: notice the vocabulary shift — nodes are marked `preserve`/`create`/`delete`/`forbid`, and a rule has a left-hand-side pattern to match plus a right-hand-side describing the result — because in-place transformation is a genuinely different paradigm from the M2M/M2T sections above, even though "transformation" is in the name for all three.
+
 ###### Create a new Henshin transformation
 - Create a folder `transformation` in your project
 - Right-click the project `DiningRoom` > New > Other > Henshin Diagram, Next, call the file `transfer_chairs.henshin_diagram`
@@ -476,6 +517,8 @@ More information and examples are available at https://www.eclipse.org/henshin/
 - Click Transform. This creates a new model with the same name as your input model suffixed with `_transformed`
 
 # Programming with Ecore
+
+> **What/why/takeaway:** Step below Epsilon/Xtext/ATL/Henshin entirely and work with the plain EMF Java API directly — loading a resource, saving a model, and instantiating model elements via the metamodel's generated factory classes. Why: every higher-level tool used earlier in this guide is itself built on top of this same EMF Java API; you need it directly the moment you want to manipulate models from ordinary Java code that isn't running inside one of those Eclipse-hosted DSL tools — a headless build step, a test, a web service, a CLI. Takeaway: this is the escape hatch/foundation everything above compiles down to — reach for it when the DSL-specific languages (EOL/ETL/EGL/ATL/Henshin) are more machinery than you need and you just want to read or write a model programmatically.
 
 ## Loading a metamodel in Ecore
 ```
