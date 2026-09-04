@@ -10,27 +10,41 @@ This tutorial explains how to install and use Eclipse to create a DSL. It is bas
 - [x] Already done on this machine via `brew install --cask eclipse-modeling` (installs `/Applications/Eclipse Modeling.app`, current release 4.40) — this replaces the original tutorial's "download the generic Eclipse Installer, run it, search for Epsilon" flow, which is a much slower path to the same result
 - On a machine without Homebrew, download the "Eclipse Modeling Tools" package directly from https://www.eclipse.org/downloads/packages/ instead
 
+> Why: this is the base Eclipse distribution preloaded with EMF and other modeling plumbing that every plugin below builds on.
+
 ###### Install Eclipse Epsilon
 - Open Eclipse Modeling: launch it from Spotlight or `/Applications/Eclipse Modeling.app`
 - Go to Help > Install New Software, click Add, and add site https://download.eclipse.org/epsilon/updates/2.8/ (current stable line as of this writing; check https://eclipse.dev/epsilon/download/ for a newer `updates/<version>/` path if this one 404s)
 - Select the full Epsilon feature set (at minimum EGL, EGX, EOL, ETL, EVL, Epsilon Ecore/EMF support)
 - Go to Help > Check for Updates and install all updates
 
+> Why: EVL is used later to write the DSL's [validation constraints](#create-constraints); ETL is used for the [model-to-model transformation](#using-etl); EGL/EGX are used for the [model-to-text transformation](#using-egl); EOL underlies all of them. Epsilon's EMF/Ecore integration is what lets these languages read and write instances of the `DiningRoom.ecore` metamodel. GMF Integration (part of the full feature set) is needed for the Eugenia-generated [graphical editor](#create-the-metamodel-using-emfatic) later in the tutorial.
+
 ###### Install Xtext 
 - Go to Help > Install New Software and add Xtext at site https://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/ (this composite URL always resolves to the current release, so it doesn't go stale)
 - Make sure all options are checked
 - Select the Xtext Complete SDK and MWE2 Language / MWE Core; ignore "M2T Xpand/Xtend-2.2.0" from the original tutorial — that standalone Xpand/Xtend feature is obsolete and no longer offered (Xtend now ships as part of Xtext itself)
 
+> Why: Xtext generates the grammar, parser, and editor for the DSL's [textual concrete syntax](#create-a-textual-concrete-syntax-for-the-dsl). MWE2 drives the workflow that regenerates those Xtext artifacts. Xtend (bundled with Xtext SDK) is used later to write the [model-to-text generator](#using-xtend).
+
 ###### Install ATL 
 - Go to Help > Install New Software and add ATL at site https://download.eclipse.org/mmt/atl/updates/releases/ (use this top-level rolling URL, not a dated build like the tutorial's `4.1/R201909021645/`, which is long gone)
 
+> Why: ATL provides the alternative [model-to-model transformation](#using-atl) language used in this tutorial to copy a `DiningRoom` model into another `DiningRoom` model.
+
 ###### Install Henshin 
-- Go to Help > Install New Software and add Henshin at site https://download.eclipse.org/modeling/emft/henshin/updates/ (top-level rolling URL — the tutorial's pinned `1.4.0/` is several major versions behind)
+- Go to Help > Install New Software and add Henshin at site https://download.eclipse.org/modeling/emft/henshin/updates/release/ (current-release rolling URL, per https://github.com/eclipse-henshin/henshin/wiki/Installation-instructions — the tutorial's pinned `1.4.0/` is several major versions behind, and the bare `.../updates/` directory without `release/` times out/errors as of this writing)
+- Select at minimum the **Henshin SDK** feature
+- Henshin SDK depends on a Papyrus bundle (`org.eclipse.papyrus.infra.gmfdiag.tooling.runtime`) that isn't hosted on the Henshin site itself. If the resolver fails with a "Missing requirement... org.eclipse.papyrus..." error, click Add... again and also add a Papyrus update site, e.g. https://download.eclipse.org/modeling/mdt/papyrus/papyrus-desktop/updates/releases/2025-06/ (check https://www.eclipse.org/papyrus/download.html for a newer dated folder if this one 404s). You don't need to check anything under the Papyrus site or switch "Work with" to it — just adding it registers it so p2 can pull the missing dependency from it automatically (with "Contact all update sites during install to find required software" checked), while you keep "Work with" on the Henshin site and only Henshin SDK / Henshin SDK Sources checked
+
+> Why: Henshin provides the graph-based rule editor used for the [in-place model transformation](#create-an-inplace-model-transformation) section, where rules modify a model directly rather than producing a separate output model.
 
 ###### Install Feature IDE
-- Go to Help > Eclipse Marketplace, search for `feature ide`, and install
-- Alternatively, Help > Install New Software with direct p2 site http://featureide.uni-ulm.de/update/v3/
+- Eclipse Marketplace search for `feature ide` no longer reliably surfaces a listing — skip it and go straight to Help > Install New Software with direct p2 site https://featureide.uni-ulm.de/update/v3/
+- The version dropdown will show a range of past releases (e.g. 3.0–3.12); select the latest, **3.12.0** — per its changelog it specifically improves compatibility with newer Eclipse versions
 - More information at https://featureide.github.io/
+
+> Why: FeatureIDE supports feature modeling for software product lines. It isn't exercised by any step in this DiningRoom walkthrough — install it if your course covers feature/variability modeling separately; otherwise it can be skipped.
 
 > Note: `download.eclipse.org` was unreachable from the sandboxed environment used to prep this guide, so the exact ATL/Henshin/Epsilon version numbers above couldn't be double-checked from here — verify the current folder name in Eclipse's Install New Software dialog (it lists available versions once you add the site) if any of these don't resolve.
 
