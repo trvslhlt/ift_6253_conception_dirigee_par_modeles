@@ -198,8 +198,12 @@ To create a model directly in the same Eclipse instance:
 > **What/why/takeaway:** Generate a second, text-based editor for the *same* `DiningRoom` metamodel using Xtext — a grammar-driven parser/editor with auto-complete and validation, as an alternative to the graphical (GMF) editor from the previous section. Why: a metamodel is the abstract syntax; a metamodel can have many concrete syntaxes (graphical, textual, tabular...) that are just different front-ends for authoring the same underlying model instances — Xtext derives its grammar straight from the Ecore model so both views round-trip to identical `.xmi` data. This section also covers the fiddly-but-important detail of qualified names and saving Xtext's internal model out as plain XMI, which matters the moment you want other tools (ATL, ETL, Henshin) to consume what was authored as text. Takeaway: concrete syntax is a projection, not a copy of your metamodel — you can add, swap, or drop a concrete syntax without ever touching the metamodel's semantics.
 
 ###### Create a new Xtext project
+- This step needs a `.genmodel` file, which no earlier step creates — if you don't already have `metamodel/DiningRoom.genmodel`, make one first:
+  1. Right-click `metamodel/DiningRoom.ecore` > New > Other..., filter `genmodel`, pick **EMF Generator Model** (under "Eclipse Modeling Framework") > Next
+  2. It should default to `DiningRoom.ecore` as the source — confirm > Next
+  3. On the "Select a Root Model Object or Package" page, check the `DiningRoom` package > Finish
 - Right-click in the Project Explorer New > Other > Xtext project From Existing Ecore Models
-- Add the EPackage from the EMF generator model `DiningRoom.genmodel`
+- Add the EPackage from the EMF generator model `DiningRoom.genmodel`: in the wizard's EPackages section, click **Add...**, browse to `metamodel/DiningRoom.genmodel`, and check the `DiningRoom` package listed inside it
 - Select Entry rule: `Room - DiningRoom`
 - Project name: `diningRoomTextual`
 - Name: `geodes.sms.diningroom.DiningRoomTextual`

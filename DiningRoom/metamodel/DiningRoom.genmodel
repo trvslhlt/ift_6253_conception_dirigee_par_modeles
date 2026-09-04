@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/DiningRoom/src" modelPluginID="DiningRoom" modelName="DiningRoom"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="25.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>DiningRoom.ecore</foreignModel>
+  <genPackages prefix="DiningRoom" disposableProviderFactory="true" ecorePackage="DiningRoom.ecore#/">
+    <genClasses ecoreClass="DiningRoom.ecore#//Room">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiningRoom.ecore#//Room/furniture"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiningRoom.ecore#//Room/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DiningRoom.ecore#//Furniture">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiningRoom.ecore#//Furniture/name"/>
+    </genClasses>
+    <genClasses ecoreClass="DiningRoom.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiningRoom.ecore#//Table/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiningRoom.ecore#//Table/y"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DiningRoom.ecore#//Table/around"/>
+    </genClasses>
+    <genClasses ecoreClass="DiningRoom.ecore#//Chair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiningRoom.ecore#//Chair/order"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
