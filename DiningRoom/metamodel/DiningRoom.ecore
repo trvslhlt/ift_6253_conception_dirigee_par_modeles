@@ -7,6 +7,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="furniture" upperBound="-1"
         eType="#//Furniture" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Furniture" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
