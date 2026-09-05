@@ -235,13 +235,13 @@ Chair returns Chair:
 ```
 
 ***Important note on qualified names with Xtext***
-> If you use Xtext, then every class that is the target of a reference should have a `name` attribute that is its [identifier](#id) in Ecore. If the identifier attribute has a different name, then you must provide another qualified name. In this case, [follow these steps](https://dietrich-it.de/xtext/2011/07/16/iqualifiednameproviders-in-xtext-2.0/).
+> If you use Xtext, then every class that is the target of a reference should have a `name` attribute that is its [identifier](#id) in Ecore. If the identifier attribute has a different name, then you must provide another qualified name. In this case, [follow these steps](https://dietrich-it.de/xtext/2011/07/16/iqualifiednameproviders-in-xtext-2.0/) — the linked post is live, but it's dated 2011 and written against the Xtext 2.0 API (`getQualifiedName` → `getFullyQualifiedName` on `IQualifiedNameProvider`); current Xtext is 2.42.0 (Feb 2026, per the same rolling update site used to [install Xtext](#install-xtext)). The `IQualifiedNameProvider`/`DefaultDeclarativeQualifiedNameProvider` pattern it describes hasn't changed since, so it's still usable, but treat it as a worked example rather than authoritative — cross-check against the current official docs at https://eclipse.dev/Xtext/documentation/303_runtime_concepts.html#qualified-names if something doesn't match what you see in the wizard-generated project.
 > You need to create the file `DiningRoomTextualQNP` under `diningRoomTextual/src/geodes.sms.diningroom/`. The file `DiningRoomTextualRuntimeModule` is also located there.
 
-> Here is and [advanced Xtext manual](https://wiki.umontreal.ca/download/attachments/161022004/Advanced_Xtext_Manual.pdf?version=1&modificationDate=1574378088000&api=v2)
+> Here is an [advanced Xtext manual](https://wiki.umontreal.ca/download/attachments/161022004/Advanced_Xtext_Manual.pdf?version=1&modificationDate=1574378088000&api=v2) — **gated behind a UdeM login**: fetching it redirects to `wiki.umontreal.ca/login.action?...&permissionViolation=true`, so it only resolves for readers authenticated into that wiki (e.g. via a UdeM account with access to this course space), not as a public link. If you don't have access, the [official Xtext documentation](https://eclipse.dev/Xtext/documentation/) covers the same ground and is public.
 
 ###### Launch second Eclipse instance
-- When the file `DiningRoomTextual.xtext` is automatically open, right-click in file the Run AS > *Generate Xtext artifacts*
+- When the file `DiningRoomTextual.xtext` is automatically open, right-click in the file > Run As > *Generate Xtext artifacts*
 - Launch a runtime Eclipse to test the generated editor: right-click the `diningRoomTextual.ui` project (or any project in the workspace) > Run As > **Eclipse Application** — this creates and runs a fresh configuration immediately. (The original tutorial's instruction to reuse a `Graphical` configuration here refers to the one from the "Create instances" section, which requires the discontinued Eugenia/GMF editor and was skipped — this step doesn't actually depend on it; any runtime Eclipse Application launch works)
 
 Note that the xtext and mwe2 files are located under `diningRoomTextual/src/geodes.sms.diningroom/`
@@ -257,7 +257,7 @@ This all happens in the **runtime Eclipse instance** (the second, child Eclipse 
 
 <a name="save-xmi"></a>
 ###### Save as XMI
-Follow [these steps](https://wiki.umontreal.ca/pages/viewpage.action?pageId=156867616) to save your model as XMI.
+Follow [these steps](https://wiki.umontreal.ca/pages/viewpage.action?pageId=156867616) to save your model as XMI — **also gated behind a UdeM wiki login** (same `permissionViolation` redirect as the manual link above); the steps performed below are reproduced in full so you don't need access to that page to follow along.
 
 - In the Xtext project `diningRoomTextual`, open `src/geodes.sms.diningroom.generator/DiningRoomTextualGenerator.xtend`
 - Add the following code inside the function `doGenerate` and resolve the imports:
@@ -292,8 +292,10 @@ public class Helper {
 }
 ```
 - Right-click on `src/geodes.sms.diningroom/GenerateDiningRoomTextual.mwe2`, Run AS > MWE2 Workflow
-- Launch the second Eclipse instance from the `diningRoomTextual` project`
+- Launch the second Eclipse instance from the `diningRoomTextual` project
 - When you modify an Xtext file like `Room.drm` and save, it will automatically generate `Room.xmi`.
+
+> Note: `Helper.saveResourceAsXmi` derives the output path via `resource.getURI().toString().replace("drm", "xmi")` — a plain substring replace, not an extension-aware rename. It works fine for this tutorial's paths, but would misfire if `drm` appeared anywhere else in the file's URI (e.g. a project or folder literally named with `drm` in it), since `String.replace` rewrites every occurrence.
 
 ## Create a model-to-model transformation
 
@@ -418,10 +420,10 @@ rule copyChair
 
 ### Using EGL
 
-Follow the steps in the Book2Page tutorial https://www.eclipse.org/epsilon/doc/articles/code-generation-tutorial-egl/
+Follow the steps in the Book2Page tutorial https://eclipse.dev/epsilon/doc/articles/code-generation-tutorial-egl/ (the `www.eclipse.org` form still works but 301-redirects here — this is the canonical URL as of this writing)
 
 ###### Create a new EGX program
-- In the `transformation` folder, Right-click the folder > New > Other > EGX Program, Next, call the file `translate.egx`
+- In the `DiningRoom` project's `transformation` folder (the one created in [Using ETL](#using-etl), not `DiningRoom.copy`'s — the rule's `../models/` path below resolves against `DiningRoom/models/Room.xmi`, which is where that section left it), right-click the folder > New > Other > EGX Program, Next, call the file `translate.egx`
 - Finish
 - Type a rule, such as
 ```
@@ -432,7 +434,7 @@ rule Room2Text
 }
 ```
 ###### Create a new EGL transformation
-- In the `transformation` folder, Right-click the folder > New > Other > EGL Template, Next, call the file `translate.egl`
+- In the same `DiningRoom/transformation` folder, right-click the folder > New > Other > EGL Template, Next, call the file `translate.egl`
 - Finish
 - Type the template. Note that you must use `self` (as defined in the EGX program) to refer to the context of type `Room`. For example, you can write:
 ```
@@ -442,21 +444,24 @@ Room {
 	Chair [%= c.name %] order [%= c.order %]
 [% } %]
 [%for (t in Table) { %]
-	Table [%= t.name %] [%if (t.around.size() > 0) { %] surrounded by [%for (c in t.around) { %]
-	[%= c.name %]
-	[% } %]
+	Table [%= t.name %][%if (t.around.size() > 0) { %] surrounded by
+[%for (c in t.around) { %]
+		[%= c.name %]
+[% } %]
 [% } %]
 [% } %]
 }
 ```
+> EGL trims the trailing newline of a line that contains *only* a control tag (`[%for...{ %]`, `[% } %]`), but keeps every other character — including stray spaces/tabs — exactly as typed. Put each `for`/`if` tag on its own line, as above, so its body starts and ends at a clean line boundary; otherwise output from adjacent iterations runs together (e.g. the original one-line `[%for (c in t.around) { %] [%= c.name %] [% } %]` glues every chair's name onto the same line as "surrounded by"). This version prints one chair per line, indented two tabs — adjust the `\t\t` to taste.
 
 ###### Run an EGL Generator
 - Right-click on the editor > Run As > Run Configurations
-- Double-click on EGL Generator in the left panel. This creates an EGL configuration called `translate`.
-- In the Template tab, select the source to be your EGX program
+- Select **EGL Generator** in the left panel and click the **New Configuration** toolbar button above the list — the same Run Configurations dialog used for [ATL](#run-an-atl-transformation) and [ETL](#run-an-etl-transformation) above, where double-clicking the type doesn't create a configuration in current Eclipse. This creates an EGL configuration called `translate`.
+- In the Template tab, set the source to `translate.egx` — **required**, not just a confirmation: if you launched this configuration by right-clicking `translate.egl` itself, the source defaults to `translate.egl`, and running it that way fails with `Undefined variable, type or model: 'self'`, since `self` is only bound when the EGX rule's `transform self : M!Room { template: "translate.egl" ... }` invokes the template — not when the `.egl` file runs standalone. The file's Browse/dropdown picker may only list `.egl` files and not offer `translate.egx` as an option — if so, just type/paste the workspace-relative path (e.g. `DiningRoom/transformation/translate.egx`) into the field directly rather than browsing to it
 - In the Model tab, Add > EMF Model > OK
   - Set the name to `M` (as defined in the EGX program)
   - Set the model file to your xmi file, such as `Room.xmi`. Note that your input model should reside in the same workspace, therefore in the same Eclipse instance. [See how to create models dynamically](#dynamic-instance).
+  - This model is read-only input here — the generator writes text via the rule's `target:` path, not back into the model — so check **Read on load** and leave **Store on disposal** unchecked, the same read-only setting used for `MM1` in [Run an ETL transformation](#run-an-etl-transformation)
   - OK
 - Apply > Run. This creates a new text file `room.txt` under the `transformation` folder.
 
@@ -477,7 +482,8 @@ for (e : resource.allContents.toIterable.filter(Room)) {
 		e.translate)
 }
 ```
-- To write the templates for the model-to-text transformation, you can define the `translate` function called above. YOu can overload the function for each type of your metamodel as needed and resolve the imports:
+> Note: same caveat as [`Helper.saveResourceAsXmi`](#save-xmi) — `.replace("drm", "txt")` is a plain substring replace, not extension-aware, so it would misfire if `drm` appeared anywhere else in the file's URI.
+- To write the templates for the model-to-text transformation, you can define the `translate` function called above. You can overload the function for each type of your metamodel as needed and resolve the imports:
 ```
 private def translate(Room room) '''
 	The room has «room.furniture.size()» furniture.
@@ -499,7 +505,7 @@ private def dispatch translate(Table t) '''
 
 ###### Run an Xtend transformation
 - Right-click on `src/geodes.sms.diningroom/GenerateDiningRoomTextual.mwe2`, Run AS > MWE2 Workflow
-- Launch the second Eclipse instance from the `diningRoomTextual` project`
+- Launch the second Eclipse instance from the `diningRoomTextual` project
 - When you modify an Xtext file like `Room.drm` and save, it will automatically generate `src-gen` > `resource` > `DiningRoomModels` > `Room.txt` with the text generated.
 
 ## Create an inplace model transformation

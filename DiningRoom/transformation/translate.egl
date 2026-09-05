@@ -1,0 +1,34 @@
+The room has [%= self.furniture.size() %] furniture.
+Room {
+[%for (c in Chair) { %]
+	Chair [%= c.name%] order [%= c.order%]
+[% } %]
+
+[%for (t in Table) {%]
+	Table [%= t.name %][%if (t.around.size() > 0) {%] surrounded by
+		[%for (c in t.around) {-%]
+			[%= c.name %]
+		[%}%]
+	[%}%]
+[%}%]
+}
+
+
+[% if (false) {%]
+// alternative formatting for same result
+
+The room has [%= self.furniture.size() %] furniture.
+Room {
+[%for (c in Chair) { %]
+	Chair [%= c.name%] order [%= c.order%]
+[% } %]
+[%for (t in Table) { %]
+	Table [%= t.name %][%if (t.around.size() > 0) { %] surrounded by
+[%for (c in t.around) { %]
+		[%= c.name %]
+[% } %]
+[% } %]
+[% } %]
+}
+
+[%}%]

@@ -1,0 +1,11 @@
+The room has 3 furniture.
+Room {
+	Chair sideChair order 0
+	Chair otherSideChair order 1
+
+	Table kitchenTable surrounded by
+		sideChair
+		otherSideChair
+}
+
+

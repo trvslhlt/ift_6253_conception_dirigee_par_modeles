@@ -1,0 +1,6 @@
+
+rule Room2Text 
+	transform self : M!Room {
+	template : "translate.egl"
+	target : "../models/" + "room.txt"
+}
