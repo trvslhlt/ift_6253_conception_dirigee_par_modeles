@@ -4,14 +4,10 @@
 package geodes.sms.diningroom.formatting2
 
 import DiningRoom.Room
-import com.google.inject.Inject
-import geodes.sms.diningroom.services.DiningRoomTextualGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
 class DiningRoomTextualFormatter extends AbstractFormatter2 {
-	
-	@Inject extension DiningRoomTextualGrammarAccess
 
 	def dispatch void format(Room room, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
