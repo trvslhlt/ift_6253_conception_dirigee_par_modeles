@@ -1,0 +1,30 @@
+-- @path MM1=/DiningRoom/metamodel/DiningRoom.ecore
+-- @path MM2=/DiningRoom/metamodel/DiningRoom.ecore
+
+module copy;
+create OUT : MM2 from IN : MM1;
+
+rule copyRoom {
+	from r1 : MM1!Room
+	to r2 : MM2!Room (
+		furniture <- r1.furniture
+	)
+}
+
+rule copyTable {
+	from t1 : MM1!Table
+	to t2 : MM2!Table (
+		name <- t1.name,
+		x <- t1.x,
+		y <- t1.y,
+		around <- t1.around
+	)
+}
+
+rule copyChair {
+	from c1 : MM1!Chair
+	to c2 : MM2!Chair (
+		name <- c1.name,
+		order <- c1.order
+	)
+}

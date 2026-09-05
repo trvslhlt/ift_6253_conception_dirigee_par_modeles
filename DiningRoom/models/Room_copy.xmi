@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<geodes.sms.diningroom:Room xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:geodes.sms.diningroom="dr" xsi:schemaLocation="dr ../metamodel/DiningRoom.ecore">
+  <furniture xsi:type="geodes.sms.diningroom:Table" name="kitchenTable" x="13" y="13" around="sideChair otherSideChair"/>
+  <furniture xsi:type="geodes.sms.diningroom:Chair" name="sideChair"/>
+  <furniture xsi:type="geodes.sms.diningroom:Chair" name="otherSideChair" order="1"/>
+</geodes.sms.diningroom:Room>

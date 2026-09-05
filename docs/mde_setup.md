@@ -301,22 +301,26 @@ public class Helper {
 
 ### Using ATL
 
-Follow the steps in the Families2Person tutorial https://wiki.eclipse.org/ATL/Tutorials
+The Eclipse Families2Person tutorial (https://wiki.eclipse.org/ATL/Tutorials) covers the same mechanics in more depth if you want extra background — it's optional, not a prerequisite for the steps below.
 
 ###### Create a new ATL transformation
 - Right-click in the Project Explorer New > Other > ATL Project
 - Project name: `DiningRoom.copy`
 - Create a folder `models` in your project
-- Add an instance of the DiningRoom DSL in this folder. [You can create a dynamic instance](#dynamic-instance). Call this model `Room.xmi`.
+- Add an instance of the DiningRoom DSL in this folder, named `Room.xmi` — actual sample data (a room with some furniture in it) conforming to your metamodel, for the transformation to read and copy:
+  1. Open `DiningRoom.ecore` (its tree editor)
+  2. Right-click the `Room` class (the root class) > **Create Dynamic Instance**
+  3. In the save dialog, navigate to `DiningRoom.copy/models/` and name the file `Room.xmi` (a fresh instance, separate from your earlier `Room1.xmi`) > Finish
+  4. The new (empty) `Room.xmi` opens — if it doesn't open in the tree view automatically, right-click it > Open With > **Sample Reflective Ecore Model Editor**
+  5. Right-click `Room` > New Child > add a `Table` or `Chair` so there's something to copy, and set its `name`/`x`/`y`/etc. values in the Properties view
+  6. Save
 - Create a folder `transformation` in your project
 - Right-click the folder `transformation` > New > Other > ATL File, Next, call the file `copy.atl`
 - Next
-- Add in Input Model section
-- Metamodel Name `MM1`
-- Click Browse Workspace. Locate and select the `diningroom.ecore` metamodel
-- Add in Output Model section
-- Metamodel Name `MM2`
-- Click Browse Workspace. Locate and select the `diningroom.ecore` metamodel. Note that in this example, we only have one metamodel, so the transformation will take a dining room model and produce another dining room model.
+- In the wizard's **Input Models** section, click **Add**, then set Metamodel Name to `MM1`
+- Click Browse Workspace. Locate and select the `DiningRoom.ecore` metamodel (under `DiningRoom/metamodel/`)
+- In the **Output Models** section, click **Add**, then set Metamodel Name to `MM2`
+- Click Browse Workspace. Locate and select the same `DiningRoom.ecore` metamodel again. Note that in this example, we only have one metamodel, so the transformation will take a dining room model and produce another dining room model.
 - Make sure "Generate configuration" is selected
 - Finish
 - Starting on line 7, write your rules and helpers. Use `IN` and `OUT` to refer to the metamodels.
@@ -337,7 +341,7 @@ rule copyRoom {
 rule copyTable {
   from t1 : MM1!Table
   to t2 : MM2!Table (
-        id <- t1.id,
+        name <- t1.name,
         x <- t1.x,
         y <- t1.y,
         around <- t1.around
@@ -346,14 +350,15 @@ rule copyTable {
 rule copyChair {
   from c1 : MM1!Chair
   to c2 : MM2!Chair (
-        id <- c1.id,
+        name <- c1.name,
         order <- c1.order
       )
 }
 ```
 
 ###### Run an ATL transformation
-- Right-click on the editor > Run As > ATL transformation
+- Right-click the `copy.atl` file > Run As > **Run Configurations...** (the "ATL Transformation" quick-launch shortcut can run silently with no prompt, or fail without visible feedback — use the explicit Run Configurations dialog instead, the same as the ETL section below)
+- In the left panel, select **ATL Transformation** and click the **New Configuration** toolbar button above the list (the icon described as "Press the 'New Configuration' button to create a configuration of the selected type") — double-clicking the type doesn't create one in current Eclipse
 - Select the IN model (source). Note that your input model should reside in the same workspace, therefore in the same Eclipse instance. Click on Workspace, locate and select `Room.xmi` from the `models` folder.
 - Enter the path of the OUT model. It could be the same as the IN, but change the name of the XMI file, like `Room_copy.xmi`
 - Apply > Run. This creates a new model located where you set the path of the OUT model.
@@ -374,7 +379,7 @@ rule copyRoom
 rule copyTable
   transform t1 : MM1!Table
   to t2 : MM2!Table {
-        t2.id = t1.id;
+        t2.name = t1.name;
         t2.x = t1.x;
         t2.y = t1.y;
         t2.around ::= t1.around;
@@ -383,17 +388,23 @@ rule copyTable
 rule copyChair
   transform c1 : MM1!Chair
   to c2 : MM2!Chair {
-        c2.id = c1.id;
+        c2.name = c1.name;
         c2.order = c1.order;
 }
 ```
 
 ###### Run an ETL transformation
-- Create a folder `models` in your project
-- Add an instance of the DiningRoom DSL in this folder. [You can create a dynamic instance](#dynamic-instance). Call this model `Room.xmi`.
+- Create a folder `models` in your project (this is the `DiningRoom` project, alongside `metamodel/` and `constraint/`)
+- Add an instance of the DiningRoom DSL in this folder, named `Room.xmi` — actual sample data (a room with some furniture in it) conforming to your metamodel, for the transformation to read and copy:
+  1. Open `DiningRoom.ecore` (its tree editor)
+  2. Right-click the `Room` class (the root class) > **Create Dynamic Instance**
+  3. In the save dialog, navigate to `DiningRoom/models/` and name the file `Room.xmi` (a fresh instance, separate from your earlier `Room1.xmi`) > Finish
+  4. The new (empty) `Room.xmi` opens — if it doesn't open in the tree view automatically, right-click it > Open With > **Sample Reflective Ecore Model Editor**
+  5. Right-click `Room` > New Child > add a `Table` or `Chair` so there's something to copy, and set its `name`/`x`/`y`/etc. values in the Properties view
+  6. Save
 - Create an empty file `Room_copy.xmi` in the `models` folder that will store the target model of the transformation
-- Right-click on the editor > Run As > Run configurations
-- Double-click on ETL Transformation in the left panel. This creates an ETL configuration called `copy`.
+- Right-click the `copy.etl` file > Run As > Run configurations
+- Select **ETL Transformation** in the left panel and click the **New Configuration** toolbar button above the list (double-clicking the type doesn't create one in current Eclipse). This creates an ETL configuration called `copy`.
 - In the Models tab add the source and target models by clicking Add.
 - Name = `MM1`. Locate the model file through Browse Workspace. Type `Room.xmi`. OK
 - Click on Add file. Locate the metamodel `DiningRoom.ecore` file. OK

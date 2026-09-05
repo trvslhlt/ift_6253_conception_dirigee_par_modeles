@@ -1,0 +1,21 @@
+rule copyRoom
+	transform r1 : MM1!Room
+	to r2 : MM2!Room {
+		r2.furniture ::= r1.furniture;
+	}
+	
+rule copyTable
+  transform t1 : MM1!Table
+  to t2 : MM2!Table {
+        t2.name = t1.name;
+        t2.x = t1.x;
+        t2.y = t1.y;
+        t2.around ::= t1.around;
+}
+
+rule copyChair
+  transform c1 : MM1!Chair
+  to c2 : MM2!Chair {
+        c2.name = c1.name;
+        c2.order = c1.order;
+}
