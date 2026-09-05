@@ -7,6 +7,9 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import DiningRoom.Room
+import DiningRoom.Chair
+import DiningRoom.Table
 
 /**
  * Generates code from your model files on save.
@@ -14,13 +17,42 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class DiningRoomTextualGenerator extends AbstractGenerator {
+	
+	private def dispatch String translate(Room room) '''
+		The room has «room.furniture.size()» furniture.
+		Room {
+			«FOR f : room.furniture »
+				«f.translate»
+			«ENDFOR»
+		}
+	'''
 
+	private def dispatch String translate(Chair c) '''
+		Chair «c.name» order «c.order»
+	'''
+
+	private def dispatch String translate(Table t) '''
+		Table «t.name» «IF t.around.size() > 0» surrounded by 
+			«FOR c : t.around » 
+				«c.name» 
+			«ENDFOR»«ENDIF»
+	'''
+		
+	
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
-		Helper.saveResourceAsXmi(resource);
+
+//		Helper.saveResourceAsXmi(resource);
+
+		for (e : resource.allContents.toIterable.filter(Room)) {
+			fsa.generateFile(
+				resource.getURI().toString().replace("drm", "txt"),
+				e.translate)
+		}
 	}
 }

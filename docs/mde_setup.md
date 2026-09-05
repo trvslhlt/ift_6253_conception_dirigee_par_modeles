@@ -292,7 +292,7 @@ public class Helper {
 }
 ```
 - Right-click on `src/geodes.sms.diningroom/GenerateDiningRoomTextual.mwe2`, Run AS > MWE2 Workflow
-- Launch the second Eclipse instance from the `diningRoomTextual` project
+- Launch the second Eclipse instance from the `diningRoomTextual` project: same as [Launch second Eclipse instance](#launch-second-eclipse-instance) above — right-click `diningRoomTextual.ui` (or any project in the workspace) > Run As > **Eclipse Application**. If a runtime instance from an earlier step is still open, close and relaunch it rather than reusing it: the `Helper.saveResourceAsXmi` call you just added lives in `DiningRoomTextualGenerator.xtend`, part of the `diningRoomTextual` plugin, and an already-running child Eclipse won't pick up generator code changes until it's restarted
 - When you modify an Xtext file like `Room.drm` and save, it will automatically generate `Room.xmi`.
 
 > Note: `Helper.saveResourceAsXmi` derives the output path via `resource.getURI().toString().replace("drm", "xmi")` — a plain substring replace, not an extension-aware rename. It works fine for this tutorial's paths, but would misfire if `drm` appeared anywhere else in the file's URI (e.g. a project or folder literally named with `drm` in it), since `String.replace` rewrites every occurrence.
@@ -483,9 +483,11 @@ for (e : resource.allContents.toIterable.filter(Room)) {
 }
 ```
 > Note: same caveat as [`Helper.saveResourceAsXmi`](#save-xmi) — `.replace("drm", "txt")` is a plain substring replace, not extension-aware, so it would misfire if `drm` appeared anywhere else in the file's URI.
-- To write the templates for the model-to-text transformation, you can define the `translate` function called above. You can overload the function for each type of your metamodel as needed and resolve the imports:
+- To write the templates for the model-to-text transformation, you can define the `translate` function called above. You can overload the function for each type of your metamodel as needed and resolve the imports — two Xtend gotchas to get right:
+  - All three overloads must be `dispatch`, not just `Chair`/`Table`: a plain (non-`dispatch`) `translate` sharing the same name and parameter count as a `dispatch` family produces the warning "Non-dispatch method has same name and number of parameters as dispatch method", since it can't be folded into the same dispatch slot as the synthesized dispatcher.
+  - All three overloads must also declare an explicit return type (`String`, since a `'''...'''` template body produces one) rather than leaving it inferred: `Room`'s case calls `f.translate` on its own furniture, which recurses back into the same dispatch family, and Xtend can't infer a return type from a function that (indirectly) calls itself — left inferred, this produces the warning "Cannot infer type from recursive usage. Type 'Object' is used."
 ```
-private def translate(Room room) '''
+private def dispatch String translate(Room room) '''
 	The room has «room.furniture.size()» furniture.
 	Room {
 		«FOR f : room.furniture »
@@ -494,18 +496,18 @@ private def translate(Room room) '''
 	}
 '''
 
-private def dispatch translate(Chair c) '''
+private def dispatch String translate(Chair c) '''
 	Chair «c.name» order «c.order»
 '''
 
-private def dispatch translate(Table t) '''
+private def dispatch String translate(Table t) '''
 	Table «t.name» «IF t.around.size() > 0» surrounded by «FOR c : t.around » «c.name» «ENDFOR»«ENDIF»
 '''
 ```
 
 ###### Run an Xtend transformation
 - Right-click on `src/geodes.sms.diningroom/GenerateDiningRoomTextual.mwe2`, Run AS > MWE2 Workflow
-- Launch the second Eclipse instance from the `diningRoomTextual` project
+- Launch the second Eclipse instance from the `diningRoomTextual` project: same as [Launch second Eclipse instance](#launch-second-eclipse-instance) above — right-click `diningRoomTextual.ui` (or any project in the workspace) > Run As > **Eclipse Application**. If a runtime instance from an earlier step is still open, close and relaunch it rather than reusing it: the `translate` functions and `for` loop you just added live in `DiningRoomTextualGenerator.xtend`, part of the `diningRoomTextual` plugin, and an already-running child Eclipse won't pick up generator code changes until it's restarted
 - When you modify an Xtext file like `Room.drm` and save, it will automatically generate `src-gen` > `resource` > `DiningRoomModels` > `Room.txt` with the text generated.
 
 ## Create an inplace model transformation
