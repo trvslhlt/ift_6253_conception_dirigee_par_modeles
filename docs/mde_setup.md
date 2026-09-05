@@ -512,36 +512,33 @@ private def dispatch String translate(Table t) '''
 
 ## Create an inplace model transformation
 
-> **What/why/takeaway:** Use Henshin to write graph-transformation rules that edit a model instance directly — *in place* — rather than reading a source model and writing a separate target model, e.g. incrementing a `Table`'s `x` coordinate on the model that's already there. Why: not every model change is naturally a "read model A, produce model B" M2M transformation; sometimes you want live, rule-based edits applied to a single evolving model, the way a graph-rewriting or simulation system works — this is the pattern behind stepwise model evolution, refactoring, and simulating a system's state changes over time. Takeaway: notice the vocabulary shift — nodes are marked `preserve`/`create`/`delete`/`forbid`, and a rule has a left-hand-side pattern to match plus a right-hand-side describing the result — because in-place transformation is a genuinely different paradigm from the M2M/M2T sections above, even though "transformation" is in the name for all three.
+> **What/why/takeaway:** Use Henshin to write graph-transformation rules that edit a model instance directly — *in place* — rather than reading a source model and writing a separate target model, e.g. setting a `Table`'s `x` coordinate on the model that's already there. Why: not every model change is naturally a "read model A, produce model B" M2M transformation; sometimes you want live, rule-based edits applied to a single evolving model, the way a graph-rewriting or simulation system works — this is the pattern behind stepwise model evolution, refactoring, and simulating a system's state changes over time. Takeaway: notice the vocabulary shift — nodes are marked `preserve`/`create`/`delete`/`forbid`, and a rule has a left-hand-side pattern to match plus a right-hand-side describing the result — because in-place transformation is a genuinely different paradigm from the M2M/M2T sections above, even though "transformation" is in the name for all three.
+>
+> **A note on "incrementing" specifically**: the original version of this tutorial used "increment `x` by reading its own old value" as the example, which reads as simple but isn't — confirmed directly on the [henshin-user mailing list](https://www.eclipse.org/lists/henshin-user/msg00148.html), where a user asks exactly this ("I want to increment an integer parameter") and a Henshin developer replies that the only known way needs multiple chained rules/units plus a temporary model object just to carry the old value across, adding: "doing increments is not a strength of Henshin." Two things that look like they should provide the old value but don't: a bare LHS attribute value like `value="x_val"` does NOT bind `x_val` to the node's current `x` for later reuse — Henshin evaluates every attribute value as a JavaScript expression against only currently-*declared* parameters, so an unbound identifier throws `ReferenceError: "x_val" is not defined` at apply-time; and an RHS expression like `x+1` does NOT let you reference the attribute's own pre-transformation value by its bare EAttribute name either — same error. (The rule's `var`-kind parameters, meanwhile, are for passing a value between chained *units*, not for binding a value from a rule's own LHS match to its own RHS — see [Henshin/Parameters](https://wiki.eclipse.org/Henshin/Parameters).) The example below sidesteps all of this by assigning a fixed literal instead of computing from an old value — that's enough to demonstrate the actual point of this section (an in-place `preserve`/RHS reassignment) without detouring into a documented Henshin limitation.
+
+> **Not hands-on verified in this environment**, unlike the ATL/ETL/EGL/Xtend sections above (no Henshin install available here to click through) — the menu paths and micro-steps below are cross-checked against the [Henshin-Editor wiki](https://github.com/de-tu-berlin-tfs/Henshin-Editor/wiki) and [Eclipsepedia](https://wiki.eclipse.org/Henshin/Getting_started) where possible, but treat exact dialog wording/icons as approximate and go with what you actually see if it differs slightly.
 
 ###### Create a new Henshin transformation
-- Create a folder `transformation` in your project
-- Right-click the project `DiningRoom` > New > Other > Henshin Diagram, Next, call the file `transfer_chairs.henshin_diagram`
-- Click to Add From Workspace, select the `DiningRoom` package under `DiningRoom/metamodel/diningroom.ecore`
+- Use the same `DiningRoom/transformation` folder created earlier for [ETL](#using-etl)/EGL — no need for a separate folder
+- Right-click that `transformation` folder > New > Other > Henshin Diagram, Next, call the file `transfer_chairs.henshin_diagram`
+- In the now-open `.henshin_diagram` editor, right-click the empty canvas > **Import Package...** → **From Workspace** (not part of the New wizard itself — this happens after the file is created, in the diagram editor; confirmed against [Henshin/Getting started](https://wiki.eclipse.org/Henshin/Getting_started)), then browse to `DiningRoom/metamodel/DiningRoom.ecore` and select the `DiningRoom` package inside it (note the capitalization — it's `DiningRoom.ecore` everywhere else in this guide, not `diningroom.ecore`; the two resolve to the same file on a case-insensitive filesystem like default macOS, but not on a case-sensitive one). This populates the palette with `Room`/`Furniture`/`Table`/`Chair` node types
 - Create a rule by clicking on Rule in the palette and then in the canvas
 - Click on the `Rule` text and type `transfer` to give the rule a name
-- Create the pattern by clicking the object in the palette and then in the canvas
-- You can set Action of an element from the Property window. The options are `preserve`, `create`, `delete` or `forbid`.
-- Adding a condition on or setting the value of the attribute `x` of a class `Table`
-  - Click on the Node and on the "-" sign and add the attribute to set (in this case `x`)
-  - Rename the rule to be called `transfer(var x_val)`
-  - Select the attribute `x` and write JavaScript code as follows:
-    - `x=x_val+1` so the RHS of the rule will increment the value of `x`
-    - `x=1` (if the Table is set to `create`) so the RHS of the rule will create a Table and assign its `x` to 1
-    - `x=1` (if the Table is not set to `create`) so the LHS of the rule will only match a Table where `x==1`
-    - `x=x_val` (if the Table is set to `create`) so the RHS of the rule will create a Table and assign its `x` to the value that is passed in parameter
-    - `x=x_val` (if the Table is not set to `create`) so the LHS of the rule will only match a Table where `x` is the value that is passed in parameter
-- Creating a control flow to schedule the execution of the rules
-  - Create a unit on the canvas by clicking on `Unit` in the palette and then in the canvas. Then choose the type of unit you want
-  - The name of the unit should correspond to the name of a rule or a unit.
-More information and examples are available at https://www.eclipse.org/henshin/
+- Create the pattern: click the **Node** tool in the palette, then click in the canvas to place it, and set its type to `Table` in the popup that appears (per the [Henshin-Editor wiki](https://github.com/de-tu-berlin-tfs/Henshin-Editor/wiki/Creation-and-Modification-of-Graphs), placing a node always prompts you to pick its EClass type — this is where you tell Henshin the node represents a `Table`, not some other class)
+- Every node/edge has an **Action**, settable from the Property window: `preserve` (matched but left as-is — the default), `create` (added by the rule), `delete` (removed by the rule), or `forbid` (must *not* match, a negative condition). For this rule, leave the `Table` node's action as `preserve` — you're matching an existing table and only changing its `x` attribute, not creating or deleting the table itself
+- A `preserve` node's LHS and RHS are actually two separate underlying `Node`/`Attribute` objects (mapped together behind the scenes) even though the graphical editor shows them merged into one box — so where you add the attribute matters:
+  - Leave the `Table` node's **LHS** side with no attribute at all — this means "match any table, don't constrain by `x`."
+  - Add the attribute on the **RHS** side only (per the wiki: click the node to bring up its attribute list, add an attribute, and pick `x` as the EAttribute it represents), and set its value to a plain literal, e.g. `100` — this assigns the matched table's `x` to `100` when the rule runs.
+  - Don't try to compute the new value from the old one (e.g. `x+1`, or a bare-name reference expecting the current value) — see the note above; that requires a documented Henshin workaround (chained units + a temp object) well beyond this rule's scope.
+- Optionally, create a control flow to schedule multiple rules: click **Unit** in the palette, then in the canvas, and choose the type of unit you want (e.g. sequential, loop). The name of the unit should correspond to the name of a rule or another unit it's meant to invoke. Skip this if you only have the one `transfer` rule — you can apply a rule directly without wrapping it in a unit (see below)
+More information and examples are available at https://projects.eclipse.org/projects/modeling.henshin (the plain `eclipse.org/henshin/` link redirects here)
 
 ###### Run a Henshin transformation
-- Right-click on the unit you want to execute > Apply Transformation
+- Right-click the rule (or unit, if you created one for control flow) you want to execute, in the diagram or the Package Explorer > Apply Transformation
 - In Input Model, click on Browse Workspace and select the model to transform. Note that your input model should reside in the same workspace, therefore in the same Eclipse instance. [See how to create models dynamically](#dynamic-instance).
-- If your unit has parameters, enter them in the Parameters grid
-- Uncheck Open Comapre
-- Click Transform. This creates a new model with the same name as your input model suffixed with `_transformed`
+- The Parameters grid should be empty for this rule (no declared parameters, per the note above) — that's expected, not a bug. If you do add `in`/`out` rule parameters later, this is where you'd set them
+- Uncheck **Open Compare** if you don't want the EMF Compare editor to pop up automatically afterward showing a diff of the before/after model
+- Click Transform. This writes the transformed model to a new file named after the input file suffixed with `_transformed` (e.g. `Room.xmi` → `Room_transformed.xmi`), confirmed against the current Henshin version's Apply Transformation dialog, which pre-fills the Output Model field with this name
 
 # Programming with Ecore
 

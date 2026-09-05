@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_5W6UYKlgEfGM76lIwj2pcg" type="Henshin" name="transfer_chairs.henshin_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_xsNgQKllEfGM76lIwj2pcg" type="2001" fontName=".AppleSystemUIFont" italic="true" lineColor="0">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8TkggKllEfGM76lIwj2pcg" source="defaultAction">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8TkggallEfGM76lIwj2pcg" key="value" value="preserve"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="_xsS_0KllEfGM76lIwj2pcg" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_xsS_0allEfGM76lIwj2pcg" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_8TluoKllEfGM76lIwj2pcg" type="3001" fontName=".AppleSystemUIFont">
+        <children xmi:type="notation:DecorationNode" xmi:id="_8TmVsKllEfGM76lIwj2pcg" type="5002"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_8TmVsallEfGM76lIwj2pcg" type="5003"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_8TmVsqllEfGM76lIwj2pcg" type="7002">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_8TmVs6llEfGM76lIwj2pcg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_8TmVtKllEfGM76lIwj2pcg"/>
+        </children>
+        <element xmi:type="henshin:Node" href="transfer_chairs.henshin#_8TirUKllEfGM76lIwj2pcg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8TluoallEfGM76lIwj2pcg" x="46" y="41" width="172" height="133"/>
+      </children>
+    </children>
+    <element xmi:type="henshin:Rule" href="transfer_chairs.henshin#_xsAr8KllEfGM76lIwj2pcg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xsNgQallEfGM76lIwj2pcg" x="85" y="56" width="362" height="303"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_5W6UYalgEfGM76lIwj2pcg"/>
+  <element xmi:type="henshin:Module" href="transfer_chairs.henshin#_5W3REKlgEfGM76lIwj2pcg"/>
+</notation:Diagram>

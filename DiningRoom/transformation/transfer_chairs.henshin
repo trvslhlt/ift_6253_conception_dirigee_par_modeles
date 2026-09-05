@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_5W3REKlgEfGM76lIwj2pcg">
+  <imports href="../metamodel/DiningRoom.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_xsAr8KllEfGM76lIwj2pcg" name="transfer">
+    <lhs xmi:id="_xsw54KllEfGM76lIwj2pcg" name="Lhs">
+      <nodes xmi:id="_8TirUKllEfGM76lIwj2pcg">
+        <type href="../metamodel/DiningRoom.ecore#//Table"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_xsw54allEfGM76lIwj2pcg" name="Rhs">
+      <nodes xmi:id="_8TirUallEfGM76lIwj2pcg">
+        <type href="../metamodel/DiningRoom.ecore#//Table"/>
+        <attributes xmi:id="_-e0aoKlmEfGM76lIwj2pcg" value="100">
+          <type href="../metamodel/DiningRoom.ecore#//Table/x"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_8TjSYKllEfGM76lIwj2pcg" origin="_8TirUKllEfGM76lIwj2pcg" image="_8TirUallEfGM76lIwj2pcg"/>
+  </units>
+</henshin:Module>
