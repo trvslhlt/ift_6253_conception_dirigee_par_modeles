@@ -544,6 +544,29 @@ More information and examples are available at https://projects.eclipse.org/proj
 
 > **What/why/takeaway:** Step below Epsilon/Xtext/ATL/Henshin entirely and work with the plain EMF Java API directly — loading a resource, saving a model, and instantiating model elements via the metamodel's generated factory classes. Why: every higher-level tool used earlier in this guide is itself built on top of this same EMF Java API; you need it directly the moment you want to manipulate models from ordinary Java code that isn't running inside one of those Eclipse-hosted DSL tools — a headless build step, a test, a web service, a CLI. Takeaway: this is the escape hatch/foundation everything above compiles down to — reach for it when the DSL-specific languages (EOL/ETL/EGL/ATL/Henshin) are more machinery than you need and you just want to read or write a model programmatically.
 
+###### Set up
+The snippets below are fragments, not complete files — here's where to put them and what they need to actually compile and run:
+- **Add a missing dependency first**: `DiningRoom/META-INF/MANIFEST.MF`'s `Require-Bundle` only lists `org.eclipse.emf.ecore`, but `XMIResourceFactoryImpl` (used below) lives in a separate bundle, `org.eclipse.emf.ecore.xmi`. Add it: `Require-Bundle: ..., org.eclipse.emf.ecore.xmi;visibility:=reexport`. Without this, the code below won't compile — `XMIResourceFactoryImpl` will be unresolved.
+- **Where to put the code**: create a new Java class in the `DiningRoom` project, e.g. `src/geodes/sms/diningroom/demo/EcoreDemo.java`, with a `public static void main(String[] args)` method containing the snippets. Run it via right-click the file > Run As > **Java Application** (not "Eclipse Application" — none of this code needs a running Eclipse workbench, just the EMF classes on the classpath, which PDE resolves automatically from `Require-Bundle` for a plugin project).
+- **`METAMODEL_FILE`/`XMI_FILE` placeholders**: these are plain OS file paths (via `URI.createFileURI`, not `platform:/resource/...` — that scheme only resolves inside a running Eclipse workbench, which a plain Java Application launch doesn't have). Eclipse's default "Run As > Java Application" working directory is the project root, so relative paths work: use `"metamodel/DiningRoom.ecore"` for `METAMODEL_FILE` and something like `"models/EcoreDemo.xmi"` for `XMI_FILE`.
+- **Imports** needed across the three snippets below (add whichever your snippet actually uses):
+```java
+import java.io.File;
+import java.io.StringWriter;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import DiningRoom.Chair;
+import DiningRoom.DiningRoomFactory;
+import DiningRoom.Room;
+```
+
 ## Loading a metamodel in Ecore
 ```
 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore",new XMIResourceFactoryImpl());
@@ -552,6 +575,7 @@ Resource resource = resourceSet.createResource(URI.createFileURI(METAMODEL_FILE)
 resource.load(null);
 resource.getContents()[0] // returns the root object of the model
 ```
+Note: `resource.getContents()[0]` is array-index syntax, not valid Java — `resource.getContents()` returns an `EList<EObject>`, so in a real `.java` file this is `resource.getContents().get(0)`.
 
 ## Modifying and saving a model
 ```
@@ -561,15 +585,16 @@ URIConverter.WriteableOutputStream outputStream = new URIConverter.WriteableOutp
 Map<String, String> options = new HashMap<String, String>();
 resource.save(outputStream, options);
 ```
+`SOME_ELEMENT` is a placeholder for any `EObject` you want to add to the resource — e.g. an instance created via `DiningRoomFactory` (see the next snippet). Note this only saves *to an in-memory `StringWriter`*, not to disk — print `stringWriter.toString()` if you want to see the serialized XMI, or use the third snippet's `resource.save(...)` (which writes straight to the resource's own URI) if you want a file on disk instead.
 
 ## Creating models with generated EMF code from a metamodel
 ```
 DiningRoomFactory drFactory = DiningRoomFactory.eINSTANCE;
-DiningRoomFactory room = drFactory.createRoom();
+Room room = drFactory.createRoom();
 Chair c1 = drFactory.createChair();
 c1.setName("C1");
 c1.setOrder(1);
-room.addFurniture(c1);
+room.getFurniture().add(c1);
 ResourceSet resourceSet = new ResourceSetImpl();
 resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 URI fileURI = URI.createFileURI(new File(XMI_FILE).getAbsolutePath());
@@ -578,6 +603,8 @@ resource.getContents().add(room);
 resource.save(System.out, Collections.EMPTY_MAP);
 resource.save(Collections.EMPTY_MAP);
 ```
+
+Running it end-to-end: `resource.save(System.out, ...)` prints the serialized XMI to the console (handy for a quick sanity check while learning), and the following `resource.save(Collections.EMPTY_MAP)` is the one that actually writes it to `XMI_FILE` on disk — you'd typically use one or the other, not both, but both are harmless to run together.
 
 
 # Video demonstration

@@ -9,7 +9,8 @@ Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui.ide,
  org.eclipse.epsilon.evl.emf.validation,
  org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: DiningRoom
 Bundle-RequiredExecutionEnvironment: JavaSE-25
