@@ -1,0 +1,7 @@
+--> switch to online version instead of local setup to get started
+--> https://www.plantuml.com/plantuml/uml/SoWkIImgAStDuNBAJrBGjLDmpCbCJbMmKiX8pSd9vt98pKi1IW80
+
+@startuml
+Alice -> Bob: test
+@enduml
+
