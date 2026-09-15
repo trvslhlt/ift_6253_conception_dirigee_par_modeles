@@ -8,5 +8,8 @@ Bundle-SymbolicName: holt.travis.ift6253.mindmap.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: holt.travis.ift6253.mindmap,
  org.eclipse.xtext.ide,
- org.eclipse.xtext.xbase.ide
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-25
+Export-Package: holt.travis.ift6253.ide.contentassist.antlr,
+ holt.travis.ift6253.ide.contentassist.antlr.internal

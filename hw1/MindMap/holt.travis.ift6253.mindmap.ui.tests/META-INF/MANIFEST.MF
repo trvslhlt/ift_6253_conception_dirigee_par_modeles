@@ -10,7 +10,10 @@ Require-Bundle: holt.travis.ift6253.mindmap.ui,
  org.eclipse.xtext.testing,
  org.eclipse.xtext.ui.testing,
  org.eclipse.xtext.xbase.testing,
- org.eclipse.xtext.xbase.ui.testing
+ org.eclipse.xtext.xbase.ui.testing,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.workbench;resolution:=optional
 Import-Package: org.junit.jupiter.api;version="[6.0.0,7.0.0)",
  org.junit.jupiter.api.extension;version="[6.0.0,7.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-25
+Export-Package: holt.travis.ift6253.ui.tests;x-internal=true
