@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: holt.travis.ift6253.mindmap.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: holt.travis.ift6253.mindmap.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: holt.travis.ift6253.mindmap.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: holt.travis.ift6253.mindmap,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-25

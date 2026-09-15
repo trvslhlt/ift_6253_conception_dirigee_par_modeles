@@ -9,3 +9,6 @@ xtend-gen/
 
 # macOS
 .DS_Store
+
+# dev
+temp/
