@@ -5,10 +5,10 @@ package holt.travis.ift6253.formatting2
 
 import com.google.inject.Inject
 import holt.travis.ift6253.mindMap.MindMap
-import holt.travis.ift6253.mindMap.Node
 import holt.travis.ift6253.services.MindMapGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import holt.travis.ift6253.mindMap.Topic
 
 class MindMapFormatter extends AbstractFormatter2 {
 	
@@ -21,7 +21,7 @@ class MindMapFormatter extends AbstractFormatter2 {
 		}
 	}
 
-	def dispatch void format(Node node, extension IFormattableDocument document) {
+	def dispatch void format(Topic node, extension IFormattableDocument document) {
 		val open = node.regionFor.keyword("{")
 		val close = node.regionFor.keyword("}")
 

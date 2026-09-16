@@ -4,7 +4,7 @@
 package holt.travis.ift6253.tests
 
 import com.google.inject.Inject
-import holt.travis.ift6253.mindMap.Model
+import holt.travis.ift6253.mindMap.MindMap
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -16,12 +16,50 @@ import org.junit.jupiter.api.^extension.ExtendWith
 @InjectWith(MindMapInjectorProvider)
 class MindMapParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<MindMap> parseHelper
 	
 	@Test
-	def void loadModel() {
+	def void loadModelEmptyMindMap() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			mindmap mde_course {} 
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+//	@Test
+	def void loadModelFullFeatured() {
+		val result = parseHelper.parse('''
+			mindmap mde_course (tag STAR, tag QUESTION) {
+			    - class (H) {
+			        description: "text description of topic"
+			        view {
+			            color: "#0000FF"
+			        }
+			        -> attendance <STAR> <QUESTION> (H)
+			        - active_learning {
+			            - take_notes
+			            - clarify_with_chat
+			        }
+			    }
+			    - work (M) {
+			        - readings (L) {
+			            -> todo
+			            -> done
+			            - projects {
+			                - main <STAR> {
+			                    -> find_partner {
+			                        - suggest_topic <QUESTION>
+			                        -> talk_to_someone
+			                    }
+			                }
+			            }
+			        }
+			        - homework
+			        - tool_tutorials
+			    }
+			} 
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors

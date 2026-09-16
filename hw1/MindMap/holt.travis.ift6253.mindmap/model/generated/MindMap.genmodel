@@ -7,12 +7,12 @@
   <genPackages prefix="MindMap" basePackage="holt.travis.ift6253" disposableProviderFactory="true"
       fileExtensions="mm" ecorePackage="MindMap.ecore#/">
     <genClasses ecoreClass="MindMap.ecore#//MindMap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//MindMap/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//MindMap/roots"/>
     </genClasses>
-    <genClasses ecoreClass="MindMap.ecore#//Node">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Node/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//Node/children"/>
+    <genClasses ecoreClass="MindMap.ecore#//Topic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/children"/>
     </genClasses>
-    <genClasses ecoreClass="MindMap.ecore#//Root"/>
   </genPackages>
 </genmodel:GenModel>

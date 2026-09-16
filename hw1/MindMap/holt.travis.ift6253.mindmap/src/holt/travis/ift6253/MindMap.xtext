@@ -7,14 +7,10 @@ generate mindMap "http://www.travis.holt/ift6253/MindMap"
 
 // entry rule
 MindMap:
-	// containment feature
-	roots+=Root+; // one or more
+	'mindmap' name=ID '{'
+		// containment feature
+		roots+=Topic* // one or more
+	'}';
 	
-fragment NodeFeatures *:
-	name=ID ('{' children+=Node* '}');
-	
-Node:
-	{Node} NodeFeatures;
-	
-Root returns Node:
-	{Root} NodeFeatures;
+Topic:
+	name=ID ('{' children+=Topic* '}');

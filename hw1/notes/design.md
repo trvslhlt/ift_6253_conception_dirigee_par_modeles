@@ -67,6 +67,7 @@ Behaviors we would like to see supported in a graphical representation of a mind
 
 ### Constraints
 - node names must be unique
+- mm must have at least one root topic (is this enforced by the grammar or validations?)
 
 ### Sample Textual MindMap
 This is not a spec, just what I am imagining at the moment.
