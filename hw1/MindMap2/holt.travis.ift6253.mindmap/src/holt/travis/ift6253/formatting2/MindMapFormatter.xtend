@@ -5,6 +5,7 @@ package holt.travis.ift6253.formatting2
 
 import holt.travis.ift6253.mindMap.MindMap
 import holt.travis.ift6253.mindMap.MindMapPackage
+import holt.travis.ift6253.mindMap.Tag
 import holt.travis.ift6253.mindMap.Topic
 import holt.travis.ift6253.mindMap.View
 import org.eclipse.xtext.formatting2.AbstractFormatter2
@@ -14,7 +15,36 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion
 class MindMapFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(MindMap mindMap, extension IFormattableDocument document) {
-		indentBraces(mindMap.regionFor.keyword("{"), mindMap.regionFor.keyword("}"), document)
+		val open = mindMap.regionFor.keyword("{")
+		val close = mindMap.regionFor.keyword("}")
+
+		//// header
+		// name
+		mindMap.regionFor.feature(MindMapPackage.Literals.MIND_MAP__NAME).prepend[oneSpace]
+
+		// tags
+		val paramOpen = mindMap.regionFor.keyword("(")
+		val paramClose = mindMap.regionFor.keyword(")")
+		if (paramOpen !== null && paramClose !== null) {
+			paramOpen.prepend[oneSpace]
+			paramOpen.append[noSpace]
+			paramClose.prepend[noSpace]
+		}
+		for (comma : mindMap.regionFor.keywords(",")) {
+			comma.prepend[noSpace]
+			comma.append[oneSpace]
+		}
+		for (tag : mindMap.tags) {
+			tag.format
+		}
+
+		// opening brace
+		if (open !== null) {
+			open.prepend[oneSpace]
+		}
+
+		//// contents
+		indentBraces(open, close, document)
 
 		for (topic : mindMap.roots) {
 			topic.prepend[newLine]
@@ -22,11 +52,15 @@ class MindMapFormatter extends AbstractFormatter2 {
 		}
 	}
 
+	def dispatch void format(Tag tag, extension IFormattableDocument document) {
+		tag.regionFor.feature(MindMapPackage.Literals.TAG__NAME).prepend[oneSpace]
+	}
+
 	def dispatch void format(Topic topic, extension IFormattableDocument document) {
 		val open = topic.regionFor.keyword("{")
 		val close = topic.regionFor.keyword("}")
-		indentBraces(open, close, document)
 
+		//// header 
 		// exactly one space between each header element
 		topic.regionFor.feature(MindMapPackage.Literals.TOPIC__NAME).prepend[oneSpace]
 
@@ -41,13 +75,20 @@ class MindMapFormatter extends AbstractFormatter2 {
 			priorityOpenParen.prepend[oneSpace]
 		}
 		
-		// references
-		for (asterisk : topic.regionFor.keywords("*")) {
-			asterisk.prepend[oneSpace]
-		}
-
+		// opening brace
 		if (open !== null) {
 			open.prepend[oneSpace]
+		}
+		
+		//// contents
+		indentBraces(open, close, document)
+		
+		// references: each "* related_topic" on its own line
+		for (asterisk : topic.regionFor.keywords("*")) {
+			asterisk.prepend[newLine]
+		}
+		for (relatedRef : topic.regionFor.features(MindMapPackage.Literals.TOPIC__RELATED)) {
+			relatedRef.prepend[oneSpace]
 		}
 
 		topic.view.format

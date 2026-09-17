@@ -16,10 +16,10 @@ Topic:
 	(deeper?='->' | '-') // boolean assignment
 	name=ID 
 	('<' tags+=[Tag] '>')*
-	('(' priority=Priority ')')?
-	('*' related+=[Topic])* 
+	('(' priority=Priority ')')? 
 	('{'
 		('description' ':' description=STRING)?
+		('*' related+=[Topic])*
 		(view=View)?
 		children+=Topic* 
 	'}')?

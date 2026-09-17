@@ -1,13 +1,14 @@
 mindmap mde_course (tag STAR, tag QUESTION) {
 	- class (H) {
 		description: "text description of topic"
-			        view {
+	    view {
 			color: "#0000FF"
 		}
-		-> attendance <STAR>           <QUESTION> (H)
-		- active_learning {
-			- take_notes
-			- clarify_with_chat
+		-> attendance <STAR> <QUESTION> (H) {
+			- active_learning {
+				- take_notes
+				- clarify_with_chat
+			}
 		}
 	}
 	- work (M) {
@@ -23,7 +24,9 @@ mindmap mde_course (tag STAR, tag QUESTION) {
 				}
 			}
 		}
-		- homework *class
+		- homework {
+			* class
+		}
 		- tool_tutorials
 	}
 }

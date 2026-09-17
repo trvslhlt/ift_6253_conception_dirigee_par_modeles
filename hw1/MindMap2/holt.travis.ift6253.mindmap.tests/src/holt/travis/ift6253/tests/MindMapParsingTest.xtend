@@ -190,7 +190,9 @@ class MindMapParsingTest {
 		parseHelper.parse('''
 			mindmap mde_course {
 				- topic1
-				- topic2 *topic1
+				- topic2 {
+					* topic1
+				}
 			}
 		''').assertNoErrors()
 	}
@@ -199,7 +201,9 @@ class MindMapParsingTest {
 	def void loadModelWitNonexistentRelatedTopicFails() {
 		parseHelper.parse('''
 			mindmap mde_course {
-				- topic *nonexistent_topic
+				- topic {
+					* nonexistent_topic
+				}
 			}
 		''').assertError(
 			MindMapPackage.Literals.TOPIC,
@@ -246,7 +250,9 @@ class MindMapParsingTest {
 			                }
 			            }
 			        }
-			        - homework *class
+			        - homework {
+			        	* class
+			        }
 			        - tool_tutorials
 			    }
 			}
