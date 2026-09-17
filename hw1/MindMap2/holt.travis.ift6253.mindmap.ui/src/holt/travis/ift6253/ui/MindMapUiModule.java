@@ -4,6 +4,11 @@
 package holt.travis.ift6253.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
+
+import holt.travis.ift6253.ui.highlighting.MindMapHighlightingConfiguration;
+import holt.travis.ift6253.ui.highlighting.MindMapSemanticHighlightingCalculator;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -12,5 +17,13 @@ public class MindMapUiModule extends AbstractMindMapUiModule {
 
 	public MindMapUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+
+	public Class<? extends IHighlightingConfiguration> bindIHighlightingConfiguration() {
+		return MindMapHighlightingConfiguration.class;
+	}
+
+	public Class<? extends ISemanticHighlightingCalculator> bindIdeSemanticHighlightingCalculator() {
+		return MindMapSemanticHighlightingCalculator.class;
 	}
 }
