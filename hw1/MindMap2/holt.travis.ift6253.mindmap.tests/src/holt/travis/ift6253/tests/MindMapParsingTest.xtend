@@ -11,7 +11,6 @@ import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
@@ -26,116 +25,91 @@ class MindMapParsingTest {
 
 	@Test
 	def void loadModelEmptyMindMap() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course {}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 
 	@Test
 	def void loadModelWithOneTopic() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course {
 				- dummy {}
 			}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 
 	@Test
 	def void loadModelWithOneTopicWithoutBraces() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course {
 				- dummy
 			}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 
 	@Test
 	def void loadModelWithOneTag() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course (tag TAG1) {}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 
 	@Test
 	def void loadModelWithMultipleTags() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course (tag TAG1, tag TAG2) {}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 
 	@Test
 	def void loadModelWithTaggedTopic() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course (tag DUMMY) {
 				- my_topic <DUMMY>
 			}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 
 	@Test
 	def void loadModelWithMultiTaggedTopic() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course (tag DUMMY1, tag DUMMY2) {
 				- my_topic <DUMMY1> <DUMMY2>
 			}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 
 	@Test
 	def void loadModelWithMultipleRoots() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course {
 				- dummy1
 				- dummy2
 			}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 
 	@Test
 	def void loadModelWithDeeperRootFails() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course {
 				-> dummy
 			}
-		''')
-		result.assertError(MindMapPackage.Literals.TOPIC, MindMapValidator.DEEPER_AT_ROOT)
+		''').assertError(
+			MindMapPackage.Literals.TOPIC, 
+			MindMapValidator.DEEPER_AT_ROOT
+		)
 	}
 
 	@Test
 	def void loadModelWithDeeperTopic() {
-		val result = parseHelper.parse('''
+		parseHelper.parse('''
 			mindmap mde_course {
 				- parent {
 					-> deeper_child
 				}
 			}
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		''').assertNoErrors()
 	}
 }
