@@ -24,5 +24,6 @@ Export-Package: holt.travis.ift6253.serializer,
  holt.travis.ift6253.mindMap.util,
  holt.travis.ift6253.services,
  holt.travis.ift6253.parser.antlr,
- holt.travis.ift6253.scoping
+ holt.travis.ift6253.scoping,
+ holt.travis.ift6253.formatting2
 Import-Package: org.apache.log4j
