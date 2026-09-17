@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: holt.travis.ift6253.mindmap.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: holt.travis.ift6253.mindmap.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: holt.travis.ift6253.mindmap.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: holt.travis.ift6253.mindmap,
+ holt.travis.ift6253.mindmap.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.14.300",
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-25
+Export-Package: holt.travis.ift6253.mindmap.ui.internal,
+ holt.travis.ift6253.ui.contentassist,
+ holt.travis.ift6253.ui.quickfix
+Bundle-Activator: holt.travis.ift6253.mindmap.ui.internal.MindmapActivator

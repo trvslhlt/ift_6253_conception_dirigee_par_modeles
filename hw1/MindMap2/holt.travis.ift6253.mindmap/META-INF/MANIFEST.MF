@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: holt.travis.ift6253.mindmap
+Bundle-ManifestVersion: 2
+Bundle-Name: holt.travis.ift6253.mindmap
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: holt.travis.ift6253.mindmap; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.44.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-25
+Export-Package: holt.travis.ift6253.serializer,
+ holt.travis.ift6253.generator,
+ holt.travis.ift6253.parser.antlr.internal,
+ holt.travis.ift6253.validation,
+ holt.travis.ift6253.mindMap.impl,
+ holt.travis.ift6253,
+ holt.travis.ift6253.mindMap,
+ holt.travis.ift6253.mindMap.util,
+ holt.travis.ift6253.services,
+ holt.travis.ift6253.parser.antlr,
+ holt.travis.ift6253.scoping
+Import-Package: org.apache.log4j

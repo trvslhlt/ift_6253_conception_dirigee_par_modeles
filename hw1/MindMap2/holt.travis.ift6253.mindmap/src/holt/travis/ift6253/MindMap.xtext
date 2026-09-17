@@ -1,0 +1,9 @@
+grammar holt.travis.ift6253.MindMap with org.eclipse.xtext.common.Terminals
+
+generate mindMap "http://www.travis.holt/ift6253/MindMap"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
