@@ -7,6 +7,7 @@ import com.google.inject.Inject
 import holt.travis.ift6253.mindMap.MindMap
 import holt.travis.ift6253.mindMap.MindMapPackage
 import holt.travis.ift6253.validation.MindMapValidator
+import holt.travis.ift6253.validation.MindMapConfigurableIssueCodesProvider
 import org.eclipse.xtext.diagnostics.Diagnostic
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
@@ -15,6 +16,7 @@ import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
+
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MindMapInjectorProvider)
@@ -204,7 +206,18 @@ class MindMapParsingTest {
 			MindMapPackage.Literals.TOPIC,
 			Diagnostic.LINKING_DIAGNOSTIC
 		)
-	}	
+	}
+	
+	@Test
+	def void loadModelWithDeprecatedLabelSyntax() {
+		parseHelper.parse('''
+			mindmap mde_course (label dummy) {}
+		''').assertWarning(
+			MindMapPackage.Literals.TAG, 
+			MindMapConfigurableIssueCodesProvider.DEPRECATED_MODEL_PART
+		)
+	}
+	
 	
 	@Test
 	def void loadModelWithAllFeatures() {
