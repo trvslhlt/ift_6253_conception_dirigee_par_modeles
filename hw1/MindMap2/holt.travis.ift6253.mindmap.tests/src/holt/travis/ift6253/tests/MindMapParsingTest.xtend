@@ -4,10 +4,13 @@
 package holt.travis.ift6253.tests
 
 import com.google.inject.Inject
-import holt.travis.ift6253.mindMap.Model
+import holt.travis.ift6253.mindMap.MindMap
+import holt.travis.ift6253.mindMap.MindMapPackage
+import holt.travis.ift6253.validation.MindMapValidator
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
+import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
@@ -16,12 +19,120 @@ import org.junit.jupiter.api.^extension.ExtendWith
 @InjectWith(MindMapInjectorProvider)
 class MindMapParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
-	
+	ParseHelper<MindMap> parseHelper
+
+	@Inject
+	extension ValidationTestHelper
+
 	@Test
-	def void loadModel() {
+	def void loadModelEmptyMindMap() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			mindmap mde_course {}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void loadModelWithOneTopic() {
+		val result = parseHelper.parse('''
+			mindmap mde_course {
+				- dummy {}
+			}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void loadModelWithOneTopicWithoutBraces() {
+		val result = parseHelper.parse('''
+			mindmap mde_course {
+				- dummy
+			}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void loadModelWithOneTag() {
+		val result = parseHelper.parse('''
+			mindmap mde_course (tag TAG1) {}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void loadModelWithMultipleTags() {
+		val result = parseHelper.parse('''
+			mindmap mde_course (tag TAG1, tag TAG2) {}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void loadModelWithTaggedTopic() {
+		val result = parseHelper.parse('''
+			mindmap mde_course (tag DUMMY) {
+				- my_topic <DUMMY>
+			}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void loadModelWithMultiTaggedTopic() {
+		val result = parseHelper.parse('''
+			mindmap mde_course (tag DUMMY1, tag DUMMY2) {
+				- my_topic <DUMMY1> <DUMMY2>
+			}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void loadModelWithMultipleRoots() {
+		val result = parseHelper.parse('''
+			mindmap mde_course {
+				- dummy1
+				- dummy2
+			}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void loadModelWithDeeperRootFails() {
+		val result = parseHelper.parse('''
+			mindmap mde_course {
+				-> dummy
+			}
+		''')
+		result.assertError(MindMapPackage.Literals.TOPIC, MindMapValidator.DEEPER_AT_ROOT)
+	}
+
+	@Test
+	def void loadModelWithDeeperTopic() {
+		val result = parseHelper.parse('''
+			mindmap mde_course {
+				- parent {
+					-> deeper_child
+				}
+			}
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors

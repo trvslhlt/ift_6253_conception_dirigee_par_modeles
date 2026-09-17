@@ -3,23 +3,29 @@
  */
 package holt.travis.ift6253.validation;
 
+import org.eclipse.xtext.validation.Check;
+import holt.travis.ift6253.mindMap.MindMap;
+import holt.travis.ift6253.mindMap.MindMapPackage;
+import holt.travis.ift6253.mindMap.Topic;
 
 /**
- * This class contains custom validation rules. 
+ * This class contains custom validation rules.
  *
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class MindMapValidator extends AbstractMindMapValidator {
-	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					MindMapPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
-	
+
+	public static final String DEEPER_AT_ROOT = "DEEPER_AT_ROOT";
+
+	@Check
+	public void checkNoDeeperAtRoot(Topic topic) {
+		if (topic.eContainer() instanceof MindMap && topic.isDeeper()) {
+			error(
+				"A root topic can't use '->'. There is no parent topic to be deeper than.",
+				MindMapPackage.Literals.TOPIC__DEEPER,
+				DEEPER_AT_ROOT
+			);
+		}
+	}
+
 }
