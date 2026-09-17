@@ -30,15 +30,17 @@ mindmap mde_course (tag STAR, tag QUESTION) {
                 }
             }
         }
-        - homework
+        - homework *class
         - tool_tutorials
     }
 }   
 ```
 
-### Validations
-- [ ] Topic, Tag names must be unique
+### Validations / Checks
+- [ ] Topic, Tag names must be unique across a MindMap
+- [ ] tag references on a topic must be unique (no duplicates) ((make warning, not error - just to see how warnings work))
 - [ ] only '- topic' is valid root, not '-> topic'
+- [ ] color string must be valid HEX color
 - [x] only available tags can be referenced (get this for free because Tags are only constructed in one place)
 
 ## Sketching
@@ -50,6 +52,7 @@ Brainstorming and iterating with docs, tooling, and AI assistants (for critique,
 
 ### Basic Description
 - a forest of trees
+- depth is a new dimension for that subtree. dimensions are not shared beyond the default first dimension (where the roots start)
 
 ### Graphical Features
 Behaviors we would like to see supported in a graphical representation of a mindmap

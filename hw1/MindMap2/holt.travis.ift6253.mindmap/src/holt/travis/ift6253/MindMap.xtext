@@ -14,7 +14,11 @@ MindMap:
 	
 Topic:
 	(deeper?='->' | '-') // boolean assignment
-	name=ID ('<' tags+=[Tag] '>')* ('{'
+	name=ID 
+	('<' tags+=[Tag] '>')*
+	('(' priority=Priority ')')?
+	('*' related+=[Topic])* 
+	('{'
 		('description' ':' description=STRING)?
 		(view=View)?
 		children+=Topic* 
@@ -30,4 +34,10 @@ View:
 	{View} 'view' '{'
 		('color' ':' color=STRING)?
 	'}'
+;
+
+enum Priority:
+	HIGH = 'H' |
+	MEDIUM = 'M' |
+	LOW = 'L'
 ;

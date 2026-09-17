@@ -7,10 +7,12 @@ import com.google.inject.Inject
 import holt.travis.ift6253.mindMap.MindMap
 import holt.travis.ift6253.mindMap.MindMapPackage
 import holt.travis.ift6253.validation.MindMapValidator
+import org.eclipse.xtext.diagnostics.Diagnostic
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
@@ -153,6 +155,56 @@ class MindMapParsingTest {
 		)
 	}
 	
+	@Test
+	def void loadModelWithTopicPriority() {
+		parseHelper.parse('''
+			mindmap mde_course {
+				- topic (H)
+			}
+		''').assertNoErrors();
+	}
+	
+	@Test
+	def void loadModelWithInvalidPriorityFails() {
+		var result = parseHelper.parse('''
+			mindmap mde_course {
+				- topic (X)
+			}
+		''')
+		Assertions.assertFalse(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void loadModelWithMultiplePriorityFails() {
+		var result = parseHelper.parse('''
+			mindmap mde_course {
+				- topic (L) (M)
+			}
+		''')
+		Assertions.assertFalse(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void loadModelWithRelatedTopic() {
+		parseHelper.parse('''
+			mindmap mde_course {
+				- topic1
+				- topic2 *topic1
+			}
+		''').assertNoErrors()
+	}
+	
+	@Test
+	def void loadModelWitNonexistentRelatedTopicFails() {
+		parseHelper.parse('''
+			mindmap mde_course {
+				- topic *nonexistent_topic
+			}
+		''').assertError(
+			MindMapPackage.Literals.TOPIC,
+			Diagnostic.LINKING_DIAGNOSTIC
+		)
+	}	
 	
 	@Test
 	def void loadModelWithAllFeatures() {
@@ -182,7 +234,7 @@ class MindMapParsingTest {
 			                }
 			            }
 			        }
-			        - homework
+			        - homework *class
 			        - tool_tutorials
 			    }
 			}

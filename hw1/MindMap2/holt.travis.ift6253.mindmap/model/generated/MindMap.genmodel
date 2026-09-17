@@ -6,6 +6,11 @@
     complianceLevel="17.0" copyrightFields="false" runtimeVersion="2.36">
   <genPackages prefix="MindMap" basePackage="holt.travis.ift6253" disposableProviderFactory="true"
       fileExtensions="mm" ecorePackage="MindMap.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MindMap.ecore#//Priority">
+      <genEnumLiterals ecoreEnumLiteral="MindMap.ecore#//Priority/HIGH"/>
+      <genEnumLiterals ecoreEnumLiteral="MindMap.ecore#//Priority/MEDIUM"/>
+      <genEnumLiterals ecoreEnumLiteral="MindMap.ecore#//Priority/LOW"/>
+    </genEnums>
     <genClasses ecoreClass="MindMap.ecore#//MindMap">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//MindMap/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//MindMap/tags"/>
@@ -15,6 +20,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/deeper"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/tags"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/priority"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/related"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/view"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/children"/>
