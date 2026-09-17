@@ -3,10 +3,14 @@
  */
 package holt.travis.ift6253.validation;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.xtext.validation.Check;
+
 import holt.travis.ift6253.mindMap.MindMap;
 import holt.travis.ift6253.mindMap.MindMapPackage;
 import holt.travis.ift6253.mindMap.Topic;
+import holt.travis.ift6253.mindMap.View;
 
 /**
  * This class contains custom validation rules.
@@ -16,14 +20,31 @@ import holt.travis.ift6253.mindMap.Topic;
 public class MindMapValidator extends AbstractMindMapValidator {
 
 	public static final String DEEPER_AT_ROOT = "DEEPER_AT_ROOT";
+	public static final String INVALID_COLOR = "INVALID_COLOR";
+
+	private static final Pattern HEX_COLOR_PATTERN = Pattern.compile("^#[0-9a-fA-F]{6}$");
 
 	@Check
 	public void checkNoDeeperAtRoot(Topic topic) {
-		if (topic.eContainer() instanceof MindMap && topic.isDeeper()) {
+		if (!(topic.eContainer() instanceof MindMap)) return; 
+		if (topic.isDeeper()) {
 			error(
 				"A root topic can't use '->'. There is no parent topic to be deeper than.",
 				MindMapPackage.Literals.TOPIC__DEEPER,
 				DEEPER_AT_ROOT
+			);
+		}
+	}
+	
+	@Check
+	public void checkViewColor(View view) {
+		String color = view.getColor();
+		if (color == null) return;
+		if (!HEX_COLOR_PATTERN.matcher(color).matches()) {
+			error(
+				"A color must be a valid hex color e.g. '#112233'",
+				MindMapPackage.Literals.VIEW__COLOR,
+				INVALID_COLOR
 			);
 		}
 	}

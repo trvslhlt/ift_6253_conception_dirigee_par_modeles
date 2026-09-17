@@ -125,6 +125,36 @@ class MindMapParsingTest {
 	}
 	
 	@Test
+	def void loadModelWithViewInfo() {
+		parseHelper.parse('''
+			mindmap mde_course {
+				- topic {
+					view {
+						color: "#0000FF"
+					}
+				}
+			}
+		''').assertNoErrors()
+	}
+	
+	@Test
+	def void loadModelWithInvalidColorFails() {
+		parseHelper.parse('''
+			mindmap mde_course {
+				- topic {
+					view {
+						color: "#INVALID_COLOR"
+					}
+				}
+			}
+		''').assertError(
+			MindMapPackage.Literals.VIEW, 
+			MindMapValidator.INVALID_COLOR
+		)
+	}
+	
+	
+	@Test
 	def void loadModelWithAllFeatures() {
 		parseHelper.parse('''
 			mindmap mde_course (tag STAR, tag QUESTION) {

@@ -16,10 +16,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/tags"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/view"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/children"/>
     </genClasses>
     <genClasses ecoreClass="MindMap.ecore#//Tag">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Tag/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MindMap.ecore#//View">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//View/color"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

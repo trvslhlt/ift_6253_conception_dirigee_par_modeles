@@ -16,10 +16,18 @@ Topic:
 	(deeper?='->' | '-') // boolean assignment
 	name=ID ('<' tags+=[Tag] '>')* ('{'
 		('description' ':' description=STRING)?
+		(view=View)?
 		children+=Topic* 
 	'}')?
 ;
 
 Tag:
 	'tag' name=ID
+;
+
+View:
+	// force object creation 
+	{View} 'view' '{'
+		('color' ':' color=STRING)?
+	'}'
 ;
