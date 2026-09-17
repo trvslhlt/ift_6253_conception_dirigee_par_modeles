@@ -8,14 +8,16 @@ generate mindMap "http://www.travis.holt/ift6253/MindMap"
 // entry rule
 MindMap:
 	'mindmap' name=ID ('(' tags+=Tag (',' tags+=Tag)* ')')? '{'
-		// containment feature
-		roots+=Topic*
+		roots+=Topic* // containment feature
 	'}'
 ;
 	
 Topic:
 	(deeper?='->' | '-') // boolean assignment
-	name=ID ('<' tags+=[Tag] '>')* ('{' children+=Topic* '}')?
+	name=ID ('<' tags+=[Tag] '>')* ('{'
+		('description' ':' description=STRING)?
+		children+=Topic* 
+	'}')?
 ;
 
 Tag:
