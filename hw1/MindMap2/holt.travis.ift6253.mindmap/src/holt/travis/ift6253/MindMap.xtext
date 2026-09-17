@@ -7,7 +7,7 @@ generate mindMap "http://www.travis.holt/ift6253/MindMap"
 
 // entry rule
 MindMap:
-	'mindmap' name=ID ('(' tags+=AnyTag (',' tags+=AnyTag)* ')')? '{'
+	'mindmap' name=ID ('(' tags+=Tag (',' tags+=Tag)* ')')? '{'
 		roots+=Topic* // containment feature
 	'}'
 ;
@@ -25,20 +25,10 @@ Topic:
 	'}')?
 ;
 
+// 'label' not necessary, just for learning about the deprecation mechanism
 Tag:
-	'tag' name=ID
+	('tag' | 'label') name=ID
 ;
-
-// not necessary, just for learning about the mechanism
-@Deprecated
-LabelTag returns Tag:
-	'label' name=ID
-;
-
-AnyTag returns Tag:
-	Tag | LabelTag
-;
-
 
 View:
 	// force object creation 

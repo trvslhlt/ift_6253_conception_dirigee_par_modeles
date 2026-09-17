@@ -5,10 +5,14 @@ package holt.travis.ift6253.validation;
 
 import java.util.regex.Pattern;
 
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.ILeafNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.validation.Check;
 
 import holt.travis.ift6253.mindMap.MindMap;
 import holt.travis.ift6253.mindMap.MindMapPackage;
+import holt.travis.ift6253.mindMap.Tag;
 import holt.travis.ift6253.mindMap.Topic;
 import holt.travis.ift6253.mindMap.View;
 
@@ -21,6 +25,7 @@ public class MindMapValidator extends AbstractMindMapValidator {
 
 	public static final String DEEPER_AT_ROOT = "DEEPER_AT_ROOT";
 	public static final String INVALID_COLOR = "INVALID_COLOR";
+	public static final String DEPRECATED_LABEL_KEYWORD = "DEPRECATED_LABEL_KEYWORD";
 
 	private static final Pattern HEX_COLOR_PATTERN = Pattern.compile("^#[0-9a-fA-F]{6}$");
 
@@ -48,5 +53,23 @@ public class MindMapValidator extends AbstractMindMapValidator {
 			);
 		}
 	}
+	
+	@Check
+	public void checkDeprecatedLabelKeyword(Tag tag) {
+		// this is the standard way to look at how the model was written
+		// rather than what it means
+		ICompositeNode node = NodeModelUtils.getNode(tag);
+		for (ILeafNode leaf : node.getLeafNodes()) {
+			if (!leaf.isHidden() && "label".equals(leaf.getText())) {
+				warning(
+					"'label' is deprecated, use 'tag' instead.",
+					null,
+					DEPRECATED_LABEL_KEYWORD
+				);
+				break;
+			}
+		}
+	}
+
 
 }

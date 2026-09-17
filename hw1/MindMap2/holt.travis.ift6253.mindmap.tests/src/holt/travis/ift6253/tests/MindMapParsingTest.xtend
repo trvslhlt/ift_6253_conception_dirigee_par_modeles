@@ -7,7 +7,6 @@ import com.google.inject.Inject
 import holt.travis.ift6253.mindMap.MindMap
 import holt.travis.ift6253.mindMap.MindMapPackage
 import holt.travis.ift6253.validation.MindMapValidator
-import holt.travis.ift6253.validation.MindMapConfigurableIssueCodesProvider
 import org.eclipse.xtext.diagnostics.Diagnostic
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
@@ -214,7 +213,7 @@ class MindMapParsingTest {
 			mindmap mde_course (label dummy) {}
 		''').assertWarning(
 			MindMapPackage.Literals.TAG, 
-			MindMapConfigurableIssueCodesProvider.DEPRECATED_MODEL_PART
+			MindMapValidator.DEPRECATED_LABEL_KEYWORD
 		)
 	}
 	
