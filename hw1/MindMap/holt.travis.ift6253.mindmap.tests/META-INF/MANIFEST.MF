@@ -9,8 +9,7 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: holt.travis.ift6253.mindmap,
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,
- org.eclipse.xtext.xbase.lib;bundle-version="2.44.0"
-Import-Package: org.junit.jupiter.api;version="[6.0.0,7.0.0)",
- org.junit.jupiter.api.extension;version="[6.0.0,7.0.0)"
+ org.eclipse.xtext.xbase.lib;bundle-version="2.44.0",
+ org.junit
 Bundle-RequiredExecutionEnvironment: JavaSE-25
 Export-Package: holt.travis.ift6253.tests;x-internal=true

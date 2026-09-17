@@ -36,6 +36,11 @@ mindmap mde_course (tag STAR, tag QUESTION) {
 }   
 ```
 
+### Validations
+- [ ] Topic, Tag names must be unique
+- [ ] only '- topic' is valid root, not '-> topic'
+- [x] only available tags can be referenced (get this for free because Tags are only constructed in one place)
+
 ## Sketching
 
 Brainstorming and iterating with docs, tooling, and AI assistants (for critique, not design or implementation)

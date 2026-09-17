@@ -7,10 +7,17 @@ generate mindMap "http://www.travis.holt/ift6253/MindMap"
 
 // entry rule
 MindMap:
-	'mindmap' name=ID '{'
+	'mindmap' name=ID ('(' tags+=Tag (',' tags+=Tag)* ')')? '{'
 		// containment feature
-		roots+=Topic* // one or more
-	'}';
+		roots+=Topic*
+	'}'
+;
 	
 Topic:
-	name=ID ('{' children+=Topic* '}');
+	deeper?='->' | '-' // boolean assignment
+	name=ID ('<' tags+=[Tag] '>')* ('{' children+=Topic* '}')?
+;
+
+Tag:
+	'tag' name=ID
+;
