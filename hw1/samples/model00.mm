@@ -1,17 +1,25 @@
-mindmap mde_course (tag STAR, tag QUESTION) {
+mindmap ift6253 (tag STAR, tag QUESTION) {
 	- class (H) {
-		description: "text description of topic"
+		description: "MDE and related topics"
 	    view {
 			color: "#0000FF"
 		}
-		-> attendance <STAR> <QUESTION> (H) {
-			- active_learning {
-				- take_notes
-				- clarify_with_chat
+		-> schedule <STAR> <QUESTION> (H) {
+			- sessions {
+				-> monday
+				-> wednesday
+			}
+			- due_dates {
+				* assignments
 			}
 		}
 	}
 	- work (M) {
+		- assignments {
+			-> hw1
+			-> hw2
+			-> course_project
+		}
 		- readings (L) {
 			-> todo
 			-> done
