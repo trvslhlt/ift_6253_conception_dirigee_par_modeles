@@ -197,6 +197,20 @@ class MindMapParsingTest {
 		''').assertNoErrors()
 	}
 	
+		@Test
+	def void loadModelWithRelatedTopicInDifferentTree() {
+		parseHelper.parse('''
+			mindmap mde_course {
+				- topic1 {
+					- topic1A
+				}
+				- topic2 {
+					* topic1A
+				}
+			}
+		''').assertNoErrors()
+	}
+	
 	@Test
 	def void loadModelWitNonexistentRelatedTopicFails() {
 		parseHelper.parse('''

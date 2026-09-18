@@ -3,13 +3,44 @@
  */
 package holt.travis.ift6253.scoping;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+
+import com.google.common.base.Function;
+
+import holt.travis.ift6253.mindMap.MindMap;
+import holt.travis.ift6253.mindMap.MindMapPackage;
+import holt.travis.ift6253.mindMap.Topic;
 
 /**
  * This class contains custom scoping description.
- * 
+ *
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
 public class MindMapScopeProvider extends AbstractMindMapScopeProvider {
+
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		if (reference == MindMapPackage.Literals.TOPIC__RELATED && context instanceof Topic) {
+			return scopeForRelated((Topic) context);
+		}
+		return super.getScope(context, reference);
+	}
+
+	// Topic's default qualified name is container-prefixed (mindmap.root.child...)
+	// Resolve topic by simple name instead, independent of nesting.
+	private IScope scopeForRelated(Topic context) {
+		MindMap mindMap = EcoreUtil2.getContainerOfType(context, MindMap.class);
+		if (mindMap == null) {
+			return IScope.NULLSCOPE;
+		}
+		Function<Topic, QualifiedName> byOwnName = topic -> QualifiedName.create(topic.getName());
+		return Scopes.scopeFor(EcoreUtil2.getAllContentsOfType(mindMap, Topic.class), byOwnName, IScope.NULLSCOPE);
+	}
 
 }
