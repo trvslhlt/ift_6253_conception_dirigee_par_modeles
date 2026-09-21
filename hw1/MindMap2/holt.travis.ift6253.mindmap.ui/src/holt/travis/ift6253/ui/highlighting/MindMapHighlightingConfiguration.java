@@ -18,6 +18,8 @@ public class MindMapHighlightingConfiguration extends DefaultHighlightingConfigu
 	public static final String DEPTH_1_ID = "depth1";
 	public static final String DEPTH_2_ID = "depth2";
 
+	public static final String IS_DONE_ID = "isDone";
+
 	@Override
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		super.configure(acceptor);
@@ -27,6 +29,7 @@ public class MindMapHighlightingConfiguration extends DefaultHighlightingConfigu
 		acceptor.acceptDefaultHighlighting(DEPTH_0_ID, "Topic Depth 0", depthTextStyle(new RGB(200, 200, 255)));
 		acceptor.acceptDefaultHighlighting(DEPTH_1_ID, "Topic Depth 1", depthTextStyle(new RGB(140, 140, 255)));
 		acceptor.acceptDefaultHighlighting(DEPTH_2_ID, "Topic Depth 2+", depthTextStyle(new RGB(80, 80, 255)));
+		acceptor.acceptDefaultHighlighting(IS_DONE_ID, "Topic Is Done", isDoneTextStyle());
 	}
 
 	private TextStyle tagTextStyle() {
@@ -53,6 +56,13 @@ public class MindMapHighlightingConfiguration extends DefaultHighlightingConfigu
 	private TextStyle depthTextStyle(RGB color) {
 		TextStyle style = defaultTextStyle().copy();
 		style.setColor(color);
+		return style;
+	}
+
+	private TextStyle isDoneTextStyle() {
+		TextStyle style = defaultTextStyle().copy();
+		style.setColor(new RGB(128, 128, 128));
+		style.setStyle(TextAttribute.STRIKETHROUGH);
 		return style;
 	}
 }

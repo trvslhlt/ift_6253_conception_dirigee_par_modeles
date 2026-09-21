@@ -74,7 +74,13 @@ class MindMapFormatter extends AbstractFormatter2 {
 		if (priorityOpenParen !== null) {
 			priorityOpenParen.prepend[oneSpace]
 		}
-		
+
+		// struck through
+		val struckThrough = topic.regionFor.keyword("#")
+		if (struckThrough !== null) {
+			struckThrough.prepend[oneSpace]
+		}
+
 		// opening brace
 		if (open !== null) {
 			open.prepend[oneSpace]

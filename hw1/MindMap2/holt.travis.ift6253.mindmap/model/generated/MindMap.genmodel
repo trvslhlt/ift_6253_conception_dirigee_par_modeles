@@ -21,6 +21,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/tags"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/done"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/related"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/view"/>

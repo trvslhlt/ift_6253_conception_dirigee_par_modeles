@@ -1,5 +1,8 @@
 package holt.travis.ift6253.ui.highlighting;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -21,6 +24,8 @@ public class MindMapSemanticHighlightingCalculator extends DefaultSemanticHighli
 		if (resource == null) {
 			return;
 		}
+		// pass 1: every "normal" highlight, tags/priority/related/depth, for every object
+		List<Topic> doneTopics = new ArrayList<>();
 		TreeIterator<EObject> contents = resource.getAllContents();
 		while (contents.hasNext()) {
 			EObject content = contents.next();
@@ -28,10 +33,28 @@ public class MindMapSemanticHighlightingCalculator extends DefaultSemanticHighli
 				highlightFeature(content, MindMapPackage.Literals.TAG__NAME, MindMapHighlightingConfiguration.TAG_ID, acceptor);
 			} else if (content instanceof Topic) {
 				Topic topic = (Topic) content;
+				if (topic.isDone()) {
+					// pass 2 covers this topic's whole span -- itself and every descendant -- so
+					// there's no point computing per-feature highlights here, and no need to
+					// descend into its children at all.
+					doneTopics.add(topic);
+					contents.prune();
+					continue;
+				}
 				highlightFeature(topic, MindMapPackage.Literals.TOPIC__TAGS, MindMapHighlightingConfiguration.TAG_ID, acceptor);
 				highlightFeature(topic, MindMapPackage.Literals.TOPIC__RELATED, MindMapHighlightingConfiguration.RELATED_TOPIC_ID, acceptor);
 				highlightFeature(topic, MindMapPackage.Literals.TOPIC__PRIORITY, MindMapHighlightingConfiguration.PRIORITY_ID, acceptor);
 				highlightFeature(topic, MindMapPackage.Literals.TOPIC__NAME, depthHighlightingId(dimensionDepth(topic)), acceptor);
+			}
+		}
+		// pass 2: struck-through subtrees, applied over each done topic's whole text span after
+		// every other highlight -- including its descendants' own -- so it always wins, regardless
+		// of nesting order, and covers every feature (including ones added later) with no need to
+		// enumerate them here.
+		for (Topic topic : doneTopics) {
+			INode wholeTopic = NodeModelUtils.getNode(topic);
+			if (wholeTopic != null) {
+				acceptor.addPosition(wholeTopic.getOffset(), wholeTopic.getLength(), MindMapHighlightingConfiguration.IS_DONE_ID);
 			}
 		}
 	}

@@ -230,9 +230,46 @@ class MindMapParsingTest {
 		parseHelper.parse('''
 			mindmap mde_course (label dummy) {}
 		''').assertWarning(
-			MindMapPackage.Literals.TAG, 
+			MindMapPackage.Literals.TAG,
 			MindMapValidator.DEPRECATED_LABEL_KEYWORD
 		)
+	}
+
+	@Test
+	def void loadModelWithDoneTopic() {
+		val result = parseHelper.parse('''
+			mindmap mde_course {
+				- topic #
+			}
+		''')
+		result.assertNoErrors()
+		Assertions.assertTrue(result.roots.get(0).done)
+	}
+
+	@Test
+	def void loadModelWithNotDoneTopicByDefault() {
+		val result = parseHelper.parse('''
+			mindmap mde_course {
+				- topic
+			}
+		''')
+		result.assertNoErrors()
+		Assertions.assertFalse(result.roots.get(0).done)
+	}
+
+	@Test
+	def void loadModelWithDoneParentDoesNotSetChildDone() {
+		val result = parseHelper.parse('''
+			mindmap mde_course {
+				- parent # {
+					- child
+				}
+			}
+		''')
+		result.assertNoErrors()
+		val parent = result.roots.get(0)
+		Assertions.assertTrue(parent.done)
+		Assertions.assertFalse(parent.children.get(0).done)
 	}
 	
 	
@@ -257,7 +294,7 @@ class MindMapParsingTest {
 			            -> done
 			            - projects {
 			                - main <STAR> {
-			                    -> find_partner {
+			                    -> find_partner # {
 			                        - suggest_topic <QUESTION>
 			                        -> talk_to_someone
 			                    }

@@ -14,9 +14,10 @@ MindMap:
 	
 Topic:
 	(deeper?='->' | '-') // boolean assignment
-	name=ID 
+	name=ID
 	('<' tags+=[Tag] '>')*
-	('(' priority=Priority ')')? 
+	('(' priority=Priority ')')?
+	done?='#'?
 	('{'
 		('description' ':' description=STRING)?
 		('*' related+=[Topic])*
