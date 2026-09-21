@@ -1,0 +1,58 @@
+@startuml PetriNet
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+abstract class NamedElement {
+    + name : String
+}
+
+class PetriNet {}
+
+class Place {
+    + tokens : int = 0
+    + capacity : int [0..1]
+}
+
+class Transition {}
+
+abstract class Arc {
+    + weight : int = 1
+}
+
+class PlaceToTransitionArc {}
+
+class TransitionToPlaceArc {}
+
+
+' Every element of the net is named
+NamedElement <|-- PetriNet
+NamedElement <|-- Place
+NamedElement <|-- Transition
+
+' A net owns its places, transitions and arcs
+PetriNet "1" *-- "*" Place : places >
+PetriNet "1" *-- "*" Transition : transitions >
+PetriNet "1" *-- "*" Arc : arcs >
+
+' Arcs are typed so the net stays bipartite:
+' places only connect to transitions and vice versa
+Arc <|-- PlaceToTransitionArc
+Arc <|-- TransitionToPlaceArc
+
+PlaceToTransitionArc "*" --> "1" Place : source
+PlaceToTransitionArc "*" --> "1" Transition : target
+
+TransitionToPlaceArc "*" --> "1" Transition : source
+TransitionToPlaceArc "*" --> "1" Place : target
+
+note bottom of Place
+  inv: tokens >= 0
+  inv: capacity.isDefined() implies tokens <= capacity
+end note
+
+note bottom of Arc
+  inv: weight >= 1
+end note
+
+@enduml

@@ -1,0 +1,67 @@
+@startuml EBike
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+class EBike {}
+
+class Frame {}
+
+class DriveSystem {}
+
+class Controller {}
+
+class BasicController {}
+
+class AdvancedController {}
+
+class Wheel {}
+
+class Motor {}
+
+class Battery {}
+
+enum ControllerState {
+    ON
+    OFF
+    CHARGING
+}
+
+
+' 1. The e-bike has a frame (made out of steel), a drive system, and a controller.
+EBike "1" *-- "1" Frame : frame >
+EBike "1" *-- "1" DriveSystem : driveSystem >
+EBike "1" *-- "1" Controller : controller >
+
+Frame : + material : String = "steel"
+
+' 2. Two wheels are inserted into each frame.
+Frame "1" *-- "2" Wheel : wheels >
+
+' 3. The drive system has a motor.
+DriveSystem "1" *-- "1" Motor : motor >
+
+' 4. Each e-bike can be connected to a removable battery.
+EBike "0..1" --> "0..1" Battery : connectedTo >
+
+' 5. The battery has a stored energy measured in Watt-hours.
+' storedEnergy is measured in Watt-hours
+Battery : + storedEnergy : float
+
+' 6. The controller can be either on, off, or charging. It also controls the battery, if one is connected, and commands the drive system.
+Controller : + state : ControllerState
+Controller "1" --> "0..1" Battery : controls >
+Controller "1" --> "1" DriveSystem : commands >
+
+note bottom of EBike
+  context EBike inv:
+    self.connectedTo->isEmpty() implies
+      self.controller.controls->isEmpty()
+end note
+
+' 7. The company plans two different controller variants: basic and advanced.
+Controller <|-- BasicController
+Controller <|-- AdvancedController
+
+' 8. The advanced controller should be able to estimate the next date the e-bike should be inspected for maintenance.
+AdvancedController : + estimateMaintenanceDate() : Date

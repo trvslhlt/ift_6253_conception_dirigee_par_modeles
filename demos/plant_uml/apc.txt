@@ -1,0 +1,99 @@
+@startuml APCPRoductionSystem
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+' ---- Production system (req. 1) ----
+
+class APCPRoductionSystem {}
+
+class ConveyorBelt {}
+
+class Operator {}
+
+' ---- Machines (req. 6, 7, 9) ----
+
+abstract class Machine {}
+
+class PartGenerator {}
+
+abstract class PartProcessor {}
+
+class APCAssembler {}
+
+class PartAssembler {}
+
+class QualityControlMachine {}
+
+class RepairMachine {}
+
+' ---- Products (req. 3, 6) ----
+
+class Product {
+    + isFinished : boolean = false
+}
+
+class Part {
+    + type : PartType
+}
+
+class APC {}
+
+enum PartType {
+    WHEEL
+    TRACK
+    BODY
+    MACHINE_GUN
+    WATER_CANNON
+}
+
+
+' ---- 1. A production system is a set of connected machines and conveyor belts ----
+APCPRoductionSystem "1" *-- "*" Machine : machines >
+APCPRoductionSystem "1" *-- "*" ConveyorBelt : conveyorBelts >
+
+' ---- 2. An operator can operate machines ----
+Operator "0..1" -- "*" Machine : operates >
+
+' ---- 3. A conveyor belt carries (unfinished) products ----
+ConveyorBelt "0..1" -- "*" Product : carries >
+
+note bottom of ConveyorBelt
+  inv: products->forAll(p | not p.isFinished)
+end note
+
+' ---- 4. Conveyor belts can be connected ----
+ConveyorBelt "*" -- "*" ConveyorBelt : connectedTo
+
+' ---- 5. Machines drop processed products on exactly one conveyor belt ----
+Machine "*" -- "1" ConveyorBelt : outputBelt >
+
+' ---- 6. A machine generates parts, processes parts, or assembles APCs ----
+Machine <|-- PartGenerator
+Machine <|-- PartProcessor
+Machine <|-- APCAssembler
+
+PartGenerator ..> Part : generates
+PartProcessor ..> Part : processes
+APCAssembler ..> APC : assembles
+
+Product <|-- Part
+Product <|-- APC
+APC "0..1" *-- "*" Part : parts >
+
+' ---- 7. A processing machine assembles, controls the quality of, or repairs parts ----
+PartProcessor <|-- PartAssembler
+PartProcessor <|-- QualityControlMachine
+PartProcessor <|-- RepairMachine
+
+' ---- 8. A processing machine takes products from exactly one conveyor belt ----
+PartProcessor "*" -- "1" ConveyorBelt : inputBelt >
+
+' ---- 9. A quality control machine puts products to rework on a different belt ----
+QualityControlMachine "*" -- "1" ConveyorBelt : reworkBelt >
+
+note bottom of QualityControlMachine
+  inv: reworkBelt <> outputBelt
+end note
+
+@enduml
