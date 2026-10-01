@@ -1,40 +1,49 @@
-mindmap ift6253 (tag STAR, tag QUESTION) {
-	- class (H) {
-		description: "MDE and related topics"
+mindmap music (tag STAR, tag QUESTION) {
+	- production (H) {
+		description: "create new apps, libraries, and recordings"
 	    view {
 			color: "#0000FF"
 		}
-		-> schedule <STAR> <QUESTION> (H) {
-			- sessions {
-				-> monday
-				-> wednesday
+		- software (H) {
+			- apps {
+				-> granular_synth {
+					* bruit_kit
+				}
+				-> grid_sequencer {
+					* bruit_kit
+				}
 			}
-			- due_dates {
-				* assignments
+			- libraries {
+				-> bruit_kit <STAR>
+			}
+		}
+		- releases {
+			- artist_personas (M) {
+				-> stories
+				-> techniques
+				-> aesthetics
+				-> sensibilities
+			}
+			- visual_art
+			- labels {
+				- similar_artists
 			}
 		}
 	}
-	- work (M) {
-		- assignments {
-			-> hw1
-			-> hw2
-			-> course_project
+	- consumption {
+		- channels {
+			- friends
+			- online_radio
+			- playlists
 		}
-		- readings (L) {
-			-> todo
-			-> done
-			- projects {
-				- main <STAR> {
-					-> find_partner {
-						- suggest_topic <QUESTION>
-						-> talk_to_someone
-					}
+		- new_music <STAR> <QUESTION> (L)
+		- old_music # {
+			-> my_music {
+				-> undergraduate
+				-> postgraduate {
+					-> korea
 				}
 			}
 		}
-		- homework {
-			* class
-		}
-		- tool_tutorials
 	}
 }
