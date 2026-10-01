@@ -1,0 +1,33 @@
+import 'platform:/resource/holt.travis.ift6253.mindmap/model/generated/MindMap.ecore'
+
+-- Replace the leading import with the following when applying to model in editor eclipse instance
+-- Copy this file to the editor project
+-- Open model file with sample reflective editor
+-- Add the constraint file to the tree root
+-- Run the validation in the OCL view (doesn't take from right-click menu)
+--import 'http://www.travis.holt/ift6253/MindMap'
+
+package mindMap
+
+context MindMap
+inv hasRoot('A mindmap needs at least one topic'):
+    self.roots->notEmpty()
+
+inv uniqueTopicNames('Topic names must be unique across the whole map'):
+    self.roots->closure(children)->isUnique(name)
+
+context Topic
+inv noSelfRelation('A topic cannot relate to itself'):
+    not self.related->includes(self)
+
+inv uniqueSiblingNames('Sibling topics must have distinct names'):
+    self.children->isUnique(name)
+
+inv doneChildrenDone('A done topic must have all children done'):
+    self.done implies self.children->forAll(c | c.done)
+
+context View
+inv validColor('Color must look like #RRGGBB'):
+    self.color <> null implies self.color.matches('#[0-9A-Fa-f]{6}')
+
+endpackage
