@@ -14,6 +14,8 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion
 
 class MindMapFormatter extends AbstractFormatter2 {
 
+	// (`dispatch`: resolved at runtime by arg type)
+	// (`extension`: syntatical sugar. `document.prepend(x, [...])` -> `x.prepend([...])`)
 	def dispatch void format(MindMap mindMap, extension IFormattableDocument document) {
 		val open = mindMap.regionFor.keyword("{")
 		val close = mindMap.regionFor.keyword("}")
@@ -63,24 +65,20 @@ class MindMapFormatter extends AbstractFormatter2 {
 		//// header 
 		// exactly one space between each header element
 		topic.regionFor.feature(MindMapPackage.Literals.TOPIC__NAME).prepend[oneSpace]
-
 		// tags
 		for (angleBracket : topic.regionFor.keywords("<")) {
 			angleBracket.prepend[oneSpace]
 		}
-
 		// priority
 		val priorityOpenParen = topic.regionFor.keyword("(")
 		if (priorityOpenParen !== null) {
 			priorityOpenParen.prepend[oneSpace]
 		}
-
 		// struck through
 		val struckThrough = topic.regionFor.keyword("#")
 		if (struckThrough !== null) {
 			struckThrough.prepend[oneSpace]
 		}
-
 		// opening brace
 		if (open !== null) {
 			open.prepend[oneSpace]
@@ -88,7 +86,6 @@ class MindMapFormatter extends AbstractFormatter2 {
 		
 		//// contents
 		indentBraces(open, close, document)
-		
 		// references: each "* related_topic" on its own line
 		for (asterisk : topic.regionFor.keywords("*")) {
 			asterisk.prepend[newLine]
@@ -96,9 +93,7 @@ class MindMapFormatter extends AbstractFormatter2 {
 		for (relatedRef : topic.regionFor.features(MindMapPackage.Literals.TOPIC__RELATED)) {
 			relatedRef.prepend[oneSpace]
 		}
-
 		topic.view.format
-
 		for (child : topic.children) {
 			child.prepend[newLine]
 			child.format
@@ -110,7 +105,6 @@ class MindMapFormatter extends AbstractFormatter2 {
 	}
 
 	private def void indentBraces(ISemanticRegion open, ISemanticRegion close, extension IFormattableDocument document) {
-		// `Topic` braces are optional
 		if (open === null || close === null) {
 			return
 		}

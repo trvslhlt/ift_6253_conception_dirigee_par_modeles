@@ -1,23 +1,28 @@
-// name the grammar and build on xtext lexing
+// (name the grammar and build on xtext lexing)
 grammar holt.travis.ift6253.MindMap with org.eclipse.xtext.common.Terminals
 
-// infer new ecore metamodel from this grammar
+// (infer new ecore metamodel from this grammar)
 generate mindMap "http://www.travis.holt/ift6253/MindMap"
 
 
-// entry rule
+// (entry rule)
 MindMap:
 	'mindmap' name=ID ('(' tags+=Tag (',' tags+=Tag)* ')')? '{'
 		roots+=Topic* // containment feature
 	'}'
 ;
 	
+// Topics can branch in 2 ways. The first is with children at the
+// same depth (semantic depth, not data structure depth). The 
+// second is with children at a deeper depth. This functionality
+// allows map builders to distinguish between chains of related ideas
+// and details or aspects of specific ideas.
 Topic:
-	(deeper?='->' | '-') // boolean assignment
+	(deeper?='->' | '-') // (boolean assignment)
 	name=ID
-	('<' tags+=[Tag] '>')*
-	('(' priority=Priority ')')?
-	done?='#'?
+	('<' tags+=[Tag] '>')* // (0 to many) (reference to `Tag` instances)
+	('(' priority=Priority ')')? // (0 or 1)
+	done?='#'? // (boolean check for presence)
 	('{'
 		('description' ':' description=STRING)?
 		('*' related+=[Topic])*
@@ -31,6 +36,8 @@ Tag:
 	('tag' | 'label') name=ID
 ;
 
+// Ideally 'view' data wouldn't live in the model. This was only added so
+// there is more material to experiment with in the validators 
 View:
 	// force object creation 
 	{View} 'view' '{'
