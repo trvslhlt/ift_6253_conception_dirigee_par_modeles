@@ -12,3 +12,17 @@ xtend-gen/
 
 # dev
 temp/
+# AToMPM: hw1/atompm/users is seeded from the image (stock formalisms, account
+# data incl. password hash), so keep only my own work: the MindMap formalism
+# and models. Reseed with `make seed` in hw1/atompm.
+hw1/atompm/users/*
+!hw1/atompm/users/travis/
+hw1/atompm/users/travis/*
+!hw1/atompm/users/travis/Formalisms/
+hw1/atompm/users/travis/Formalisms/*
+!hw1/atompm/users/travis/Formalisms/MindMap/
+!hw1/atompm/users/travis/Models/
+hw1/atompm/users/travis/Models/*
+!hw1/atompm/users/travis/Models/MindMap/
+# autosave backups
+hw1/atompm/users/**/.autosave*

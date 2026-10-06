@@ -1,0 +1,246 @@
+{
+	"types": {
+		"Tag": [
+			{
+				"name": "name",
+				"type": "string",
+				"default": "tag"
+			}
+		],
+		"MindMap": [
+			{
+				"name": "name",
+				"type": "string",
+				"default": "mindmap"
+			}
+		],
+		"Topic": [
+			{
+				"name": "name",
+				"type": "string",
+				"default": "topic"
+			},
+			{
+				"name": "isDeeper",
+				"type": "boolean",
+				"default": false
+			},
+			{
+				"name": "isDone",
+				"type": "boolean",
+				"default": false
+			},
+			{
+				"name": "priority",
+				"type": "string",
+				"default": "NONE"
+			},
+			{
+				"name": "description",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "color",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "level",
+				"type": "int",
+				"default": 0
+			},
+			{
+				"name": "effectivelyDone",
+				"type": "boolean",
+				"default": false
+			},
+			{
+				"name": "computed",
+				"type": "boolean",
+				"default": false
+			}
+		],
+		"roots": [],
+		"children": [],
+		"related": [],
+		"tagged": [],
+		"hasTag": []
+	},
+	"constraints": [],
+	"actions": [],
+	"cardinalities": {
+		"Tag": [
+			{
+				"dir": "in",
+				"type": "tagged",
+				"min": "0",
+				"max": "Infinity"
+			},
+			{
+				"dir": "in",
+				"type": "hasTag",
+				"min": "0",
+				"max": "Infinity"
+			}
+		],
+		"MindMap": [
+			{
+				"dir": "out",
+				"type": "roots",
+				"min": "0",
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "hasTag",
+				"min": "0",
+				"max": "Infinity"
+			}
+		],
+		"Topic": [
+			{
+				"dir": "in",
+				"type": "roots",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "children",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "children",
+				"min": "0",
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "related",
+				"min": "0",
+				"max": "Infinity"
+			},
+			{
+				"dir": "in",
+				"type": "related",
+				"min": "0",
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "tagged",
+				"min": "0",
+				"max": "Infinity"
+			}
+		],
+		"roots": [
+			{
+				"dir": "in",
+				"type": "MindMap",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "Topic",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"children": [
+			{
+				"dir": "in",
+				"type": "Topic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "Topic",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"related": [
+			{
+				"dir": "in",
+				"type": "Topic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "Topic",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"tagged": [
+			{
+				"dir": "in",
+				"type": "Topic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "Tag",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"hasTag": [
+			{
+				"dir": "in",
+				"type": "MindMap",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "Tag",
+				"min": "0",
+				"max": "1"
+			}
+		]
+	},
+	"legalConnections": {
+		"MindMap": {
+			"Topic": [
+				"roots"
+			],
+			"Tag": [
+				"hasTag"
+			]
+		},
+		"Topic": {
+			"Topic": [
+				"children",
+				"related"
+			],
+			"Tag": [
+				"tagged"
+			]
+		}
+	},
+	"connectorTypes": {
+		"roots": "visual",
+		"children": "visual",
+		"related": "visual",
+		"tagged": "visual",
+		"hasTag": "visual"
+	},
+	"types2parentTypes": {
+		"Tag": [],
+		"MindMap": [],
+		"Topic": [],
+		"roots": [],
+		"children": [],
+		"related": [],
+		"tagged": [],
+		"hasTag": []
+	}
+}
