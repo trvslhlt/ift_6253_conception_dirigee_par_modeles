@@ -1,0 +1,113 @@
+@startuml MOFBootstrapping
+
+' A simplified MOF (M3), expressed with its own constructs: it is a class diagram
+' made of Classes, Properties, Associations and generalizations, which are the
+' very concepts that MOF defines. That self-description is the bootstrapping.
+
+skinparam classAttributeIconSize 0
+
+' ---- M3: MOF (modeled after EMOF) ----
+
+package "M3 : MOF" {
+
+    abstract class Element {}
+
+    abstract class NamedElement {
+        + name : String
+    }
+
+    class Package {}
+
+    abstract class Type {}
+
+    class Class {
+        + isAbstract : Boolean
+    }
+
+    abstract class DataType {}
+
+    class PrimitiveType {}
+
+    class Enumeration {}
+
+    class EnumerationLiteral {}
+
+    abstract class TypedElement {}
+
+    class Property {
+        + isComposite : Boolean
+        + lower : Integer
+        + upper : UnlimitedNatural
+        + default : String
+    }
+
+    class Operation {}
+
+    class Parameter {}
+}
+
+Element <|-- NamedElement
+NamedElement <|-- Package
+NamedElement <|-- Type
+NamedElement <|-- TypedElement
+
+Type <|-- Class
+Type <|-- DataType
+DataType <|-- PrimitiveType
+DataType <|-- Enumeration
+
+TypedElement <|-- Property
+TypedElement <|-- Parameter
+
+NamedElement <|-- Operation
+NamedElement <|-- EnumerationLiteral
+
+' Packages contain types and nested packages.
+Package "1" *-- "*" Type : ownedType >
+Package "1" *-- "*" Package : nestedPackage >
+
+' A class owns its properties and operations, and may have superclasses.
+Class "1" *-- "*" Property : ownedAttribute >
+Class "1" *-- "*" Operation : ownedOperation >
+Class "*" --> "*" Class : superClass >
+
+' An operation owns its parameters.
+Operation "1" *-- "*" Parameter : ownedParameter >
+
+' An enumeration owns its literals.
+Enumeration "1" *-- "*" EnumerationLiteral : ownedLiteral >
+
+' Every typed element has a type.
+TypedElement "*" --> "0..1" Type : type >
+
+' Two properties can be the opposite ends of the same association.
+Property "0..1" -- "0..1" Property : opposite
+
+' ---- Bootstrapping: MOF is an instance of itself ----
+
+note right of Class
+  MOF::Class is itself an instance
+  of MOF::Class (M3 describes M3).
+end note
+
+' ---- The layers: each element is an instance of an element one level up ----
+
+package "Levels" {
+
+    class "Person (M1 : model)" as M1Person <<M1>> {}
+
+    class "UML::Class (M2 : metamodel)" as M2Class <<M2>> {}
+
+    class "MOF::Class (M3 : meta-metamodel)" as M3Class <<M3>> {}
+
+    class "alice : Person (M0 : runtime object)" as M0Alice <<M0>> {}
+}
+
+M0Alice ..> M1Person : <<instanceOf>>
+M1Person ..> M2Class : <<instanceOf>>
+M2Class ..> M3Class : <<instanceOf>>
+M3Class ..> M3Class : <<instanceOf>>
+
+M3Class .. Class : same concept
+
+@enduml

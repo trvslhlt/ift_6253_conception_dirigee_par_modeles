@@ -1,0 +1,47 @@
+@startuml APCProdSys
+
+class ProductionSystem {}
+
+class Operator {}
+
+class ConveyorBelt {}
+
+class Machine {}
+
+class Processor {}
+
+class Generator {}
+
+class QCProcessor {}
+
+class AssemblyProcessor {}
+
+class RepairProcessor {}
+
+enum PartType {
+    WHEEL
+    TRACK
+    BODY
+    MACHINE_GUN
+    WATER_CANNON
+}
+
+' inheritance
+Machine <|-- Processor
+Machine <|-- Generator
+
+Processor <|-- QCProcessor
+Processor <|-- AssemblyProcessor
+Processor <|-- RepairProcessor
+
+' relationships
+ProductionSystem "1" o-- "*" Operator : operates >
+ProductionSystem "1" *-- "*" Machine : machines >
+ProductionSystem "1" *-- "*" ConveyorBelt : conveyorBelts >
+Operator "0..1" -- "*" Machine : operates >
+ConveyorBelt "0..1" -- "*" Product : carries >
+
+' operations
+
+
+@enduml 

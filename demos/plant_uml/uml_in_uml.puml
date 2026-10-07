@@ -1,0 +1,56 @@
+@startuml UMLInUML
+
+' A (simplified) metamodel of UML class diagrams, expressed as a class diagram.
+
+skinparam classAttributeIconSize 0
+
+class Classifier {
+    + name : string
+}
+
+class Feature {
+    + name : string
+    + type : string
+}
+
+class Class {}
+
+class Association {
+    - srcMinCard : int
+    - srcMaxCard : string
+    - tgtMinCard : int
+    - tgtMaxCard : string
+}
+
+class Attribute {}
+
+' The slide calls this "Method"; strictly, UML calls the declaration an Operation.
+class Operation {
+    - params : string
+}
+
+' Addition to the slide: a Method is the implementation of an Operation.
+class Method {}
+
+' A classifier owns its features (composition, navigable toward Feature).
+Classifier "1" *--> "*" Feature : +features
+
+' Class and Association are kinds of Classifier.
+Classifier <|-- Class
+Classifier <|-- Association
+
+' Attribute and Operation are kinds of Feature.
+Feature <|-- Attribute
+Feature <|-- Operation
+
+' An operation can have several methods (e.g. one per overriding subclass).
+Method "*" --> "1" Operation : implements >
+
+' A class may have a superclass.
+Class "*" --> "0..1" Class : +super
+
+' An association links a source class to a target class.
+Association "*" --> "*" Class : +src
+Association "*" --> "*" Class : +tgt
+
+@enduml

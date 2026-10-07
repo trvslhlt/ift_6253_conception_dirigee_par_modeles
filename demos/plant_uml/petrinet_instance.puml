@@ -1,0 +1,97 @@
+@startuml PetriNetInstance
+
+' An instance (object diagram) of the PetriNet metamodel in pertrinet.txt:
+' a producer/consumer net with a bounded buffer.
+'
+'   (producerReady) -> [produce] -> (buffer) -2-> [consume] -> (consumerDone)
+'
+' The producer puts one token in the buffer (capacity 3).
+' The consumer takes 2 tokens at a time (arc weight 2).
+
+hide empty members
+
+object "pc : PetriNet" as pc {
+    name = "ProducerConsumer"
+}
+
+' ---- Places ----
+object "p1 : Place" as p1 {
+    name = "producerReady"
+    tokens = 1
+}
+
+object "p2 : Place" as p2 {
+    name = "buffer"
+    tokens = 0
+    capacity = 3
+}
+
+object "p3 : Place" as p3 {
+    name = "consumerDone"
+    tokens = 0
+}
+
+' ---- Transitions ----
+object "t1 : Transition" as t1 {
+    name = "produce"
+}
+
+object "t2 : Transition" as t2 {
+    name = "consume"
+}
+
+' ---- Arcs (place -> transition, then transition -> place) ----
+object "a1 : PlaceToTransitionArc" as a1 {
+    weight = 1
+}
+
+object "a2 : TransitionToPlaceArc" as a2 {
+    weight = 1
+}
+
+object "a3 : TransitionToPlaceArc" as a3 {
+    weight = 1
+}
+
+object "a4 : PlaceToTransitionArc" as a4 {
+    weight = 2
+}
+
+object "a5 : TransitionToPlaceArc" as a5 {
+    weight = 1
+}
+
+' ---- The net owns its places, transitions and arcs ----
+pc *-- p1 : places
+pc *-- p2 : places
+pc *-- p3 : places
+pc *-- t1 : transitions
+pc *-- t2 : transitions
+pc *-- a1 : arcs
+pc *-- a2 : arcs
+pc *-- a3 : arcs
+pc *-- a4 : arcs
+pc *-- a5 : arcs
+
+' ---- Arc ends ----
+' a1: producerReady -> produce
+a1 --> p1 : source
+a1 --> t1 : target
+
+' a2: produce -> producerReady (the producer becomes ready again)
+a2 --> t1 : source
+a2 --> p1 : target
+
+' a3: produce -> buffer
+a3 --> t1 : source
+a3 --> p2 : target
+
+' a4: buffer -> consume (takes 2 tokens at once)
+a4 --> p2 : source
+a4 --> t2 : target
+
+' a5: consume -> consumerDone
+a5 --> t2 : source
+a5 --> p3 : target
+
+@enduml

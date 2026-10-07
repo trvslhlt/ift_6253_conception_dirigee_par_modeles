@@ -1,0 +1,82 @@
+@startuml UMLPrimitives
+
+skinparam classAttributeIconSize 0
+
+' ---------------------------------------------------------------
+' Class, Attribute, Operation
+' A class is a box with three compartments: name, attributes, operations.
+' ---------------------------------------------------------------
+class Person {
+    + name : String
+    + employeeID : Integer
+    + title : String
+    --
+    + getPhoto(p : Photo) : Image
+    + getContactInformation() : ContactInformation
+}
+
+' ---------------------------------------------------------------
+' Composition (filled diamond): parts cannot outlive the whole.
+' Multiplicity: 1, 1..*, 0..1, *
+' ---------------------------------------------------------------
+class Company {
+    + name : String
+}
+
+class Department {
+    + name : String
+}
+
+Company "1" *-- "1..*" Department : has >
+
+' ---------------------------------------------------------------
+' Aggregation (hollow diamond): parts can exist independently.
+' ---------------------------------------------------------------
+class Project {
+    + title : String
+}
+
+Department "1" o-- "*" Project : runs >
+
+' ---------------------------------------------------------------
+' Association with multiplicities and role names.
+' ---------------------------------------------------------------
+Department "0..1" -- "1..*" Person : member >
+
+' ---------------------------------------------------------------
+' Generalization (hollow triangle): Manager is a Person.
+' ---------------------------------------------------------------
+class Manager {
+    + bonus : Integer
+}
+
+Person <|-- Manager
+
+' ---------------------------------------------------------------
+' Association class: attributes that belong to the relationship
+' between Person and Project, not to either class alone.
+' ---------------------------------------------------------------
+class Assignment {
+    + role : String
+    + hoursPerWeek : Integer
+}
+
+Person "*" -- "*" Project : works on >
+(Person, Project) .. Assignment
+
+' ---------------------------------------------------------------
+' Stereotype: «interface», «enumeration», or a custom «entity».
+' ---------------------------------------------------------------
+interface ISecureInformation <<interface>> {
+    + getTaxID() : String
+}
+
+class PersonnelRecord <<entity>> {
+    - taxID : String
+    - salary : Float
+}
+
+PersonnelRecord ..|> ISecureInformation : realizes
+Person ..> PersonnelRecord : uses
+
+@enduml
