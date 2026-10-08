@@ -1,0 +1,57 @@
+@startuml Survey
+hide empty members
+
+
+class Survey {
+    + id: String
+    + title: String
+}
+abstract class Question {
+    + id: String
+}
+class NumberQuestion {}
+class OptionQuestion {}
+class MultiOptionQuestion {}
+class OpenQuestion {}
+class Query {
+    + text: String
+}
+class Range {
+    + min: int
+    + max: int
+}
+class ValueOption {
+    + value: String
+}
+class KeyedOption {
+    + value: String
+    + key: String
+}
+class Condition {}
+
+Question <|-- NumberQuestion
+Question <|-- OptionQuestion
+Question <|-- MultiOptionQuestion
+Question <|-- OpenQuestion
+' response / answer classes are not modeled here
+
+Survey "1" *-- "*" Question : questions
+Survey "1" *-- "*" Condition : conditions
+Question "*" --> "1" Query : query
+NumberQuestion "1" *-- "1" Range : range
+OptionQuestion "1" *-- "2..*" KeyedOption : options
+MultiOptionQuestion "1" *-- "2..*" ValueOption : options
+Condition "*" --> "1" OptionQuestion : inputQuestion
+Condition "*" --> "1" KeyedOption : inputOption
+Condition "*" --> "1" OptionQuestion : Question
+
+' more constraints needed
+note bottom of Range
+  inv: range.min < range.max
+end note
+
+note bottom of Condition
+  inv: inputQuestion.options->includes(inputOption)
+end note
+
+@enduml
