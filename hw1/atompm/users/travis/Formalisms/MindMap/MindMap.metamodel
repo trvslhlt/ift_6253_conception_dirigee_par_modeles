@@ -32,7 +32,7 @@
 			},
 			{
 				"name": "priority",
-				"type": "string",
+				"type": "ENUM(NONE,HIGH,MEDIUM,LOW)",
 				"default": "NONE"
 			},
 			{
@@ -67,7 +67,56 @@
 		"tagged": [],
 		"hasTag": []
 	},
-	"constraints": [],
+	"constraints": [
+		{
+			"name": "exactly-one-mindmap",
+			"event": "",
+			"targetType": "*",
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/MindMap']).length == 1"
+		},
+		{
+			"name": "unique-topic-names",
+			"event": "",
+			"targetType": "*",
+			"code": "var names = getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+		},
+		{
+			"name": "unique-tag-names",
+			"event": "",
+			"targetType": "*",
+			"code": "var names = getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+		},
+		{
+			"name": "valid-topic-colors",
+			"event": "",
+			"targetType": "*",
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar color = getAttr('color', t);\n\treturn color == '' || /^#[0-9a-fA-F]{6}$/.test(color);\n})"
+		},
+		{
+			"name": "no-deeper-at-root",
+			"event": "",
+			"targetType": "*",
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t).length == 0 || !getAttr('isDeeper', t);\n})"
+		},
+		{
+			"name": "no-self-relation",
+			"event": "",
+			"targetType": "*",
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/related']).every(function(l) {\n\treturn getNeighbors('in', '*', l)[0] != getNeighbors('out', '*', l)[0];\n})"
+		},
+		{
+			"name": "topics-form-a-tree",
+			"event": "",
+			"targetType": "*",
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar seen = {};\n\twhile (!seen[t]) {\n\t\tseen[t] = true;\n\t\tvar rootLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t),\n\t\t\t childLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/children', t);\n\t\tif (rootLinks.length + childLinks.length != 1) return false;\n\t\tif (rootLinks.length == 1) return true;\n\t\tt = getNeighbors('in', '*', childLinks[0])[0];\n\t}\n\treturn false;\n})"
+		},
+		{
+			"name": "tags-belong-to-the-map",
+			"event": "",
+			"targetType": "*",
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/hasTag', t).length == 1;\n})"
+		}
+	],
 	"actions": [],
 	"cardinalities": {
 		"Tag": [
@@ -241,6 +290,14 @@
 		"children": [],
 		"related": [],
 		"tagged": [],
-		"hasTag": []
+		"hasTag": [],
+		"exactly-one-mindmap": [],
+		"unique-topic-names": [],
+		"unique-tag-names": [],
+		"valid-topic-colors": [],
+		"no-deeper-at-root": [],
+		"no-self-relation": [],
+		"topics-form-a-tree": [],
+		"tags-belong-to-the-map": []
 	}
 }

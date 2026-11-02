@@ -26,3 +26,5 @@ hw1/atompm/users/travis/Models/*
 !hw1/atompm/users/travis/Models/MindMap/
 # autosave backups
 hw1/atompm/users/**/.autosave*
+# AToMPM tooling
+hw1/atompm/tools/node_modules/

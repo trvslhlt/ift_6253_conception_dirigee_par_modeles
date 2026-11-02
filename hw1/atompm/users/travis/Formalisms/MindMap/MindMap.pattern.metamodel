@@ -232,7 +232,56 @@
 			}
 		]
 	},
-	"constraints": [],
+	"constraints": [
+		{
+			"name": "exactly-one-mindmap",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/MindMap']).length == 1"
+		},
+		{
+			"name": "unique-topic-names",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\nvar names = getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+		},
+		{
+			"name": "unique-tag-names",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\nvar names = getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+		},
+		{
+			"name": "valid-topic-colors",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar color = getAttr('color', t);\n\treturn color == '' || /^#[0-9a-fA-F]{6}$/.test(color);\n})"
+		},
+		{
+			"name": "no-deeper-at-root",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t).length == 0 || !getAttr('isDeeper', t);\n})"
+		},
+		{
+			"name": "no-self-relation",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/related']).every(function(l) {\n\treturn getNeighbors('in', '*', l)[0] != getNeighbors('out', '*', l)[0];\n})"
+		},
+		{
+			"name": "topics-form-a-tree",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar seen = {};\n\twhile (!seen[t]) {\n\t\tseen[t] = true;\n\t\tvar rootLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t),\n\t\t\t childLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/children', t);\n\t\tif (rootLinks.length + childLinks.length != 1) return false;\n\t\tif (rootLinks.length == 1) return true;\n\t\tt = getNeighbors('in', '*', childLinks[0])[0];\n\t}\n\treturn false;\n})"
+		},
+		{
+			"name": "tags-belong-to-the-map",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Tag']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/hasTag', t).length == 1;\n})"
+		}
+	],
 	"actions": [
 		{
 			"name": "distinctPLabels",
@@ -413,6 +462,14 @@
 		"__pchildren": [],
 		"__prelated": [],
 		"__ptagged": [],
-		"__phasTag": []
+		"__phasTag": [],
+		"__pexactly-one-mindmap": [],
+		"__punique-topic-names": [],
+		"__punique-tag-names": [],
+		"__pvalid-topic-colors": [],
+		"__pno-deeper-at-root": [],
+		"__pno-self-relation": [],
+		"__ptopics-form-a-tree": [],
+		"__ptags-belong-to-the-map": []
 	}
 }

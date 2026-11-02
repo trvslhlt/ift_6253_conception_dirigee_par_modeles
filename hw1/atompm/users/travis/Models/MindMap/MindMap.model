@@ -885,7 +885,7 @@
 							"99": {
 								"textContent": {
 									"type": "string",
-									"value": "+ name : string = topic\n+ isDeeper : boolean\n+ isDone : boolean\n+ priority : string = NONE\n+ description : string\n+ color : string\n+ level : int\n+ effectivelyDone : boolean\n+ computed : boolean"
+									"value": "+ name : string = topic\n+ isDeeper : boolean\n+ isDone : boolean\n+ priority : ENUM(NONE,HIGH,MEDIUM,LOW) = NONE\n+ description : string\n+ color : string\n+ level : int\n+ effectivelyDone : boolean\n+ computed : boolean"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -2473,6 +2473,734 @@
 					}
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
+			},
+			"19": {
+				"typename": {
+					"type": "string",
+					"value": "GlobalConstraintIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1000,
+						60
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": ""
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"11": {
+								"textContent": {
+									"type": "string",
+									"value": "check exactly-one-mindmap on validate"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ff70",
+										"stroke-dasharray": "",
+										"fill": "#00ff70",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 1,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										-1
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/19.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
+			},
+			"20": {
+				"typename": {
+					"type": "string",
+					"value": "GlobalConstraintIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1000,
+						170
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": ""
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"11": {
+								"textContent": {
+									"type": "string",
+									"value": "check unique-topic-names on validate"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ff70",
+										"stroke-dasharray": "",
+										"fill": "#00ff70",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 1,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										-1
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/20.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
+			},
+			"21": {
+				"typename": {
+					"type": "string",
+					"value": "GlobalConstraintIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1000,
+						280
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": ""
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"11": {
+								"textContent": {
+									"type": "string",
+									"value": "check unique-tag-names on validate"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ff70",
+										"stroke-dasharray": "",
+										"fill": "#00ff70",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 1,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										-1
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/21.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
+			},
+			"22": {
+				"typename": {
+					"type": "string",
+					"value": "GlobalConstraintIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1000,
+						390
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": ""
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"11": {
+								"textContent": {
+									"type": "string",
+									"value": "check valid-topic-colors on validate"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ff70",
+										"stroke-dasharray": "",
+										"fill": "#00ff70",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 1,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										-1
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/22.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
+			},
+			"23": {
+				"typename": {
+					"type": "string",
+					"value": "GlobalConstraintIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1000,
+						500
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": ""
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"11": {
+								"textContent": {
+									"type": "string",
+									"value": "check no-deeper-at-root on validate"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ff70",
+										"stroke-dasharray": "",
+										"fill": "#00ff70",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 1,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										-1
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/23.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
+			},
+			"24": {
+				"typename": {
+					"type": "string",
+					"value": "GlobalConstraintIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1000,
+						610
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": ""
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"11": {
+								"textContent": {
+									"type": "string",
+									"value": "check no-self-relation on validate"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ff70",
+										"stroke-dasharray": "",
+										"fill": "#00ff70",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 1,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										-1
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/24.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
+			},
+			"25": {
+				"typename": {
+					"type": "string",
+					"value": "GlobalConstraintIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1000,
+						720
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": ""
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"11": {
+								"textContent": {
+									"type": "string",
+									"value": "check topics-form-a-tree on validate"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ff70",
+										"stroke-dasharray": "",
+										"fill": "#00ff70",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 1,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										-1
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/25.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
+			},
+			"26": {
+				"typename": {
+					"type": "string",
+					"value": "GlobalConstraintIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1000,
+						830
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": ""
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"11": {
+								"textContent": {
+									"type": "string",
+									"value": "check tags-belong-to-the-map on validate"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ff70",
+										"stroke-dasharray": "",
+										"fill": "#00ff70",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 1,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										-1
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/26.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
 			}
 		},
 		"edges": [],
@@ -2573,7 +3301,7 @@
 						},
 						{
 							"name": "priority",
-							"type": "string",
+							"type": "ENUM(NONE,HIGH,MEDIUM,LOW)",
 							"default": "NONE"
 						},
 						{
@@ -2768,6 +3496,126 @@
 					"value": "visual"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
+			},
+			"19": {
+				"name": {
+					"type": "string",
+					"value": "exactly-one-mindmap"
+				},
+				"event": {
+					"type": "$EVENT",
+					"value": ""
+				},
+				"code": {
+					"type": "code",
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/MindMap']).length == 1"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
+			},
+			"20": {
+				"name": {
+					"type": "string",
+					"value": "unique-topic-names"
+				},
+				"event": {
+					"type": "$EVENT",
+					"value": ""
+				},
+				"code": {
+					"type": "code",
+					"value": "var names = getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
+			},
+			"21": {
+				"name": {
+					"type": "string",
+					"value": "unique-tag-names"
+				},
+				"event": {
+					"type": "$EVENT",
+					"value": ""
+				},
+				"code": {
+					"type": "code",
+					"value": "var names = getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
+			},
+			"22": {
+				"name": {
+					"type": "string",
+					"value": "valid-topic-colors"
+				},
+				"event": {
+					"type": "$EVENT",
+					"value": ""
+				},
+				"code": {
+					"type": "code",
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar color = getAttr('color', t);\n\treturn color == '' || /^#[0-9a-fA-F]{6}$/.test(color);\n})"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
+			},
+			"23": {
+				"name": {
+					"type": "string",
+					"value": "no-deeper-at-root"
+				},
+				"event": {
+					"type": "$EVENT",
+					"value": ""
+				},
+				"code": {
+					"type": "code",
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t).length == 0 || !getAttr('isDeeper', t);\n})"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
+			},
+			"24": {
+				"name": {
+					"type": "string",
+					"value": "no-self-relation"
+				},
+				"event": {
+					"type": "$EVENT",
+					"value": ""
+				},
+				"code": {
+					"type": "code",
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/related']).every(function(l) {\n\treturn getNeighbors('in', '*', l)[0] != getNeighbors('out', '*', l)[0];\n})"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
+			},
+			"25": {
+				"name": {
+					"type": "string",
+					"value": "topics-form-a-tree"
+				},
+				"event": {
+					"type": "$EVENT",
+					"value": ""
+				},
+				"code": {
+					"type": "code",
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar seen = {};\n\twhile (!seen[t]) {\n\t\tseen[t] = true;\n\t\tvar rootLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t),\n\t\t\t childLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/children', t);\n\t\tif (rootLinks.length + childLinks.length != 1) return false;\n\t\tif (rootLinks.length == 1) return true;\n\t\tt = getNeighbors('in', '*', childLinks[0])[0];\n\t}\n\treturn false;\n})"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
+			},
+			"26": {
+				"name": {
+					"type": "string",
+					"value": "tags-belong-to-the-map"
+				},
+				"event": {
+					"type": "$EVENT",
+					"value": ""
+				},
+				"code": {
+					"type": "code",
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/hasTag', t).length == 1;\n})"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
 			}
 		},
 		"edges": [
