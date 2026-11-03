@@ -19,55 +19,56 @@ import ift6253.mindmap.mindmap.MindMapPackage;
 import ift6253.mindmap.mindmap.SubTopic;
 import ift6253.mindmap.mindmap.Topic;
 
-/**
- * The tree shape of a mind map (one CentralTopic, MainTopics under it,
- * SubTopics below) is already guaranteed by the metamodel's containments and
- * the grammar. These checks cover what the metamodel cannot express.
- *
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
- */
+
+// These checks cover what the metamodel can't express.
 public class MindMapValidator extends AbstractMindMapValidator {
 
 	public static final String DUPLICATE_MARKER = "duplicateMarker";
 	public static final String DUPLICATE_TOPIC = "duplicateTopic";
 	public static final String UNUSED_MARKER = "unusedMarker";
 
-	/** Topics refer to markers by symbol, so two markers cannot share one. */
+	// Error if marker symbols are not unique.
 	@Check
 	public void checkMarkerSymbolsUnique(MindMap map) {
 		Set<String> seen = new HashSet<>();
 		for (Marker marker : map.getMarkers()) {
 			if (!seen.add(marker.getSymbol())) {
-				error("Marker " + marker.getSymbol() + " is already defined", marker,
-						MindMapPackage.Literals.MARKER__SYMBOL, DUPLICATE_MARKER);
+				error("Marker '" + marker.getSymbol() + "' is already defined",
+						marker,
+						MindMapPackage.Literals.MARKER__SYMBOL, 
+						DUPLICATE_MARKER);
 			}
 		}
 	}
 
-	/** Two branches of the same topic with the same text say the same thing. */
+	// Warn if sibling topics are not unique.
 	@Check
 	public void checkSiblingNamesUnique(Topic topic) {
 		EList<? extends Topic> children = children(topic);
 		Set<String> seen = new HashSet<>();
 		for (Topic child : children) {
 			if (!seen.add(child.getName())) {
-				warning("'" + topic.getName() + "' already has a branch named '" + child.getName() + "'", child,
-						MindMapPackage.Literals.TOPIC__NAME, DUPLICATE_TOPIC);
+				warning("'" + topic.getName() + "' already has a child named '" + child.getName() + "'",
+						child,
+						MindMapPackage.Literals.TOPIC__NAME,
+						DUPLICATE_TOPIC);
 			}
 		}
 	}
 
+	// Warn about unused markers. 
 	@Check
 	public void checkMarkerUsed(Marker marker) {
 		EObject root = EcoreUtil2.getRootContainer(marker);
 		boolean used = EcoreUtil2.getAllContentsOfType(root, Topic.class).stream()
 				.anyMatch(t -> t.getMarker() == marker);
 		if (!used) {
-			warning("Marker " + marker.getSymbol() + " is not used by any topic", marker,
+			warning("Marker '" + marker.getSymbol() + "' is not used by any topic", marker,
 					MindMapPackage.Literals.MARKER__SYMBOL, UNUSED_MARKER);
 		}
 	}
 
+	// Helper method for getting topic children.
 	private static EList<? extends Topic> children(Topic topic) {
 		if (topic instanceof CentralTopic central) return central.getMaintopics();
 		if (topic instanceof MainTopic main) return main.getSubtopics();

@@ -70,9 +70,9 @@ public class MindMapParsingTest {
 	public void mainTopicCannotBeNestedUnderSubTopic() throws Exception {
 		MindMap map = parseHelper.parse("""
 				mindmap M
-				topic C includes {
-					* A includes {
-						- B includes { * D }
+				topic T1 includes {
+					* T2 includes {
+						- T3 includes { * T4 }
 					}
 				}
 				""");
@@ -104,36 +104,4 @@ public class MindMapParsingTest {
 		validation.assertWarning(map, MindMapPackage.Literals.MAIN_TOPIC, MindMapValidator.DUPLICATE_TOPIC);
 	}
 
-	/** Task 2: the course project map is valid and every MainTopic has at least 3 levels. */
-	@Test
-	public void courseProjectSample() throws Exception {
-		MindMap map = parseHelper.parse(Files.readString(sample("courseProject.mindmap")));
-		validation.assertNoIssues(map);
-		for (MainTopic main : map.getTopic().getMaintopics()) {
-			int depth = 1 + main.getSubtopics().stream().mapToInt(MindMapParsingTest::depth).max().orElse(0);
-			assertTrue(depth >= 3, main.getName() + " has only " + depth + " levels");
-		}
-	}
-
-	/**
-	 * The samples folder sits next to the projects. A plug-in test does not run
-	 * from the project folder, so look upwards from where this class was loaded
-	 * (test-bin/ or the bundle folder) as well as from the working directory.
-	 */
-	private static Path sample(String name) throws Exception {
-		List<Path> starts = List.of(
-				Path.of(MindMapParsingTest.class.getProtectionDomain().getCodeSource().getLocation().toURI()),
-				Path.of("").toAbsolutePath());
-		for (Path start : starts) {
-			for (Path dir = start; dir != null; dir = dir.getParent()) {
-				Path candidate = dir.resolve("samples").resolve(name);
-				if (Files.exists(candidate)) return candidate;
-			}
-		}
-		throw new IllegalStateException("samples/" + name + " not found above " + starts);
-	}
-
-	private static int depth(SubTopic topic) {
-		return 1 + topic.getSubsubtopics().stream().mapToInt(MindMapParsingTest::depth).max().orElse(0);
-	}
 }

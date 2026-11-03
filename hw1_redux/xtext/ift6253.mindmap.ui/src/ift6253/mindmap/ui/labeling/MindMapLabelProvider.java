@@ -16,9 +16,7 @@ import ift6253.mindmap.mindmap.Topic;
 
 /**
  * Outline labels name each element's metaclass, so the outline shows the
- * metamodel's levels (Central Topic, Main Topic, Sub Topic) and markers.
- *
- * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#label-provider
+ * metamodel topic levels and markers.
  */
 public class MindMapLabelProvider extends DefaultEObjectLabelProvider {
 

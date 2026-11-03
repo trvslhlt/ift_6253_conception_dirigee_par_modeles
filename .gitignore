@@ -41,6 +41,7 @@ hw2/atompm/users/travis/Models/*
 !hw2/atompm/users/travis/Models/MindMap/
 hw2/atompm/users/**/.autosave*
 hw2/atompm/tools/node_modules/
+hw2/atompm/tools/out/
 
 hw2/atompm_guide.md
 

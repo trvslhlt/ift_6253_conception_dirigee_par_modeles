@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>IFT 6253 - Devoir 2</title>
+<style>
+	body { font-family: sans-serif; max-width: 960px; margin: 2em auto; padding: 0 16px; line-height: 1.45; }
+	pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+	img { max-width: 100%; border: 1px solid #ddd; }
+	table { border-collapse: collapse; }
+	td, th { border: 1px solid #ccc; padding: 4px 8px; text-align: left; vertical-align: top; }
+	.todo { background: #fff3cd; }
+</style>
+</head>
+<body>
+
+<h1>IFT 6253 - Devoir maison 2: mind map model transformations</h1>
+<p>
+	<b>Name:</b> Travis Holt<br>
+	<b>Matricule (last 4 digits):</b> <span class="todo">XXXX</span><br>
+	<b>Email:</b> travis.holt@umontreal.ca<br>
+	<b>Time spent:</b> <span class="todo">XX h</span>
+</p>
+
+<h2>Assumptions</h2>
+<ul>
+	<li>The mind map metamodel is the one of HW1, which is the assignment's metamodel unchanged: a <code>MindMap</code>
+		owns its <code>Marker</code>s (each with a <code>symbol</code>) and one <code>CentralTopic</code>; a topic's
+		marker is a reference to one of those markers. In AToMPM the references are the links <code>markers</code>
+		(map to marker) and <code>marker</code> (topic to marker). No attribute was added for the transformation.</li>
+	<li>Marker symbols are integers, as in the Xtext grammar (<code>Symbol: INT</code>).</li>
+	<li>"Every topic" includes the central topic. It has no siblings, so it simply gets a marker.</li>
+	<li>The assignment does not say which marker an unmarked topic gets, only that it differs from its siblings'.
+		The transformation reuses an existing marker when one is free among the siblings, and creates the next
+		number otherwise.</li>
+	<li>When siblings share a marker, the one whose name comes first alphabetically keeps it, so the result does
+		not depend on the order in which AToMPM finds matches.</li>
+</ul>
+
+<h2>Task 1: marker assignment with MoTif in AToMPM</h2>
+
+<p>All files are under <a href="atompm/users/travis/">atompm/users/travis/</a>: the formalism in
+<code>Formalisms/MindMap/</code>, the rules, schedule and sample models in <code>Models/MindMap/</code>.
+The rules and the schedule were built through AToMPM's own client by
+<a href="atompm/tools/build_transformation.mjs">build_transformation.mjs</a>, which documents each rule.</p>
+
+<h3>Rules</h3>
+<p>Labels: the parent is <code>0</code>, topics are <code>1</code> and <code>2</code>, markers are drawn as green
+circles (pattern icons do not run their mappers, so every circle shows the default "1"; the purple number is
+the label). There is one rule per parent-child association, because <code>topic</code>,
+<code>maintopics</code>, <code>subtopics</code> and <code>subsubtopics</code> are four distinct associations;
+the suffix names the child (<code>Central</code>, <code>Main</code>, <code>Sub</code>, <code>SubSub</code>).</p>
+<table>
+	<tr><th>Rule</th><th>Matches</th><th>Does</th></tr>
+	<tr><td>CreateFirstMarker</td><td>the map, with no marker (NAC)</td><td>creates marker 1</td></tr>
+	<tr><td>Dedup{Main, Sub, SubSub}</td><td>a parent with two children linked to the same marker; condition
+		<code>name(1) &lt;= name(2)</code></td><td>deletes the marker link of (2)</td></tr>
+	<tr><td>Assign{Central, Main, Sub, SubSub}</td><td>a parent, a child, a marker; NAC: the child already has a
+		marker; NAC: a sibling has that marker</td><td>links the child to the marker</td></tr>
+	<tr><td>HasUnmarkedTopic (query)</td><td>any <code>Topic</code> (subtypes matched) without a marker (NAC)</td>
+		<td>nothing</td></tr>
+	<tr><td>CreateMarker</td><td>the map and its largest marker: NAC on a marker with a greater symbol</td>
+		<td>creates a marker whose symbol is the largest + 1</td></tr>
+</table>
+
+<h4>CreateFirstMarker</h4>
+<img src="images/R_CreateFirstMarker.png" alt="Rule CreateFirstMarker">
+<h4>DedupMain, DedupSub, DedupSubSub</h4>
+<img src="images/R_DedupMain.png" alt="Rule DedupMain">
+<img src="images/R_DedupSub.png" alt="Rule DedupSub">
+<img src="images/R_DedupSubSub.png" alt="Rule DedupSubSub">
+<h4>AssignCentral, AssignMain, AssignSub, AssignSubSub</h4>
+<img src="images/R_AssignCentral.png" alt="Rule AssignCentral">
+<img src="images/R_AssignMain.png" alt="Rule AssignMain">
+<img src="images/R_AssignSub.png" alt="Rule AssignSub">
+<img src="images/R_AssignSubSub.png" alt="Rule AssignSubSub">
+<h4>HasUnmarkedTopic, CreateMarker</h4>
+<img src="images/R_HasUnmarkedTopic.png" alt="Query HasUnmarkedTopic">
+<img src="images/R_CreateMarker.png" alt="Rule CreateMarker">
+
+<h3>Schedule</h3>
+<p><a href="atompm/users/travis/Models/MindMap/T_AssignMarkers.model">T_AssignMarkers.model</a>, read row by row:
+<code>CreateFirstMarker</code>, the Dedup rules, the Assign rules, then <code>HasUnmarkedTopic</code> and
+<code>CreateMarker</code>. Every rule block loops on itself while it applies (success) and goes to the next block when it fails.
+After the Assign rules, if a topic is still unmarked, every marker is already used by one of its siblings:
+<code>CreateMarker</code> adds one and control goes back to <code>AssignCentral</code>. When no topic is
+unmarked, the transformation ends in success.</p>
+<img src="images/T_AssignMarkers.png" alt="Schedule T_AssignMarkers">
+
+<p>The "unmarked topic" test is a separate query instead of a second NAC of <code>CreateMarker</code> because of a
+bug in AToMPM's matcher (<code>mt/ptcal/pytcore/tcore/matcher.py</code>): when a rule has several NACs, the loop
+that checks them reuses the variable holding the LHS match, so after a NAC whose structure matched but whose
+condition was false, the following NACs are bound to the wrong elements and the rule never applies. No rule
+combines a NAC that has a condition with another NAC.</p>
+
+<h3>Sample models</h3>
+<p>The inputs are drawn from text files in the syntax of the HW1 Xtext editor
+(<a href="atompm/samples/research.mindmap">research.mindmap</a>,
+<a href="atompm/samples/courseProject.mindmap">courseProject.mindmap</a>).</p>
+
+<h4>The assignment's example</h4>
+<p>Input <a href="atompm/users/travis/Models/MindMap/research_in.model">research_in.model</a> and output
+<a href="atompm/users/travis/Models/MindMap/research_out.model">research_out.model</a>. As in the assignment's
+figure, <i>Implement</i> gets 3, a new marker, since 1 and 2 are taken by its siblings; the central topic and
+<i>SearchInDatabases</i> get 1, and every preassigned marker is kept.</p>
+<img src="images/research_in.png" alt="research input">
+<img src="images/research_out.png" alt="research output">
+
+<h4>The course project map</h4>
+<p>Input <a href="atompm/users/travis/Models/MindMap/courseProject_in.model">courseProject_in.model</a> is the HW1
+course project map with conflicts added: <i>Plain</i>, <i>Notes</i> and <i>Models</i> (children of
+<i>Conditions</i>) all have 1, <i>FullAccess</i> and <i>NoOracle</i> both have 2, and <i>RootCauses</i> has 4,
+which no sibling has. In the output
+<a href="atompm/users/travis/Models/MindMap/courseProject_out.model">courseProject_out.model</a>, <i>Models</i>
+keeps 1 and <i>Plain</i>, <i>Notes</i> get 2 and 3; <i>FullAccess</i> keeps 2 and <i>NoOracle</i> gets 1;
+<i>RootCauses</i> keeps 4. <i>Conditions</i> has six children, so markers 5 and 6 were created.</p>
+<img src="images/courseProject_in.png" alt="course project input">
+<img src="images/courseProject_out.png" alt="course project output">
+
+<p>Two things in the output pictures were done after the transformation, by
+<a href="atompm/tools/run_transformation.mjs">run_transformation.mjs</a>, and change only the concrete syntax: the
+created markers were moved into the marker row (AToMPM places a created node between its neighbours), and the
+numbers in front of topic names were redrawn. Those numbers come from an icon mapper that follows the topic's
+marker link, and AToMPM reruns a mapper only when an attribute of that element changes; the rules change links
+only.</p>
+
+<h3>1.1 Characterization</h3>
+<table>
+	<tr><th>Property</th><th>This transformation</th></tr>
+	<tr><td>Intent</td><td>Model refinement / completion: it adds the markers that are missing and repairs the ones
+		that violate uniqueness, so that the next transformation (to LaTeX) can order topics.</td></tr>
+	<tr><td>In-place / out-place</td><td>In-place: the rules rewrite the input model; nothing is copied.</td></tr>
+	<tr><td>Endogenous / exogenous</td><td>Endogenous: input and output conform to the same MindMap metamodel.</td></tr>
+	<tr><td>Horizontal / vertical</td><td>Horizontal: the output is at the same level of abstraction as the input.</td></tr>
+	<tr><td>Syntactic / semantic</td><td>Syntactic: the rules look only at the structure (who is whose sibling,
+		which marker each topic links to) and at the symbols as numbers, never at what the topics mean.</td></tr>
+</table>
+
+<h3>1.2 Why it meets the requirements, and how to verify it</h3>
+<p><b>Termination.</b> Each Dedup application deletes one marker link, and nothing creates a shared marker
+afterwards. Each Assign application links one unmarked topic, and nothing unlinks it afterwards. CreateMarker
+runs only when a topic is still unmarked, and creates a marker no topic uses, so the Assign that follows marks
+at least one topic. The number of unmarked topics therefore decreases on each pass through the loop.</p>
+<p><b>Requirement 1 (every topic has a marker).</b> The schedule only reaches <i>EndSuccess</i> when
+<code>HasUnmarkedTopic</code> fails, that is, when no topic of any type lacks a marker link. The map always has
+a marker for Assign to use: <code>CreateFirstMarker</code> runs first.</p>
+<p><b>Requirements 2 and 3 (siblings have different markers).</b> After the three Dedup rules fail, no two
+children of the same parent share a marker: that is exactly their LHS. From then on markers are only added by
+Assign, whose NAC_taken forbids a marker that a sibling has, and no rule after Dedup removes or changes a link.
+Markers themselves stay distinct: the only new ones are 1 (when there is none) and the largest + 1.</p>
+<p><b>Bonus 1 (preassigned markers are kept).</b> Only Dedup removes a marker link, only from a topic that
+shares its marker with a sibling, and its condition keeps exactly one holder: the first by name. Assign never
+touches a topic that already has a marker (NAC_marked).</p>
+
+<p><b>Verification.</b> I implemented the check rather than only describing it.
+<a href="atompm/tools/markers.mjs">markers.mjs</a> reads the saved input and output models and checks that the
+topics and their parents are unchanged, that every topic has exactly one marker, that siblings have different
+markers, that marker symbols are unique, and that for each marker held by siblings in the input, exactly one of
+them still holds it. <a href="atompm/tools/run_transformation.mjs">run_transformation.mjs</a> applies it to both
+samples, validates the output against the formalism's constraints, and runs the transformation a second time on
+the output to check that it changes nothing. <a href="atompm/tools/test_transformation.mjs">test_transformation.mjs</a>
+runs six small cases with expected results:</p>
+<table>
+	<tr><th>Input</th><th>Expected</th></tr>
+	<tr><td>No markers at all</td><td>Marker 1 is created, then others as needed</td></tr>
+	<tr><td>The assignment's example</td><td><i>Implement</i> gets 3</td></tr>
+	<tr><td>Three siblings with 2</td><td>The first by name keeps 2, the others get different markers</td></tr>
+	<tr><td>Siblings with 5 and none</td><td>5 is kept, the other gets 6</td></tr>
+	<tr><td>The same marker under two parents</td><td>Both kept</td></tr>
+	<tr><td>Conflicts at every level</td><td>One holder kept per group</td></tr>
+</table>
+<p>All of them pass.</p>
+
+<h2>Task 2: mind map to LaTeX with ATL/ETL</h2>
+<p class="todo">To do.</p>
+
+<h2>Task 3: LaTeX file with Xtend/EGL</h2>
+<p class="todo">To do.</p>
+
+<h2>Use of generative AI</h2>
+<p class="todo">Attach the library's declaration form and describe the assistance here.</p>
+
+</body>
+</html>
