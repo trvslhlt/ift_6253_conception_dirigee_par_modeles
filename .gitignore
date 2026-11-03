@@ -28,3 +28,18 @@ hw1/atompm/users/travis/Models/*
 hw1/atompm/users/**/.autosave*
 # AToMPM tooling
 hw1/atompm/tools/node_modules/
+
+# Same rules for the hw2 copy of the AToMPM workspace.
+hw2/atompm/users/*
+!hw2/atompm/users/travis/
+hw2/atompm/users/travis/*
+!hw2/atompm/users/travis/Formalisms/
+hw2/atompm/users/travis/Formalisms/*
+!hw2/atompm/users/travis/Formalisms/MindMap/
+!hw2/atompm/users/travis/Models/
+hw2/atompm/users/travis/Models/*
+!hw2/atompm/users/travis/Models/MindMap/
+hw2/atompm/users/**/.autosave*
+hw2/atompm/tools/node_modules/
+
+hw2/atompm_guide.md

@@ -1,0 +1,475 @@
+{
+	"types": {
+		"__pTag": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			},
+			{
+				"name": "name",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			}
+		],
+		"__pMindMap": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			},
+			{
+				"name": "name",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			}
+		],
+		"__pTopic": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			},
+			{
+				"name": "name",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			},
+			{
+				"name": "isDeeper",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			},
+			{
+				"name": "isDone",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			},
+			{
+				"name": "priority",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			},
+			{
+				"name": "description",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			},
+			{
+				"name": "color",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			},
+			{
+				"name": "level",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			},
+			{
+				"name": "effectivelyDone",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			},
+			{
+				"name": "computed",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			}
+		],
+		"__proots": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			}
+		],
+		"__pchildren": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			}
+		],
+		"__prelated": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			}
+		],
+		"__ptagged": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			}
+		],
+		"__phasTag": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			}
+		]
+	},
+	"constraints": [
+		{
+			"name": "exactly-one-mindmap",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/MindMap']).length == 1"
+		},
+		{
+			"name": "unique-topic-names",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\nvar names = getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+		},
+		{
+			"name": "unique-tag-names",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\nvar names = getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+		},
+		{
+			"name": "valid-topic-colors",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar color = getAttr('color', t);\n\treturn color == '' || /^#[0-9a-fA-F]{6}$/.test(color);\n})"
+		},
+		{
+			"name": "no-deeper-at-root",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t).length == 0 || !getAttr('isDeeper', t);\n})"
+		},
+		{
+			"name": "no-self-relation",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/related']).every(function(l) {\n\treturn getNeighbors('in', '*', l)[0] != getNeighbors('out', '*', l)[0];\n})"
+		},
+		{
+			"name": "topics-form-a-tree",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar seen = {};\n\twhile (!seen[t]) {\n\t\tseen[t] = true;\n\t\tvar rootLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t),\n\t\t\t childLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/children', t);\n\t\tif (rootLinks.length + childLinks.length != 1) return false;\n\t\tif (rootLinks.length == 1) return true;\n\t\tt = getNeighbors('in', '*', childLinks[0])[0];\n\t}\n\treturn false;\n})"
+		},
+		{
+			"name": "tags-belong-to-the-map",
+			"event": "",
+			"targetType": "*",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Tag']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/hasTag', t).length == 1;\n})"
+		}
+	],
+	"actions": [
+		{
+			"name": "distinctPLabels",
+			"event": "post-create",
+			"code": "if( getAttr(\"__pLabel\") == \"\" )\n{\n\tvar pLabels = getAllNodes().\n\t\t\t\t\t\t\tfilter( function(n) {return hasAttr(\"__pLabel\",n);} ).\n\t\t\t\t\t\t\t\tmap( function(n) {return getAttr(\"__pLabel\",n);} ),\n\t\t i\t\t\t= \"0\";\n\n\twhile( _utils.contains(pLabels,i) )\n\t\ti = String(parseInt(i)+1);\n\tsetAttr(\"__pLabel\",i);\n}",
+			"targetType": "*"
+		}
+	],
+	"cardinalities": {
+		"__pTag": [
+			{
+				"dir": "in",
+				"type": "__ptagged",
+				"min": 0,
+				"max": "Infinity"
+			},
+			{
+				"dir": "in",
+				"type": "__phasTag",
+				"min": 0,
+				"max": "Infinity"
+			}
+		],
+		"__pMindMap": [
+			{
+				"dir": "out",
+				"type": "__proots",
+				"min": 0,
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "__phasTag",
+				"min": 0,
+				"max": "Infinity"
+			}
+		],
+		"__pTopic": [
+			{
+				"dir": "in",
+				"type": "__proots",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "__pchildren",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pchildren",
+				"min": 0,
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "__prelated",
+				"min": 0,
+				"max": "Infinity"
+			},
+			{
+				"dir": "in",
+				"type": "__prelated",
+				"min": 0,
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "__ptagged",
+				"min": 0,
+				"max": "Infinity"
+			}
+		],
+		"__proots": [
+			{
+				"dir": "in",
+				"type": "__pMindMap",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pTopic",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__pchildren": [
+			{
+				"dir": "in",
+				"type": "__pTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pTopic",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__prelated": [
+			{
+				"dir": "in",
+				"type": "__pTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pTopic",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__ptagged": [
+			{
+				"dir": "in",
+				"type": "__pTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pTag",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__phasTag": [
+			{
+				"dir": "in",
+				"type": "__pMindMap",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pTag",
+				"min": 0,
+				"max": "1"
+			}
+		]
+	},
+	"legalConnections": {
+		"__pMindMap": {
+			"__pTopic": [
+				"__proots"
+			],
+			"__pTag": [
+				"__phasTag"
+			]
+		},
+		"__pTopic": {
+			"__pTopic": [
+				"__pchildren",
+				"__prelated"
+			],
+			"__pTag": [
+				"__ptagged"
+			]
+		}
+	},
+	"connectorTypes": {
+		"__proots": "visual",
+		"__pchildren": "visual",
+		"__prelated": "visual",
+		"__ptagged": "visual",
+		"__phasTag": "visual"
+	},
+	"types2parentTypes": {
+		"__pTag": [],
+		"__pMindMap": [],
+		"__pTopic": [],
+		"__proots": [],
+		"__pchildren": [],
+		"__prelated": [],
+		"__ptagged": [],
+		"__phasTag": [],
+		"__pexactly-one-mindmap": [],
+		"__punique-topic-names": [],
+		"__punique-tag-names": [],
+		"__pvalid-topic-colors": [],
+		"__pno-deeper-at-root": [],
+		"__pno-self-relation": [],
+		"__ptopics-form-a-tree": [],
+		"__ptags-belong-to-the-map": []
+	}
+}
