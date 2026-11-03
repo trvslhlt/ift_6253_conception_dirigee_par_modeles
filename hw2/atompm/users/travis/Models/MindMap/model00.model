@@ -939,7 +939,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -973,7 +973,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -1013,7 +1013,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -1277,7 +1277,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -1311,7 +1311,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -1351,7 +1351,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -1615,7 +1615,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -1649,7 +1649,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -1689,7 +1689,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -1953,7 +1953,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -1987,7 +1987,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -2027,7 +2027,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -2291,7 +2291,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -2325,7 +2325,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -2365,7 +2365,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -2629,7 +2629,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -2663,7 +2663,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -2703,7 +2703,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -2967,7 +2967,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -3001,7 +3001,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -3041,7 +3041,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -3305,7 +3305,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -3339,7 +3339,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -3379,7 +3379,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -3643,7 +3643,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -3677,7 +3677,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -3717,7 +3717,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -3981,7 +3981,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -4015,7 +4015,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -4055,7 +4055,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -4319,7 +4319,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -4353,7 +4353,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -4393,7 +4393,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -4657,7 +4657,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -4691,7 +4691,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -4731,7 +4731,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -4995,7 +4995,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -5029,7 +5029,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -5069,7 +5069,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -5333,7 +5333,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -5367,7 +5367,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -5407,7 +5407,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -5671,7 +5671,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -5705,7 +5705,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -5745,7 +5745,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -6009,7 +6009,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -6043,7 +6043,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -6083,7 +6083,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -6347,7 +6347,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -6381,7 +6381,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -6421,7 +6421,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -6685,7 +6685,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -6719,7 +6719,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -6759,7 +6759,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -7023,7 +7023,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -7057,7 +7057,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -7097,7 +7097,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -7361,7 +7361,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -7395,7 +7395,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -7435,7 +7435,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -7699,7 +7699,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -7733,7 +7733,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -7773,7 +7773,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -8037,7 +8037,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -8071,7 +8071,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -8111,7 +8111,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -8375,7 +8375,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -8409,7 +8409,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -8449,7 +8449,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -8713,7 +8713,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -8747,7 +8747,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -8787,7 +8787,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -9051,7 +9051,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -9085,7 +9085,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -9125,7 +9125,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -9389,7 +9389,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -9423,7 +9423,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -9463,7 +9463,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -9727,7 +9727,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -9761,7 +9761,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -9801,7 +9801,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -10643,6 +10643,10 @@
 					"type": "string",
 					"value": "music"
 				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/MindMap"
 			},
 			"1": {
@@ -10702,6 +10706,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"6": {
@@ -10743,6 +10755,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -10786,6 +10806,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"10": {
@@ -10827,6 +10855,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -10870,6 +10906,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"14": {
@@ -10911,6 +10955,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -10954,6 +11006,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"18": {
@@ -10995,6 +11055,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11038,6 +11106,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"22": {
@@ -11079,6 +11155,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11122,6 +11206,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"26": {
@@ -11163,6 +11255,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11206,6 +11306,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"30": {
@@ -11247,6 +11355,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11290,6 +11406,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"34": {
@@ -11331,6 +11455,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11374,6 +11506,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"38": {
@@ -11415,6 +11555,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11458,6 +11606,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"42": {
@@ -11499,6 +11655,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11542,6 +11706,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"46": {
@@ -11583,6 +11755,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11626,6 +11806,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"50": {
@@ -11667,6 +11855,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -11710,6 +11906,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"54": {
@@ -11752,6 +11956,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"56": {
@@ -11793,6 +12005,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},

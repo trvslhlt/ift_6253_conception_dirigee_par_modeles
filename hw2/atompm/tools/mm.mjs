@@ -73,7 +73,7 @@ export function allTopics(map) {
 
 // Must agree with the width in the Topic icon's mapper (build_formalism.mjs).
 export const topicWidth = t =>
-	40 + 10 * (t.name.length + (t.priority === 'NONE' ? 0 : 4) + (t.done ? 2 : 0));
+	40 + 10 * (t.name.length + (t.marker > 0 ? String(t.marker).length + 1 : 0) + (t.priority === 'NONE' ? 0 : 4) + (t.done ? 2 : 0));
 export const TOPIC_HEIGHT = 50;
 export const MAP_DIAMETER = 140;
 export const TAG_DIAMETER = 120;

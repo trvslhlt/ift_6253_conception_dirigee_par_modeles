@@ -66,14 +66,15 @@ const MAPPERS = {
 var strokes = ${STROKE};
 var priority = getAttr('priority');
 var fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];
-({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),
+var marker = getAttr('marker');
+({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),
   'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,
             'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})
 `,
 	topicLabel: `var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};
 var color = getAttr('color');
 var dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;
-({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),
+({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),
   'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})
 `,
 	nameLabel: `({"textContent": getAttr("name")})
@@ -83,10 +84,20 @@ var dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(col
 async function updateClassDiagram(a) {
 	await a.load(AS_MODEL);
 	const model = readModel(AS_MODEL);
-	const [[topicId, topic]] = nodesOfType(model, 'Class').filter(([, n]) => n.name.value === 'Topic');
-	const attributes = topic.attributes.value.map(attr => attr.name === 'priority'
-		? { name: 'priority', type: 'ENUM(NONE,HIGH,MEDIUM,LOW)', default: 'NONE' } : attr);
+	const classes = nodesOfType(model, 'Class');
+	const classNamed = name => classes.find(([, n]) => n.name.value === name);
+	// HW2 marker: 0 means unassigned; nextMarker is the transformation's per-parent counter.
+	const withMissing = (attrs, extra) => [...attrs, ...extra.filter(e => !attrs.some(x => x.name === e.name))];
+	const nextMarker = { name: 'nextMarker', type: 'int', default: 1 };
+
+	const [topicId, topic] = classNamed('Topic');
+	const attributes = withMissing(topic.attributes.value.map(attr => attr.name === 'priority'
+		? { name: 'priority', type: 'ENUM(NONE,HIGH,MEDIUM,LOW)', default: 'NONE' } : attr),
+		[{ name: 'marker', type: 'int', default: 0 }, nextMarker]);
 	await a.update(`${SCD}.umlIcons/ClassIcon/${topicId}.instance`, { attributes });
+
+	const [mapId, map] = classNamed('MindMap');
+	await a.update(`${SCD}.umlIcons/ClassIcon/${mapId}.instance`, { attributes: withMissing(map.attributes.value, [nextMarker]) });
 
 	const existing = Object.fromEntries(nodesOfType(model, 'GlobalConstraint').map(([id, n]) => [n.name.value, id]));
 	let y = 60;
@@ -126,6 +137,8 @@ async function updateIcons(a) {
 	const [boxId] = typed('Rectangle');
 	await a.update(`${CS}/RectangleIcon/${boxId}.instance`, { width: 160, height: 50, cornerRadius: 12, mapper: MAPPERS.topicBox });
 	await place('RectangleIcon', boxId, [0, 0]);
+	// The icon's own mapper must stay empty: a failing mapper stops all of an icon's mappers.
+	await a.update(`${CS}/IconIcon/${iconOf(boxId)}.instance`, { mapper: '' });
 
 	const [circleId, circle] = typed('Circle');
 	await a.update(`${CS}/CircleIcon/${circleId}.instance`, {

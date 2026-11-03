@@ -14114,7 +14114,10 @@
 		},
 		"edges": [],
 		"metamodels": [
-			"/Formalisms/__Transformations__/Transformation/MoTif.defaultIcons"
+			"/Formalisms/__Transformations__/Transformation/MoTif.defaultIcons",
+			"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons",
+			"/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax.defaultIcons",
+			"/Formalisms/MindMap/MindMap.defaultIcons"
 		]
 	},
 	"asm": {
@@ -14296,7 +14299,10 @@
 			}
 		],
 		"metamodels": [
-			"/Formalisms/__Transformations__/Transformation/MoTif"
+			"/Formalisms/__Transformations__/Transformation/MoTif",
+			"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram",
+			"/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax",
+			"/Formalisms/MindMap/MindMap"
 		]
 	}
 }

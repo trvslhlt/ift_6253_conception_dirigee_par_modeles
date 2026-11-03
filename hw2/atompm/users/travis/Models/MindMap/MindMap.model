@@ -534,7 +534,7 @@
 							"99": {
 								"textContent": {
 									"type": "string",
-									"value": "+ name : string = mindmap"
+									"value": "+ name : string = mindmap\n+ nextMarker : int = 1"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -885,7 +885,7 @@
 							"99": {
 								"textContent": {
 									"type": "string",
-									"value": "+ name : string = topic\n+ isDeeper : boolean\n+ isDone : boolean\n+ priority : ENUM(NONE,HIGH,MEDIUM,LOW) = NONE\n+ description : string\n+ color : string\n+ level : int\n+ effectivelyDone : boolean\n+ computed : boolean"
+									"value": "+ name : string = topic\n+ isDeeper : boolean\n+ isDone : boolean\n+ priority : ENUM(NONE,HIGH,MEDIUM,LOW) = NONE\n+ description : string\n+ color : string\n+ level : int\n+ effectivelyDone : boolean\n+ computed : boolean\n+ marker : int\n+ nextMarker : int = 1"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -3255,6 +3255,11 @@
 							"name": "name",
 							"type": "string",
 							"default": "mindmap"
+						},
+						{
+							"name": "nextMarker",
+							"type": "int",
+							"default": 1
 						}
 					]
 				},
@@ -3328,6 +3333,16 @@
 							"name": "computed",
 							"type": "boolean",
 							"default": false
+						},
+						{
+							"name": "marker",
+							"type": "int",
+							"default": 0
+						},
+						{
+							"name": "nextMarker",
+							"type": "int",
+							"default": 1
 						}
 					]
 				},

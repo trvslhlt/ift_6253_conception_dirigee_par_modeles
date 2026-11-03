@@ -9,8 +9,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						102,
-						249
+						40,
+						175
 					]
 				},
 				"orientation": {
@@ -232,8 +232,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						352,
-						294
+						290,
+						220
 					]
 				},
 				"orientation": {
@@ -249,7 +249,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -283,7 +283,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -323,7 +323,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -469,8 +469,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						297,
-						319
+						235,
+						245
 					]
 				},
 				"orientation": {
@@ -556,8 +556,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/2.instance": "M241.99999999999997,319L297,319",
-						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/2.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/1.instance": "M297,319L352,319"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/2.instance": "M180,245L235,245",
+						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/2.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/1.instance": "M235,245L290,245"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/rootsLink"
@@ -570,8 +570,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						512,
-						294
+						450,
+						220
 					]
 				},
 				"orientation": {
@@ -587,7 +587,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -621,7 +621,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -661,7 +661,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -807,8 +807,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						457,
-						319
+						395,
+						245
 					]
 				},
 				"orientation": {
@@ -860,7 +860,7 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;54.99999999999994,100%",
+										"0;55,100%",
 										"0;-4,0%"
 									]
 								},
@@ -894,8 +894,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/1.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/4.instance": "M401.99999999999994,319L457,319",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/4.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/3.instance": "M457,319L511.99999999999994,319"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/1.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/4.instance": "M340,245L395,245",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/4.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/3.instance": "M395,245L450,245"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -908,8 +908,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						692,
-						294
+						630,
+						220
 					]
 				},
 				"orientation": {
@@ -925,7 +925,7 @@
 				},
 				"mapper": {
 					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+					"value": ""
 				},
 				"parser": {
 					"type": "code",
@@ -959,7 +959,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\n({'width': 40 + 10 * (getAttr('name').length + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -999,7 +999,7 @@
 								},
 								"mapper": {
 									"type": "code",
-									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
 								},
 								"parser": {
 									"type": "code",
@@ -1145,8 +1145,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						637,
-						319
+						575,
+						245
 					]
 				},
 				"orientation": {
@@ -1232,8 +1232,1022 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/3.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/6.instance": "M582,319L637,319",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/6.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance": "M637,319L692,319"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/3.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/6.instance": "M520,245L575,245",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/6.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance": "M575,245L630,245"
+					}
+				},
+				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
+			},
+			"7": {
+				"typename": {
+					"type": "string",
+					"value": "TopicIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						323,
+						361
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"1": {
+								"width": {
+									"type": "double",
+									"value": 90
+								},
+								"height": {
+									"type": "double",
+									"value": 50
+								},
+								"cornerRadius": {
+									"type": "double",
+									"value": 12
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#333333",
+										"stroke-width": 1,
+										"fill": "#ffffff",
+										"fill-opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Rectangle",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										0
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"7": {
+								"textContent": {
+									"type": "string",
+									"value": "topic"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"fill": "#000000",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										14,
+										17
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"12": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										68.66781786545653,
+										49.49984402623909
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"16": {
+								"distance": {
+									"type": "double",
+									"value": 0
+								},
+								"alignment": {
+									"type": "ENUM('top','bottom','center')",
+									"value": "center"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/RightOf",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										90.50001374627823,
+										60.49954637281911
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#ff0000",
+										"stroke-dasharray": "",
+										"stroke-opacity": 1,
+										"stroke-width": 1
+									}
+								}
+							}
+						},
+						"edges": [
+							{
+								"src": "1",
+								"dest": "12"
+							},
+							{
+								"src": "12",
+								"dest": "7"
+							},
+							{
+								"src": "1",
+								"dest": "16"
+							},
+							{
+								"src": "16",
+								"dest": "7"
+							}
+						]
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/MindMap/MindMap/Topic/7.instance"
+				},
+				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon"
+			},
+			"8": {
+				"typename": {
+					"type": "string",
+					"value": "TopicIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						492,
+						370
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"1": {
+								"width": {
+									"type": "double",
+									"value": 90
+								},
+								"height": {
+									"type": "double",
+									"value": 50
+								},
+								"cornerRadius": {
+									"type": "double",
+									"value": 12
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#333333",
+										"stroke-width": 1,
+										"fill": "#ffffff",
+										"fill-opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Rectangle",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										0
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"7": {
+								"textContent": {
+									"type": "string",
+									"value": "topic"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"fill": "#000000",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										14,
+										17
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"12": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										68.66781786545653,
+										49.49984402623909
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"16": {
+								"distance": {
+									"type": "double",
+									"value": 0
+								},
+								"alignment": {
+									"type": "ENUM('top','bottom','center')",
+									"value": "center"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/RightOf",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										90.50001374627823,
+										60.49954637281911
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#ff0000",
+										"stroke-dasharray": "",
+										"stroke-opacity": 1,
+										"stroke-width": 1
+									}
+								}
+							}
+						},
+						"edges": [
+							{
+								"src": "1",
+								"dest": "12"
+							},
+							{
+								"src": "12",
+								"dest": "7"
+							},
+							{
+								"src": "1",
+								"dest": "16"
+							},
+							{
+								"src": "16",
+								"dest": "7"
+							}
+						]
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/MindMap/MindMap/Topic/8.instance"
+				},
+				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon"
+			},
+			"9": {
+				"typename": {
+					"type": "string",
+					"value": "TopicIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						487,
+						441
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": ""
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"1": {
+								"width": {
+									"type": "double",
+									"value": 90
+								},
+								"height": {
+									"type": "double",
+									"value": 50
+								},
+								"cornerRadius": {
+									"type": "double",
+									"value": 12
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#333333",
+										"stroke-width": 1,
+										"fill": "#ffffff",
+										"fill-opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];\nvar strokes = {'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'};\nvar priority = getAttr('priority');\nvar fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];\nvar marker = getAttr('marker');\n({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),\n  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,\n            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Rectangle",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										0,
+										0
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"7": {
+								"textContent": {
+									"type": "string",
+									"value": "topic"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"fill": "#000000",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};\nvar color = getAttr('color');\nvar dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;\n({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),\n  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										14,
+										17
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"12": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										68.66781786545653,
+										49.49984402623909
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"16": {
+								"distance": {
+									"type": "double",
+									"value": 0
+								},
+								"alignment": {
+									"type": "ENUM('top','bottom','center')",
+									"value": "center"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/RightOf",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										90.50001374627823,
+										60.49954637281911
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#ff0000",
+										"stroke-dasharray": "",
+										"stroke-opacity": 1,
+										"stroke-width": 1
+									}
+								}
+							}
+						},
+						"edges": [
+							{
+								"src": "1",
+								"dest": "12"
+							},
+							{
+								"src": "12",
+								"dest": "7"
+							},
+							{
+								"src": "1",
+								"dest": "16"
+							},
+							{
+								"src": "16",
+								"dest": "7"
+							}
+						]
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/MindMap/MindMap/Topic/9.instance"
+				},
+				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon"
+			},
+			"10": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#333333",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "rootsLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						229,
+						319.5
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"267": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l10,4 l-10,4 l3,-4 z"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"opacity": 1,
+										"stroke-width": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;110.62564756783823,91.36386410214295%",
+										"0;44.84524005707459,40.652728522513144%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;23.986870155878076"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -4
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/MindMap/MindMap/roots/10.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/10.instance": "M120,271L229,319.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/10.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance": "M229.13716400990904,319.56103169248246L337.9995384269377,367.99979462116033"
+					}
+				},
+				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/rootsLink"
+			},
+			"11": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#333333",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "childrenLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						456.5,
+						397
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"267": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l10,4 l-10,4 l3,-4 z"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"opacity": 1,
+										"stroke-width": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;64.62304215292869,99.95196060492604%",
+										"0;-1.9981072388040957,3.0992856001527507%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;1.7760442533587377"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -4
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/MindMap/MindMap/children/11.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/11.instance": "M392,395L456.5,397",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/11.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/8.instance": "M456.64953476465035,397.00463673688836L520.9990707289226,398.99997118539295"
+					}
+				},
+				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
+			},
+			"12": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#333333",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "childrenLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						450.5,
+						433.5
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"267": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l10,4 l-10,4 l3,-4 z"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"opacity": 1,
+										"stroke-width": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;81.91656354226399,93.51302900316767%",
+										"0;26.759231600636497,35.430402293125645%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;20.750795589598628"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -4
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/MindMap/MindMap/children/12.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance": "M370,403L450.5,433.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance": "M450.6400803860512,433.5530739350877L530.999347450539,463.9997527607632"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -1241,9 +2255,7 @@
 		},
 		"edges": [],
 		"metamodels": [
-			"/Formalisms/MindMap/MindMap.defaultIcons",
-			"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons",
-			"/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax.defaultIcons"
+			"/Formalisms/MindMap/MindMap.defaultIcons"
 		]
 	},
 	"asm": {
@@ -1252,6 +2264,10 @@
 				"name": {
 					"type": "string",
 					"value": "smoke_test"
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/MindMap"
 			},
@@ -1291,6 +2307,14 @@
 				"computed": {
 					"type": "boolean",
 					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -1334,6 +2358,14 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"4": {
@@ -1376,9 +2408,167 @@
 					"type": "boolean",
 					"value": true
 				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
 			"6": {
+				"$type": "/Formalisms/MindMap/MindMap/children"
+			},
+			"7": {
+				"name": {
+					"type": "string",
+					"value": "topic"
+				},
+				"isDeeper": {
+					"type": "boolean",
+					"value": false
+				},
+				"isDone": {
+					"type": "boolean",
+					"value": false
+				},
+				"priority": {
+					"type": "ENUM(NONE,HIGH,MEDIUM,LOW)",
+					"value": "NONE"
+				},
+				"description": {
+					"type": "string",
+					"value": ""
+				},
+				"color": {
+					"type": "string",
+					"value": ""
+				},
+				"level": {
+					"type": "int",
+					"value": 0
+				},
+				"effectivelyDone": {
+					"type": "boolean",
+					"value": false
+				},
+				"computed": {
+					"type": "boolean",
+					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
+				"$type": "/Formalisms/MindMap/MindMap/Topic"
+			},
+			"8": {
+				"name": {
+					"type": "string",
+					"value": "topic"
+				},
+				"isDeeper": {
+					"type": "boolean",
+					"value": false
+				},
+				"isDone": {
+					"type": "boolean",
+					"value": false
+				},
+				"priority": {
+					"type": "ENUM(NONE,HIGH,MEDIUM,LOW)",
+					"value": "NONE"
+				},
+				"description": {
+					"type": "string",
+					"value": ""
+				},
+				"color": {
+					"type": "string",
+					"value": ""
+				},
+				"level": {
+					"type": "int",
+					"value": 0
+				},
+				"effectivelyDone": {
+					"type": "boolean",
+					"value": false
+				},
+				"computed": {
+					"type": "boolean",
+					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
+				"$type": "/Formalisms/MindMap/MindMap/Topic"
+			},
+			"9": {
+				"name": {
+					"type": "string",
+					"value": "topic"
+				},
+				"isDeeper": {
+					"type": "boolean",
+					"value": false
+				},
+				"isDone": {
+					"type": "boolean",
+					"value": false
+				},
+				"priority": {
+					"type": "ENUM(NONE,HIGH,MEDIUM,LOW)",
+					"value": "NONE"
+				},
+				"description": {
+					"type": "string",
+					"value": ""
+				},
+				"color": {
+					"type": "string",
+					"value": ""
+				},
+				"level": {
+					"type": "int",
+					"value": 0
+				},
+				"effectivelyDone": {
+					"type": "boolean",
+					"value": false
+				},
+				"computed": {
+					"type": "boolean",
+					"value": true
+				},
+				"marker": {
+					"type": "int",
+					"value": 0
+				},
+				"nextMarker": {
+					"type": "int",
+					"value": 1
+				},
+				"$type": "/Formalisms/MindMap/MindMap/Topic"
+			},
+			"10": {
+				"$type": "/Formalisms/MindMap/MindMap/roots"
+			},
+			"11": {
+				"$type": "/Formalisms/MindMap/MindMap/children"
+			},
+			"12": {
 				"$type": "/Formalisms/MindMap/MindMap/children"
 			}
 		},
@@ -1406,12 +2596,34 @@
 			{
 				"src": "6",
 				"dest": "5"
+			},
+			{
+				"src": "0",
+				"dest": "10"
+			},
+			{
+				"src": "10",
+				"dest": "7"
+			},
+			{
+				"src": "7",
+				"dest": "11"
+			},
+			{
+				"src": "11",
+				"dest": "8"
+			},
+			{
+				"src": "7",
+				"dest": "12"
+			},
+			{
+				"src": "12",
+				"dest": "9"
 			}
 		],
 		"metamodels": [
-			"/Formalisms/MindMap/MindMap",
-			"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram",
-			"/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax"
+			"/Formalisms/MindMap/MindMap"
 		]
 	}
 }

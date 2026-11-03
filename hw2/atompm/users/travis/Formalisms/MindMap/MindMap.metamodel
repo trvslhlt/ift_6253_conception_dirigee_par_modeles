@@ -12,6 +12,11 @@
 				"name": "name",
 				"type": "string",
 				"default": "mindmap"
+			},
+			{
+				"name": "nextMarker",
+				"type": "int",
+				"default": 1
 			}
 		],
 		"Topic": [
@@ -59,6 +64,16 @@
 				"name": "computed",
 				"type": "boolean",
 				"default": false
+			},
+			{
+				"name": "marker",
+				"type": "int",
+				"default": 0
+			},
+			{
+				"name": "nextMarker",
+				"type": "int",
+				"default": 1
 			}
 		],
 		"roots": [],
