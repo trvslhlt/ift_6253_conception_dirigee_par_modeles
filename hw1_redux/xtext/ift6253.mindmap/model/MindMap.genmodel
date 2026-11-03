@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ift6253.mindmap/emf-gen"
+    modelPluginID="ift6253.mindmap" modelName="MindMap" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" copyrightFields="false"
+    updateClasspath="false" bundleManifest="false">
+  <foreignModel>MindMap.ecore</foreignModel>
+  <genPackages prefix="MindMap" basePackage="ift6253.mindmap" disposableProviderFactory="true"
+      fileExtensions="mindmap" ecorePackage="MindMap.ecore#/">
+    <genClasses ecoreClass="MindMap.ecore#//MindMap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//MindMap/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//MindMap/markers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//MindMap/topic"/>
+    </genClasses>
+    <genClasses ecoreClass="MindMap.ecore#//Marker">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Marker/symbol"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="MindMap.ecore#//Topic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MindMap.ecore#//Topic/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MindMap.ecore#//Topic/marker"/>
+    </genClasses>
+    <genClasses ecoreClass="MindMap.ecore#//CentralTopic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//CentralTopic/maintopics"/>
+    </genClasses>
+    <genClasses ecoreClass="MindMap.ecore#//MainTopic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//MainTopic/subtopics"/>
+    </genClasses>
+    <genClasses ecoreClass="MindMap.ecore#//SubTopic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MindMap.ecore#//SubTopic/subsubtopics"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

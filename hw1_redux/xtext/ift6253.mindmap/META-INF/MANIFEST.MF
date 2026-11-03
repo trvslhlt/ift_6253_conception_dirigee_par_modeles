@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ift6253.mindmap
+Bundle-ManifestVersion: 2
+Bundle-Name: ift6253.mindmap
+Bundle-Vendor: Travis Holt
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ift6253.mindmap; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.44.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-25
+Import-Package: org.apache.log4j
+Export-Package: ift6253.mindmap,
+ ift6253.mindmap.mindmap,
+ ift6253.mindmap.mindmap.impl,
+ ift6253.mindmap.mindmap.util,
+ ift6253.mindmap.naming,
+ ift6253.mindmap.services,
+ ift6253.mindmap.validation,
+ ift6253.mindmap.scoping,
+ ift6253.mindmap.parser.antlr,
+ ift6253.mindmap.parser.antlr.internal,
+ ift6253.mindmap.serializer,
+ ift6253.mindmap.generator

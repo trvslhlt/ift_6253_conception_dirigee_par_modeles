@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>IFT 6253 - Devoir 1 (redux)</title>
+<style>
+	body { font-family: sans-serif; max-width: 960px; margin: 2em auto; padding: 0 16px; line-height: 1.45; }
+	pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+	img { max-width: 100%; border: 1px solid #ddd; }
+	table { border-collapse: collapse; }
+	td, th { border: 1px solid #ccc; padding: 4px 8px; text-align: left; vertical-align: top; }
+	.todo { background: #fff3cd; }
+</style>
+</head>
+<body>
+
+<h1>IFT 6253 - Devoir maison 1: mind map modeling environments</h1>
+<p>
+	<b>Name:</b> Travis Holt<br>
+	<b>Matricule (last 4 digits):</b> <span class="todo">XXXX</span><br>
+	<b>Email:</b> travis.holt@umontreal.ca<br>
+	<b>Time spent:</b> <span class="todo">XX h</span>
+</p>
+
+<h2>Assumptions</h2>
+<ul>
+	<li>The metamodel is the one given in the assignment, unchanged: one <code>MindMap</code> (title) containing
+		<code>Marker</code>s (symbol) and exactly one <code>CentralTopic</code>; an abstract <code>Topic</code> (name,
+		optional marker) specialized by <code>CentralTopic</code> &rarr; <code>MainTopic</code> &rarr;
+		<code>SubTopic</code> &rarr; <code>SubTopic</code>... Both environments implement this same metamodel.</li>
+	<li>A marker is shared: several topics can refer to the same marker (marker 1 on <i>Read</i> and <i>Springer</i>).
+		Markers are used to order topics, as the assignment suggests.</li>
+	<li>Constraints of a mind map that the class diagram cannot express are added as validation rules (listed below),
+		not as changes to the metamodel.</li>
+</ul>
+
+<h2>Task 1: textual editor with Xtext</h2>
+
+<h3>Metamodel</h3>
+<p>The metamodel is written as an Ecore file, <a href="xtext/ift6253.mindmap/model/MindMap.ecore">MindMap.ecore</a>
+(with its <a href="xtext/ift6253.mindmap/model/MindMap.genmodel">MindMap.genmodel</a>), and the grammar is mapped onto it
+with <code>import</code>. I chose this over letting Xtext infer the metamodel from the grammar because inference
+cannot produce two parts of the assignment's metamodel: an <b>abstract</b> <code>Topic</code>, and the
+<b>[1..1]</b> lower bound of <code>MindMap.topic</code> (inferred features are always optional). The MWE2 workflow
+(<a href="xtext/ift6253.mindmap/src/ift6253/mindmap/GenerateMindMap.mwe2">GenerateMindMap.mwe2</a>) generates the EMF
+code from the genmodel, then the Xtext infrastructure.</p>
+<table>
+	<tr><th>Class</th><th>Features</th></tr>
+	<tr><td>MindMap</td><td>title: EString [1]; markers: Marker [0..*] (containment); topic: CentralTopic [1..1] (containment)</td></tr>
+	<tr><td>Marker</td><td>symbol: EString [1]</td></tr>
+	<tr><td><i>Topic</i> (abstract)</td><td>name: EString [1]; marker: Marker [0..1]</td></tr>
+	<tr><td>CentralTopic</td><td>maintopics: MainTopic [0..*] (containment)</td></tr>
+	<tr><td>MainTopic</td><td>subtopics: SubTopic [0..*] (containment)</td></tr>
+	<tr><td>SubTopic</td><td>subsubtopics: SubTopic [0..*] (containment)</td></tr>
+</table>
+
+<h3>Grammar</h3>
+<p><a href="xtext/ift6253.mindmap/src/ift6253/mindmap/MindMap.xtext">MindMap.xtext</a> follows the syntax of the
+assignment's example. Each level has its own bullet (<code>topic</code>, <code>*</code>, <code>-</code>), so the
+parser itself enforces the containment hierarchy: there is exactly one central topic, a main topic can only appear
+directly under it, and a <code>*</code> under a sub-topic is a syntax error.</p>
+<pre>
+MindMap:
+	'mindmap' title=ID ('(' markers+=Marker (',' markers+=Marker)* ')')?
+	topic=CentralTopic;
+
+Marker:
+	'marker' symbol=Symbol;
+
+Symbol returns ecore::EString:
+	INT;
+
+CentralTopic:
+	'topic' (marker=[Marker|Symbol])? name=ID
+	('includes' '{' maintopics+=MainTopic* '}')?;
+
+MainTopic:
+	'*' (marker=[Marker|Symbol])? name=ID
+	('includes' '{' subtopics+=SubTopic* '}')?;
+
+SubTopic:
+	'-' (marker=[Marker|Symbol])? name=ID
+	('includes' '{' subsubtopics+=SubTopic* '}')?;
+</pre>
+<p>Hand-written code beside the generated projects:</p>
+<ul>
+	<li><a href="xtext/ift6253.mindmap/src/ift6253/mindmap/naming/MindMapQualifiedNameProvider.java">MindMapQualifiedNameProvider</a>:
+		a marker has a symbol, not a name, so markers are indexed by their symbol; this is what lets
+		<code>* 1 Read</code> resolve <code>1</code> to the marker.</li>
+	<li><a href="xtext/ift6253.mindmap/src/ift6253/mindmap/validation/MindMapValidator.java">MindMapValidator</a>:
+		marker symbols must be unique (error); two branches of the same topic should not have the same name (warning);
+		a declared marker should be used (warning). An undefined marker is a linking error.</li>
+	<li><a href="xtext/ift6253.mindmap.ui/src/ift6253/mindmap/ui/labeling/MindMapLabelProvider.java">MindMapLabelProvider</a>:
+		the outline shows each element's class (Mind Map, Marker, Central Topic, Main Topic, Sub Topic).</li>
+	<li><a href="xtext/ift6253.mindmap/src/ift6253/mindmap/MindMapStandaloneSetup.java">MindMapStandaloneSetup</a>:
+		registers the imported EPackage outside Eclipse (inside Eclipse, plugin.xml does it).</li>
+	<li><a href="xtext/ift6253.mindmap.tests/src/ift6253/mindmap/tests/MindMapParsingTest.java">MindMapParsingTest</a>:
+		7 tests: the assignment's example parses with no issues and its markers resolve; a main topic under a sub-topic,
+		zero or two central topics, an undefined marker, duplicate/unused markers and duplicate siblings are reported;
+		the course project model is valid and has at least 3 levels below each MainTopic.</li>
+</ul>
+
+<p class="todo">[Screenshot: research.mindmap open in the runtime Eclipse, with its outline]</p>
+
+<h2>Task 2: example model of the course project (Xtext)</h2>
+<p>My course project asks whether explicit models (domain, feature and architecture models) help a coding agent
+migrate a TypeScript program to Rust, beyond static analysis and beyond unstructured notes. The mind map,
+<a href="xtext/samples/courseProject.mindmap">courseProject.mindmap</a>, organizes its ideas under four main topics,
+ordered by markers 1 to 4: the experiment, the models, the migration and the evaluation. Markers also order the
+research questions, the three metamodels and the pipeline stages. Every main topic has at least 3 levels (e.g.
+<i>Models &gt; Metamodels &gt; Domain &gt; Entity</i>); a unit test checks it.</p>
+<pre>
+mindmap ModelGuidedMigration (marker 1, marker 2, marker 3, marker 4)
+topic DoModelsHelpAgentsMigrateCode includes {
+	* 1 Experiment includes {
+		- ResearchQuestions includes {
+			- 1 ValueBeyondStaticAnalysis
+			- 2 StructureVersusNotes
+			...
+	* 2 Models includes {
+		- Metamodels includes {
+			- 1 Domain includes {
+				- Entity
+				...
+</pre>
+<p>The assignment's example is also included: <a href="xtext/samples/research.mindmap">research.mindmap</a>.</p>
+<p class="todo">[Screenshot: courseProject.mindmap open in the runtime Eclipse]</p>
+
+<h2>Task 3: graphical editor with AToMPM</h2>
+
+<h3>Metamodel (abstract syntax)</h3>
+<p>The class diagram <a href="atompm/users/travis/Models/MindMap/MindMap.model">MindMap.model</a>, compiled to
+<a href="atompm/users/travis/Formalisms/MindMap/MindMap.metamodel">MindMap.metamodel</a>, is the same metamodel:
+<code>Topic</code> is abstract (AToMPM adds its <code>noAbstractInstances</code> constraint), and
+<code>CentralTopic</code>, <code>MainTopic</code> and <code>SubTopic</code> inherit its name and its marker
+association.</p>
+<img src="images/MindMap.png" alt="MindMap class diagram in AToMPM">
+<p>AToMPM's <i>containment</i> link type nests the contained icons inside their container, which does not suit a
+mind map drawn as a tree. The containments are therefore associations whose cardinalities give them containment
+semantics: each <code>Marker</code> belongs to exactly one map (<code>markers</code> in: 1..1), each
+<code>CentralTopic</code> to exactly one map (<code>topic</code> in: 1..1, and the map has exactly one, out: 1..1),
+each <code>MainTopic</code> to exactly one central topic (<code>maintopics</code> in: 1..1), and a topic has at most
+one marker (<code>marker</code> out: 0..1). Global constraints cover what cardinalities cannot say:</p>
+<table>
+	<tr><th>Constraint</th><th>Rule</th></tr>
+	<tr><td>exactly-one-mindmap</td><td>A model is one mind map.</td></tr>
+	<tr><td>one-parent-per-subtopic</td><td>A sub-topic is in exactly one <code>subtopics</code> or <code>subsubtopics</code> (it can have either kind of parent, but only one).</td></tr>
+	<tr><td>subtopics-descend-from-a-maintopic</td><td>Following parents from a sub-topic reaches a main topic (no cycles of sub-topics).</td></tr>
+	<tr><td>unique-marker-symbols</td><td>Two markers cannot share a symbol.</td></tr>
+	<tr><td>non-empty-names</td><td>Every topic has a name.</td></tr>
+</table>
+<p>A test script (<a href="atompm/tools/test_formalism.mjs">test_formalism.mjs</a>) builds a valid map and then one
+violation of each rule (second map, orphan main topic, orphan central topic, orphan sub-topic, sub-topic with two
+parents, cycle, duplicate marker, marker outside the map, empty name); validation accepts the first and rejects all
+nine.</p>
+
+<h3>Concrete syntax</h3>
+<p>The icon model <a href="atompm/users/travis/Models/MindMap/MindMap.defaultIcons.model">MindMap.defaultIcons.model</a>,
+compiled to <a href="atompm/users/travis/Formalisms/MindMap/MindMap.defaultIcons.metamodel">MindMap.defaultIcons.metamodel</a>,
+follows the assignment's figure: a dark ellipse for the central topic, light red ellipses for main topics, underlined
+text for sub-topics, and a marker shown as a green number in front of the topic's name. Each topic's mapper reads its
+marker through the <code>marker</code> link and sizes its shape to its name. The map is a title box, with its markers
+as a small legend of green circles; links to the markers are drawn faintly so the tree stays readable.</p>
+<img src="images/MindMap.defaultIcons.png" alt="Icon definitions in AToMPM">
+
+<h3>Example model</h3>
+<p>The assignment's example, <a href="atompm/users/travis/Models/MindMap/research.model">research.model</a>:</p>
+<img src="images/research.png" alt="Research mind map in AToMPM">
+
+<h2>Task 4: example model of the course project (AToMPM)</h2>
+<p><a href="atompm/users/travis/Models/MindMap/courseProject.model">courseProject.model</a> is the same mind map as in
+task 2. It passes validation.</p>
+<img src="images/courseProject.png" alt="Course project mind map in AToMPM">
+<p>Both AToMPM models were created in the generated editor from the textual files by a script
+(<a href="atompm/tools/build_samples.mjs">build_samples.mjs</a>) that drives AToMPM's own web client, then validated,
+saved, and compared topic by topic (type, parent, marker) with the text. The formalism is built the same way
+(<a href="atompm/tools/build_formalism.mjs">build_formalism.mjs</a>), so it can be rebuilt from scratch.</p>
+
+<h2>Task 5: comparison</h2>
+<p class="todo">[Rewrite in your own words; draft from my hw1 notes:]</p>
+<p>With Xtext, the grammar and the metamodel are two views of the same language, and the tooling around them
+(editor, outline, linking, validation) comes almost for free. Being able to write unit tests on parsing made learning
+the grammar language incremental, and enforcing the hierarchy in the grammar itself was natural. Eclipse and its
+idiosyncrasies were the main obstacle. AToMPM makes the graphical side possible without writing a renderer, and
+mappers are a powerful idea, but the editor was unintuitive and fragile: building and rebuilding the formalism by hand
+was slow enough that I scripted it through AToMPM's client. Containment does not fit a tree drawing, so its semantics
+moved into cardinalities and constraints.</p>
+
+<h2>Generative AI declaration</h2>
+<p class="todo">This redux was produced with Claude Code (Anthropic): the Ecore, grammar, validator, tests, AToMPM build
+scripts, sample models and this report. Attach the university's declaration form as required.</p>
+
+</body>
+</html>

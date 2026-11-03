@@ -1,0 +1,89 @@
+mindmap ModelGuidedMigration (marker 1, marker 2, marker 3, marker 4)
+topic DoModelsHelpAgentsMigrateCode includes {
+	* 1 Experiment includes {
+		- ResearchQuestions includes {
+			- 1 ValueBeyondStaticAnalysis
+			- 2 StructureVersusNotes
+			- 3 OracleCoverage
+			- 4 CodebaseSize
+		}
+		- Conditions includes {
+			- Plain
+			- Notes
+			- Models
+			- Static
+			- StaticNotes
+			- StaticModels
+		}
+		- Settings includes {
+			- FullAccess
+			- NoOracle
+		}
+	}
+	* 2 Models includes {
+		- Metamodels includes {
+			- 1 Domain includes {
+				- Entity
+				- Relationship
+				- Invariant
+			}
+			- 2 Feature includes {
+				- EntryPoint
+				- Behavior
+				- ErrorCase
+			}
+			- 3 Architecture includes {
+				- Component
+				- Interface
+				- StateOwnership
+			}
+		}
+		- ConcreteSyntax includes {
+			- TextualDsl includes {
+				- TextXGrammar
+			}
+			- YamlArchive
+		}
+		- Validation includes {
+			- AgainstStaticFacts
+			- Conformance includes {
+				- TraceLinks
+			}
+		}
+	}
+	* 3 Migration includes {
+		- TypeScriptSource includes {
+			- ErasedTypes
+			- CompilerFacts
+		}
+		- RustTarget includes {
+			- Ownership
+			- ExplicitErrors
+		}
+		- AgentPipeline includes {
+			- 1 Extract
+			- 2 Understand
+			- 3 Generate
+			- 4 Repair
+		}
+	}
+	* 4 Evaluation includes {
+		- Corpus includes {
+			- Development includes {
+				- greet
+				- todo
+				- semver_sort
+			}
+			- Holdout
+		}
+		- HiddenSuite includes {
+			- PassRate
+			- Cost
+		}
+		- Analysis includes {
+			- RootCauses
+			- CodeQuality
+			- Attribution
+		}
+	}
+}

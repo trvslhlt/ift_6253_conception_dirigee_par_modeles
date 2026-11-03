@@ -1,0 +1,42 @@
+// Concrete syntax for the mind map metamodel given in the assignment
+// (model/MindMap.ecore). The grammar does not infer its own metamodel: it maps
+// onto that Ecore, so Topic stays abstract and MindMap.topic stays 1..1.
+grammar ift6253.mindmap.MindMap with org.eclipse.xtext.common.Terminals
+
+import "http://www.iro.umontreal.ca/ift6253/mindmap"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+// mindmap Research (marker 1, marker 2)
+// topic HowToConductResearch includes { ... }
+MindMap:
+	'mindmap' title=ID ('(' markers+=Marker (',' markers+=Marker)* ')')?
+	topic=CentralTopic
+;
+
+Marker:
+	'marker' symbol=Symbol
+;
+
+// Markers are referred to by their symbol (see MindMapQualifiedNameProvider).
+Symbol returns ecore::EString:
+	INT
+;
+
+// Each level has its own bullet, so the containment hierarchy of the
+// metamodel (CentralTopic > MainTopic > SubTopic > SubTopic ...) is enforced
+// by the parser: a MainTopic cannot appear under a SubTopic, and there is
+// exactly one CentralTopic.
+CentralTopic:
+	'topic' (marker=[Marker|Symbol])? name=ID
+	('includes' '{' maintopics+=MainTopic* '}')?
+;
+
+MainTopic:
+	'*' (marker=[Marker|Symbol])? name=ID
+	('includes' '{' subtopics+=SubTopic* '}')?
+;
+
+SubTopic:
+	'-' (marker=[Marker|Symbol])? name=ID
+	('includes' '{' subsubtopics+=SubTopic* '}')?
+;

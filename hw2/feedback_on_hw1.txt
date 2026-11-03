@@ -1,0 +1,12 @@
+Xtext	AToMPM	Comparaison
+Métamodèle	Grammaire	Exemple	Métamodèle	Synt Concr	Exemple
+15%	20%	10%	15%	20%	10%	10%
+60	60	90	70	70	10	70
+Xtext
+- You have fundamentally changed the metamodel which defeats some of the purposes of this assignment, for example, the constraints of mindmaps are not satisfied.
+
+AToMPM
+- MindMap class is useless
+- Topic should be abstract and missing: CentralTopic, MainTopic, SubTopic classes and their containment associations.
+- Example model does not reflect your project
+- No transformation rules were needed for this assignment.
