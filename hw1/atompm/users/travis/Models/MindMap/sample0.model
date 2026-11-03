@@ -9,8 +9,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						40,
-						-5
+						102,
+						249
 					]
 				},
 				"orientation": {
@@ -232,8 +232,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						290,
-						40
+						352,
+						294
 					]
 				},
 				"orientation": {
@@ -469,8 +469,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						235,
-						65
+						297,
+						319
 					]
 				},
 				"orientation": {
@@ -556,8 +556,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/2.instance": "M180,65L235,65",
-						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/2.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/1.instance": "M235,65L290,65"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/2.instance": "M241.99999999999997,319L297,319",
+						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/2.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/1.instance": "M297,319L352,319"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/rootsLink"
@@ -570,8 +570,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						450,
-						40
+						512,
+						294
 					]
 				},
 				"orientation": {
@@ -807,8 +807,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						395,
-						65
+						457,
+						319
 					]
 				},
 				"orientation": {
@@ -860,7 +860,7 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;55,100%",
+										"0;54.99999999999994,100%",
 										"0;-4,0%"
 									]
 								},
@@ -894,8 +894,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/1.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/4.instance": "M340,65L395,65",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/4.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/3.instance": "M395,65L450,65"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/1.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/4.instance": "M401.99999999999994,319L457,319",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/4.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/3.instance": "M457,319L511.99999999999994,319"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -908,8 +908,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						630,
-						40
+						692,
+						294
 					]
 				},
 				"orientation": {
@@ -1145,8 +1145,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						575,
-						65
+						637,
+						319
 					]
 				},
 				"orientation": {
@@ -1232,8 +1232,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/3.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/6.instance": "M520,65L575,65",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/6.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance": "M575,65L630,65"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/3.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/6.instance": "M582,319L637,319",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/6.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance": "M637,319L692,319"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -1241,7 +1241,9 @@
 		},
 		"edges": [],
 		"metamodels": [
-			"/Formalisms/MindMap/MindMap.defaultIcons"
+			"/Formalisms/MindMap/MindMap.defaultIcons",
+			"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons",
+			"/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax.defaultIcons"
 		]
 	},
 	"asm": {
@@ -1407,7 +1409,9 @@
 			}
 		],
 		"metamodels": [
-			"/Formalisms/MindMap/MindMap"
+			"/Formalisms/MindMap/MindMap",
+			"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram",
+			"/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax"
 		]
 	}
 }

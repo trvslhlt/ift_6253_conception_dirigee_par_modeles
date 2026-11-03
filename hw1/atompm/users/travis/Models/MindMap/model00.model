@@ -10,7 +10,7 @@
 					"type": "list<double>",
 					"value": [
 						40,
-						568.5
+						748.5
 					]
 				},
 				"orientation": {
@@ -233,7 +233,7 @@
 					"type": "list<double>",
 					"value": [
 						40,
-						1190
+						1370
 					]
 				},
 				"orientation": {
@@ -477,7 +477,7 @@
 					"type": "list<double>",
 					"value": [
 						105,
-						949.25
+						1129.25
 					]
 				},
 				"orientation": {
@@ -563,8 +563,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/2.instance": "M110,708.5L105,949.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/2.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M105,949.25L100,1190"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/2.instance": "M110,888.5L105,1129.25",
+						"/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/2.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M105,1129.25L100,1370"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink"
@@ -578,7 +578,7 @@
 					"type": "list<double>",
 					"value": [
 						180,
-						1190
+						1370
 					]
 				},
 				"orientation": {
@@ -822,7 +822,7 @@
 					"type": "list<double>",
 					"value": [
 						175,
-						949.25
+						1129.25
 					]
 				},
 				"orientation": {
@@ -908,8 +908,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/4.instance": "M110,708.5L175,949.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/4.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/3.instance": "M175,949.25L240,1190"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/4.instance": "M110,888.5L175,1129.25",
+						"/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/4.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/3.instance": "M175,1129.25L240,1370"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink"
@@ -923,7 +923,7 @@
 					"type": "list<double>",
 					"value": [
 						290,
-						317.5
+						497.5
 					]
 				},
 				"orientation": {
@@ -1160,7 +1160,7 @@
 					"type": "list<double>",
 					"value": [
 						235,
-						490.5
+						670.5
 					]
 				},
 				"orientation": {
@@ -1213,7 +1213,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;51.250535224792,34.83455449939854%",
-										"0;-149.39338217997596,-93.73661938019971%"
+										"0;-149.3933821799759,-93.73661938019971%"
 									]
 								},
 								"orientation": {
@@ -1246,8 +1246,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/6.instance": "M180,638.5L235,490.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/6.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance": "M235,490.5L290,342.5"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/6.instance": "M180,818.5L235,670.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/6.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance": "M235,670.5L290,522.5"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/rootsLink"
@@ -1261,7 +1261,7 @@
 					"type": "list<double>",
 					"value": [
 						580,
-						132.5
+						312.5
 					]
 				},
 				"orientation": {
@@ -1498,7 +1498,7 @@
 					"type": "list<double>",
 					"value": [
 						525,
-						250
+						430
 					]
 				},
 				"orientation": {
@@ -1551,7 +1551,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;51.56185644791731,51.107539287715%",
-										"0;-94.54430157150861,-85.95358880206612%"
+										"0;-94.54430157150858,-85.95358880206612%"
 									]
 								},
 								"orientation": {
@@ -1584,8 +1584,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/8.instance": "M470,342.5L525,250",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/8.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance": "M525,250L580,157.5"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/8.instance": "M470,522.5L525,430",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/8.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance": "M525,430L580,337.5"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -1599,7 +1599,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						77
+						257
 					]
 				},
 				"orientation": {
@@ -1836,7 +1836,7 @@
 					"type": "list<double>",
 					"value": [
 						800,
-						129.75
+						309.75
 					]
 				},
 				"orientation": {
@@ -1922,8 +1922,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/10.instance": "M740,157.5L800,129.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/10.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance": "M800,129.75L860,102"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/10.instance": "M740,337.5L800,309.75",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/10.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance": "M800,309.75L860,282"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -1937,7 +1937,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						40
+						220
 					]
 				},
 				"orientation": {
@@ -2174,7 +2174,7 @@
 					"type": "list<double>",
 					"value": [
 						1070,
-						83.5
+						263.5
 					]
 				},
 				"orientation": {
@@ -2227,7 +2227,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;129.43644701969924,99.00255059338768%",
-										"0;-22.4601020237355,-14.088824507520556%"
+										"0;-22.460102023735487,-14.088824507520556%"
 									]
 								},
 								"orientation": {
@@ -2260,8 +2260,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance": "M940,102L1070,83.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/11.instance": "M1070,83.5L1200,65"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance": "M940,282L1070,263.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/11.instance": "M1070,263.5L1200,245"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -2275,7 +2275,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						114
+						294
 					]
 				},
 				"orientation": {
@@ -2512,7 +2512,7 @@
 					"type": "list<double>",
 					"value": [
 						1070,
-						120.5
+						300.5
 					]
 				},
 				"orientation": {
@@ -2565,7 +2565,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;130.56355298030076,99.00255059338768%",
-										"0;14.539897976264498,14.088824507520556%"
+										"0;14.539897976264513,14.088824507520556%"
 									]
 								},
 								"orientation": {
@@ -2598,8 +2598,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/14.instance": "M940,102L1070,120.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/14.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/13.instance": "M1070,120.5L1200,139"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/14.instance": "M940,282L1070,300.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/14.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/13.instance": "M1070,300.5L1200,319"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -2613,7 +2613,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						188
+						368
 					]
 				},
 				"orientation": {
@@ -2850,7 +2850,7 @@
 					"type": "list<double>",
 					"value": [
 						800,
-						185.25
+						365.25
 					]
 				},
 				"orientation": {
@@ -2936,8 +2936,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/16.instance": "M740,157.5L800,185.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/16.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance": "M800,185.25L860,213"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/16.instance": "M740,337.5L800,365.25",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/16.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance": "M800,365.25L860,393"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -2951,7 +2951,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						188
+						368
 					]
 				},
 				"orientation": {
@@ -3188,7 +3188,7 @@
 					"type": "list<double>",
 					"value": [
 						1095,
-						213
+						393
 					]
 				},
 				"orientation": {
@@ -3274,8 +3274,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/18.instance": "M990,213L1095,213",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/18.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance": "M1095,213L1200,213"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/18.instance": "M990,393L1095,393",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/18.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance": "M1095,393L1200,393"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -3289,7 +3289,7 @@
 					"type": "list<double>",
 					"value": [
 						580,
-						502.5
+						682.5
 					]
 				},
 				"orientation": {
@@ -3526,7 +3526,7 @@
 					"type": "list<double>",
 					"value": [
 						525,
-						435
+						615
 					]
 				},
 				"orientation": {
@@ -3579,7 +3579,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;58.43814355208269,51.107539287715%",
-										"0;90.45569842849142,85.95358880206612%"
+										"0;90.45569842849136,85.95358880206612%"
 									]
 								},
 								"orientation": {
@@ -3612,8 +3612,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/20.instance": "M470,342.5L525,435",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/20.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance": "M525,435L580,527.5"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/20.instance": "M470,522.5L525,615",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/20.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance": "M525,615L580,707.5"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -3627,7 +3627,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						373
+						553
 					]
 				},
 				"orientation": {
@@ -3864,7 +3864,7 @@
 					"type": "list<double>",
 					"value": [
 						780,
-						462.75
+						642.75
 					]
 				},
 				"orientation": {
@@ -3950,8 +3950,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/22.instance": "M700,527.5L780,462.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/22.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance": "M780,462.75L860,398"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/22.instance": "M700,707.5L780,642.75",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/22.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance": "M780,642.75L860,578"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -3965,7 +3965,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						262
+						442
 					]
 				},
 				"orientation": {
@@ -4202,7 +4202,7 @@
 					"type": "list<double>",
 					"value": [
 						1145,
-						342.5
+						522.5
 					]
 				},
 				"orientation": {
@@ -4288,8 +4288,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/24.instance": "M1090,398L1145,342.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/24.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/23.instance": "M1145,342.5L1200,287"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/24.instance": "M1090,578L1145,522.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/24.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/23.instance": "M1145,522.5L1200,467"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -4303,7 +4303,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						336
+						516
 					]
 				},
 				"orientation": {
@@ -4540,7 +4540,7 @@
 					"type": "list<double>",
 					"value": [
 						1145,
-						379.5
+						559.5
 					]
 				},
 				"orientation": {
@@ -4593,7 +4593,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;53.7247537975054,94.78181234756762%",
-										"0;-22.29127249390268,-31.881155062363653%"
+										"0;-22.29127249390274,-31.881155062363653%"
 									]
 								},
 								"orientation": {
@@ -4626,8 +4626,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/26.instance": "M1090,398L1145,379.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/26.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance": "M1145,379.5L1200,361"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/26.instance": "M1090,578L1145,559.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/26.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance": "M1145,559.5L1200,541"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -4641,7 +4641,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						410
+						590
 					]
 				},
 				"orientation": {
@@ -4878,7 +4878,7 @@
 					"type": "list<double>",
 					"value": [
 						1145,
-						416.5
+						596.5
 					]
 				},
 				"orientation": {
@@ -4931,7 +4931,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;56.2752462024946,94.78181234756762%",
-										"0;14.708727506097318,31.881155062363653%"
+										"0;14.708727506097262,31.881155062363653%"
 									]
 								},
 								"orientation": {
@@ -4964,8 +4964,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/28.instance": "M1090,398L1145,416.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/28.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/27.instance": "M1145,416.5L1200,435"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/28.instance": "M1090,578L1145,596.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/28.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/27.instance": "M1145,596.5L1200,615"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -4979,7 +4979,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						484
+						664
 					]
 				},
 				"orientation": {
@@ -5216,7 +5216,7 @@
 					"type": "list<double>",
 					"value": [
 						1145,
-						453.5
+						633.5
 					]
 				},
 				"orientation": {
@@ -5302,8 +5302,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/30.instance": "M1090,398L1145,453.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/30.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/29.instance": "M1145,453.5L1200,509"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/30.instance": "M1090,578L1145,633.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/30.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/29.instance": "M1145,633.5L1200,689"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -5317,7 +5317,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						558
+						738
 					]
 				},
 				"orientation": {
@@ -5554,7 +5554,7 @@
 					"type": "list<double>",
 					"value": [
 						780,
-						555.25
+						735.25
 					]
 				},
 				"orientation": {
@@ -5640,8 +5640,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/32.instance": "M700,527.5L780,555.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/32.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance": "M780,555.25L860,583"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/32.instance": "M700,707.5L780,735.25",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/32.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance": "M780,735.25L860,763"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -5655,7 +5655,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						632
+						812
 					]
 				},
 				"orientation": {
@@ -5892,7 +5892,7 @@
 					"type": "list<double>",
 					"value": [
 						780,
-						592.25
+						772.25
 					]
 				},
 				"orientation": {
@@ -5978,8 +5978,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/34.instance": "M700,527.5L780,592.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/34.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/33.instance": "M780,592.25L860,657"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/34.instance": "M700,707.5L780,772.25",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/34.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/33.instance": "M780,772.25L860,837"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -5993,7 +5993,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						632
+						812
 					]
 				},
 				"orientation": {
@@ -6230,7 +6230,7 @@
 					"type": "list<double>",
 					"value": [
 						1080,
-						657
+						837
 					]
 				},
 				"orientation": {
@@ -6316,8 +6316,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/33.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/36.instance": "M960,657L1080,657",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/36.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/35.instance": "M1080,657L1200,657"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/33.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/36.instance": "M960,837L1080,837",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/36.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/35.instance": "M1080,837L1200,837"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -6331,7 +6331,7 @@
 					"type": "list<double>",
 					"value": [
 						290,
-						909.5
+						1089.5
 					]
 				},
 				"orientation": {
@@ -6568,7 +6568,7 @@
 					"type": "list<double>",
 					"value": [
 						235,
-						786.5
+						966.5
 					]
 				},
 				"orientation": {
@@ -6654,8 +6654,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/38.instance": "M180,638.5L235,786.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/38.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance": "M235,786.5L290,934.5"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/38.instance": "M180,818.5L235,966.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/38.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance": "M235,966.5L290,1114.5"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/rootsLink"
@@ -6669,7 +6669,7 @@
 					"type": "list<double>",
 					"value": [
 						580,
-						780
+						960
 					]
 				},
 				"orientation": {
@@ -6906,7 +6906,7 @@
 					"type": "list<double>",
 					"value": [
 						510,
-						869.75
+						1049.75
 					]
 				},
 				"orientation": {
@@ -6959,7 +6959,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;67.28383207353033,73.40994395864077%",
-										"0;-67.6863977583456,-67.90419816174271%"
+										"0;-67.68639775834572,-67.90419816174271%"
 									]
 								},
 								"orientation": {
@@ -6992,8 +6992,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/40.instance": "M440,934.5L510,869.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/40.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance": "M510,869.75L580,805"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/40.instance": "M440,1114.5L510,1049.75",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/40.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance": "M510,1049.75L580,985"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -7007,7 +7007,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						706
+						886
 					]
 				},
 				"orientation": {
@@ -7244,7 +7244,7 @@
 					"type": "list<double>",
 					"value": [
 						780,
-						768
+						948
 					]
 				},
 				"orientation": {
@@ -7330,8 +7330,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/42.instance": "M700,805L780,768",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/42.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/41.instance": "M780,768L860,731"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/42.instance": "M700,985L780,948",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/42.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/41.instance": "M780,948L860,911"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -7345,7 +7345,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						780
+						960
 					]
 				},
 				"orientation": {
@@ -7582,7 +7582,7 @@
 					"type": "list<double>",
 					"value": [
 						780,
-						805
+						985
 					]
 				},
 				"orientation": {
@@ -7668,8 +7668,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/44.instance": "M700,805L780,805",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/44.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/43.instance": "M780,805L860,805"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/44.instance": "M700,985L780,985",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/44.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/43.instance": "M780,985L860,985"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -7683,7 +7683,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						854
+						1034
 					]
 				},
 				"orientation": {
@@ -7920,7 +7920,7 @@
 					"type": "list<double>",
 					"value": [
 						780,
-						842
+						1022
 					]
 				},
 				"orientation": {
@@ -7973,7 +7973,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;81.67911002544179,90.76270407793152%",
-										"0;33.36949183688273,41.977750636043325%"
+										"0;33.369491836882844,41.977750636043325%"
 									]
 								},
 								"orientation": {
@@ -8006,8 +8006,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/46.instance": "M700,805L780,842",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/46.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/45.instance": "M780,842L860,879"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/46.instance": "M700,985L780,1022",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/46.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/45.instance": "M780,1022L860,1059"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -8021,7 +8021,7 @@
 					"type": "list<double>",
 					"value": [
 						580,
-						928
+						1108
 					]
 				},
 				"orientation": {
@@ -8258,7 +8258,7 @@
 					"type": "list<double>",
 					"value": [
 						510,
-						943.75
+						1123.75
 					]
 				},
 				"orientation": {
@@ -8344,8 +8344,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/48.instance": "M440,934.5L510,943.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/48.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance": "M510,943.75L580,953"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/48.instance": "M440,1114.5L510,1123.75",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/48.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance": "M510,1123.75L580,1133"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -8359,7 +8359,7 @@
 					"type": "list<double>",
 					"value": [
 						580,
-						1039
+						1219
 					]
 				},
 				"orientation": {
@@ -8596,7 +8596,7 @@
 					"type": "list<double>",
 					"value": [
 						510,
-						999.25
+						1179.25
 					]
 				},
 				"orientation": {
@@ -8649,7 +8649,7 @@
 									"type": "list<double>",
 									"value": [
 										"0;72.71616792646972,73.40994395864077%",
-										"0;61.813602241654394,67.90419816174271%"
+										"0;61.81360224165428,67.90419816174271%"
 									]
 								},
 								"orientation": {
@@ -8682,8 +8682,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/50.instance": "M440,934.5L510,999.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/50.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/49.instance": "M510,999.25L580,1064"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/50.instance": "M440,1114.5L510,1179.25",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/50.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/49.instance": "M510,1179.25L580,1244"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -8697,7 +8697,7 @@
 					"type": "list<double>",
 					"value": [
 						860,
-						1039
+						1219
 					]
 				},
 				"orientation": {
@@ -8934,7 +8934,7 @@
 					"type": "list<double>",
 					"value": [
 						795,
-						1064
+						1244
 					]
 				},
 				"orientation": {
@@ -9020,8 +9020,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/49.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/52.instance": "M730,1064L795,1064",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/52.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/51.instance": "M795,1064L860,1064"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/49.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/52.instance": "M730,1244L795,1244",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/52.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/51.instance": "M795,1244L860,1244"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -9035,7 +9035,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						1002
+						1182
 					]
 				},
 				"orientation": {
@@ -9272,7 +9272,7 @@
 					"type": "list<double>",
 					"value": [
 						1090,
-						1045.5
+						1225.5
 					]
 				},
 				"orientation": {
@@ -9358,8 +9358,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/51.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/54.instance": "M980,1064L1090,1045.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/54.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/53.instance": "M1090,1045.5L1200,1027"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/51.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/54.instance": "M980,1244L1090,1225.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/54.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/53.instance": "M1090,1225.5L1200,1207"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -9373,7 +9373,7 @@
 					"type": "list<double>",
 					"value": [
 						1200,
-						1076
+						1256
 					]
 				},
 				"orientation": {
@@ -9610,7 +9610,7 @@
 					"type": "list<double>",
 					"value": [
 						1090,
-						1082.5
+						1262.5
 					]
 				},
 				"orientation": {
@@ -9696,8 +9696,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/51.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/56.instance": "M980,1064L1090,1082.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/56.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/55.instance": "M1090,1082.5L1200,1101"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/51.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/56.instance": "M980,1244L1090,1262.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/56.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/55.instance": "M1090,1262.5L1200,1281"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -9711,7 +9711,7 @@
 					"type": "list<double>",
 					"value": [
 						1500,
-						1076
+						1256
 					]
 				},
 				"orientation": {
@@ -9948,7 +9948,7 @@
 					"type": "list<double>",
 					"value": [
 						1430,
-						1101
+						1281
 					]
 				},
 				"orientation": {
@@ -10034,8 +10034,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/55.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/58.instance": "M1360,1101L1430,1101",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/58.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/57.instance": "M1430,1101L1500,1101"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/55.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/58.instance": "M1360,1281L1430,1281",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/58.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/57.instance": "M1430,1281L1500,1281"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -10066,7 +10066,7 @@
 					"type": "list<double>",
 					"value": [
 						1450,
-						139
+						319
 					]
 				},
 				"orientation": {
@@ -10152,8 +10152,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/11.instance--/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/59.instance": "M1380,65L1450,139",
-						"/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/59.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance": "M1450,139L1330,213"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/11.instance--/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/59.instance": "M1380,245L1450,319",
+						"/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/59.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance": "M1450,319L1330,393"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/relatedLink"
@@ -10184,7 +10184,7 @@
 					"type": "list<double>",
 					"value": [
 						1450,
-						176
+						356
 					]
 				},
 				"orientation": {
@@ -10270,8 +10270,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/13.instance--/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/60.instance": "M1380,139L1450,176",
-						"/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/60.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance": "M1450,176L1330,213"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/13.instance--/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/60.instance": "M1380,319L1450,356",
+						"/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/60.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance": "M1450,356L1330,393"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/relatedLink"
@@ -10302,7 +10302,7 @@
 					"type": "list<double>",
 					"value": [
 						712.5,
-						744
+						924
 					]
 				},
 				"orientation": {
@@ -10388,8 +10388,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/61.instance": "M1265,238L712.5,744",
-						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/61.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M712.5,744L160,1250"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/61.instance": "M1265,418L712.5,924",
+						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/61.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M712.5,924L160,1430"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/taggedLink"
@@ -10420,7 +10420,7 @@
 					"type": "list<double>",
 					"value": [
 						412.5,
-						1114
+						1294
 					]
 				},
 				"orientation": {
@@ -10506,8 +10506,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/62.instance": "M665,978L412.5,1114",
-						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/62.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M412.5,1114L160,1250"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/62.instance": "M665,1158L412.5,1294",
+						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/62.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M412.5,1294L160,1430"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/taggedLink"
@@ -10538,7 +10538,7 @@
 					"type": "list<double>",
 					"value": [
 						482.5,
-						1114
+						1294
 					]
 				},
 				"orientation": {
@@ -10624,8 +10624,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/63.instance": "M665,978L482.5,1114",
-						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/63.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/3.instance": "M482.5,1114L300,1250"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/63.instance": "M665,1158L482.5,1294",
+						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/63.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/3.instance": "M482.5,1294L300,1430"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/taggedLink"

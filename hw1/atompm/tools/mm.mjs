@@ -81,7 +81,7 @@ export const TAG_DIAMETER = 120;
 // Sets t.pos (top-left) on every topic: columns as wide as their widest topic,
 // y by leaf order, parents centered on their children. Tags sit in a row below.
 export function layout(map, { xGap = 110, yStep = 74 } = {}) {
-	const origin = { x: 40, y: 40 };
+	const origin = { x: 40, y: 220 }; // y clears AToMPM's toolbars
 	const widths = [];
 	const measure = (t, depth) => {
 		widths[depth] = Math.max(widths[depth] ?? 0, topicWidth(t));
