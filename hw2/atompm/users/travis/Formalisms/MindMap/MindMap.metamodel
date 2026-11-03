@@ -1,88 +1,61 @@
 {
 	"types": {
-		"Tag": [
-			{
-				"name": "name",
-				"type": "string",
-				"default": "tag"
-			}
-		],
 		"MindMap": [
 			{
-				"name": "name",
+				"name": "title",
 				"type": "string",
-				"default": "mindmap"
-			},
+				"default": "MindMap"
+			}
+		],
+		"Marker": [
 			{
-				"name": "nextMarker",
-				"type": "int",
-				"default": 1
+				"name": "symbol",
+				"type": "string",
+				"default": "1"
 			}
 		],
 		"Topic": [
 			{
 				"name": "name",
 				"type": "string",
-				"default": "topic"
-			},
-			{
-				"name": "isDeeper",
-				"type": "boolean",
-				"default": false
-			},
-			{
-				"name": "isDone",
-				"type": "boolean",
-				"default": false
-			},
-			{
-				"name": "priority",
-				"type": "ENUM(NONE,HIGH,MEDIUM,LOW)",
-				"default": "NONE"
-			},
-			{
-				"name": "description",
-				"type": "string",
-				"default": ""
-			},
-			{
-				"name": "color",
-				"type": "string",
-				"default": ""
-			},
-			{
-				"name": "level",
-				"type": "int",
-				"default": 0
-			},
-			{
-				"name": "effectivelyDone",
-				"type": "boolean",
-				"default": false
-			},
-			{
-				"name": "computed",
-				"type": "boolean",
-				"default": false
-			},
-			{
-				"name": "marker",
-				"type": "int",
-				"default": 0
-			},
-			{
-				"name": "nextMarker",
-				"type": "int",
-				"default": 1
+				"default": "Topic"
 			}
 		],
-		"roots": [],
-		"children": [],
-		"related": [],
-		"tagged": [],
-		"hasTag": []
+		"CentralTopic": [
+			{
+				"name": "name",
+				"type": "string",
+				"default": "Topic"
+			}
+		],
+		"MainTopic": [
+			{
+				"name": "name",
+				"type": "string",
+				"default": "Topic"
+			}
+		],
+		"SubTopic": [
+			{
+				"name": "name",
+				"type": "string",
+				"default": "Topic"
+			}
+		],
+		"markers": [],
+		"topic": [],
+		"marker": [],
+		"maintopics": [],
+		"subtopics": [],
+		"subsubtopics": []
 	},
 	"constraints": [
+		{
+			"name": "noAbstractInstances",
+			"event": "pre-create",
+			"code": "false",
+			"targetType": "Topic"
+		},
 		{
 			"name": "exactly-one-mindmap",
 			"event": "",
@@ -90,117 +63,135 @@
 			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/MindMap']).length == 1"
 		},
 		{
-			"name": "unique-topic-names",
+			"name": "one-parent-per-subtopic",
 			"event": "",
 			"targetType": "*",
-			"code": "var names = getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\treturn getNeighbors('<', '/Formalisms/MindMap/MindMap/subtopics', t).length + getNeighbors('<', '/Formalisms/MindMap/MindMap/subsubtopics', t).length == 1;\n})"
 		},
 		{
-			"name": "unique-tag-names",
+			"name": "subtopics-descend-from-a-maintopic",
 			"event": "",
 			"targetType": "*",
-			"code": "var names = getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\tvar seen = {};\n\twhile (getAttr('$type', t) == '/Formalisms/MindMap/MindMap/SubTopic') {\n\t\tif (seen[t]) return false;\n\t\tseen[t] = true;\n\t\tvar links = getNeighbors('<', '/Formalisms/MindMap/MindMap/subtopics', t).concat(getNeighbors('<', '/Formalisms/MindMap/MindMap/subsubtopics', t));\n\t\tif (links.length != 1) return false;\n\t\tt = getNeighbors('<', '*', links[0])[0];\n\t}\n\treturn true;\n})"
 		},
 		{
-			"name": "valid-topic-colors",
+			"name": "unique-marker-symbols",
 			"event": "",
 			"targetType": "*",
-			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar color = getAttr('color', t);\n\treturn color == '' || /^#[0-9a-fA-F]{6}$/.test(color);\n})"
+			"code": "var symbols = getAllNodes(['/Formalisms/MindMap/MindMap/Marker']).map(function(m) { return getAttr('symbol', m); });\nsymbols.length == new Set(symbols).size"
 		},
 		{
-			"name": "no-deeper-at-root",
+			"name": "non-empty-names",
 			"event": "",
 			"targetType": "*",
-			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t).length == 0 || !getAttr('isDeeper', t);\n})"
-		},
-		{
-			"name": "no-self-relation",
-			"event": "",
-			"targetType": "*",
-			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/related']).every(function(l) {\n\treturn getNeighbors('in', '*', l)[0] != getNeighbors('out', '*', l)[0];\n})"
-		},
-		{
-			"name": "topics-form-a-tree",
-			"event": "",
-			"targetType": "*",
-			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar seen = {};\n\twhile (!seen[t]) {\n\t\tseen[t] = true;\n\t\tvar rootLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t),\n\t\t\t childLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/children', t);\n\t\tif (rootLinks.length + childLinks.length != 1) return false;\n\t\tif (rootLinks.length == 1) return true;\n\t\tt = getNeighbors('in', '*', childLinks[0])[0];\n\t}\n\treturn false;\n})"
-		},
-		{
-			"name": "tags-belong-to-the-map",
-			"event": "",
-			"targetType": "*",
-			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/hasTag', t).length == 1;\n})"
+			"code": "getAllNodes(['/Formalisms/MindMap/MindMap/CentralTopic', '/Formalisms/MindMap/MindMap/MainTopic', '/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\treturn getAttr('name', t).trim() != '';\n})"
 		}
 	],
 	"actions": [],
 	"cardinalities": {
-		"Tag": [
-			{
-				"dir": "in",
-				"type": "tagged",
-				"min": "0",
-				"max": "Infinity"
-			},
-			{
-				"dir": "in",
-				"type": "hasTag",
-				"min": "0",
-				"max": "Infinity"
-			}
-		],
 		"MindMap": [
 			{
 				"dir": "out",
-				"type": "roots",
+				"type": "markers",
 				"min": "0",
 				"max": "Infinity"
 			},
 			{
 				"dir": "out",
-				"type": "hasTag",
+				"type": "topic",
+				"min": "1",
+				"max": "1"
+			}
+		],
+		"Marker": [
+			{
+				"dir": "in",
+				"type": "markers",
+				"min": "1",
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "marker",
 				"min": "0",
 				"max": "Infinity"
 			}
 		],
 		"Topic": [
 			{
-				"dir": "in",
-				"type": "roots",
+				"dir": "out",
+				"type": "marker",
 				"min": "0",
 				"max": "1"
-			},
-			{
-				"dir": "in",
-				"type": "children",
-				"min": "0",
-				"max": "1"
-			},
-			{
-				"dir": "out",
-				"type": "children",
-				"min": "0",
-				"max": "Infinity"
-			},
-			{
-				"dir": "out",
-				"type": "related",
-				"min": "0",
-				"max": "Infinity"
-			},
-			{
-				"dir": "in",
-				"type": "related",
-				"min": "0",
-				"max": "Infinity"
-			},
-			{
-				"dir": "out",
-				"type": "tagged",
-				"min": "0",
-				"max": "Infinity"
 			}
 		],
-		"roots": [
+		"CentralTopic": [
+			{
+				"dir": "in",
+				"type": "topic",
+				"min": "1",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "maintopics",
+				"min": "0",
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "marker",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"MainTopic": [
+			{
+				"dir": "in",
+				"type": "maintopics",
+				"min": "1",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "subtopics",
+				"min": "0",
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "marker",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"SubTopic": [
+			{
+				"dir": "in",
+				"type": "subtopics",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "subsubtopics",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "subsubtopics",
+				"min": "0",
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "marker",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"markers": [
 			{
 				"dir": "in",
 				"type": "MindMap",
@@ -209,54 +200,12 @@
 			},
 			{
 				"dir": "out",
-				"type": "Topic",
+				"type": "Marker",
 				"min": "0",
 				"max": "1"
 			}
 		],
-		"children": [
-			{
-				"dir": "in",
-				"type": "Topic",
-				"min": "0",
-				"max": "1"
-			},
-			{
-				"dir": "out",
-				"type": "Topic",
-				"min": "0",
-				"max": "1"
-			}
-		],
-		"related": [
-			{
-				"dir": "in",
-				"type": "Topic",
-				"min": "0",
-				"max": "1"
-			},
-			{
-				"dir": "out",
-				"type": "Topic",
-				"min": "0",
-				"max": "1"
-			}
-		],
-		"tagged": [
-			{
-				"dir": "in",
-				"type": "Topic",
-				"min": "0",
-				"max": "1"
-			},
-			{
-				"dir": "out",
-				"type": "Tag",
-				"min": "0",
-				"max": "1"
-			}
-		],
-		"hasTag": [
+		"topic": [
 			{
 				"dir": "in",
 				"type": "MindMap",
@@ -265,7 +214,81 @@
 			},
 			{
 				"dir": "out",
-				"type": "Tag",
+				"type": "CentralTopic",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"marker": [
+			{
+				"dir": "in",
+				"type": "Topic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "Marker",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "CentralTopic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "MainTopic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "SubTopic",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"maintopics": [
+			{
+				"dir": "in",
+				"type": "CentralTopic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "MainTopic",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"subtopics": [
+			{
+				"dir": "in",
+				"type": "MainTopic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "SubTopic",
+				"min": "0",
+				"max": "1"
+			}
+		],
+		"subsubtopics": [
+			{
+				"dir": "in",
+				"type": "SubTopic",
+				"min": "0",
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "SubTopic",
 				"min": "0",
 				"max": "1"
 			}
@@ -273,46 +296,74 @@
 	},
 	"legalConnections": {
 		"MindMap": {
-			"Topic": [
-				"roots"
+			"Marker": [
+				"markers"
 			],
-			"Tag": [
-				"hasTag"
+			"CentralTopic": [
+				"topic"
 			]
 		},
 		"Topic": {
-			"Topic": [
-				"children",
-				"related"
+			"Marker": [
+				"marker"
+			]
+		},
+		"CentralTopic": {
+			"MainTopic": [
+				"maintopics"
 			],
-			"Tag": [
-				"tagged"
+			"Marker": [
+				"marker"
+			]
+		},
+		"MainTopic": {
+			"SubTopic": [
+				"subtopics"
+			],
+			"Marker": [
+				"marker"
+			]
+		},
+		"SubTopic": {
+			"SubTopic": [
+				"subsubtopics"
+			],
+			"Marker": [
+				"marker"
 			]
 		}
 	},
 	"connectorTypes": {
-		"roots": "visual",
-		"children": "visual",
-		"related": "visual",
-		"tagged": "visual",
-		"hasTag": "visual"
+		"markers": "visual",
+		"topic": "visual",
+		"marker": "visual",
+		"maintopics": "visual",
+		"subtopics": "visual",
+		"subsubtopics": "visual"
 	},
 	"types2parentTypes": {
-		"Tag": [],
 		"MindMap": [],
+		"Marker": [],
 		"Topic": [],
-		"roots": [],
-		"children": [],
-		"related": [],
-		"tagged": [],
-		"hasTag": [],
+		"CentralTopic": [
+			"Topic"
+		],
+		"MainTopic": [
+			"Topic"
+		],
+		"SubTopic": [
+			"Topic"
+		],
+		"markers": [],
+		"topic": [],
+		"marker": [],
+		"maintopics": [],
+		"subtopics": [],
+		"subsubtopics": [],
 		"exactly-one-mindmap": [],
-		"unique-topic-names": [],
-		"unique-tag-names": [],
-		"valid-topic-colors": [],
-		"no-deeper-at-root": [],
-		"no-self-relation": [],
-		"topics-form-a-tree": [],
-		"tags-belong-to-the-map": []
+		"one-parent-per-subtopic": [],
+		"subtopics-descend-from-a-maintopic": [],
+		"unique-marker-symbols": [],
+		"non-empty-names": []
 	}
 }

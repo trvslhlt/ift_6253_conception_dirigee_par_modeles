@@ -2,7 +2,7 @@
 # Requires the upstream atompmvm:latest image (see Dockerfile).
 
 IMAGE     := atompm-hw1
-CONTAINER := atompm-hw1
+CONTAINER := atompm-hw2
 PORT      := 8124
 USERS     := $(CURDIR)/users
 
@@ -25,7 +25,7 @@ seed: build ## Seed ./users from the image (no-op if already seeded)
 		docker rm atompm-seed >/dev/null; \
 	fi
 
-run: seed ## Run AToMPM at http://localhost:8124/atompm (Ctrl+C to stop)
+run: seed ## Run AToMPM at http://localhost:$(PORT)/atompm (Ctrl+C to stop)
 	docker run --rm --name $(CONTAINER) -p $(PORT):8124 -v "$(USERS):/opt/atompm/users" $(IMAGE)
 
 stop: ## Stop the container if running in another terminal

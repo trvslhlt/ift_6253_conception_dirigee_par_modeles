@@ -75,6 +75,14 @@ export class Atompm {
 
 	iconUris() { return this.page.evaluate(() => Object.keys(__icons)); }
 
+	// The icon's box on the canvas, as { x, y, w, h }.
+	bbox(uri) {
+		return this.page.evaluate(u => {
+			const b = __icons[u].icon.getBBox();
+			return { x: b.x, y: b.y, w: b.width, h: b.height };
+		}, uri);
+	}
+
 	update(uri, changes) { return this.mustReq('PUT', uri, { changes }); }
 
 	// Same, for concrete-syntax attributes such as position.

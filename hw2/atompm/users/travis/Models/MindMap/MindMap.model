@@ -1,7 +1,7 @@
 {
 	"csm": {
 		"nodes": {
-			"2": {
+			"0": {
 				"typename": {
 					"type": "string",
 					"value": "ClassIcon"
@@ -9,359 +9,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						759,
-						309
-					]
-				},
-				"orientation": {
-					"type": "double",
-					"value": 0
-				},
-				"scale": {
-					"type": "list<double>",
-					"value": [
-						1,
-						1
-					]
-				},
-				"mapper": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
-				},
-				"parser": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-				},
-				"$contents": {
-					"type": "map<string,*>",
-					"value": {
-						"nodes": {
-							"96": {
-								"width": {
-									"type": "double",
-									"value": 200
-								},
-								"height": {
-									"type": "double",
-									"value": 125
-								},
-								"cornerRadius": {
-									"type": "double",
-									"value": 0
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#000000",
-										"stroke-dasharray": "",
-										"fill": "#ffffff",
-										"fill-opacity": 0.75,
-										"stroke-width": 2
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Rectangle",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										4,
-										3
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								}
-							},
-							"97": {
-								"segments": {
-									"type": "string",
-									"value": "m0,0l197,0"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#000000",
-										"stroke-dasharray": "",
-										"fill": "#ffffff",
-										"fill-opacity": 0.75,
-										"font-size": "20px",
-										"stroke-width": 2,
-										"arrow-start": "none",
-										"arrow-end": "none"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										6,
-										36
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								}
-							},
-							"98": {
-								"textContent": {
-									"type": "string",
-									"value": "Tag"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "18px",
-										"font-style": "normal",
-										"font-weight": "bold",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "var style = \n{\n   \"font-size\": \"18px\",\n   \"font-style\": \"normal\",\n   \"font-weight\": \"bold\",\n   \"line-height\": \"100%\",\n   \"letter-spacing\": \"0px\",\n   \"word-spacing\": \"0px\",\n   \"fill\": \"#000000\",\n   \"fill-opacity\": \"1\",\n   \"stroke\": \"none\",\n       \"font-style\": (getAttr('abstract') ? 'italic' : 'normal')\n};\n\n({'textContent': getAttr('name'), 'style':style})\n\n\n"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */\n({'name': getAttr('textContent')})"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										8,
-										8
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								}
-							},
-							"99": {
-								"textContent": {
-									"type": "string",
-									"value": "+ name : string = tag"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "14px",
-										"font-style": "normal",
-										"font-weight": "bold",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "var filenames = getAttr('attributes').map(\n            function(attr)\n            {\n                var s = '+ '+attr['name'] + ' : ' + attr['type'];\n                if (attr['default'])\n                    s += ' = ' + attr['default'];\n                return s;\n            });\n\n({'textContent': filenames.join('\\n')})"
-								},
-								"parser": {
-									"type": "code",
-									"value": ""
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										10,
-										41
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								}
-							},
-							"100": {
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										68.5,
-										36.5
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"link-style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#00ffff",
-										"stroke-dasharray": "",
-										"stroke-opacity": 0.1,
-										"stroke-width": 1
-									}
-								}
-							},
-							"101": {
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										12.5,
-										27
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"link-style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#00ffff",
-										"stroke-dasharray": "",
-										"stroke-opacity": 0.1,
-										"stroke-width": 1
-									}
-								}
-							},
-							"102": {
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										53.75,
-										20
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"link-style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#00ffff",
-										"stroke-dasharray": "",
-										"stroke-opacity": 0.1,
-										"stroke-width": 1
-									}
-								}
-							}
-						},
-						"edges": [
-							{
-								"src": "96",
-								"dest": "100"
-							},
-							{
-								"src": "100",
-								"dest": "98"
-							},
-							{
-								"src": "96",
-								"dest": "101"
-							},
-							{
-								"src": "101",
-								"dest": "99"
-							},
-							{
-								"src": "96",
-								"dest": "102"
-							},
-							{
-								"src": "102",
-								"dest": "97"
-							}
-						]
-					}
-				},
-				"$asuri": {
-					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/2.instance"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon"
-			},
-			"11": {
-				"typename": {
-					"type": "string",
-					"value": "ClassIcon"
-				},
-				"position": {
-					"type": "list<double>",
-					"value": [
-						592,
-						118
+						75,
+						175
 					]
 				},
 				"orientation": {
@@ -534,7 +183,7 @@
 							"99": {
 								"textContent": {
 									"type": "string",
-									"value": "+ name : string = mindmap\n+ nextMarker : int = 1"
+									"value": "+ title : string = MindMap"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -699,11 +348,11 @@
 				},
 				"$asuri": {
 					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/11.instance"
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/0.instance"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon"
 			},
-			"12": {
+			"1": {
 				"typename": {
 					"type": "string",
 					"value": "ClassIcon"
@@ -711,8 +360,359 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						299,
-						304
+						525,
+						179
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"96": {
+								"width": {
+									"type": "double",
+									"value": 200
+								},
+								"height": {
+									"type": "double",
+									"value": 125
+								},
+								"cornerRadius": {
+									"type": "double",
+									"value": 0
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"stroke-dasharray": "",
+										"fill": "#ffffff",
+										"fill-opacity": 0.75,
+										"stroke-width": 2
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Rectangle",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										4,
+										3
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"97": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0l197,0"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"stroke-dasharray": "",
+										"fill": "#ffffff",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 2,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										6,
+										36
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"98": {
+								"textContent": {
+									"type": "string",
+									"value": "Marker"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "18px",
+										"font-style": "normal",
+										"font-weight": "bold",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var style = \n{\n   \"font-size\": \"18px\",\n   \"font-style\": \"normal\",\n   \"font-weight\": \"bold\",\n   \"line-height\": \"100%\",\n   \"letter-spacing\": \"0px\",\n   \"word-spacing\": \"0px\",\n   \"fill\": \"#000000\",\n   \"fill-opacity\": \"1\",\n   \"stroke\": \"none\",\n       \"font-style\": (getAttr('abstract') ? 'italic' : 'normal')\n};\n\n({'textContent': getAttr('name'), 'style':style})\n\n\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */\n({'name': getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										8,
+										8
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"99": {
+								"textContent": {
+									"type": "string",
+									"value": "+ symbol : string = 1"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "14px",
+										"font-style": "normal",
+										"font-weight": "bold",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var filenames = getAttr('attributes').map(\n            function(attr)\n            {\n                var s = '+ '+attr['name'] + ' : ' + attr['type'];\n                if (attr['default'])\n                    s += ' = ' + attr['default'];\n                return s;\n            });\n\n({'textContent': filenames.join('\\n')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										10,
+										41
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"100": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										68.5,
+										36.5
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"101": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										12.5,
+										27
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"102": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										53.75,
+										20
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							}
+						},
+						"edges": [
+							{
+								"src": "96",
+								"dest": "100"
+							},
+							{
+								"src": "100",
+								"dest": "98"
+							},
+							{
+								"src": "96",
+								"dest": "101"
+							},
+							{
+								"src": "101",
+								"dest": "99"
+							},
+							{
+								"src": "96",
+								"dest": "102"
+							},
+							{
+								"src": "102",
+								"dest": "97"
+							}
+						]
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/1.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon"
+			},
+			"2": {
+				"typename": {
+					"type": "string",
+					"value": "ClassIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						524,
+						454
 					]
 				},
 				"orientation": {
@@ -844,7 +844,7 @@
 									"type": "map<string,string>",
 									"value": {
 										"font-size": "18px",
-										"font-style": "normal",
+										"font-style": "italic",
 										"font-weight": "bold",
 										"line-height": "100%",
 										"letter-spacing": "0px",
@@ -885,7 +885,7 @@
 							"99": {
 								"textContent": {
 									"type": "string",
-									"value": "+ name : string = topic\n+ isDeeper : boolean\n+ isDone : boolean\n+ priority : ENUM(NONE,HIGH,MEDIUM,LOW) = NONE\n+ description : string\n+ color : string\n+ level : int\n+ effectivelyDone : boolean\n+ computed : boolean\n+ marker : int\n+ nextMarker : int = 1"
+									"value": "+ name : string = Topic"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -1050,9 +1050,3002 @@
 				},
 				"$asuri": {
 					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/12.instance"
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/2.instance"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon"
+			},
+			"3": {
+				"typename": {
+					"type": "string",
+					"value": "ClassIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						76,
+						457
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"96": {
+								"width": {
+									"type": "double",
+									"value": 200
+								},
+								"height": {
+									"type": "double",
+									"value": 125
+								},
+								"cornerRadius": {
+									"type": "double",
+									"value": 0
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"stroke-dasharray": "",
+										"fill": "#ffffff",
+										"fill-opacity": 0.75,
+										"stroke-width": 2
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Rectangle",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										4,
+										3
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"97": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0l197,0"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"stroke-dasharray": "",
+										"fill": "#ffffff",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 2,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										6,
+										36
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"98": {
+								"textContent": {
+									"type": "string",
+									"value": "CentralTopic"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "18px",
+										"font-style": "normal",
+										"font-weight": "bold",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var style = \n{\n   \"font-size\": \"18px\",\n   \"font-style\": \"normal\",\n   \"font-weight\": \"bold\",\n   \"line-height\": \"100%\",\n   \"letter-spacing\": \"0px\",\n   \"word-spacing\": \"0px\",\n   \"fill\": \"#000000\",\n   \"fill-opacity\": \"1\",\n   \"stroke\": \"none\",\n       \"font-style\": (getAttr('abstract') ? 'italic' : 'normal')\n};\n\n({'textContent': getAttr('name'), 'style':style})\n\n\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */\n({'name': getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										8,
+										8
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"99": {
+								"textContent": {
+									"type": "string",
+									"value": ""
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "14px",
+										"font-style": "normal",
+										"font-weight": "bold",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var filenames = getAttr('attributes').map(\n            function(attr)\n            {\n                var s = '+ '+attr['name'] + ' : ' + attr['type'];\n                if (attr['default'])\n                    s += ' = ' + attr['default'];\n                return s;\n            });\n\n({'textContent': filenames.join('\\n')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										10,
+										41
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"100": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										68.5,
+										36.5
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"101": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										12.5,
+										27
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"102": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										53.75,
+										20
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							}
+						},
+						"edges": [
+							{
+								"src": "96",
+								"dest": "100"
+							},
+							{
+								"src": "100",
+								"dest": "98"
+							},
+							{
+								"src": "96",
+								"dest": "101"
+							},
+							{
+								"src": "101",
+								"dest": "99"
+							},
+							{
+								"src": "96",
+								"dest": "102"
+							},
+							{
+								"src": "102",
+								"dest": "97"
+							}
+						]
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/3.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon"
+			},
+			"4": {
+				"typename": {
+					"type": "string",
+					"value": "ClassIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						528,
+						680
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"96": {
+								"width": {
+									"type": "double",
+									"value": 200
+								},
+								"height": {
+									"type": "double",
+									"value": 125
+								},
+								"cornerRadius": {
+									"type": "double",
+									"value": 0
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"stroke-dasharray": "",
+										"fill": "#ffffff",
+										"fill-opacity": 0.75,
+										"stroke-width": 2
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Rectangle",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										4,
+										3
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"97": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0l197,0"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"stroke-dasharray": "",
+										"fill": "#ffffff",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 2,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										6,
+										36
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"98": {
+								"textContent": {
+									"type": "string",
+									"value": "MainTopic"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "18px",
+										"font-style": "normal",
+										"font-weight": "bold",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var style = \n{\n   \"font-size\": \"18px\",\n   \"font-style\": \"normal\",\n   \"font-weight\": \"bold\",\n   \"line-height\": \"100%\",\n   \"letter-spacing\": \"0px\",\n   \"word-spacing\": \"0px\",\n   \"fill\": \"#000000\",\n   \"fill-opacity\": \"1\",\n   \"stroke\": \"none\",\n       \"font-style\": (getAttr('abstract') ? 'italic' : 'normal')\n};\n\n({'textContent': getAttr('name'), 'style':style})\n\n\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */\n({'name': getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										8,
+										8
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"99": {
+								"textContent": {
+									"type": "string",
+									"value": ""
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "14px",
+										"font-style": "normal",
+										"font-weight": "bold",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var filenames = getAttr('attributes').map(\n            function(attr)\n            {\n                var s = '+ '+attr['name'] + ' : ' + attr['type'];\n                if (attr['default'])\n                    s += ' = ' + attr['default'];\n                return s;\n            });\n\n({'textContent': filenames.join('\\n')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										10,
+										41
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"100": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										68.5,
+										36.5
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"101": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										12.5,
+										27
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"102": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										53.75,
+										20
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							}
+						},
+						"edges": [
+							{
+								"src": "96",
+								"dest": "100"
+							},
+							{
+								"src": "100",
+								"dest": "98"
+							},
+							{
+								"src": "96",
+								"dest": "101"
+							},
+							{
+								"src": "101",
+								"dest": "99"
+							},
+							{
+								"src": "96",
+								"dest": "102"
+							},
+							{
+								"src": "102",
+								"dest": "97"
+							}
+						]
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/4.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon"
+			},
+			"5": {
+				"typename": {
+					"type": "string",
+					"value": "ClassIcon"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						927,
+						680
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"96": {
+								"width": {
+									"type": "double",
+									"value": 200
+								},
+								"height": {
+									"type": "double",
+									"value": 125
+								},
+								"cornerRadius": {
+									"type": "double",
+									"value": 0
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"stroke-dasharray": "",
+										"fill": "#ffffff",
+										"fill-opacity": 0.75,
+										"stroke-width": 2
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Rectangle",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										4,
+										3
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"97": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0l197,0"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"stroke-dasharray": "",
+										"fill": "#ffffff",
+										"fill-opacity": 0.75,
+										"font-size": "20px",
+										"stroke-width": 2,
+										"arrow-start": "none",
+										"arrow-end": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										6,
+										36
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"98": {
+								"textContent": {
+									"type": "string",
+									"value": "SubTopic"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "18px",
+										"font-style": "normal",
+										"font-weight": "bold",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var style = \n{\n   \"font-size\": \"18px\",\n   \"font-style\": \"normal\",\n   \"font-weight\": \"bold\",\n   \"line-height\": \"100%\",\n   \"letter-spacing\": \"0px\",\n   \"word-spacing\": \"0px\",\n   \"fill\": \"#000000\",\n   \"fill-opacity\": \"1\",\n   \"stroke\": \"none\",\n       \"font-style\": (getAttr('abstract') ? 'italic' : 'normal')\n};\n\n({'textContent': getAttr('name'), 'style':style})\n\n\n"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */\n({'name': getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										8,
+										8
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"99": {
+								"textContent": {
+									"type": "string",
+									"value": ""
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "14px",
+										"font-style": "normal",
+										"font-weight": "bold",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "var filenames = getAttr('attributes').map(\n            function(attr)\n            {\n                var s = '+ '+attr['name'] + ' : ' + attr['type'];\n                if (attr['default'])\n                    s += ' = ' + attr['default'];\n                return s;\n            });\n\n({'textContent': filenames.join('\\n')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": ""
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										10,
+										41
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								}
+							},
+							"100": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										68.5,
+										36.5
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"101": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										12.5,
+										27
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							},
+							"102": {
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Contain",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										53.75,
+										20
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": 0
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"link-style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#00ffff",
+										"stroke-dasharray": "",
+										"stroke-opacity": 0.1,
+										"stroke-width": 1
+									}
+								}
+							}
+						},
+						"edges": [
+							{
+								"src": "96",
+								"dest": "100"
+							},
+							{
+								"src": "100",
+								"dest": "98"
+							},
+							{
+								"src": "96",
+								"dest": "101"
+							},
+							{
+								"src": "101",
+								"dest": "99"
+							},
+							{
+								"src": "96",
+								"dest": "102"
+							},
+							{
+								"src": "102",
+								"dest": "97"
+							}
+						]
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class/5.instance"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon"
+			},
+			"6": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#000000",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "AssociationLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						409,
+						279
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"71": {
+								"textContent": {
+									"type": "string",
+									"value": "markers"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent':getAttr('name')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "({'name':getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-33.97546012269936,0%",
+										"0;-28.5,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;0"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.3803680981595092,
+										"yoffset": -28.5
+									}
+								}
+							},
+							"74": {
+								"textContent": {
+									"type": "string",
+									"value": "1"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-124.57668711656441,0%",
+										"0;-25.5,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;0"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.06134969325153374,
+										"yoffset": -25.5
+									}
+								}
+							},
+							"77": {
+								"textContent": {
+									"type": "string",
+									"value": "*"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;142,100%",
+										"0;-23.5,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;0"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1.0245398773006136,
+										"yoffset": -23.5
+									}
+								}
+							},
+							"140": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l20,8 l-20,8"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"fill-opacity": 0,
+										"stroke-width": 1,
+										"opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;142,100%",
+										"0;-8,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;0"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -8
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/6.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/0.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/6.instance": "M267,279L409,279",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/6.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/1.instance": "M409,279L551,279"
+					}
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
+			},
+			"7": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#000000",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "AssociationLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						177.5,
+						377
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"71": {
+								"textContent": {
+									"type": "string",
+									"value": "topic"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent':getAttr('name')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "({'name':getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;28.854756305349554,0%",
+										"0;-20.56948982733843,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;90.97653803576156"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.3803680981595092,
+										"yoffset": -28.5
+									}
+								}
+							},
+							"74": {
+								"textContent": {
+									"type": "string",
+									"value": "1"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;26.812247246407367,0%",
+										"0;-76.76785802762504,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;90.97653803576156"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.06134969325153374,
+										"yoffset": -25.5
+									}
+								}
+							},
+							"77": {
+								"textContent": {
+									"type": "string",
+									"value": "1"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;21.99658681038457,-1.7042978827648276%",
+										"0;88.40051000244972,99.98547578887047%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;90.97653803576156"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1.0245398773006136,
+										"yoffset": -23.5
+									}
+								}
+							},
+							"140": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l20,8 l-20,8"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"fill-opacity": 0,
+										"stroke-width": 1,
+										"opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;6.498838063109645,-1.7042978827648276%",
+										"0;88.13634383062117,99.98547578887047%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;90.97653803576156"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -8
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/7.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/0.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/7.instance": "M179,289L177.5,377",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/7.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/3.instance": "M177.5,377L176,465"
+					}
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
+			},
+			"8": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#000000",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "AssociationLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						628.5,
+						382
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"71": {
+								"textContent": {
+									"type": "string",
+									"value": "marker"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent':getAttr('name')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "({'name':getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-28.61899858961749,0%",
+										"0;17.754789498155105,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-89.61803379527097"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.3803680981595092,
+										"yoffset": -28.5
+									}
+								}
+							},
+							"74": {
+								"textContent": {
+									"type": "string",
+									"value": "*"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-25.938083658970072,0%",
+										"0;65.62754978992183,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-89.61803379527097"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.06134969325153374,
+										"yoffset": -25.5
+									}
+								}
+							},
+							"77": {
+								"textContent": {
+									"type": "string",
+									"value": "0..1"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-22.99947779518459,0.6666518523456654%",
+										"0;-75.15666318530123,-99.99777785184911%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-89.61803379527097"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1.0245398773006136,
+										"yoffset": -23.5
+									}
+								}
+							},
+							"140": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l20,8 l-20,8"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"fill-opacity": 0,
+										"stroke-width": 1,
+										"opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-7.4998222281478775,0.6666518523456654%",
+										"0;-75.05333214818768,-99.99777785184911%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-89.61803379527097"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -8
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/8.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/2.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/8.instance": "M628,457L628.5,382",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/8.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/1.instance": "M628.5,382L629,307"
+					}
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
+			},
+			"9": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#000000",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "AssociationLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						406.5,
+						653
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"71": {
+								"textContent": {
+									"type": "string",
+									"value": "maintopics"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent':getAttr('name')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "({'name':getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-15.286453500172115,0%",
+										"0;-46.639783521656796,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;36.35527873472684"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.3803680981595092,
+										"yoffset": -28.5
+									}
+								}
+							},
+							"74": {
+								"textContent": {
+									"type": "string",
+									"value": "1"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-102.88077579883014,0%",
+										"0;-107.38935748741073,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;36.35527873472684"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.06134969325153374,
+										"yoffset": -25.5
+									}
+								}
+							},
+							"77": {
+								"textContent": {
+									"type": "string",
+									"value": "*"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;148.43057579756555,80.5356735341743%",
+										"0;80.07411671946909,59.2790459470874%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;36.35527873472684"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1.0245398773006136,
+										"yoffset": -23.5
+									}
+								}
+							},
+							"140": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l20,8 l-20,8"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"fill-opacity": 0,
+										"stroke-width": 1,
+										"opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;139.242323675767,80.5356735341743%",
+										"0;92.55714611726603,59.2790459470874%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;36.35527873472684"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -8
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/9.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/3.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/9.instance": "M272,554L406.5,653",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/9.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/4.instance": "M406.5,653L541,752"
+					}
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
+			},
+			"10": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#000000",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "AssociationLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						831,
+						763.5
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"71": {
+								"textContent": {
+									"type": "string",
+									"value": "subtopics"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent':getAttr('name')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "({'name':getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-26.34300778068041,0%",
+										"0;-27.397175414239086,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-2.454031674527075"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.3803680981595092,
+										"yoffset": -28.5
+									}
+								}
+							},
+							"74": {
+								"textContent": {
+									"type": "string",
+									"value": "0..1"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-93.20841929617859,0%",
+										"0;-21.528761082614437,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-2.454031674527075"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.06134969325153374,
+										"yoffset": -25.5
+									}
+								}
+							},
+							"77": {
+								"textContent": {
+									"type": "string",
+									"value": "*"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;103.99378079778364,99.90828958176698%",
+										"0;-27.97844805171519,-4.281783839218583%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-2.454031674527075"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1.0245398773006136,
+										"yoffset": -23.5
+									}
+								}
+							},
+							"140": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l20,8 l-20,8"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"fill-opacity": 0,
+										"stroke-width": 1,
+										"opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;104.65745729286255,99.90828958176698%",
+										"0;-12.49266316654132,-4.281783839218583%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-2.454031674527075"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -8
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/10.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/4.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/10.instance": "M726,768L831,763.5",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/10.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/5.instance": "M831,763.5L936,759"
+					}
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
+			},
+			"11": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#000000",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "AssociationLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						1242,
+						733
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"71": {
+								"textContent": {
+									"type": "string",
+									"value": "subsubtopics"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "({'textContent':getAttr('name')})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "({'name':getAttr('textContent')})"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-24.419181791575056,0%",
+										"0;-29.329801664012734,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;1.9091524329963763"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.3803680981595092,
+										"yoffset": -28.5
+									}
+								}
+							},
+							"74": {
+								"textContent": {
+									"type": "string",
+									"value": "0..1"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-103.88735157958467,0%",
+										"0;-28.977074452985676,0%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;1.9091524329963763"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 0.06134969325153374,
+										"yoffset": -25.5
+									}
+								}
+							},
+							"77": {
+								"textContent": {
+									"type": "string",
+									"value": "*"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"font-size": "20px",
+										"font-style": "normal",
+										"font-weight": "normal",
+										"line-height": "100%",
+										"letter-spacing": "0px",
+										"word-spacing": "0px",
+										"fill": "#000000",
+										"fill-opacity": "1",
+										"stroke": "none",
+										"font-family": "Sans"
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-107.15213282964896,-90.79593845004517%",
+										"0;75.33704553576058,41.90581774617468%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;155.22485943116808"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1.0245398773006136,
+										"yoffset": -23.5
+									}
+								}
+							},
+							"140": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l20,8 l-20,8"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#000000",
+										"fill-opacity": 0,
+										"stroke-width": 1,
+										"opacity": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-113.647534580306,-90.79593845004517%",
+										"0;61.263675076003665,41.90581774617468%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;155.22485943116808"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -8
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/11.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/5.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/11.instance": "M1122,729L1242,733",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/11.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/5.instance": "M1242,733L1125,787"
+					}
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
+			},
+			"12": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#000000",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "InheritanceLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						403.5,
+						516.5
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"164": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l20,10 l-20,10 z"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#ffffff",
+										"opacity": 1,
+										"stroke-width": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;135.61069432457072,99.99387319556526%",
+										"0;-8.49938731955649,1.1069432457073642%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;0.6342447144261198"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -10
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Inheritance/12.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/3.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink/12.instance": "M268,515L403.5,516.5",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink/12.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/2.instance": "M403.5,516.5L539,518"
+					}
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink"
+			},
+			"13": {
+				"link-style": {
+					"type": "map<string,string>",
+					"value": {
+						"stroke": "#000000",
+						"stroke-dasharray": "",
+						"stroke-opacity": 1,
+						"stroke-width": 2
+					}
+				},
+				"arrowHead": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "custom"
+				},
+				"arrowTail": {
+					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
+					"value": "arrow-black"
+				},
+				"typename": {
+					"type": "string",
+					"value": "InheritanceLink"
+				},
+				"position": {
+					"type": "list<double>",
+					"value": [
+						632,
+						631
+					]
+				},
+				"orientation": {
+					"type": "double",
+					"value": 0
+				},
+				"scale": {
+					"type": "list<double>",
+					"value": [
+						1,
+						1
+					]
+				},
+				"mapper": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
+				},
+				"parser": {
+					"type": "code",
+					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+				},
+				"$contents": {
+					"type": "map<string,*>",
+					"value": {
+						"nodes": {
+							"164": {
+								"segments": {
+									"type": "string",
+									"value": "m0,0 l20,10 l-20,10 z"
+								},
+								"style": {
+									"type": "map<string,string>",
+									"value": {
+										"stroke": "#000000",
+										"fill": "#ffffff",
+										"opacity": 1,
+										"stroke-width": 1
+									}
+								},
+								"mapper": {
+									"type": "code",
+									"value": ""
+								},
+								"parser": {
+									"type": "code",
+									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
+								},
+								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
+								"position": {
+									"type": "list<double>",
+									"value": [
+										"0;-8.998514005489938,1.723881725084489%",
+										"0;-58.17238817250848,-99.98514005489976%"
+									]
+								},
+								"orientation": {
+									"type": "double",
+									"value": "0;-89.01223960036019"
+								},
+								"scale": {
+									"type": "list<double>",
+									"value": [
+										1,
+										1
+									]
+								},
+								"$linkDecoratorInfo": {
+									"type": "map<string,double>",
+									"value": {
+										"xratio": 1,
+										"yoffset": -10
+									}
+								}
+							}
+						},
+						"edges": []
+					}
+				},
+				"$asuri": {
+					"type": "string",
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Inheritance/13.instance"
+				},
+				"$segments": {
+					"type": "map<string,list<string>>",
+					"value": {
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/4.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink/13.instance": "M631,689L632,631",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink/13.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/2.instance": "M632,631L633,573"
+					}
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink"
 			},
 			"14": {
 				"link-style": {
@@ -1074,13 +4067,13 @@
 				},
 				"typename": {
 					"type": "string",
-					"value": "AssociationLink"
+					"value": "InheritanceLink"
 				},
 				"position": {
 					"type": "list<double>",
 					"value": [
-						515.5002322139792,
-						250.99967058016915
+						830,
+						631
 					]
 				},
 				"orientation": {
@@ -1106,184 +4099,18 @@
 					"type": "map<string,*>",
 					"value": {
 						"nodes": {
-							"71": {
-								"textContent": {
-									"type": "string",
-									"value": "roots"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "({'textContent':getAttr('name')})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "({'name':getAttr('textContent')})"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;39.11231955878037,0%",
-										"0;11.151798078708907,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;151.42733153584666"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.3803680981595092,
-										"yoffset": -28.5
-									}
-								}
-							},
-							"74": {
-								"textContent": {
-									"type": "string",
-									"value": "0..1"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;105.62827269288579,0%",
-										"0;-28.488760379581862,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;151.42733153584666"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.06134969325153374,
-										"yoffset": -25.5
-									}
-								}
-							},
-							"77": {
-								"textContent": {
-									"type": "string",
-									"value": "*"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;-95.26035267590999,-87.82112236478635%",
-										"0;78.63763433589395,47.82729834089757%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;151.42733153584666"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1.0245398773006136,
-										"yoffset": -23.5
-									}
-								}
-							},
-							"140": {
+							"164": {
 								"segments": {
 									"type": "string",
-									"value": "m0,0 l20,8 l-20,8"
+									"value": "m0,0 l20,10 l-20,10 z"
 								},
 								"style": {
 									"type": "map<string,string>",
 									"value": {
 										"stroke": "#000000",
-										"fill": "#000000",
-										"fill-opacity": 0,
-										"stroke-width": 1,
-										"opacity": 1
+										"fill": "#ffffff",
+										"opacity": 1,
+										"stroke-width": 1
 									}
 								},
 								"mapper": {
@@ -1298,13 +4125,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;-102.6735839187491,-87.82112236478635%",
-										"0;65.02536036935206,47.82729834089757%"
+										"0;-114.75724628517344,-73.71541402007414%",
+										"0;-91.62845859799256,-67.57246285173466%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;151.42733153584666"
+									"value": "0;-137.48955292199915"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -1317,7 +4144,7 @@
 									"type": "map<string,double>",
 									"value": {
 										"xratio": 1,
-										"yoffset": -8
+										"yoffset": -10
 									}
 								}
 							}
@@ -1327,1154 +4154,18 @@
 				},
 				"$asuri": {
 					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/14.instance"
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Inheritance/14.instance"
 				},
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/11.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/14.instance": "M622,193L515.5002322139792,250.99967058016915",
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/14.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/12.instance": "M515.5002322139792,250.99967058016915L409.00046442795826,308.9993411603383"
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/5.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink/14.instance": "M938,730L830,631",
+						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink/14.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/2.instance": "M830,631L722,532"
 					}
 				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/InheritanceLink"
 			},
 			"15": {
-				"link-style": {
-					"type": "map<string,string>",
-					"value": {
-						"stroke": "#000000",
-						"stroke-dasharray": "",
-						"stroke-opacity": 1,
-						"stroke-width": 2
-					}
-				},
-				"arrowHead": {
-					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
-					"value": "custom"
-				},
-				"arrowTail": {
-					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
-					"value": "arrow-black"
-				},
-				"typename": {
-					"type": "string",
-					"value": "AssociationLink"
-				},
-				"position": {
-					"type": "list<double>",
-					"value": [
-						172.5,
-						398
-					]
-				},
-				"orientation": {
-					"type": "double",
-					"value": 0
-				},
-				"scale": {
-					"type": "list<double>",
-					"value": [
-						1,
-						1
-					]
-				},
-				"mapper": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
-				},
-				"parser": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-				},
-				"$contents": {
-					"type": "map<string,*>",
-					"value": {
-						"nodes": {
-							"71": {
-								"textContent": {
-									"type": "string",
-									"value": "children"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "({'textContent':getAttr('name')})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "({'name':getAttr('textContent')})"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;32.402663853524814,0%",
-										"0;26.627225972989777,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;176.65805614273884"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.3803680981595092,
-										"yoffset": -28.5
-									}
-								}
-							},
-							"74": {
-								"textContent": {
-									"type": "string",
-									"value": "0..1"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;120.928657611322,0%",
-										"0;18.452714413465856,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;176.65805614273884"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.06134969325153374,
-										"yoffset": -25.5
-									}
-								}
-							},
-							"77": {
-								"textContent": {
-									"type": "string",
-									"value": "*"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;142.66031458832495,99.0916108321373%",
-										"0;-4.286528545552244,13.448147184361488%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;7.72863699595161"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1.0245398773006136,
-										"yoffset": -23.5
-									}
-								}
-							},
-							"140": {
-								"segments": {
-									"type": "string",
-									"value": "m0,0 l20,8 l-20,8"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#000000",
-										"fill": "#000000",
-										"fill-opacity": 0,
-										"stroke-width": 1,
-										"opacity": 1
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": ""
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;140.5758517747489,99.0916108321373%",
-										"0;11.072671133429026,13.448147184361488%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;7.72863699595161"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1,
-										"yoffset": -8
-									}
-								}
-							}
-						},
-						"edges": []
-					}
-				},
-				"$asuri": {
-					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/15.instance"
-				},
-				"$segments": {
-					"type": "map<string,list<string>>",
-					"value": {
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/12.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/15.instance": "M309,390L172,398",
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/15.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/12.instance": "M172,398L312,417"
-					}
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
-			},
-			"16": {
-				"link-style": {
-					"type": "map<string,string>",
-					"value": {
-						"stroke": "#000000",
-						"stroke-dasharray": "",
-						"stroke-opacity": 1,
-						"stroke-width": 2
-					}
-				},
-				"arrowHead": {
-					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
-					"value": "custom"
-				},
-				"arrowTail": {
-					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
-					"value": "arrow-black"
-				},
-				"typename": {
-					"type": "string",
-					"value": "AssociationLink"
-				},
-				"position": {
-					"type": "list<double>",
-					"value": [
-						167.48728818428367,
-						344.6499994254524
-					]
-				},
-				"orientation": {
-					"type": "double",
-					"value": 0
-				},
-				"scale": {
-					"type": "list<double>",
-					"value": [
-						1,
-						1
-					]
-				},
-				"mapper": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
-				},
-				"parser": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-				},
-				"$contents": {
-					"type": "map<string,*>",
-					"value": {
-						"nodes": {
-							"71": {
-								"textContent": {
-									"type": "string",
-									"value": "related"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "({'textContent':getAttr('name')})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "({'name':getAttr('textContent')})"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;34.264363026869376,0%",
-										"0;24.766824531493,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;174.73230287195577"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.3803680981595092,
-										"yoffset": -28.5
-									}
-								}
-							},
-							"74": {
-								"textContent": {
-									"type": "string",
-									"value": "*"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;125.2949896311369,0%",
-										"0;13.361205995247133,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;174.73230287195577"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.06134969325153374,
-										"yoffset": -25.5
-									}
-								}
-							},
-							"77": {
-								"textContent": {
-									"type": "string",
-									"value": "*"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;147.21920328381074,98.74833883544778%",
-										"0;-0.8558590517826019,15.772304119550684%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;9.074758021008682"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1.0245398773006136,
-										"yoffset": -23.5
-									}
-								}
-							},
-							"140": {
-								"segments": {
-									"type": "string",
-									"value": "m0,0 l20,8 l-20,8"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#000000",
-										"fill": "#000000",
-										"fill-opacity": 0,
-										"stroke-width": 1,
-										"opacity": 1
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": ""
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;144.77449614528038,98.74833883544778%",
-										"0;14.450133467711794,15.772304119550684%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;9.074758021008682"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1,
-										"yoffset": -8
-									}
-								}
-							}
-						},
-						"edges": []
-					}
-				},
-				"$asuri": {
-					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/16.instance"
-				},
-				"$segments": {
-					"type": "map<string,list<string>>",
-					"value": {
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/12.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/16.instance": "M308,331L167,344",
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/16.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/12.instance": "M167,344L311,367"
-					}
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
-			},
-			"17": {
-				"link-style": {
-					"type": "map<string,string>",
-					"value": {
-						"stroke": "#000000",
-						"stroke-dasharray": "",
-						"stroke-opacity": 1,
-						"stroke-width": 2
-					}
-				},
-				"arrowHead": {
-					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
-					"value": "custom"
-				},
-				"arrowTail": {
-					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
-					"value": "arrow-black"
-				},
-				"typename": {
-					"type": "string",
-					"value": "AssociationLink"
-				},
-				"position": {
-					"type": "list<double>",
-					"value": [
-						634.1499999814098,
-						409.99908536596706
-					]
-				},
-				"orientation": {
-					"type": "double",
-					"value": 0
-				},
-				"scale": {
-					"type": "list<double>",
-					"value": [
-						1,
-						1
-					]
-				},
-				"mapper": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
-				},
-				"parser": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-				},
-				"$contents": {
-					"type": "map<string,*>",
-					"value": {
-						"nodes": {
-							"71": {
-								"textContent": {
-									"type": "string",
-									"value": "tagged"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "({'textContent':getAttr('name')})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "({'name':getAttr('textContent')})"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;-39.56335395935105,0%",
-										"0;-28.259289850468974,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;-0.34936017950276843"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.3803680981595092,
-										"yoffset": -28.5
-									}
-								}
-							},
-							"74": {
-								"textContent": {
-									"type": "string",
-									"value": "*"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;-144.18283597980616,0%",
-										"0;-24.621310409756177,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;-0.34936017950276843"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.06134969325153374,
-										"yoffset": -25.5
-									}
-								}
-							},
-							"77": {
-								"textContent": {
-									"type": "string",
-									"value": "*"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;163.7058873306196,99.99814103934474%",
-										"0;-24.49864349393988,-0.609744762435048%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;-0.3493601795027963"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1.0245398773006136,
-										"yoffset": -23.5
-									}
-								}
-							},
-							"140": {
-								"segments": {
-									"type": "string",
-									"value": "m0,0 l20,8 l-20,8"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#000000",
-										"fill": "#000000",
-										"fill-opacity": 0,
-										"stroke-width": 1,
-										"opacity": 1
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": ""
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;163.80039776879698,99.99814103934474%",
-										"0;-8.998931632841447,-0.609744762435048%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;-0.3493601795027963"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1,
-										"yoffset": -8
-									}
-								}
-							}
-						},
-						"edges": []
-					}
-				},
-				"$asuri": {
-					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/17.instance"
-				},
-				"$segments": {
-					"type": "map<string,list<string>>",
-					"value": {
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/12.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/17.instance": "M470,411L634.1499999814098,409.99908536596706",
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/17.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/2.instance": "M634.0747256074578,409.9995443560521L797.9991773312016,409.0000050162732"
-					}
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
-			},
-			"18": {
-				"link-style": {
-					"type": "map<string,string>",
-					"value": {
-						"stroke": "#000000",
-						"stroke-dasharray": "",
-						"stroke-opacity": 1,
-						"stroke-width": 2
-					}
-				},
-				"arrowHead": {
-					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
-					"value": "custom"
-				},
-				"arrowTail": {
-					"type": "ENUM(circle-black,circle-black-large,circle-white,circle-white-large,diamond-black,diamond-black-large,diamond-white,diamond-white-large,triangle-black,triangle-black-large,triangle-white,triangle-white-large,arrow-black,arrow-black-large,arrow-empty,arrow-empty-large,custom)",
-					"value": "arrow-black"
-				},
-				"typename": {
-					"type": "string",
-					"value": "AssociationLink"
-				},
-				"position": {
-					"type": "list<double>",
-					"value": [
-						779.082608637815,
-						275.1260868682441
-					]
-				},
-				"orientation": {
-					"type": "double",
-					"value": 0
-				},
-				"scale": {
-					"type": "list<double>",
-					"value": [
-						1,
-						1
-					]
-				},
-				"mapper": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */"
-				},
-				"parser": {
-					"type": "code",
-					"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-				},
-				"$contents": {
-					"type": "map<string,*>",
-					"value": {
-						"nodes": {
-							"71": {
-								"textContent": {
-									"type": "string",
-									"value": "hasTag"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "({'textContent':getAttr('name')})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "({'name':getAttr('textContent')})"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;14.664327036470809,0%",
-										"0;-29.62241357230789,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;56.76828893202068"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.3803680981595092,
-										"yoffset": -28.5
-									}
-								}
-							},
-							"74": {
-								"textContent": {
-									"type": "string",
-									"value": "*"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('>'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'in') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;-12.090302497843709,0%",
-										"0;-64.98423681204292,0%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;56.76828893202068"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 0.06134969325153374,
-										"yoffset": -25.5
-									}
-								}
-							},
-							"77": {
-								"textContent": {
-									"type": "string",
-									"value": "*"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"font-size": "20px",
-										"font-style": "normal",
-										"font-weight": "normal",
-										"line-height": "100%",
-										"letter-spacing": "0px",
-										"word-spacing": "0px",
-										"fill": "#000000",
-										"fill-opacity": "1",
-										"stroke": "none",
-										"font-family": "Sans"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,csattr:val,...} */\nvar clazz = getNeighbors('<'),\n    mult = '';\nif (clazz.length > 0) {\n    clazz = clazz[0];\n    var cardinalities = getAttr('cardinalities', clazz), card;\n    for (i = 0; i < cardinalities.length; i++) {\n        if (cardinalities[i]['type'] == getAttr('name') && cardinalities[i]['dir'] == 'out') {\n            card = cardinalities[i];\n            break;\n        }\n    }\n    if (card) {\n        var min = card['min'],\n            max = card['max'];\n        if (min == '')\n            min = '0';\n        if (max == '' || max == 'Infinity')\n            max = '*';\n        if (min == '0' && max == '*')\n            mult = '*';\n        else if (min == max)\n            mult = max;\n        else mult = min + '..' + max;\n    }\n}\nif (mult == '')\n    mult = '*';\n({'textContent': mult})"
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;57.57374947901644,54.802625731087296%",
-										"0;44.99456585229319,83.64611295797533%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;56.768288932020646"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1.0245398773006136,
-										"yoffset": -23.5
-									}
-								}
-							},
-							"140": {
-								"segments": {
-									"type": "string",
-									"value": "m0,0 l20,8 l-20,8"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#000000",
-										"fill": "#000000",
-										"fill-opacity": 0,
-										"stroke-width": 1,
-										"opacity": 1
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": ""
-								},
-								"parser": {
-									"type": "code",
-									"value": "/* specify code that evaluates to an associative array of the form {...,attr:val,...} */"
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Path",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										"0;44.608601970530344,54.802625731087296%",
-										"0;53.48897284061172,83.64611295797533%"
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": "0;56.768288932020646"
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								},
-								"$linkDecoratorInfo": {
-									"type": "map<string,double>",
-									"value": {
-										"xratio": 1,
-										"yoffset": -8
-									}
-								}
-							}
-						},
-						"edges": []
-					}
-				},
-				"$asuri": {
-					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association/18.instance"
-				},
-				"$segments": {
-					"type": "map<string,list<string>>",
-					"value": {
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/11.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/18.instance": "M741,217L779.082608637815,275.1260868682441",
-						"/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink/18.instance--/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/ClassIcon/2.instance": "M779.082369192822,275.1257213995703L816.9995215717073,332.9992697673428"
-					}
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/AssociationLink"
-			},
-			"19": {
 				"typename": {
 					"type": "string",
 					"value": "GlobalConstraintIcon"
@@ -2482,8 +4173,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						999,
-						129
+						827,
+						179
 					]
 				},
 				"orientation": {
@@ -2561,11 +4252,11 @@
 				},
 				"$asuri": {
 					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/19.instance"
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/15.instance"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
 			},
-			"20": {
+			"16": {
 				"typename": {
 					"type": "string",
 					"value": "GlobalConstraintIcon"
@@ -2573,8 +4264,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1000,
-						179
+						827,
+						227
 					]
 				},
 				"orientation": {
@@ -2603,7 +4294,7 @@
 							"11": {
 								"textContent": {
 									"type": "string",
-									"value": "check unique-topic-names on validate"
+									"value": "check one-parent-per-subtopic on validate"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -2652,11 +4343,11 @@
 				},
 				"$asuri": {
 					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/20.instance"
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/16.instance"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
 			},
-			"21": {
+			"17": {
 				"typename": {
 					"type": "string",
 					"value": "GlobalConstraintIcon"
@@ -2664,98 +4355,7 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1001,
-						228
-					]
-				},
-				"orientation": {
-					"type": "double",
-					"value": 0
-				},
-				"scale": {
-					"type": "list<double>",
-					"value": [
-						1,
-						1
-					]
-				},
-				"mapper": {
-					"type": "code",
-					"value": ""
-				},
-				"parser": {
-					"type": "code",
-					"value": ""
-				},
-				"$contents": {
-					"type": "map<string,*>",
-					"value": {
-						"nodes": {
-							"11": {
-								"textContent": {
-									"type": "string",
-									"value": "check unique-tag-names on validate"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#00ff70",
-										"stroke-dasharray": "",
-										"fill": "#00ff70",
-										"fill-opacity": 0.75,
-										"font-size": "20px",
-										"stroke-width": 1,
-										"arrow-start": "none",
-										"arrow-end": "none"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
-								},
-								"parser": {
-									"type": "code",
-									"value": ""
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										0,
-										-1
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								}
-							}
-						},
-						"edges": []
-					}
-				},
-				"$asuri": {
-					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/21.instance"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
-			},
-			"22": {
-				"typename": {
-					"type": "string",
-					"value": "GlobalConstraintIcon"
-				},
-				"position": {
-					"type": "list<double>",
-					"value": [
-						1000,
+						826,
 						279
 					]
 				},
@@ -2785,7 +4385,7 @@
 							"11": {
 								"textContent": {
 									"type": "string",
-									"value": "check valid-topic-colors on validate"
+									"value": "check subtopics-descend-from-a-maintopic on validate"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -2834,11 +4434,11 @@
 				},
 				"$asuri": {
 					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/22.instance"
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/17.instance"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
 			},
-			"23": {
+			"18": {
 				"typename": {
 					"type": "string",
 					"value": "GlobalConstraintIcon"
@@ -2846,7 +4446,7 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1000,
+						827,
 						329
 					]
 				},
@@ -2876,7 +4476,7 @@
 							"11": {
 								"textContent": {
 									"type": "string",
-									"value": "check no-deeper-at-root on validate"
+									"value": "check unique-marker-symbols on validate"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -2925,11 +4525,11 @@
 				},
 				"$asuri": {
 					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/23.instance"
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/18.instance"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
 			},
-			"24": {
+			"19": {
 				"typename": {
 					"type": "string",
 					"value": "GlobalConstraintIcon"
@@ -2937,7 +4537,7 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						999,
+						827,
 						378
 					]
 				},
@@ -2967,7 +4567,7 @@
 							"11": {
 								"textContent": {
 									"type": "string",
-									"value": "check no-self-relation on validate"
+									"value": "check non-empty-names on validate"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -3016,189 +4616,7 @@
 				},
 				"$asuri": {
 					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/24.instance"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
-			},
-			"25": {
-				"typename": {
-					"type": "string",
-					"value": "GlobalConstraintIcon"
-				},
-				"position": {
-					"type": "list<double>",
-					"value": [
-						1000,
-						429
-					]
-				},
-				"orientation": {
-					"type": "double",
-					"value": 0
-				},
-				"scale": {
-					"type": "list<double>",
-					"value": [
-						1,
-						1
-					]
-				},
-				"mapper": {
-					"type": "code",
-					"value": ""
-				},
-				"parser": {
-					"type": "code",
-					"value": ""
-				},
-				"$contents": {
-					"type": "map<string,*>",
-					"value": {
-						"nodes": {
-							"11": {
-								"textContent": {
-									"type": "string",
-									"value": "check topics-form-a-tree on validate"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#00ff70",
-										"stroke-dasharray": "",
-										"fill": "#00ff70",
-										"fill-opacity": 0.75,
-										"font-size": "20px",
-										"stroke-width": 1,
-										"arrow-start": "none",
-										"arrow-end": "none"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
-								},
-								"parser": {
-									"type": "code",
-									"value": ""
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										0,
-										-1
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								}
-							}
-						},
-						"edges": []
-					}
-				},
-				"$asuri": {
-					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/25.instance"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
-			},
-			"26": {
-				"typename": {
-					"type": "string",
-					"value": "GlobalConstraintIcon"
-				},
-				"position": {
-					"type": "list<double>",
-					"value": [
-						1000,
-						830
-					]
-				},
-				"orientation": {
-					"type": "double",
-					"value": 0
-				},
-				"scale": {
-					"type": "list<double>",
-					"value": [
-						1,
-						1
-					]
-				},
-				"mapper": {
-					"type": "code",
-					"value": ""
-				},
-				"parser": {
-					"type": "code",
-					"value": ""
-				},
-				"$contents": {
-					"type": "map<string,*>",
-					"value": {
-						"nodes": {
-							"11": {
-								"textContent": {
-									"type": "string",
-									"value": "check tags-belong-to-the-map on validate"
-								},
-								"style": {
-									"type": "map<string,string>",
-									"value": {
-										"stroke": "#00ff70",
-										"stroke-dasharray": "",
-										"fill": "#00ff70",
-										"fill-opacity": 0.75,
-										"font-size": "20px",
-										"stroke-width": 1,
-										"arrow-start": "none",
-										"arrow-end": "none"
-									}
-								},
-								"mapper": {
-									"type": "code",
-									"value": "({'textContent' : 'check '+getAttr('name')+' on '+(getAttr('event') || 'validate')})\n"
-								},
-								"parser": {
-									"type": "code",
-									"value": ""
-								},
-								"$type": "/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax/Text",
-								"position": {
-									"type": "list<double>",
-									"value": [
-										0,
-										-1
-									]
-								},
-								"orientation": {
-									"type": "double",
-									"value": 0
-								},
-								"scale": {
-									"type": "list<double>",
-									"value": [
-										1,
-										1
-									]
-								}
-							}
-						},
-						"edges": []
-					}
-				},
-				"$asuri": {
-					"type": "string",
-					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/26.instance"
+					"value": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint/19.instance"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons/GlobalConstraintIcon"
 			}
@@ -3210,40 +4628,7 @@
 	},
 	"asm": {
 		"nodes": {
-			"2": {
-				"name": {
-					"type": "string",
-					"value": "Tag"
-				},
-				"attributes": {
-					"type": "list<$ATTRIBUTE>",
-					"value": [
-						{
-							"name": "name",
-							"type": "string",
-							"default": "tag"
-						}
-					]
-				},
-				"constraints": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"actions": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"cardinalities": {
-					"type": "list<$CARDINALITY>",
-					"value": []
-				},
-				"abstract": {
-					"type": "boolean",
-					"value": false
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class"
-			},
-			"11": {
+			"0": {
 				"name": {
 					"type": "string",
 					"value": "MindMap"
@@ -3252,14 +4637,9 @@
 					"type": "list<$ATTRIBUTE>",
 					"value": [
 						{
-							"name": "name",
+							"name": "title",
 							"type": "string",
-							"default": "mindmap"
-						},
-						{
-							"name": "nextMarker",
-							"type": "int",
-							"default": 1
+							"default": "MindMap"
 						}
 					]
 				},
@@ -3273,7 +4653,20 @@
 				},
 				"cardinalities": {
 					"type": "list<$CARDINALITY>",
-					"value": []
+					"value": [
+						{
+							"dir": "out",
+							"type": "markers",
+							"min": "0",
+							"max": "Infinity"
+						},
+						{
+							"dir": "out",
+							"type": "topic",
+							"min": "1",
+							"max": "1"
+						}
+					]
 				},
 				"abstract": {
 					"type": "boolean",
@@ -3281,7 +4674,53 @@
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class"
 			},
-			"12": {
+			"1": {
+				"name": {
+					"type": "string",
+					"value": "Marker"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": [
+						{
+							"name": "symbol",
+							"type": "string",
+							"default": "1"
+						}
+					]
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": [
+						{
+							"dir": "in",
+							"type": "markers",
+							"min": "1",
+							"max": "1"
+						},
+						{
+							"dir": "in",
+							"type": "marker",
+							"min": "0",
+							"max": "Infinity"
+						}
+					]
+				},
+				"abstract": {
+					"type": "boolean",
+					"value": false
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class"
+			},
+			"2": {
 				"name": {
 					"type": "string",
 					"value": "Topic"
@@ -3292,57 +4731,7 @@
 						{
 							"name": "name",
 							"type": "string",
-							"default": "topic"
-						},
-						{
-							"name": "isDeeper",
-							"type": "boolean",
-							"default": false
-						},
-						{
-							"name": "isDone",
-							"type": "boolean",
-							"default": false
-						},
-						{
-							"name": "priority",
-							"type": "ENUM(NONE,HIGH,MEDIUM,LOW)",
-							"default": "NONE"
-						},
-						{
-							"name": "description",
-							"type": "string",
-							"default": ""
-						},
-						{
-							"name": "color",
-							"type": "string",
-							"default": ""
-						},
-						{
-							"name": "level",
-							"type": "int",
-							"default": 0
-						},
-						{
-							"name": "effectivelyDone",
-							"type": "boolean",
-							"default": false
-						},
-						{
-							"name": "computed",
-							"type": "boolean",
-							"default": false
-						},
-						{
-							"name": "marker",
-							"type": "int",
-							"default": 0
-						},
-						{
-							"name": "nextMarker",
-							"type": "int",
-							"default": 1
+							"default": "Topic"
 						}
 					]
 				},
@@ -3358,16 +4747,50 @@
 					"type": "list<$CARDINALITY>",
 					"value": [
 						{
-							"dir": "in",
-							"type": "roots",
+							"dir": "out",
+							"type": "marker",
 							"min": "0",
+							"max": "1"
+						}
+					]
+				},
+				"abstract": {
+					"type": "boolean",
+					"value": true
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class"
+			},
+			"3": {
+				"name": {
+					"type": "string",
+					"value": "CentralTopic"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": []
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": [
+						{
+							"dir": "in",
+							"type": "topic",
+							"min": "1",
 							"max": "1"
 						},
 						{
-							"dir": "in",
-							"type": "children",
+							"dir": "out",
+							"type": "maintopics",
 							"min": "0",
-							"max": "1"
+							"max": "Infinity"
 						}
 					]
 				},
@@ -3377,10 +4800,96 @@
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class"
 			},
-			"14": {
+			"4": {
 				"name": {
 					"type": "string",
-					"value": "roots"
+					"value": "MainTopic"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": []
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": [
+						{
+							"dir": "in",
+							"type": "maintopics",
+							"min": "1",
+							"max": "1"
+						},
+						{
+							"dir": "out",
+							"type": "subtopics",
+							"min": "0",
+							"max": "Infinity"
+						}
+					]
+				},
+				"abstract": {
+					"type": "boolean",
+					"value": false
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class"
+			},
+			"5": {
+				"name": {
+					"type": "string",
+					"value": "SubTopic"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": []
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": [
+						{
+							"dir": "in",
+							"type": "subtopics",
+							"min": "0",
+							"max": "1"
+						},
+						{
+							"dir": "in",
+							"type": "subsubtopics",
+							"min": "0",
+							"max": "1"
+						},
+						{
+							"dir": "out",
+							"type": "subsubtopics",
+							"min": "0",
+							"max": "Infinity"
+						}
+					]
+				},
+				"abstract": {
+					"type": "boolean",
+					"value": false
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Class"
+			},
+			"6": {
+				"name": {
+					"type": "string",
+					"value": "markers"
 				},
 				"attributes": {
 					"type": "list<$ATTRIBUTE>",
@@ -3403,116 +4912,152 @@
 					"value": "visual"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
+			},
+			"7": {
+				"name": {
+					"type": "string",
+					"value": "topic"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": []
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": []
+				},
+				"linktype": {
+					"type": "ENUM(visual,containment)",
+					"value": "visual"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
+			},
+			"8": {
+				"name": {
+					"type": "string",
+					"value": "marker"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": []
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": []
+				},
+				"linktype": {
+					"type": "ENUM(visual,containment)",
+					"value": "visual"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
+			},
+			"9": {
+				"name": {
+					"type": "string",
+					"value": "maintopics"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": []
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": []
+				},
+				"linktype": {
+					"type": "ENUM(visual,containment)",
+					"value": "visual"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
+			},
+			"10": {
+				"name": {
+					"type": "string",
+					"value": "subtopics"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": []
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": []
+				},
+				"linktype": {
+					"type": "ENUM(visual,containment)",
+					"value": "visual"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
+			},
+			"11": {
+				"name": {
+					"type": "string",
+					"value": "subsubtopics"
+				},
+				"attributes": {
+					"type": "list<$ATTRIBUTE>",
+					"value": []
+				},
+				"constraints": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"actions": {
+					"type": "list<$EVENT_HANDLER>",
+					"value": []
+				},
+				"cardinalities": {
+					"type": "list<$CARDINALITY>",
+					"value": []
+				},
+				"linktype": {
+					"type": "ENUM(visual,containment)",
+					"value": "visual"
+				},
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
+			},
+			"12": {
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Inheritance"
+			},
+			"13": {
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Inheritance"
+			},
+			"14": {
+				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Inheritance"
 			},
 			"15": {
-				"name": {
-					"type": "string",
-					"value": "children"
-				},
-				"attributes": {
-					"type": "list<$ATTRIBUTE>",
-					"value": []
-				},
-				"constraints": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"actions": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"cardinalities": {
-					"type": "list<$CARDINALITY>",
-					"value": []
-				},
-				"linktype": {
-					"type": "ENUM(visual,containment)",
-					"value": "visual"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
-			},
-			"16": {
-				"name": {
-					"type": "string",
-					"value": "related"
-				},
-				"attributes": {
-					"type": "list<$ATTRIBUTE>",
-					"value": []
-				},
-				"constraints": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"actions": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"cardinalities": {
-					"type": "list<$CARDINALITY>",
-					"value": []
-				},
-				"linktype": {
-					"type": "ENUM(visual,containment)",
-					"value": "visual"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
-			},
-			"17": {
-				"name": {
-					"type": "string",
-					"value": "tagged"
-				},
-				"attributes": {
-					"type": "list<$ATTRIBUTE>",
-					"value": []
-				},
-				"constraints": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"actions": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"cardinalities": {
-					"type": "list<$CARDINALITY>",
-					"value": []
-				},
-				"linktype": {
-					"type": "ENUM(visual,containment)",
-					"value": "visual"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
-			},
-			"18": {
-				"name": {
-					"type": "string",
-					"value": "hasTag"
-				},
-				"attributes": {
-					"type": "list<$ATTRIBUTE>",
-					"value": []
-				},
-				"constraints": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"actions": {
-					"type": "list<$EVENT_HANDLER>",
-					"value": []
-				},
-				"cardinalities": {
-					"type": "list<$CARDINALITY>",
-					"value": []
-				},
-				"linktype": {
-					"type": "ENUM(visual,containment)",
-					"value": "visual"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/Association"
-			},
-			"19": {
 				"name": {
 					"type": "string",
 					"value": "exactly-one-mindmap"
@@ -3527,10 +5072,10 @@
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
 			},
-			"20": {
+			"16": {
 				"name": {
 					"type": "string",
-					"value": "unique-topic-names"
+					"value": "one-parent-per-subtopic"
 				},
 				"event": {
 					"type": "$EVENT",
@@ -3538,14 +5083,14 @@
 				},
 				"code": {
 					"type": "code",
-					"value": "var names = getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\treturn getNeighbors('<', '/Formalisms/MindMap/MindMap/subtopics', t).length + getNeighbors('<', '/Formalisms/MindMap/MindMap/subsubtopics', t).length == 1;\n})"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
 			},
-			"21": {
+			"17": {
 				"name": {
 					"type": "string",
-					"value": "unique-tag-names"
+					"value": "subtopics-descend-from-a-maintopic"
 				},
 				"event": {
 					"type": "$EVENT",
@@ -3553,14 +5098,14 @@
 				},
 				"code": {
 					"type": "code",
-					"value": "var names = getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\tvar seen = {};\n\twhile (getAttr('$type', t) == '/Formalisms/MindMap/MindMap/SubTopic') {\n\t\tif (seen[t]) return false;\n\t\tseen[t] = true;\n\t\tvar links = getNeighbors('<', '/Formalisms/MindMap/MindMap/subtopics', t).concat(getNeighbors('<', '/Formalisms/MindMap/MindMap/subsubtopics', t));\n\t\tif (links.length != 1) return false;\n\t\tt = getNeighbors('<', '*', links[0])[0];\n\t}\n\treturn true;\n})"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
 			},
-			"22": {
+			"18": {
 				"name": {
 					"type": "string",
-					"value": "valid-topic-colors"
+					"value": "unique-marker-symbols"
 				},
 				"event": {
 					"type": "$EVENT",
@@ -3568,14 +5113,14 @@
 				},
 				"code": {
 					"type": "code",
-					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar color = getAttr('color', t);\n\treturn color == '' || /^#[0-9a-fA-F]{6}$/.test(color);\n})"
+					"value": "var symbols = getAllNodes(['/Formalisms/MindMap/MindMap/Marker']).map(function(m) { return getAttr('symbol', m); });\nsymbols.length == new Set(symbols).size"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
 			},
-			"23": {
+			"19": {
 				"name": {
 					"type": "string",
-					"value": "no-deeper-at-root"
+					"value": "non-empty-names"
 				},
 				"event": {
 					"type": "$EVENT",
@@ -3583,95 +5128,82 @@
 				},
 				"code": {
 					"type": "code",
-					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t).length == 0 || !getAttr('isDeeper', t);\n})"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
-			},
-			"24": {
-				"name": {
-					"type": "string",
-					"value": "no-self-relation"
-				},
-				"event": {
-					"type": "$EVENT",
-					"value": ""
-				},
-				"code": {
-					"type": "code",
-					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/related']).every(function(l) {\n\treturn getNeighbors('in', '*', l)[0] != getNeighbors('out', '*', l)[0];\n})"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
-			},
-			"25": {
-				"name": {
-					"type": "string",
-					"value": "topics-form-a-tree"
-				},
-				"event": {
-					"type": "$EVENT",
-					"value": ""
-				},
-				"code": {
-					"type": "code",
-					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar seen = {};\n\twhile (!seen[t]) {\n\t\tseen[t] = true;\n\t\tvar rootLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t),\n\t\t\t childLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/children', t);\n\t\tif (rootLinks.length + childLinks.length != 1) return false;\n\t\tif (rootLinks.length == 1) return true;\n\t\tt = getNeighbors('in', '*', childLinks[0])[0];\n\t}\n\treturn false;\n})"
-				},
-				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
-			},
-			"26": {
-				"name": {
-					"type": "string",
-					"value": "tags-belong-to-the-map"
-				},
-				"event": {
-					"type": "$EVENT",
-					"value": ""
-				},
-				"code": {
-					"type": "code",
-					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/hasTag', t).length == 1;\n})"
+					"value": "getAllNodes(['/Formalisms/MindMap/MindMap/CentralTopic', '/Formalisms/MindMap/MindMap/MainTopic', '/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\treturn getAttr('name', t).trim() != '';\n})"
 				},
 				"$type": "/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram/GlobalConstraint"
 			}
 		},
 		"edges": [
 			{
+				"src": "0",
+				"dest": "6"
+			},
+			{
+				"src": "6",
+				"dest": "1"
+			},
+			{
+				"src": "0",
+				"dest": "7"
+			},
+			{
+				"src": "7",
+				"dest": "3"
+			},
+			{
+				"src": "2",
+				"dest": "8"
+			},
+			{
+				"src": "8",
+				"dest": "1"
+			},
+			{
+				"src": "3",
+				"dest": "9"
+			},
+			{
+				"src": "9",
+				"dest": "4"
+			},
+			{
+				"src": "4",
+				"dest": "10"
+			},
+			{
+				"src": "10",
+				"dest": "5"
+			},
+			{
+				"src": "5",
+				"dest": "11"
+			},
+			{
 				"src": "11",
+				"dest": "5"
+			},
+			{
+				"src": "3",
+				"dest": "12"
+			},
+			{
+				"src": "12",
+				"dest": "2"
+			},
+			{
+				"src": "4",
+				"dest": "13"
+			},
+			{
+				"src": "13",
+				"dest": "2"
+			},
+			{
+				"src": "5",
 				"dest": "14"
 			},
 			{
 				"src": "14",
-				"dest": "12"
-			},
-			{
-				"src": "12",
-				"dest": "15"
-			},
-			{
-				"src": "15",
-				"dest": "12"
-			},
-			{
-				"src": "12",
-				"dest": "16"
-			},
-			{
-				"src": "16",
-				"dest": "12"
-			},
-			{
-				"src": "12",
-				"dest": "17"
-			},
-			{
-				"src": "17",
-				"dest": "2"
-			},
-			{
-				"src": "11",
-				"dest": "18"
-			},
-			{
-				"src": "18",
 				"dest": "2"
 			}
 		],

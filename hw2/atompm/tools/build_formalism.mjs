@@ -1,179 +1,246 @@
-// Applies the MindMap language fixes to the source models (class diagram and
-// icon model), saves them, and recompiles every target with AToMPM's compiler.
-// Safe to rerun. Needs AToMPM running on :8124.
-import { readFileSync } from 'node:fs';
+// Builds the MindMap formalism from scratch: draws the class diagram (abstract
+// syntax) and the icon model (concrete syntax) in AToMPM's own editors, saves
+// both, and compiles them with AToMPM's compiler. Rerunning replaces them.
+// Needs AToMPM running (make run, port 8125).
+import { mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Atompm } from './client.mjs';
+import { CANVAS_TOP, CENTRAL_RY, MAIN_RY, MARKER_R, SIZES, SUB_LINE_Y, TITLE_HEIGHT, connect, jitter, loop } from './geometry.mjs';
 
 const USER_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'users', 'travis');
-const SCD = '/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram';
+const SCD = '/Formalisms/__LanguageSyntax__/SimpleClassDiagram/SimpleClassDiagram.umlIcons';
+const CS = '/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax.defaultIcons';
 const F = '/Formalisms/MindMap/MindMap/';
 const AS_MODEL = '/Models/MindMap/MindMap.model';
 const CS_MODEL = '/Models/MindMap/MindMap.defaultIcons.model';
 
-const readModel = fname => JSON.parse(readFileSync(join(USER_DIR, fname), 'utf8'));
-const nodesOfType = (model, type) => Object.entries(model.asm.nodes).filter(([, n]) => n.$type.endsWith(`/${type}`));
+// ---------------------------------------------------------------- abstract syntax
+// The metamodel of the assignment, class for class. AToMPM has no composition
+// arrows that draw as lines, so the containments are plain associations whose
+// cardinalities (and the constraints below) give them containment semantics:
+// every Marker, CentralTopic, MainTopic and SubTopic has exactly one owner.
+const card = (dir, type, min, max) => ({ dir, type, min: String(min), max: String(max) });
+const attr = (name, type, def) => ({ name, type, default: def });
 
-// Same rules as MindMapValidator.java and MindMap.ocl, plus the tree shape that
-// Xtext's containment gives for free. They run on the "validate" button.
+// Positions as laid out by hand in the class diagram editor.
+const CLASSES = {
+	MindMap: {
+		pos: [75, 175], attributes: [attr('title', 'string', 'MindMap')],
+		cardinalities: [card('out', 'markers', 0, 'Infinity'), card('out', 'topic', 1, 1)],
+	},
+	Marker: {
+		pos: [525, 179], attributes: [attr('symbol', 'string', '1')],
+		cardinalities: [card('in', 'markers', 1, 1), card('in', 'marker', 0, 'Infinity')],
+	},
+	Topic: {
+		pos: [524, 454], abstract: true, attributes: [attr('name', 'string', 'Topic')],
+		cardinalities: [card('out', 'marker', 0, 1)],
+	},
+	CentralTopic: {
+		pos: [76, 457], attributes: [],
+		cardinalities: [card('in', 'topic', 1, 1), card('out', 'maintopics', 0, 'Infinity')],
+	},
+	MainTopic: {
+		pos: [528, 680], attributes: [],
+		cardinalities: [card('in', 'maintopics', 1, 1), card('out', 'subtopics', 0, 'Infinity')],
+	},
+	SubTopic: {
+		pos: [927, 680], attributes: [],
+		// One parent, either a MainTopic or a SubTopic: see one-parent-per-subtopic.
+		cardinalities: [card('in', 'subtopics', 0, 1), card('in', 'subsubtopics', 0, 1),
+			card('out', 'subsubtopics', 0, 'Infinity')],
+	},
+};
+
+const ASSOCIATIONS = [
+	['markers', 'MindMap', 'Marker'],
+	['topic', 'MindMap', 'CentralTopic'],
+	['marker', 'Topic', 'Marker'],
+	['maintopics', 'CentralTopic', 'MainTopic'],
+	['subtopics', 'MainTopic', 'SubTopic'],
+	['subsubtopics', 'SubTopic', 'SubTopic'],
+];
+
+const INHERITANCE = ['CentralTopic', 'MainTopic', 'SubTopic'];
+
+// What cardinalities cannot say. They run on the "validate" button.
+// Laid out by hand, in this order, right of the classes.
+const CONSTRAINT_AT = [[827, 179], [827, 227], [826, 279], [827, 329], [827, 378]];
 const CONSTRAINTS = {
 	'exactly-one-mindmap': `getAllNodes(['${F}MindMap']).length == 1`,
-	'unique-topic-names': `var names = getAllNodes(['${F}Topic']).map(function(t) { return getAttr('name', t); });
-names.length == new Set(names).size`,
-	'unique-tag-names': `var names = getAllNodes(['${F}Tag']).map(function(t) { return getAttr('name', t); });
-names.length == new Set(names).size`,
-	'valid-topic-colors': `getAllNodes(['${F}Topic']).every(function(t) {
-	var color = getAttr('color', t);
-	return color == '' || /^#[0-9a-fA-F]{6}$/.test(color);
+	'one-parent-per-subtopic': `getAllNodes(['${F}SubTopic']).every(function(t) {
+	return getNeighbors('<', '${F}subtopics', t).length + getNeighbors('<', '${F}subsubtopics', t).length == 1;
 })`,
-	'no-deeper-at-root': `getAllNodes(['${F}Topic']).every(function(t) {
-	return getNeighbors('in', '${F}roots', t).length == 0 || !getAttr('isDeeper', t);
-})`,
-	'no-self-relation': `getAllNodes(['${F}related']).every(function(l) {
-	return getNeighbors('in', '*', l)[0] != getNeighbors('out', '*', l)[0];
-})`,
-	'topics-form-a-tree': `getAllNodes(['${F}Topic']).every(function(t) {
+	'subtopics-descend-from-a-maintopic': `getAllNodes(['${F}SubTopic']).every(function(t) {
 	var seen = {};
-	while (!seen[t]) {
+	while (getAttr('$type', t) == '${F}SubTopic') {
+		if (seen[t]) return false;
 		seen[t] = true;
-		var rootLinks = getNeighbors('in', '${F}roots', t),
-			 childLinks = getNeighbors('in', '${F}children', t);
-		if (rootLinks.length + childLinks.length != 1) return false;
-		if (rootLinks.length == 1) return true;
-		t = getNeighbors('in', '*', childLinks[0])[0];
+		var links = getNeighbors('<', '${F}subtopics', t).concat(getNeighbors('<', '${F}subsubtopics', t));
+		if (links.length != 1) return false;
+		t = getNeighbors('<', '*', links[0])[0];
 	}
-	return false;
+	return true;
 })`,
-	'tags-belong-to-the-map': `getAllNodes(['${F}Tag']).every(function(t) {
-	return getNeighbors('in', '${F}hasTag', t).length == 1;
+	'unique-marker-symbols': `var symbols = getAllNodes(['${F}Marker']).map(function(m) { return getAttr('symbol', m); });
+symbols.length == new Set(symbols).size`,
+	'non-empty-names': `getAllNodes(['${F}CentralTopic', '${F}MainTopic', '${F}SubTopic']).every(function(t) {
+	return getAttr('name', t).trim() != '';
 })`,
 };
 
-const STROKE = "{'NONE': '#333333', 'HIGH': '#d32f2f', 'MEDIUM': '#f57c00', 'LOW': '#1976d2'}";
-const TEXT_INSET = 14;
+async function buildAbstractSyntax(a) {
+	await a.loadmm(`${SCD}.metamodel`);
+	const uris = {};
+	for (const [name, c] of Object.entries(CLASSES)) {
+		uris[name] = await a.create(`${SCD}/ClassIcon.type`, c.pos);
+		await a.update(uris[name], {
+			name, attributes: c.attributes, cardinalities: c.cardinalities, abstract: !!c.abstract,
+		});
+	}
+	await a.settle(800);
+	const boxes = {};
+	for (const name of Object.keys(CLASSES)) boxes[name] = await a.bbox(uris[name]);
 
-const LINK_STYLES = {
-	rootsLink: { stroke: '#333333', 'stroke-width': 2 },
-	childrenLink: { stroke: '#333333', 'stroke-width': 2 },
-	relatedLink: { stroke: '#1976d2', 'stroke-width': 1.5 },
-	taggedLink: { stroke: '#b8860b', 'stroke-width': 1.5 },
-	hasTagLink: { stroke: '#b8860b', 'stroke-width': 1 },
-};
+	for (const [name, src, dest] of ASSOCIATIONS) {
+		const path = src === dest ? loop(boxes[src]) : connect(boxes[src], boxes[dest]);
+		const uri = await a.create(`${SCD}/AssociationLink.type`, { src: uris[src], dest: uris[dest], ...path });
+		await a.update(uri, { name, linktype: 'visual' });
+	}
+	for (const sub of INHERITANCE)
+		await a.create(`${SCD}/InheritanceLink.type`, { src: uris[sub], dest: uris.Topic, ...connect(boxes[sub], boxes.Topic) });
 
-const MAPPERS = {
-	topicBox: `var fills = ['#ffffff', '#e0f0ff', '#b3d9ff', '#80bfff'];
-var strokes = ${STROKE};
-var priority = getAttr('priority');
-var fill = getAttr('color') != '' ? getAttr('color') : fills[Math.min(getAttr('level'), 3)];
-var marker = getAttr('marker');
-({'width': 40 + 10 * (getAttr('name').length + (marker > 0 ? String(marker).length + 1 : 0) + (priority == 'NONE' ? 0 : 4) + (getAttr('isDone') ? 2 : 0)),
-  'style': {'stroke': strokes[priority], 'stroke-width': priority == 'NONE' ? 1 : 3, 'fill': fill,
-            'fill-opacity': getAttr('effectivelyDone') ? 0.35 : 1}})
-`,
-	topicLabel: `var marks = {'NONE': '', 'HIGH': ' (H)', 'MEDIUM': ' (M)', 'LOW': ' (L)'};
-var color = getAttr('color');
-var dark = color != '' && (parseInt(color.substr(1, 2), 16) * 0.3 + parseInt(color.substr(3, 2), 16) * 0.6 + parseInt(color.substr(5, 2), 16) * 0.1) < 110;
-({'textContent': (getAttr('marker') > 0 ? getAttr('marker') + ' ' : '') + getAttr('name') + marks[getAttr('priority')] + (getAttr('isDone') ? ' #' : ''),
-  'style': {'fill': getAttr('effectivelyDone') ? '#777777' : (dark ? '#ffffff' : '#000000'), 'stroke': 'none'}})
-`,
-	nameLabel: `({"textContent": getAttr("name")})
-`,
-};
-
-async function updateClassDiagram(a) {
-	await a.load(AS_MODEL);
-	const model = readModel(AS_MODEL);
-	const classes = nodesOfType(model, 'Class');
-	const classNamed = name => classes.find(([, n]) => n.name.value === name);
-	// HW2 marker: 0 means unassigned; nextMarker is the transformation's per-parent counter.
-	const withMissing = (attrs, extra) => [...attrs, ...extra.filter(e => !attrs.some(x => x.name === e.name))];
-	const nextMarker = { name: 'nextMarker', type: 'int', default: 1 };
-
-	const [topicId, topic] = classNamed('Topic');
-	const attributes = withMissing(topic.attributes.value.map(attr => attr.name === 'priority'
-		? { name: 'priority', type: 'ENUM(NONE,HIGH,MEDIUM,LOW)', default: 'NONE' } : attr),
-		[{ name: 'marker', type: 'int', default: 0 }, nextMarker]);
-	await a.update(`${SCD}.umlIcons/ClassIcon/${topicId}.instance`, { attributes });
-
-	const [mapId, map] = classNamed('MindMap');
-	await a.update(`${SCD}.umlIcons/ClassIcon/${mapId}.instance`, { attributes: withMissing(map.attributes.value, [nextMarker]) });
-
-	const existing = Object.fromEntries(nodesOfType(model, 'GlobalConstraint').map(([id, n]) => [n.name.value, id]));
-	let y = 60;
-	for (const [name, code] of Object.entries(CONSTRAINTS)) {
-		const uri = existing[name]
-			? `${SCD}.umlIcons/GlobalConstraintIcon/${existing[name]}.instance`
-			: await a.create(`${SCD}.umlIcons/GlobalConstraintIcon.type`, [1000, y]);
+	for (const [n, [name, code]] of Object.entries(CONSTRAINTS).entries()) {
+		const uri = await a.create(`${SCD}/GlobalConstraintIcon.type`, CONSTRAINT_AT[n]);
 		await a.update(uri, { name, event: '', code });
-		y += 110;
 	}
 	await a.writeFile(AS_MODEL);
 	await a.writeFile('/Formalisms/MindMap/MindMap.metamodel');
 }
 
-async function updateIcons(a) {
-	await a.load(CS_MODEL);
-	const model = readModel(CS_MODEL);
-	const CS = '/Formalisms/__LanguageSyntax__/ConcreteSyntax/ConcreteSyntax.defaultIcons';
-	const nodes = model.asm.nodes;
-	const textOf = name => Object.keys(nodes).find(id => nodes[id].$type.endsWith('/Text') && nodes[id].textContent.value === name);
-	const typed = t => nodesOfType(model, t)[0];
+// ---------------------------------------------------------------- concrete syntax
+// Close to the assignment's figure: a dark central ellipse, light red main
+// topics, underlined sub-topics, and markers as green numbers in front of a
+// topic's name. Markers and the map's title sit in a small legend.
+const MARKER_GREEN = '#2e7d32';
 
-	// Icon contents are positioned relative to their Icon, so pin each shape to
-	// its Icon's corner: a model's node position is then the shape's top-left.
-	const iconOf = contentId => model.asm.edges.find(e => e.dest === model.asm.edges.find(l => l.dest === contentId).src).src;
-	const place = (type, id, [dx, dy]) => {
-		const [x, y] = model.csm.nodes[iconOf(id)].position.value;
-		return a.updatecs(`${CS}/${type}/${id}.instance`, { position: [x + dx, y + dy] });
-	};
-	const label = (id, size, anchor) => ({ ...nodes[id].style.value, 'font-size': size, stroke: 'none', 'text-anchor': anchor });
-	const iconOfText = id => iconOf(model.asm.edges.find(e => e.dest === model.asm.edges.find(l => l.dest === id).src).src);
-	const placeText = (id, [dx, dy]) => {
-		const [x, y] = model.csm.nodes[iconOfText(id)].position.value;
-		return a.updatecs(`${CS}/TextIcon/${id}.instance`, { position: [x + dx, y + dy] });
-	};
+// Label of a topic's marker, read through its marker link. Mappers only rerun
+// when the node's own attributes change, so set the name after linking.
+const markerSymbol = `(function() {
+	var links = getNeighbors('>', '${F}marker');
+	return links.length ? getAttr('symbol', getNeighbors('>', '*', links[0])[0]) : '';
+})()`;
 
-	const [boxId] = typed('Rectangle');
-	await a.update(`${CS}/RectangleIcon/${boxId}.instance`, { width: 160, height: 50, cornerRadius: 12, mapper: MAPPERS.topicBox });
-	await place('RectangleIcon', boxId, [0, 0]);
-	// The icon's own mapper must stay empty: a failing mapper stops all of an icon's mappers.
-	await a.update(`${CS}/IconIcon/${iconOf(boxId)}.instance`, { mapper: '' });
+// Text is placed by its top-left corner, so labels are left-aligned.
+const textStyle = (fill, size, extra = {}) => ({
+	stroke: 'none', 'stroke-dasharray': '', fill, 'fill-opacity': 1, 'font-size': size, 'stroke-width': 1,
+	'arrow-start': 'none', 'arrow-end': 'none', 'text-anchor': 'start', ...extra,
+});
+const shapeStyle = (fill, stroke, width = 1) => ({
+	stroke, 'stroke-dasharray': '', fill, 'fill-opacity': 1, 'font-size': '14px', 'stroke-width': width,
+	'arrow-start': 'none', 'arrow-end': 'none',
+});
 
-	const [circleId, circle] = typed('Circle');
-	await a.update(`${CS}/CircleIcon/${circleId}.instance`, {
-		r: 70, style: { ...circle.style.value, fill: '#fff4d6', 'stroke-width': 3 } });
-	await place('CircleIcon', circleId, [0, 0]);
+// The central topic shows its marker, if any, in front of its name.
+const centralLabel = `(function() { var m = ${markerSymbol}; return (m ? m + '  ' : '') + getAttr('name'); })()`;
 
-	const [starId, star] = typed('Star');
-	await a.update(`${CS}/StarIcon/${starId}.instance`, {
-		r: 60, style: { ...star.style.value, fill: '#fff9c4' } });
-	await place('StarIcon', starId, [0, 0]);
+const ICONS = {
+	MindMapIcon: [
+		{ type: 'Rectangle', at: [0, 0], attrs: { width: 200, height: TITLE_HEIGHT, cornerRadius: 6, style: shapeStyle('#f5f5f5', '#9e9e9e') },
+			mapper: `({'width': ${SIZES.titleWidth.of("getAttr('title').length")}})` },
+		{ type: 'Text', at: [10, 12], attrs: { textContent: 'mind map', style: textStyle('#616161', '12px') } },
+		{ type: 'Text', at: [80, 10], attrs: { textContent: 'title', style: textStyle('#000000', '16px', { 'font-weight': 'bold' }) },
+			mapper: `({'textContent': getAttr('title')})` },
+	],
+	MarkerIcon: [
+		{ type: 'Circle', at: [0, 0], attrs: { r: MARKER_R, style: shapeStyle('#ffffff', MARKER_GREEN, 2) } },
+		{ type: 'Text', at: [10, 6], attrs: { textContent: '1', style: textStyle(MARKER_GREEN, '15px', { 'font-weight': 'bold' }) },
+			mapper: `({'textContent': getAttr('symbol')})` },
+	],
+	CentralTopicIcon: [
+		{ type: 'Ellipse', at: [0, 0], attrs: { rx: 90, ry: CENTRAL_RY, style: shapeStyle('#333333', '#000000', 2) },
+			mapper: `({'rx': ${SIZES.centralRx.of(centralLabel + '.length')}})` },
+		{ type: 'Text', at: [30, 25], attrs: { textContent: 'central', style: textStyle('#ffffff', '16px') },
+			mapper: `({'textContent': ${centralLabel}})` },
+	],
+	MainTopicIcon: [
+		{ type: 'Ellipse', at: [0, 0], attrs: { rx: 80, ry: MAIN_RY, style: shapeStyle('#f8a19a', '#f8a19a') },
+			mapper: `({'rx': ${SIZES.mainRx.of("getAttr('name').length")}})` },
+		{ type: 'Text', at: [14, 14], attrs: { textContent: '', style: textStyle(MARKER_GREEN, '15px', { 'font-weight': 'bold' }) },
+			mapper: `({'textContent': ${markerSymbol}})` },
+		{ type: 'Text', at: [32, 14], attrs: { textContent: 'main', style: textStyle('#b71c1c', '15px') },
+			mapper: `({'textContent': getAttr('name')})` },
+	],
+	SubTopicIcon: [
+		// A path is drawn from the icon's origin whatever its position, so the
+		// underline's offset is in its segments.
+		{ type: 'Path', at: [0, 0], attrs: { segments: `m0,${SUB_LINE_Y}l120,0`, style: shapeStyle('none', '#000000', 1.5) },
+			mapper: `({'segments': 'm0,${SUB_LINE_Y}l' + ${SIZES.subWidth.of("getAttr('name').length")} + ',0'})` },
+		{ type: 'Text', at: [0, 1], attrs: { textContent: '', style: textStyle(MARKER_GREEN, '13px', { 'font-weight': 'bold' }) },
+			mapper: `({'textContent': ${markerSymbol}})` },
+		{ type: 'Text', at: [14, 1], attrs: { textContent: 'sub', style: textStyle('#212121', '13px') },
+			mapper: `({'textContent': getAttr('name')})` },
+	],
+};
 
-	const topicLabel = textOf('topic'), mapLabel = textOf('mindmap'), tagLabel = textOf('tag');
-	await a.update(`${CS}/TextIcon/${topicLabel}.instance`, { mapper: MAPPERS.topicLabel, style: label(topicLabel, '16px', 'start') });
-	await placeText(topicLabel, [TEXT_INSET, 17]);
-	await a.update(`${CS}/TextIcon/${mapLabel}.instance`, { mapper: MAPPERS.nameLabel, style: label(mapLabel, '16px', 'middle') });
-	await placeText(mapLabel, [70, 62]);
-	await a.update(`${CS}/TextIcon/${tagLabel}.instance`, { mapper: MAPPERS.nameLabel, style: label(tagLabel, '13px', 'middle') });
-	await placeText(tagLabel, [60, 56]);
+const linkStyle = (stroke, width, dash = '', opacity = 1) =>
+	({ stroke, 'stroke-dasharray': dash, 'stroke-opacity': opacity, 'stroke-width': width });
 
-	for (const [id, link] of nodesOfType(model, 'Link'))
-		await a.update(`${CS}/LinkIcon/${id}.instance`, {
-			'link-style': { ...link['link-style'].value, ...LINK_STYLES[link.typename.value] } });
+// arrowHead/arrowTail 'custom' with no contents draws a bare line.
+const LINKS = {
+	markersLink: { style: linkStyle('#9e9e9e', 1, '. '), arrowTail: 'custom' },
+	topicLink: { style: linkStyle('#9e9e9e', 1, '- '), arrowTail: 'custom' },
+	markerLink: { style: linkStyle(MARKER_GREEN, 1, '. ', 0.3), arrowTail: 'custom' },
+	maintopicsLink: { style: linkStyle('#555555', 2), arrowTail: 'custom' },
+	subtopicsLink: { style: linkStyle('#555555', 1.2), arrowTail: 'custom' },
+	subsubtopicsLink: { style: linkStyle('#555555', 1.2), arrowTail: 'custom' },
+};
 
+async function buildConcreteSyntax(a) {
+	await a.loadmm(`${CS}.metamodel`);
+	let x = 80;
+	for (const [typename, parts] of Object.entries(ICONS)) {
+		// The icon and its shapes move together, so only the icon is off the grid.
+		const origin = jitter([x, CANVAS_TOP + 40]);
+		const icon = await a.create(`${CS}/IconIcon.type`, origin);
+		await a.update(icon, { typename });
+		for (const part of parts) {
+			const shape = await a.create(`${CS}/${part.type}Icon.type`, [origin[0] + 40, origin[1] + 40]);
+			await a.update(shape, { ...part.attrs, ...(part.mapper ? { mapper: part.mapper } : {}) });
+			await a.create(`${CS}/IconContentsLink.type`, {
+				src: icon, dest: shape, pos: [origin[0] + 20, origin[1] + 20],
+				segments: [`M${origin}L${origin[0] + 20},${origin[1] + 20}`, `M${origin[0] + 20},${origin[1] + 20}L${origin[0] + 40},${origin[1] + 40}`],
+			});
+			// Contents are positioned relative to their Icon.
+			await a.updatecs(shape, { position: [origin[0] + part.at[0], origin[1] + part.at[1]] });
+		}
+		x += 300;
+	}
+	x = 80;
+	for (const [typename, l] of Object.entries(LINKS)) {
+		const link = await a.create(`${CS}/LinkIcon.type`, jitter([x, CANVAS_TOP + 360]));
+		await a.update(link, { typename, 'link-style': l.style, arrowHead: 'custom', arrowTail: l.arrowTail });
+		x += 260;
+	}
 	await a.writeFile(CS_MODEL);
 	await a.writeFile('/Formalisms/MindMap/MindMap.defaultIcons.metamodel');
-	// Also writes MindMap.defaultIcons.pattern.metamodel, which rules are drawn with.
+	// The pattern metamodels the MoTif rules are drawn with. The server derives
+	// MindMap.defaultIcons.pattern.metamodel from the icon metamodel above.
 	await a.writeFile('/Formalisms/MindMap/MindMap.pattern.metamodel');
 }
 
+mkdirSync(join(USER_DIR, 'Formalisms', 'MindMap'), { recursive: true });
+mkdirSync(join(USER_DIR, 'Models', 'MindMap'), { recursive: true });
 const a = await Atompm.open();
 try {
-	await updateClassDiagram(a);
-	await a.newPage();
-	await updateIcons(a);
-	console.log('formalism rebuilt', a.errors);
+	// `node build_formalism.mjs icons` rebuilds only the concrete syntax.
+	if (!process.argv.includes('icons')) {
+		await buildAbstractSyntax(a);
+		await a.newPage();
+	}
+	await buildConcreteSyntax(a);
+	console.log('formalism built', a.errors);
 } finally {
 	await a.close();
 }

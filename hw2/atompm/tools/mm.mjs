@@ -1,9 +1,9 @@
-// Reads a textual MindMap (.mm, see MindMap.xtext) into a plain object and lays
-// it out as a left-to-right tree for the AToMPM canvas.
+// Reads a textual mind map (.mindmap, see MindMap.xtext) into a plain object
+// and lays it out as a left-to-right tree for the AToMPM canvas.
 import { readFileSync } from 'node:fs';
+import { CANVAS_TOP, CENTRAL_RY, MAIN_RY, MARKER_R, SIZES, SUB_LINE_Y, TITLE_HEIGHT, jitter } from './geometry.mjs';
 
-const TOKEN = /\s+|\/\/[^\n]*|\/\*[\s\S]*?\*\/|"(?:[^"\\]|\\.)*"|->|[A-Za-z_][A-Za-z0-9_]*|[-(){}<>,:*#]/y;
-const PRIORITIES = { H: 'HIGH', M: 'MEDIUM', L: 'LOW' };
+const TOKEN = /\s+|\/\/[^\n]*|\/\*[\s\S]*?\*\/|[A-Za-z_][A-Za-z0-9_]*|\d+|[(){},*-]/y;
 
 function tokenize(src) {
 	const tokens = [];
@@ -24,41 +24,31 @@ export function parseMindMap(src) {
 	const next = () => tokens[i++];
 	const accept = t => (peek() === t ? (i++, true) : false);
 	const expect = t => {
-		if (next() !== t) throw new Error(`expected '${t}' near token ${i}: ${tokens.slice(i - 3, i + 3).join(' ')}`);
+		if (next() !== t) throw new Error(`expected '${t}' near: ${tokens.slice(i - 3, i + 3).join(' ')}`);
 	};
 
-	function topic() {
-		const deeper = next() === '->';
-		const t = {
-			name: next(), deeper, tags: [], priority: 'NONE', done: false,
-			description: '', color: '', related: [], children: [],
-		};
-		while (accept('<')) { t.tags.push(next()); expect('>'); }
-		if (accept('(')) { t.priority = PRIORITIES[next()]; expect(')'); }
-		t.done = accept('#');
-		if (accept('{')) {
-			if (accept('description')) { expect(':'); t.description = JSON.parse(next()); }
-			while (accept('*')) t.related.push(next());
-			if (accept('view')) {
-				expect('{');
-				if (accept('color')) { expect(':'); t.color = JSON.parse(next()); }
-				expect('}');
-			}
-			while (peek() === '-' || peek() === '->') t.children.push(topic());
+	// kind: 'central' | 'main' | 'sub'; the bullet of each level's children.
+	const CHILD = { central: ['*', 'main'], main: ['-', 'sub'], sub: ['-', 'sub'] };
+	function topic(kind) {
+		const t = { kind, marker: /^\d+$/.test(peek()) ? next() : null, name: next(), children: [] };
+		if (accept('includes')) {
+			expect('{');
+			const [bullet, childKind] = CHILD[kind];
+			while (accept(bullet)) t.children.push(topic(childKind));
 			expect('}');
 		}
 		return t;
 	}
 
 	expect('mindmap');
-	const map = { name: next(), tags: [], roots: [] };
+	const map = { title: next(), markers: [] };
 	if (accept('(')) {
-		do { next(); map.tags.push(next()); } while (accept(','));
+		do { expect('marker'); map.markers.push(next()); } while (accept(','));
 		expect(')');
 	}
-	expect('{');
-	while (peek() === '-' || peek() === '->') map.roots.push(topic());
-	expect('}');
+	expect('topic');
+	map.topic = topic('central');
+	if (i !== tokens.length) throw new Error(`unexpected '${peek()}' after the central topic`);
 	return map;
 }
 
@@ -67,47 +57,50 @@ export const readMindMap = path => parseMindMap(readFileSync(path, 'utf8'));
 export function allTopics(map) {
 	const out = [];
 	const walk = t => { out.push(t); t.children.forEach(walk); };
-	map.roots.forEach(walk);
+	walk(map.topic);
 	return out;
 }
 
-// Must agree with the width in the Topic icon's mapper (build_formalism.mjs).
-export const topicWidth = t =>
-	40 + 10 * (t.name.length + (t.marker > 0 ? String(t.marker).length + 1 : 0) + (t.priority === 'NONE' ? 0 : 4) + (t.done ? 2 : 0));
-export const TOPIC_HEIGHT = 50;
-export const MAP_DIAMETER = 140;
-export const TAG_DIAMETER = 120;
-// Nothing is placed above this y, so no element ends up under AToMPM's toolbars.
-export const CANVAS_TOP = 400;
+// Width and the y of the line links attach to, relative to the icon's top-left.
+export function shape(t) {
+	if (t.kind === 'central') {
+		const label = (t.marker ? `${t.marker}  ` : '') + t.name;
+		return { width: 2 * SIZES.centralRx(label.length), anchor: CENTRAL_RY };
+	}
+	if (t.kind === 'main') return { width: 2 * SIZES.mainRx(t.name.length), anchor: MAIN_RY };
+	return { width: SIZES.subWidth(t.name.length), anchor: SUB_LINE_Y };
+}
 
-// Sets t.pos (top-left) on every topic: columns as wide as their widest topic,
-// y by leaf order, parents centered on their children. Tags sit in a row below.
-export function layout(map, { xGap = 110, yStep = 74 } = {}) {
-	// The map is centered on its roots, so start low enough that a single root keeps it below CANVAS_TOP.
-	const origin = { x: 40, y: CANVAS_TOP + MAP_DIAMETER / 2 };
+// Sets pos (top-left) on every topic, the map and its markers: one column per
+// level as wide as its widest topic, leaves stacked, parents centered on their
+// children. The title and the marker legend sit in a row above the tree.
+export function layout(map, { gap = 70, yStep = 52 } = {}) {
+	const origin = { x: 40, y: CANVAS_TOP };
 	const widths = [];
 	const measure = (t, depth) => {
-		widths[depth] = Math.max(widths[depth] ?? 0, topicWidth(t));
+		widths[depth] = Math.max(widths[depth] ?? 0, shape(t).width);
 		t.children.forEach(c => measure(c, depth + 1));
 	};
-	map.roots.forEach(t => measure(t, 0));
-	const columns = [origin.x + MAP_DIAMETER + xGap];
-	for (const w of widths) columns.push(columns.at(-1) + w + xGap);
+	measure(map.topic, 0);
+	const columns = [origin.x];
+	for (const w of widths) columns.push(columns.at(-1) + w + gap);
 
+	const top = origin.y + TITLE_HEIGHT + 60;
 	let leaf = 0;
 	const place = (t, depth) => {
 		t.children.forEach(c => place(c, depth + 1));
-		const y = t.children.length
-			? (t.children[0].pos[1] + t.children.at(-1).pos[1]) / 2
-			: origin.y + yStep * leaf++;
-		t.pos = [columns[depth], y];
+		const anchorY = t.children.length
+			? (t.children[0].anchorY + t.children.at(-1).anchorY) / 2
+			: top + MAIN_RY + yStep * leaf++;
+		t.pos = jitter([columns[depth], anchorY - shape(t).anchor]);
+		t.anchorY = t.pos[1] + shape(t).anchor;
 	};
-	map.roots.forEach(t => place(t, 0));
-	const ys = map.roots.map(t => t.pos[1] + TOPIC_HEIGHT / 2);
-	const center = (Math.min(...ys) + Math.max(...ys)) / 2;
-	map.pos = [origin.x, center - MAP_DIAMETER / 2];
-	map.tagPos = Object.fromEntries(map.tags.map(
-		(name, n) => [name, [origin.x + (TAG_DIAMETER + 20) * n, origin.y + yStep * leaf + 40]]));
+	place(map.topic, 0);
+
+	map.pos = jitter([origin.x, origin.y], 3);
+	const legendX = origin.x + SIZES.titleWidth(map.title.length) + 40;
+	map.markerPos = Object.fromEntries(map.markers.map(
+		(m, n) => [m, jitter([legendX + n * (2 * MARKER_R + 20), origin.y + TITLE_HEIGHT / 2 - MARKER_R], 3)]));
 	return map;
 }
 
@@ -116,21 +109,12 @@ export function route([x1, y1], [x2, y2], mid = [(x1 + x2) / 2, (y1 + y2) / 2]) 
 	return { pos: mid, segments: [`M${x1},${y1}L${mid}`, `M${mid}L${x2},${y2}`] };
 }
 
-// The rules the AToMPM formalism enforces, checked up front so a bad .mm fails
-// with a readable message rather than a rejected edit halfway through a build.
+// The rules the formalism enforces, checked first so that a bad .mindmap fails
+// with a readable message instead of a failed validation after the build.
 export function check(map) {
 	const errors = [];
-	const topics = allTopics(map);
-	const names = new Set();
-	for (const t of topics) {
-		if (names.has(t.name)) errors.push(`duplicate topic name: ${t.name}`);
-		names.add(t.name);
-		if (t.color && !/^#[0-9a-fA-F]{6}$/.test(t.color)) errors.push(`bad color on ${t.name}: ${t.color}`);
-		for (const tag of t.tags) if (!map.tags.includes(tag)) errors.push(`unknown tag on ${t.name}: ${tag}`);
-		for (const r of t.related) if (r === t.name) errors.push(`${t.name} relates to itself`);
-	}
-	for (const t of topics) for (const r of t.related)
-		if (!names.has(r)) errors.push(`unknown related topic on ${t.name}: ${r}`);
-	for (const t of map.roots) if (t.deeper) errors.push(`root topic uses ->: ${t.name}`);
+	if (new Set(map.markers).size !== map.markers.length) errors.push('duplicate marker symbols');
+	for (const t of allTopics(map))
+		if (t.marker && !map.markers.includes(t.marker)) errors.push(`${t.name} uses undefined marker ${t.marker}`);
 	return errors;
 }

@@ -1,32 +1,5 @@
 {
 	"types": {
-		"__pTag": [
-			{
-				"name": "__pLabel",
-				"type": "string",
-				"default": ""
-			},
-			{
-				"name": "__pPivotIn",
-				"type": "string",
-				"default": ""
-			},
-			{
-				"name": "__pPivotOut",
-				"type": "string",
-				"default": ""
-			},
-			{
-				"name": "__pMatchSubtypes",
-				"type": "boolean",
-				"default": true
-			},
-			{
-				"name": "name",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
-			}
-		],
 		"__pMindMap": [
 			{
 				"name": "__pLabel",
@@ -49,12 +22,34 @@
 				"default": true
 			},
 			{
-				"name": "name",
+				"name": "title",
 				"type": "code",
 				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			}
+		],
+		"__pMarker": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
 			},
 			{
-				"name": "nextMarker",
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			},
+			{
+				"name": "symbol",
 				"type": "code",
 				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
 			}
@@ -84,59 +79,90 @@
 				"name": "name",
 				"type": "code",
 				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			}
+		],
+		"__pCentralTopic": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
 			},
 			{
-				"name": "isDeeper",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
 			},
 			{
-				"name": "isDone",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
 			},
 			{
-				"name": "priority",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
 			},
 			{
-				"name": "description",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
-			},
-			{
-				"name": "color",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
-			},
-			{
-				"name": "level",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
-			},
-			{
-				"name": "effectivelyDone",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
-			},
-			{
-				"name": "computed",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
-			},
-			{
-				"name": "marker",
-				"type": "code",
-				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
-			},
-			{
-				"name": "nextMarker",
+				"name": "name",
 				"type": "code",
 				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
 			}
 		],
-		"__proots": [
+		"__pMainTopic": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			},
+			{
+				"name": "name",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			}
+		],
+		"__pSubTopic": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			},
+			{
+				"name": "name",
+				"type": "code",
+				"default": "\"[PYTHON]\"\n\"Example:\t result = True\"\n\"Example:\t result = getAttr()\"\n\n\"[JAVASCRIPT]\"\n\"Example:\t true\"\n\"Example:\t getAttr()\""
+			}
+		],
+		"__pmarkers": [
 			{
 				"name": "__pLabel",
 				"type": "string",
@@ -158,7 +184,7 @@
 				"default": true
 			}
 		],
-		"__pchildren": [
+		"__ptopic": [
 			{
 				"name": "__pLabel",
 				"type": "string",
@@ -180,7 +206,7 @@
 				"default": true
 			}
 		],
-		"__prelated": [
+		"__pmarker": [
 			{
 				"name": "__pLabel",
 				"type": "string",
@@ -202,7 +228,7 @@
 				"default": true
 			}
 		],
-		"__ptagged": [
+		"__pmaintopics": [
 			{
 				"name": "__pLabel",
 				"type": "string",
@@ -224,7 +250,29 @@
 				"default": true
 			}
 		],
-		"__phasTag": [
+		"__psubtopics": [
+			{
+				"name": "__pLabel",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotIn",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pPivotOut",
+				"type": "string",
+				"default": ""
+			},
+			{
+				"name": "__pMatchSubtypes",
+				"type": "boolean",
+				"default": true
+			}
+		],
+		"__psubsubtopics": [
 			{
 				"name": "__pLabel",
 				"type": "string",
@@ -249,52 +297,40 @@
 	},
 	"constraints": [
 		{
+			"name": "noAbstractInstances",
+			"event": "pre-create",
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\nfalse",
+			"targetType": "Topic"
+		},
+		{
 			"name": "exactly-one-mindmap",
 			"event": "",
 			"targetType": "*",
 			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/MindMap']).length == 1"
 		},
 		{
-			"name": "unique-topic-names",
+			"name": "one-parent-per-subtopic",
 			"event": "",
 			"targetType": "*",
-			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\nvar names = getAllNodes(['/Formalisms/MindMap/MindMap/Topic']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\treturn getNeighbors('<', '/Formalisms/MindMap/MindMap/subtopics', t).length + getNeighbors('<', '/Formalisms/MindMap/MindMap/subsubtopics', t).length == 1;\n})"
 		},
 		{
-			"name": "unique-tag-names",
+			"name": "subtopics-descend-from-a-maintopic",
 			"event": "",
 			"targetType": "*",
-			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\nvar names = getAllNodes(['/Formalisms/MindMap/MindMap/Tag']).map(function(t) { return getAttr('name', t); });\nnames.length == new Set(names).size"
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\tvar seen = {};\n\twhile (getAttr('$type', t) == '/Formalisms/MindMap/MindMap/SubTopic') {\n\t\tif (seen[t]) return false;\n\t\tseen[t] = true;\n\t\tvar links = getNeighbors('<', '/Formalisms/MindMap/MindMap/subtopics', t).concat(getNeighbors('<', '/Formalisms/MindMap/MindMap/subsubtopics', t));\n\t\tif (links.length != 1) return false;\n\t\tt = getNeighbors('<', '*', links[0])[0];\n\t}\n\treturn true;\n})"
 		},
 		{
-			"name": "valid-topic-colors",
+			"name": "unique-marker-symbols",
 			"event": "",
 			"targetType": "*",
-			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar color = getAttr('color', t);\n\treturn color == '' || /^#[0-9a-fA-F]{6}$/.test(color);\n})"
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\nvar symbols = getAllNodes(['/Formalisms/MindMap/MindMap/Marker']).map(function(m) { return getAttr('symbol', m); });\nsymbols.length == new Set(symbols).size"
 		},
 		{
-			"name": "no-deeper-at-root",
+			"name": "non-empty-names",
 			"event": "",
 			"targetType": "*",
-			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t).length == 0 || !getAttr('isDeeper', t);\n})"
-		},
-		{
-			"name": "no-self-relation",
-			"event": "",
-			"targetType": "*",
-			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/related']).every(function(l) {\n\treturn getNeighbors('in', '*', l)[0] != getNeighbors('out', '*', l)[0];\n})"
-		},
-		{
-			"name": "topics-form-a-tree",
-			"event": "",
-			"targetType": "*",
-			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Topic']).every(function(t) {\n\tvar seen = {};\n\twhile (!seen[t]) {\n\t\tseen[t] = true;\n\t\tvar rootLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/roots', t),\n\t\t\t childLinks = getNeighbors('in', '/Formalisms/MindMap/MindMap/children', t);\n\t\tif (rootLinks.length + childLinks.length != 1) return false;\n\t\tif (rootLinks.length == 1) return true;\n\t\tt = getNeighbors('in', '*', childLinks[0])[0];\n\t}\n\treturn false;\n})"
-		},
-		{
-			"name": "tags-belong-to-the-map",
-			"event": "",
-			"targetType": "*",
-			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/Tag']).every(function(t) {\n\treturn getNeighbors('in', '/Formalisms/MindMap/MindMap/hasTag', t).length == 1;\n})"
+			"code": "/* comment next line to enable this constraint */\nthrow \"IgnoredConstraint\"\ngetAllNodes(['/Formalisms/MindMap/MindMap/CentralTopic', '/Formalisms/MindMap/MindMap/MainTopic', '/Formalisms/MindMap/MindMap/SubTopic']).every(function(t) {\n\treturn getAttr('name', t).trim() != '';\n})"
 		}
 	],
 	"actions": [
@@ -306,73 +342,109 @@
 		}
 	],
 	"cardinalities": {
-		"__pTag": [
-			{
-				"dir": "in",
-				"type": "__ptagged",
-				"min": 0,
-				"max": "Infinity"
-			},
-			{
-				"dir": "in",
-				"type": "__phasTag",
-				"min": 0,
-				"max": "Infinity"
-			}
-		],
 		"__pMindMap": [
 			{
 				"dir": "out",
-				"type": "__proots",
+				"type": "__pmarkers",
 				"min": 0,
 				"max": "Infinity"
 			},
 			{
 				"dir": "out",
-				"type": "__phasTag",
+				"type": "__ptopic",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__pMarker": [
+			{
+				"dir": "in",
+				"type": "__pmarkers",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "__pmarker",
 				"min": 0,
 				"max": "Infinity"
 			}
 		],
 		"__pTopic": [
 			{
-				"dir": "in",
-				"type": "__proots",
+				"dir": "out",
+				"type": "__pmarker",
 				"min": 0,
 				"max": "1"
-			},
-			{
-				"dir": "in",
-				"type": "__pchildren",
-				"min": 0,
-				"max": "1"
-			},
-			{
-				"dir": "out",
-				"type": "__pchildren",
-				"min": 0,
-				"max": "Infinity"
-			},
-			{
-				"dir": "out",
-				"type": "__prelated",
-				"min": 0,
-				"max": "Infinity"
-			},
-			{
-				"dir": "in",
-				"type": "__prelated",
-				"min": 0,
-				"max": "Infinity"
-			},
-			{
-				"dir": "out",
-				"type": "__ptagged",
-				"min": 0,
-				"max": "Infinity"
 			}
 		],
-		"__proots": [
+		"__pCentralTopic": [
+			{
+				"dir": "in",
+				"type": "__ptopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pmaintopics",
+				"min": 0,
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "__pmarker",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__pMainTopic": [
+			{
+				"dir": "in",
+				"type": "__pmaintopics",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__psubtopics",
+				"min": 0,
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "__pmarker",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__pSubTopic": [
+			{
+				"dir": "in",
+				"type": "__psubtopics",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "__psubsubtopics",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__psubsubtopics",
+				"min": 0,
+				"max": "Infinity"
+			},
+			{
+				"dir": "out",
+				"type": "__pmarker",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__pmarkers": [
 			{
 				"dir": "in",
 				"type": "__pMindMap",
@@ -381,54 +453,12 @@
 			},
 			{
 				"dir": "out",
-				"type": "__pTopic",
+				"type": "__pMarker",
 				"min": 0,
 				"max": "1"
 			}
 		],
-		"__pchildren": [
-			{
-				"dir": "in",
-				"type": "__pTopic",
-				"min": 0,
-				"max": "1"
-			},
-			{
-				"dir": "out",
-				"type": "__pTopic",
-				"min": 0,
-				"max": "1"
-			}
-		],
-		"__prelated": [
-			{
-				"dir": "in",
-				"type": "__pTopic",
-				"min": 0,
-				"max": "1"
-			},
-			{
-				"dir": "out",
-				"type": "__pTopic",
-				"min": 0,
-				"max": "1"
-			}
-		],
-		"__ptagged": [
-			{
-				"dir": "in",
-				"type": "__pTopic",
-				"min": 0,
-				"max": "1"
-			},
-			{
-				"dir": "out",
-				"type": "__pTag",
-				"min": 0,
-				"max": "1"
-			}
-		],
-		"__phasTag": [
+		"__ptopic": [
 			{
 				"dir": "in",
 				"type": "__pMindMap",
@@ -437,7 +467,81 @@
 			},
 			{
 				"dir": "out",
-				"type": "__pTag",
+				"type": "__pCentralTopic",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__pmarker": [
+			{
+				"dir": "in",
+				"type": "__pTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pMarker",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "__pCentralTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "__pMainTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "in",
+				"type": "__pSubTopic",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__pmaintopics": [
+			{
+				"dir": "in",
+				"type": "__pCentralTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pMainTopic",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__psubtopics": [
+			{
+				"dir": "in",
+				"type": "__pMainTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pSubTopic",
+				"min": 0,
+				"max": "1"
+			}
+		],
+		"__psubsubtopics": [
+			{
+				"dir": "in",
+				"type": "__pSubTopic",
+				"min": 0,
+				"max": "1"
+			},
+			{
+				"dir": "out",
+				"type": "__pSubTopic",
 				"min": 0,
 				"max": "1"
 			}
@@ -445,46 +549,74 @@
 	},
 	"legalConnections": {
 		"__pMindMap": {
-			"__pTopic": [
-				"__proots"
+			"__pMarker": [
+				"__pmarkers"
 			],
-			"__pTag": [
-				"__phasTag"
+			"__pCentralTopic": [
+				"__ptopic"
 			]
 		},
 		"__pTopic": {
-			"__pTopic": [
-				"__pchildren",
-				"__prelated"
+			"__pMarker": [
+				"__pmarker"
+			]
+		},
+		"__pCentralTopic": {
+			"__pMainTopic": [
+				"__pmaintopics"
 			],
-			"__pTag": [
-				"__ptagged"
+			"__pMarker": [
+				"__pmarker"
+			]
+		},
+		"__pMainTopic": {
+			"__pSubTopic": [
+				"__psubtopics"
+			],
+			"__pMarker": [
+				"__pmarker"
+			]
+		},
+		"__pSubTopic": {
+			"__pSubTopic": [
+				"__psubsubtopics"
+			],
+			"__pMarker": [
+				"__pmarker"
 			]
 		}
 	},
 	"connectorTypes": {
-		"__proots": "visual",
-		"__pchildren": "visual",
-		"__prelated": "visual",
-		"__ptagged": "visual",
-		"__phasTag": "visual"
+		"__pmarkers": "visual",
+		"__ptopic": "visual",
+		"__pmarker": "visual",
+		"__pmaintopics": "visual",
+		"__psubtopics": "visual",
+		"__psubsubtopics": "visual"
 	},
 	"types2parentTypes": {
-		"__pTag": [],
 		"__pMindMap": [],
+		"__pMarker": [],
 		"__pTopic": [],
-		"__proots": [],
-		"__pchildren": [],
-		"__prelated": [],
-		"__ptagged": [],
-		"__phasTag": [],
+		"__pCentralTopic": [
+			"__pTopic"
+		],
+		"__pMainTopic": [
+			"__pTopic"
+		],
+		"__pSubTopic": [
+			"__pTopic"
+		],
+		"__pmarkers": [],
+		"__ptopic": [],
+		"__pmarker": [],
+		"__pmaintopics": [],
+		"__psubtopics": [],
+		"__psubsubtopics": [],
 		"__pexactly-one-mindmap": [],
-		"__punique-topic-names": [],
-		"__punique-tag-names": [],
-		"__pvalid-topic-colors": [],
-		"__pno-deeper-at-root": [],
-		"__pno-self-relation": [],
-		"__ptopics-form-a-tree": [],
-		"__ptags-belong-to-the-map": []
+		"__pone-parent-per-subtopic": [],
+		"__psubtopics-descend-from-a-maintopic": [],
+		"__punique-marker-symbols": [],
+		"__pnon-empty-names": []
 	}
 }

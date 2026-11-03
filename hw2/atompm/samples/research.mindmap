@@ -1,0 +1,11 @@
+mindmap Research (marker 1, marker 2)
+topic HowToConductResearch includes {
+	* 1 Read includes {
+		- SearchInDatabases includes {
+			- 1 Springer
+			- 2 Scopus
+		}
+	}
+	* 2 Analyze
+	* Implement
+}
