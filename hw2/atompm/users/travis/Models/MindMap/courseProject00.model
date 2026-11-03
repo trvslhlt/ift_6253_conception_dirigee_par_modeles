@@ -232,8 +232,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						40,
-						2508
+						54,
+						1207
 					]
 				},
 				"orientation": {
@@ -476,8 +476,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						105,
-						1987.4375
+						111,
+						1304.5
 					]
 				},
 				"orientation": {
@@ -529,13 +529,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;-1.000184499076667,-0.9604551569031755%",
-										"0;520.6009182062762,99.99538752308318%"
+										"0;-4,6.123233995736766e-15%",
+										"0;-22.5,-100%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;90.55030873000167"
+									"value": "0;-90"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -563,8 +563,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/2.instance": "M110,1466.875L105,1987.4375",
-						"/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/2.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M105,1987.4375L100,2508"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/2.instance": "M111,1327L111,1304.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/2.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M111,1304.5L111,1282"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink"
@@ -577,8 +577,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						180,
-						2508
+						52,
+						1499
 					]
 				},
 				"orientation": {
@@ -821,8 +821,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						175,
-						1987.4375
+						111,
+						1482.9375
 					]
 				},
 				"orientation": {
@@ -874,13 +874,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;68.96917745547435,12.390276604914558%",
-										"0;520.0668889358035,99.22943638685905%"
+										"0;1.9232571363349251,-19.494445397937536%",
+										"0;10.842277815917441,98.08142840837317%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;82.882603671381"
+									"value": "0;101.24147876762648"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -908,8 +908,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/4.instance": "M110,1466.875L175,1987.4375",
-						"/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/4.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/3.instance": "M175,1987.4375L240,2508"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/4.instance": "M110,1466.875L111,1482.9375",
+						"/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink/4.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/3.instance": "M111,1482.9375L109,1493"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/hasTagLink"
@@ -922,8 +922,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						290,
-						590.25
+						299,
+						968.25
 					]
 				},
 				"orientation": {
@@ -952,7 +952,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 170
+									"value": 190
 								},
 								"height": {
 									"type": "double",
@@ -1002,7 +1002,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "preplanning #"
+									"value": "2 preplanning #"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -1159,8 +1159,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						235,
-						1006.0625
+						229,
+						1180
 					]
 				},
 				"orientation": {
@@ -1212,13 +1212,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;51.03903239599137,13.935916726081892%",
-										"0;-391.3699366690432,-99.02419010021598%"
+										"0;72.34125358362095,40.416384832094096%",
+										"0;-173.61665539328374,-91.46866040947617%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-81.98923427412709"
+									"value": "0;-66.16125981682829"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -1246,8 +1246,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/6.instance": "M180,1396.875L235,1006.0625",
-						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/6.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance": "M235,1006.0625L290,615.25"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/6.instance": "M153,1352L229,1180",
+						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/6.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance": "M229,1180L305,1008"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/rootsLink"
@@ -1260,8 +1260,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						590.25
+						579,
+						961.25
 					]
 				},
 				"orientation": {
@@ -1290,7 +1290,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 140
+									"value": 170
 								},
 								"height": {
 									"type": "double",
@@ -1340,7 +1340,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "brainstorm"
+									"value": "12 brainstorm"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -1497,8 +1497,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						515,
-						615.25
+						528,
+						990.125
 					]
 				},
 				"orientation": {
@@ -1550,13 +1550,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;55,100%",
-										"0;-4,0%"
+										"0;58.788432152432165,99.8600240520309%",
+										"0;-7.119400962081272,-5.289196189196551%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;0"
+									"value": "0;-3.031900962669177"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -1584,8 +1584,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/8.instance": "M460,615.25L515,615.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/8.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance": "M515,615.25L570,615.25"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/5.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/8.instance": "M469,993.25L528,990.125",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/8.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance": "M528,990.125L587,987"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -1598,8 +1598,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						507
+						837,
+						968
 					]
 				},
 				"orientation": {
@@ -1628,7 +1628,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 270
+									"value": 290
 								},
 								"height": {
 									"type": "double",
@@ -1678,7 +1678,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "review_suggested_topics"
+									"value": "1 review_suggested_topics"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -1835,8 +1835,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						800,
-						573.625
+						778,
+						989.625
 					]
 				},
 				"orientation": {
@@ -1888,13 +1888,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;88.32088997455821,90.76270407793152%",
-										"0;-45.25550816311727,-41.977750636043325%"
+										"0;59.228440110533825,99.83678904811123%",
+										"0;-0.6184715619244798,5.711002763345346%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-24.820541335489082"
+									"value": "0;3.273944890689512"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -1922,8 +1922,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/10.instance": "M710,615.25L800,573.625",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/10.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance": "M800,573.625L890,532"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/10.instance": "M745,987L778,989.625",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/10.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance": "M778,989.625L837,993"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -1936,8 +1936,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						470
+						1242,
+						934
 					]
 				},
 				"orientation": {
@@ -1966,7 +1966,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 270
+									"value": 290
 								},
 								"height": {
 									"type": "double",
@@ -2016,7 +2016,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "map_to_course_materials"
+									"value": "1 map_to_course_materials"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -2173,8 +2173,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1285,
-						513.5
+						1185.5,
+						971.5
 					]
 				},
 				"orientation": {
@@ -2226,13 +2226,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;124.41437897934429,98.92246970534006%",
-										"0;-22.456898788213607,-14.640525516390332%"
+										"0;63.738965873931875,98.17340226278132%",
+										"0;-16.426936090511276,-19.025853151701806%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-8.41866287779965"
+									"value": "0;-10.96787218266168"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -2260,8 +2260,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance": "M1160,532L1285,513.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/11.instance": "M1285,513.5L1410,495"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance": "M1121,984L1185.5,971.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/12.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/11.instance": "M1185.5,971.5L1250,959"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -2274,8 +2274,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						544
+						1239,
+						1005
 					]
 				},
 				"orientation": {
@@ -2304,7 +2304,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 280
+									"value": 300
 								},
 								"height": {
 									"type": "double",
@@ -2354,7 +2354,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "gauge_classmate_interest"
+									"value": "2 gauge_classmate_interest"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -2511,8 +2511,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1285,
-						550.5
+						1183.5,
+						1018
 					]
 				},
 				"orientation": {
@@ -2564,13 +2564,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;125.58562102065571,98.92246970534006%",
-										"0;14.543101211786393,14.640525516390332%"
+										"0;62.56572468897002,96.38539466420606%",
+										"0;13.144584213431813,26.643117224252077%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;8.41866287779965"
+									"value": "0;15.452010641129688"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -2598,8 +2598,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/14.instance": "M1160,532L1285,550.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/14.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/13.instance": "M1285,550.5L1410,569"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/9.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/14.instance": "M1122,1001L1183.5,1018",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/14.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/13.instance": "M1183.5,1018L1245,1035"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -2612,8 +2612,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						673.5
+						842,
+						812.5
 					]
 				},
 				"orientation": {
@@ -2642,7 +2642,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 410
+									"value": 430
 								},
 								"height": {
 									"type": "double",
@@ -2692,7 +2692,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "find_opportunities_in_familiar_topics"
+									"value": "2 find_opportunities_in_familiar_topics"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -2849,8 +2849,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						800,
-						656.875
+						794,
+						910
 					]
 				},
 				"orientation": {
@@ -2902,13 +2902,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;91.67911002544179,90.76270407793152%",
-										"0;37.99449183688273,41.977750636043325%"
+										"0;51.07242410227457,68.14185279188428%",
+										"0;-60.7256741116754,-73.18939744313498%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;24.820541335489082"
+									"value": "0;-47.04540848888723"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -2936,8 +2936,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/16.instance": "M710,615.25L800,656.875",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/16.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance": "M800,656.875L890,698.5"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/7.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/16.instance": "M740,968L794,910",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/16.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance": "M794,910L848,852"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -2950,8 +2950,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						618
+						1350,
+						737
 					]
 				},
 				"orientation": {
@@ -2980,7 +2980,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 310
+									"value": 330
 								},
 								"height": {
 									"type": "double",
@@ -3030,7 +3030,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "map_course_material_to_news"
+									"value": "1 map_course_material_to_news"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -3187,8 +3187,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1355,
-						670.75
+						1309.5,
+						794
 					]
 				},
 				"orientation": {
@@ -3240,13 +3240,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;53.19817124896872,89.27980297902388%",
-										"0;-31.32119211916097,-45.045718775780216%"
+										"0;44.13906322583739,80.72320588129591%",
+										"0;-37.22892823525183,-59.02341935406583%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-26.77302042530859"
+									"value": "0;-36.17362904577208"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -3274,8 +3274,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/18.instance": "M1300,698.5L1355,670.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/18.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance": "M1355,670.75L1410,643"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/18.instance": "M1263,828L1309.5,794",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/18.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/17.instance": "M1309.5,794L1356,760"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -3288,8 +3288,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						729
+						1340,
+						821
 					]
 				},
 				"orientation": {
@@ -3318,7 +3318,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 310
+									"value": 330
 								},
 								"height": {
 									"type": "double",
@@ -3368,7 +3368,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "map_news_to_course_material"
+									"value": "2 map_news_to_course_material"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -3525,8 +3525,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1355,
-						726.25
+						1299,
+						842.25
 					]
 				},
 				"orientation": {
@@ -3578,13 +3578,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;56.80182875103128,89.27980297902388%",
-										"0;24.17880788083903,45.045718775780216%"
+										"0;47.40220648952459,99.49318425080793%",
+										"0;0.7702726299677352,10.055162238113564%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;26.77302042530859"
+									"value": "0;5.770936221574341"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -3612,8 +3612,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/20.instance": "M1300,698.5L1355,726.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/20.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance": "M1355,726.25L1410,754"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/15.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/20.instance": "M1252,837.5L1299,842.25",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/20.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance": "M1299,842.25L1346,847"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -3626,8 +3626,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1930,
-						692
+						1739,
+						786
 					]
 				},
 				"orientation": {
@@ -3656,7 +3656,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 220
+									"value": 240
 								},
 								"height": {
 									"type": "double",
@@ -3706,7 +3706,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "codebase_migration"
+									"value": "1 codebase_migration"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -3863,8 +3863,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1825,
-						735.5
+						1704,
+						825
 					]
 				},
 				"orientation": {
@@ -3916,13 +3916,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;104.30592881609232,98.48307339230004%",
-										"0;-22.439322935691962,-17.35177959769096%"
+										"0;38.678598301087504,94.38583563660174%",
+										"0;-17.77543342546403,-33.03504247281061%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-9.992414526216246"
+									"value": "0;-19.290046219188735"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -3950,8 +3950,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/22.instance": "M1720,754L1825,735.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/22.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance": "M1825,735.5L1930,717"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/22.instance": "M1664,839L1704,825",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/22.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance": "M1704,825L1744,811"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -3964,8 +3964,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1930,
-						766
+						1741,
+						859
 					]
 				},
 				"orientation": {
@@ -3994,7 +3994,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 220
+									"value": 240
 								},
 								"height": {
 									"type": "double",
@@ -4044,7 +4044,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "tool_modernization"
+									"value": "2 tool_modernization"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -4201,8 +4201,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1825,
-						772.5
+						1705,
+						870
 					]
 				},
 				"orientation": {
@@ -4254,13 +4254,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;105.69407118390768,98.48307339230004%",
-										"0;14.560677064308038,17.35177959769096%"
+										"0;42.292575413166105,94.63498560679949%",
+										"0;10.214600575728014,32.314385329151044%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;9.992414526216246"
+									"value": "0;18.85315876441911"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -4288,8 +4288,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/24.instance": "M1720,754L1825,772.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/24.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/23.instance": "M1825,772.5L1930,791"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/19.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/24.instance": "M1664,856L1705,870",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/24.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/23.instance": "M1705,870L1746,884"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -4302,8 +4302,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						290,
-						1302.5
+						256,
+						1369.5
 					]
 				},
 				"orientation": {
@@ -4332,7 +4332,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 160
+									"value": 190
 								},
 								"height": {
 									"type": "double",
@@ -4382,7 +4382,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "planning (H)"
+									"value": "10 planning (H)"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -4539,8 +4539,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						235,
-						1362.1875
+						216,
+						1394
 					]
 				},
 				"orientation": {
@@ -4592,13 +4592,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;52.8661982483753,84.5831324968348%",
-										"0;-38.07082529987338,-53.34504379061741%"
+										"0;43,100%",
+										"0;-4,0%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-32.238884837469996"
+									"value": "0;0"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -4626,8 +4626,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/26.instance": "M180,1396.875L235,1362.1875",
-						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/26.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance": "M235,1362.1875L290,1327.5"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/26.instance": "M173,1394L216,1394",
+						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/26.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance": "M216,1394L259,1394"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/rootsLink"
@@ -4640,8 +4640,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						840
+						521,
+						1152
 					]
 				},
 				"orientation": {
@@ -4670,7 +4670,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 210
+									"value": 240
 								},
 								"height": {
 									"type": "double",
@@ -4720,7 +4720,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "review_assignment"
+									"value": "12 review_assignment"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -4877,8 +4877,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						510,
-						1096.25
+						474.5,
+						1284
 					]
 				},
 				"orientation": {
@@ -4930,13 +4930,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;56.128200779457416,25.114373322438194%",
-										"0;-232.25457493289764,-96.79498051356384%"
+										"0;49.01670276361472,49.159436803824406%",
+										"0;-94.966377472153,-87.0824309096318%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-75.45479725882565"
+									"value": "0;-60.5545712700744"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -4964,8 +4964,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/28.instance": "M450,1327.5L510,1096.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/28.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/27.instance": "M510,1096.25L570,865"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/28.instance": "M422,1377L474.5,1284",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/28.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/27.instance": "M474.5,1284L527,1191"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -4978,8 +4978,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						914
+						521,
+						1226
 					]
 				},
 				"orientation": {
@@ -5008,7 +5008,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 210
+									"value": 230
 								},
 								"height": {
 									"type": "double",
@@ -5058,7 +5058,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "goal_definition #"
+									"value": "1 goal_definition #"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -5215,8 +5215,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						510,
-						1133.25
+						482.5,
+						1320
 					]
 				},
 				"orientation": {
@@ -5268,13 +5268,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;56.17816242080721,29.51225929878577%",
-										"0;-195.43049037195146,-95.54593947981898%"
+										"0;43.40053991691252,63.21267274717939%",
+										"0;-59.528506909887255,-77.48650207718764%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-72.83511127284164"
+									"value": "0;-50.792796495032164"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -5302,8 +5302,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/30.instance": "M450,1327.5L510,1133.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/30.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/29.instance": "M510,1133.25L570,939"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/30.instance": "M436,1377L482.5,1320",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/30.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/29.instance": "M482.5,1320L529,1263"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -5316,8 +5316,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						1025
+						520,
+						1641
 					]
 				},
 				"orientation": {
@@ -5346,7 +5346,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 90
+									"value": 110
 								},
 								"height": {
 									"type": "double",
@@ -5396,7 +5396,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "tasks"
+									"value": "2 tasks"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -5553,8 +5553,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						510,
-						1188.75
+						475,
+						1530
 					]
 				},
 				"orientation": {
@@ -5606,13 +5606,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;56.32857185615944,39.691115068546715%",
-										"0;-140.33764460274188,-91.78570359601426%"
+										"0;54.67658012007223,39.39192985791677%",
+										"0;117.42432280568323,91.9145030018058%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-66.61477894278624"
+									"value": "0;66.80140948635182"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -5640,8 +5640,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/32.instance": "M450,1327.5L510,1188.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/32.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance": "M510,1188.75L570,1050"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/32.instance": "M424,1411L475,1530",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/32.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance": "M475,1530L526,1649"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -5654,8 +5654,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						988
+						766,
+						1603
 					]
 				},
 				"orientation": {
@@ -5684,7 +5684,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 150
+									"value": 170
 								},
 								"height": {
 									"type": "double",
@@ -5734,7 +5734,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "delineation"
+									"value": "1 delineation"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -5891,8 +5891,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						775,
-						1031.5
+						698.5,
+						1640.5
 					]
 				},
 				"orientation": {
@@ -5944,13 +5944,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;114.3646898324356,98.73063414851711%",
-										"0;-22.44922536594072,-15.882754189109269%"
+										"0;72.7773939186867,98.35471662320329%",
+										"0;-17.434188664928115,-18.06515203283326%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-9.138849119692676"
+									"value": "0;-10.40771131249006"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -5978,8 +5978,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/34.instance": "M660,1050L775,1031.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/34.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/33.instance": "M775,1031.5L890,1013"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/34.instance": "M625,1654L698.5,1640.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/34.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/33.instance": "M698.5,1640.5L772,1627"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -5992,8 +5992,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						1062
+						763,
+						1670
 					]
 				},
 				"orientation": {
@@ -6022,7 +6022,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 130
+									"value": 150
 								},
 								"height": {
 									"type": "double",
@@ -6072,7 +6072,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "detailing"
+									"value": "2 detailing"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -6229,8 +6229,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						775,
-						1068.5
+						696.5,
+						1681.5
 					]
 				},
 				"orientation": {
@@ -6282,13 +6282,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;115.6353101675644,98.73063414851711%",
-										"0;14.55077463405928,15.882754189109269%"
+										"0;74.1706426964771,98.58447638212988%",
+										"0;8.556620944714723,16.766067411926855%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;9.138849119692676"
+									"value": "0;9.651833466804247"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -6316,8 +6316,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/36.instance": "M660,1050L775,1068.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/36.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/35.instance": "M775,1068.5L890,1087"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/36.instance": "M623,1669L696.5,1681.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/36.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/35.instance": "M696.5,1681.5L770,1694"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -6330,8 +6330,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						1339.5
+						529,
+						1369.5
 					]
 				},
 				"orientation": {
@@ -6360,7 +6360,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 120
+									"value": 150
 								},
 								"height": {
 									"type": "double",
@@ -6410,7 +6410,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "strategy"
+									"value": "11 strategy"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -6567,8 +6567,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						510,
-						1346
+						488,
+						1393.5
 					]
 				},
 				"orientation": {
@@ -6620,13 +6620,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;61.17858155168318,95.56066635268957%",
-										"0;14.67757334589237,29.46453879207928%"
+										"0;49.96000199985002,99.99500037496875%",
+										"0;-4.499800014998755,-0.9999500037496876%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;17.136274503575986"
+									"value": "0;-0.5729386976834859"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -6654,8 +6654,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/38.instance": "M450,1327.5L510,1346",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/38.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance": "M510,1346L570,1364.5"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/38.instance": "M438,1394L488,1393.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/38.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance": "M488,1393.5L538,1393"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -6698,7 +6698,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 100
+									"value": 120
 								},
 								"height": {
 									"type": "double",
@@ -6748,7 +6748,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "phases"
+									"value": "1 phases"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -6905,8 +6905,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						790,
-						1281.25
+						782.5,
+						1296.25
 					]
 				},
 				"orientation": {
@@ -6958,13 +6958,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;97.44077458569348,76.85361604524262%",
-										"0;-86.32414464180965,-63.9806353576645%"
+										"0;109.06389577163986,79.31502138847067%",
+										"0;-89.4226008555388,-60.90260570900428%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-39.77738128912134"
+									"value": "0;-37.51911382047633"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -6992,8 +6992,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/40.instance": "M690,1364.5L790,1281.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/40.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance": "M790,1281.25L890,1198"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/40.instance": "M669,1376L782,1296",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/40.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance": "M782,1296L894,1210"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -7006,8 +7006,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						1136
+						1175,
+						1110
 					]
 				},
 				"orientation": {
@@ -7036,7 +7036,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 200
+									"value": 220
 								},
 								"height": {
 									"type": "double",
@@ -7086,7 +7086,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "review_prior_art"
+									"value": "1 review_prior_art"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -7243,8 +7243,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1200,
-						1179.5
+						1093.5,
+						1163
 					]
 				},
 				"orientation": {
@@ -7296,13 +7296,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;209.64897851377145,99.61420555136031%",
-										"0;-22.48456822205435,-8.775537155715076%"
+										"0;88.30568573675123,95.43850585783102%",
+										"0;-31.817540234313128,-29.857856581220876%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-5.0344883453651725"
+									"value": "0;-17.372248484092413"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -7330,8 +7330,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/42.instance": "M990,1198L1200,1179.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/42.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/41.instance": "M1200,1179.5L1410,1161"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/42.instance": "M1004,1191L1093.5,1163",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/42.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/41.instance": "M1093.5,1163L1183,1135"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -7344,8 +7344,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						1210
+						1178,
+						1180
 					]
 				},
 				"orientation": {
@@ -7374,7 +7374,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 270
+									"value": 290
 								},
 								"height": {
 									"type": "double",
@@ -7424,7 +7424,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "consult_industry_expert"
+									"value": "2 consult_industry_expert"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -7581,8 +7581,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1200,
-						1216.5
+						1094.5,
+						1205.5
 					]
 				},
 				"orientation": {
@@ -7634,13 +7634,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;210.35102148622855,99.61420555136031%",
-										"0;14.51543177794565,8.775537155715076%"
+										"0;91.43443503904268,99.98656545973652%",
+										"0;-5.499462618389543,-1.639124023930107%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;5.0344883453651725"
+									"value": "0;-0.93919094573558"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -7668,8 +7668,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/44.instance": "M990,1198L1200,1216.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/44.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/43.instance": "M1200,1216.5L1410,1235"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/39.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/44.instance": "M1003,1207L1094.5,1205.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/44.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/43.instance": "M1094.5,1205.5L1186,1204"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -7712,7 +7712,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 140
+									"value": 160
 								},
 								"height": {
 									"type": "double",
@@ -7762,7 +7762,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "techniques"
+									"value": "2 techniques"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -7919,8 +7919,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						790,
-						1336.75
+						791.5,
+						1346.75
 					]
 				},
 				"orientation": {
@@ -7972,13 +7972,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;98.9304185382947,96.35869024372025%",
-										"0;-31.604347609748856,-26.739536542632376%"
+										"0;104.2458439206739,94.95753172040091%",
+										"0;-39.548301268815976,-31.35390198315124%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-15.509334522674877"
+									"value": "0;-18.272638266985318"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -8006,8 +8006,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/46.instance": "M690,1364.5L790,1336.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/46.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/45.instance": "M790,1336.75L890,1309"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/46.instance": "M673,1384L791,1346",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/46.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/45.instance": "M791,1346L897,1311"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -8020,8 +8020,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						1506
+						892,
+						1369
 					]
 				},
 				"orientation": {
@@ -8050,7 +8050,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 140
+									"value": 160
 								},
 								"height": {
 									"type": "double",
@@ -8100,7 +8100,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "milestones"
+									"value": "3 milestones"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -8257,8 +8257,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						790,
-						1447.75
+						796.5,
+						1396.25
 					]
 				},
 				"orientation": {
@@ -8310,13 +8310,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;102.55922541430652,76.85361604524262%",
-										"0;80.17585535819035,63.9806353576645%"
+										"0;101.4215837002622,99.98078216567245%",
+										"0;-6.249231286626809,-1.960407493444558%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;39.77738128912134"
+									"value": "0;-1.123302714075429"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -8344,8 +8344,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/48.instance": "M690,1364.5L790,1447.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/48.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance": "M790,1447.75L890,1531"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/37.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/48.instance": "M674,1398L796,1396",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/48.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance": "M796,1396L898,1394"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -8358,8 +8358,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						1358
+						1253,
+						1277
 					]
 				},
 				"orientation": {
@@ -8388,7 +8388,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 190
+									"value": 210
 								},
 								"height": {
 									"type": "double",
@@ -8438,7 +8438,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "model_from_text"
+									"value": "1 model_from_text"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -8595,8 +8595,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1220,
-						1457
+						1152.5,
+						1340.5
 					]
 				},
 				"orientation": {
@@ -8648,13 +8648,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;188.548321786232,93.18204750537838%",
-										"0;-77.72728190021508,-36.29195534419999%"
+										"0;106.15132624844296,94.14443395609293%",
+										"0;-42.26577735824367,-33.716843788926305%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-21.279604427695404"
+									"value": "0;-19.70445359967344"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -8682,8 +8682,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/50.instance": "M1030,1531L1220,1457",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/50.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/49.instance": "M1220,1457L1410,1383"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/50.instance": "M1045,1379L1152.5,1340.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/50.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/49.instance": "M1152.5,1340.5L1260,1302"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -8696,8 +8696,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						1432
+						1253,
+						1347
 					]
 				},
 				"orientation": {
@@ -8726,7 +8726,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 170
+									"value": 190
 								},
 								"height": {
 									"type": "double",
@@ -8776,7 +8776,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "model_to_text"
+									"value": "2 model_to_text"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -8933,8 +8933,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1220,
-						1494
+						1142.5,
+						1383
 					]
 				},
 				"orientation": {
@@ -8986,13 +8986,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;189.23541519262176,98.1561577039568%",
-										"0;-40.92624630815817,-19.114620184454743%"
+										"0;118.09699778525282,99.49117176573006%",
+										"0;-15.979646870629267,-10.075055368681525%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-11.019682781034527"
+									"value": "0;-5.782392322364041"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -9020,8 +9020,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/52.instance": "M1030,1531L1220,1494",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/52.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/51.instance": "M1220,1494L1410,1457"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/52.instance": "M1046,1392L1142.5,1383",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/52.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/51.instance": "M1142.5,1383L1261,1371"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -9034,8 +9034,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						1506
+						1250,
+						1418
 					]
 				},
 				"orientation": {
@@ -9064,7 +9064,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 410
+									"value": 430
 								},
 								"height": {
 									"type": "double",
@@ -9114,7 +9114,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "trivial_end_to_end_language_migration"
+									"value": "3 trivial_end_to_end_language_migration"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -9271,8 +9271,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1220,
-						1531
+						1151.5,
+						1419.5
 					]
 				},
 				"orientation": {
@@ -9324,13 +9324,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;190,100%",
-										"0;-4,0%"
+										"0;107.2560735307145,98.19735490376328%",
+										"0;16.57210580384958,18.90183826786054%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;0"
+									"value": "0;10.895503683412704"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -9358,8 +9358,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/54.instance": "M1030,1531L1220,1531",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/54.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/53.instance": "M1220,1531L1410,1531"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/54.instance": "M1045,1399L1151.5,1419.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/54.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/53.instance": "M1151.5,1419.5L1258,1440"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -9372,8 +9372,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						1580
+						1249,
+						1485
 					]
 				},
 				"orientation": {
@@ -9402,7 +9402,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 230
+									"value": 250
 								},
 								"height": {
 									"type": "double",
@@ -9452,7 +9452,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "nontrivial_refactor"
+									"value": "4 nontrivial_refactor"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -9609,8 +9609,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1220,
-						1568
+						1149,
+						1457
 					]
 				},
 				"orientation": {
@@ -9662,13 +9662,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;190.76458480737824,98.1561577039568%",
-										"0;33.07375369184183,19.114620184454743%"
+										"0;108.77544227132353,89.60958633566334%",
+										"0;49.415616546573574,44.38605678308558%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;11.019682781034527"
+									"value": "0;26.350461245948594"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -9696,8 +9696,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/56.instance": "M1030,1531L1220,1568",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/56.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/55.instance": "M1220,1568L1410,1605"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/56.instance": "M1042,1404L1149,1457",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/56.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/55.instance": "M1149,1457L1256,1510"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -9710,8 +9710,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1410,
-						1654
+						1248,
+						1556
 					]
 				},
 				"orientation": {
@@ -9740,7 +9740,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 330
+									"value": 350
 								},
 								"height": {
 									"type": "double",
@@ -9790,7 +9790,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "nontrivial_language_migration"
+									"value": "5 nontrivial_language_migration"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -9947,8 +9947,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1220,
-						1605
+						1145.5,
+						1493
 					]
 				},
 				"orientation": {
@@ -10000,13 +10000,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;191.451678213768,93.18204750537838%",
-										"0;70.27271809978492,36.29195534419999%"
+										"0;109.92595520997747,79.50920276602919%",
+										"0;78.81963188935879,60.64888024943622%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;21.279604427695404"
+									"value": "0;37.33605124675625"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -10034,8 +10034,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/58.instance": "M1030,1531L1220,1605",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/58.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/57.instance": "M1220,1605L1410,1679"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/47.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/58.instance": "M1038,1411L1145.5,1493",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/58.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/57.instance": "M1145.5,1493L1253,1575"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -10048,8 +10048,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						1765
+						484,
+						1476
 					]
 				},
 				"orientation": {
@@ -10078,7 +10078,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 210
+									"value": 230
 								},
 								"height": {
 									"type": "double",
@@ -10128,7 +10128,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "technology_survey"
+									"value": "3 technology_survey"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -10285,8 +10285,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						510,
-						1558.75
+						464,
+						1450
 					]
 				},
 				"orientation": {
@@ -10338,13 +10338,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;63.87179922054253,25.114373322438194%",
-										"0;230.24542506710236,96.79498051356384%"
+										"0;32.148223660605254,61.68816632266996%",
+										"0;34.53247334709317,78.70559151513066%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;75.45479725882565"
+									"value": "0;51.91122711902469"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -10372,8 +10372,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/60.instance": "M450,1327.5L510,1558.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/60.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/59.instance": "M510,1558.75L570,1790"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/25.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/60.instance": "M435,1413L464,1450",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/60.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/59.instance": "M464,1450L493,1487"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -10386,8 +10386,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						1728
+						790,
+						1451
 					]
 				},
 				"orientation": {
@@ -10416,7 +10416,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 250
+									"value": 270
 								},
 								"height": {
 									"type": "double",
@@ -10466,7 +10466,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "identify_system_roles"
+									"value": "1 identify_system_roles"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -10623,8 +10623,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						835,
-						1771.5
+						751,
+						1484
 					]
 				},
 				"orientation": {
@@ -10676,13 +10676,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;53.7247537975054,94.78181234756762%",
-										"0;-22.291272493902625,-31.881155062363653%"
+										"0;44.132278168725406,97.61870601839527%",
+										"0;-13.904748240735898,-21.69304578186562%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-18.591067726780302"
+									"value": "0;-12.528807709151511"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -10710,8 +10710,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/59.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/62.instance": "M780,1790L835,1771.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/62.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/61.instance": "M835,1771.5L890,1753"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/59.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/62.instance": "M706,1494L751,1484",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/62.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/61.instance": "M751,1484L796,1474"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -10724,8 +10724,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						1802
+						799,
+						1523
 					]
 				},
 				"orientation": {
@@ -10754,7 +10754,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 260
+									"value": 280
 								},
 								"height": {
 									"type": "double",
@@ -10804,7 +10804,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "review_role_candidates"
+									"value": "2 review_role_candidates"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -10961,8 +10961,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						835,
-						1808.5
+						746.5,
+						1524.5
 					]
 				},
 				"orientation": {
@@ -11014,13 +11014,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;56.2752462024946,94.78181234756762%",
-										"0;14.708727506097375,31.881155062363653%"
+										"0;61.8943018909514,93.72807155839664%",
+										"0;18.750877137664247,34.85754727378387%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;18.591067726780302"
+									"value": "0;20.400209394842534"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -11048,8 +11048,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/59.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/64.instance": "M780,1790L835,1808.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/64.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/63.instance": "M835,1808.5L890,1827"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/59.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/64.instance": "M709,1511L746.5,1524.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/64.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/63.instance": "M746.5,1524.5L807,1547"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -11062,8 +11062,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						290,
-						2153.5
+						260,
+						1839.5
 					]
 				},
 				"orientation": {
@@ -11092,7 +11092,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 160
+									"value": 180
 								},
 								"height": {
 									"type": "double",
@@ -11142,7 +11142,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "deliverables"
+									"value": "1 deliverables"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -11299,8 +11299,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						235,
-						1787.6875
+						215,
+						1642.5
 					]
 				},
 				"orientation": {
@@ -11352,13 +11352,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;58.96096760400863,13.935916726081892%",
-										"0;390.2550633309568,99.02419010021598%"
+										"0;57.86987137692492,25.299401253504268%",
+										"0;205.48802394985978,96.74678442312275%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;81.98923427412709"
+									"value": "0;75.34524657537621"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -11386,8 +11386,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/66.instance": "M180,1396.875L235,1787.6875",
-						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/66.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/65.instance": "M235,1787.6875L290,2178.5"
+						"/Formalisms/MindMap/MindMap.defaultIcons/MindMapIcon/0.instance--/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/66.instance": "M161,1436L215,1642.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/rootsLink/66.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/65.instance": "M215,1642.5L269,1849"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/rootsLink"
@@ -11400,8 +11400,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						1987
+						523,
+						1838
 					]
 				},
 				"orientation": {
@@ -11430,7 +11430,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 160
+									"value": 180
 								},
 								"height": {
 									"type": "double",
@@ -11480,7 +11480,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "schedule (M)"
+									"value": "1 schedule (M)"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -11637,8 +11637,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						510,
-						2095.25
+						481.5,
+						1862
 					]
 				},
 				"orientation": {
@@ -11690,13 +11690,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;56.75497200016298,58.468972970037115%",
-										"0;-85.58875891880143,-81.12569999592651%"
+										"0;48.5,100%",
+										"0;-4,0%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-54.21892613810745"
+									"value": "0;0"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -11724,8 +11724,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/65.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/68.instance": "M450,2178.5L510,2095.25",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/68.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance": "M510,2095.25L570,2012"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/65.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/68.instance": "M433,1862L481.5,1862",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/68.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance": "M481.5,1862L530,1862"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -11738,8 +11738,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						1876
+						802,
+						1783
 					]
 				},
 				"orientation": {
@@ -11768,7 +11768,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 250
+									"value": 270
 								},
 								"height": {
 									"type": "double",
@@ -11818,7 +11818,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "map_tasks_to_calendar"
+									"value": "1 map_tasks_to_calendar"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -11975,8 +11975,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						810,
-						1956.5
+						752.5,
+						1832
 					]
 				},
 				"orientation": {
@@ -12028,13 +12028,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;77.71995678036353,82.16371962653952%",
-										"0;-58.78654878506154,-57.001080490911804%"
+										"0;54.991853941169325,92.61983948253695%",
+										"0;-26.704793579301395,-37.70365147076726%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-34.75097921624402"
+									"value": "0;-22.150237928350784"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -12062,8 +12062,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/70.instance": "M730,2012L810,1956.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/70.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/69.instance": "M810,1956.5L890,1901"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/70.instance": "M696,1855L752.5,1832",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/70.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/69.instance": "M752.5,1832L809,1809"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -12076,8 +12076,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						1950
+						795,
+						1851
 					]
 				},
 				"orientation": {
@@ -12106,7 +12106,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 150
+									"value": 170
 								},
 								"height": {
 									"type": "double",
@@ -12156,7 +12156,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "milestone_1"
+									"value": "2 milestone_1"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -12313,8 +12313,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						810,
-						1993.5
+						749.5,
+						1869
 					]
 				},
 				"orientation": {
@@ -12366,13 +12366,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;79.09878316940785,97.42884655050025%",
-										"0;-22.397153862020104,-22.530420764803182%"
+										"0;55.787542452676576,99.7412882721743%",
+										"0;0.010348469113068859,7.188561316913465%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-13.020767305624677"
+									"value": "0;4.122297811783643"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -12400,8 +12400,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/72.instance": "M730,2012L810,1993.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/72.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/71.instance": "M810,1993.5L890,1975"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/72.instance": "M694,1865L749.5,1869",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/72.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/71.instance": "M749.5,1869L805,1873"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -12414,8 +12414,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						2024
+						786,
+						1921
 					]
 				},
 				"orientation": {
@@ -12444,7 +12444,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 150
+									"value": 170
 								},
 								"height": {
 									"type": "double",
@@ -12494,7 +12494,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "milestone_2"
+									"value": "3 milestone_2"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -12651,8 +12651,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						810,
-						2030.5
+						742,
+						1906.5
 					]
 				},
 				"orientation": {
@@ -12704,13 +12704,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;80.90121683059215,97.42884655050025%",
-										"0;14.602846137979896,22.530420764803182%"
+										"0;51.302800244536456,81.76609563933962%",
+										"0;31.229356174426357,57.570006113412596%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;13.020767305624677"
+									"value": "0;35.14867265719194"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -12738,8 +12738,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/74.instance": "M730,2012L810,2030.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/74.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/73.instance": "M810,2030.5L890,2049"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/74.instance": "M693,1872L742,1906.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/74.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/73.instance": "M742,1906.5L791,1941"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -12752,8 +12752,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						2098
+						773,
+						1986
 					]
 				},
 				"orientation": {
@@ -12782,7 +12782,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 160
+									"value": 180
 								},
 								"height": {
 									"type": "double",
@@ -12832,7 +12832,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "submit_paper"
+									"value": "4 submit_paper"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -12989,8 +12989,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						810,
-						2067.5
+						733.5,
+						1938
 					]
 				},
 				"orientation": {
@@ -13042,13 +13042,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;82.28004321963647,82.16371962653952%",
-										"0;52.21345121493823,57.001080490911804%"
+										"0;48.70629641718779,59.7895438451011%",
+										"0;58.608418246195924,80.15741042969597%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;34.75097921624402"
+									"value": "0;53.280682242721745"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -13076,8 +13076,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/76.instance": "M730,2012L810,2067.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/76.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/75.instance": "M810,2067.5L890,2123"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/67.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/76.instance": "M688,1877L733.5,1938",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/76.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/75.instance": "M733.5,1938L779,1999"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -13090,8 +13090,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						2172
+						543,
+						2075
 					]
 				},
 				"orientation": {
@@ -13120,7 +13120,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 100
+									"value": 120
 								},
 								"height": {
 									"type": "double",
@@ -13170,7 +13170,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "assets"
+									"value": "2 assets"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -13327,8 +13327,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						510,
-						2187.75
+						491.5,
+						1982.5
 					]
 				},
 				"orientation": {
@@ -13380,13 +13380,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;60.60946649261456,98.83240420776761%",
-										"0;5.2967038316892285,15.236662315364175%"
+										"0;63.00724963468525,48.083261120685236%",
+										"0;106.57666955517266,87.68124086713189%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;8.764100827877993"
+									"value": "0;61.26020470831195"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -13414,8 +13414,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/65.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/78.instance": "M450,2178.5L510,2187.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/78.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/77.instance": "M510,2187.75L570,2197"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/65.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/78.instance": "M432,1874L491.5,1982.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/78.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/77.instance": "M491.5,1982.5L551,2091"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -13428,8 +13428,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						2172
+						711,
+						2074
 					]
 				},
 				"orientation": {
@@ -13458,7 +13458,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 90
+									"value": 110
 								},
 								"height": {
 									"type": "double",
@@ -13508,7 +13508,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "paper"
+									"value": "1 paper"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -13665,8 +13665,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						780,
-						2197
+						685.5,
+						2098
 					]
 				},
 				"orientation": {
@@ -13718,7 +13718,7 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;110,100%",
+										"0;30.5,100%",
 										"0;-4,0%"
 									]
 								},
@@ -13752,8 +13752,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/77.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/80.instance": "M670,2197L780,2197",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/80.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/79.instance": "M780,2197L890,2197"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/77.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/80.instance": "M655,2098L685.5,2098",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/80.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/79.instance": "M685.5,2098L716,2098"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -13766,8 +13766,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						570,
-						2320
+						542,
+						2224
 					]
 				},
 				"orientation": {
@@ -13796,7 +13796,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 160
+									"value": 180
 								},
 								"height": {
 									"type": "double",
@@ -13846,7 +13846,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "presentation"
+									"value": "3 presentation"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -14003,8 +14003,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						510,
-						2261.75
+						487,
+						2058.5
 					]
 				},
 				"orientation": {
@@ -14056,13 +14056,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;63.24502799983708,58.468972970037115%",
-										"0;80.91124108119857,81.12569999592651%"
+										"0;68.75355397902399,34.55821652075923%",
+										"0;175.11767133916965,93.83884947560006%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;54.21892613810745"
+									"value": "0;69.78266266141219"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -14090,8 +14090,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/65.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/82.instance": "M450,2178.5L510,2261.75",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/82.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance": "M510,2261.75L570,2345"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/65.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/82.instance": "M422,1882L487,2058.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/82.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance": "M487,2058.5L552,2235"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -14104,8 +14104,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						2246
+						818,
+						2172
 					]
 				},
 				"orientation": {
@@ -14134,7 +14134,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 100
+									"value": 120
 								},
 								"height": {
 									"type": "double",
@@ -14184,7 +14184,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "slides"
+									"value": "1 slides"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -14341,8 +14341,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						810,
-						2308
+						770,
+						2217.5
 					]
 				},
 				"orientation": {
@@ -14394,13 +14394,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;78.32088997455821,90.76270407793152%",
-										"0;-40.630508163117156,-41.977750636043325%"
+										"0;53.6029772397344,93.70274611537509%",
+										"0;-24.2481098446151,-34.925569006639805%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-24.820541335489082"
+									"value": "0;-20.44179655841656"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -14428,8 +14428,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/84.instance": "M730,2345L810,2308",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/84.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/83.instance": "M810,2308L890,2271"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/84.instance": "M715,2238L770,2217.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/84.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/83.instance": "M770,2217.5L825,2197"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -14442,8 +14442,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						2320
+						795,
+						2242
 					]
 				},
 				"orientation": {
@@ -14472,7 +14472,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 80
+									"value": 100
 								},
 								"height": {
 									"type": "double",
@@ -14522,7 +14522,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "demo"
+									"value": "2 demo"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -14679,8 +14679,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						810,
-						2345
+						757.5,
+						2258
 					]
 				},
 				"orientation": {
@@ -14732,13 +14732,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;80,100%",
-										"0;-4,0%"
+										"0;43.05916111099816,99.01811340591726%",
+										"0;2.0392754637632606,13.979027774953027%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;0"
+									"value": "0;8.035710710534794"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -14766,8 +14766,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/86.instance": "M730,2345L810,2345",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/86.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/85.instance": "M810,2345L890,2345"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/86.instance": "M715,2252L757.5,2258",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/86.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/85.instance": "M757.5,2258L800,2264"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -14780,8 +14780,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						890,
-						2394
+						762,
+						2309
 					]
 				},
 				"orientation": {
@@ -14810,7 +14810,7 @@
 							"1": {
 								"width": {
 									"type": "double",
-									"value": 120
+									"value": 140
 								},
 								"height": {
 									"type": "double",
@@ -14860,7 +14860,7 @@
 							"7": {
 								"textContent": {
 									"type": "string",
-									"value": "practice"
+									"value": "3 practice"
 								},
 								"style": {
 									"type": "map<string,string>",
@@ -15017,8 +15017,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						810,
-						2382
+						732,
+						2291.5
 					]
 				},
 				"orientation": {
@@ -15070,13 +15070,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;81.67911002544179,90.76270407793152%",
-										"0;33.369491836882844,41.977750636043325%"
+										"0;37.95976029358383,67.26727939963124%",
+										"0;35.809308824014806,73.99400733959438%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;24.820541335489082"
+									"value": "0;47.72631099390627"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -15104,8 +15104,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/88.instance": "M730,2345L810,2382",
-						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/88.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/87.instance": "M810,2382L890,2419"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance--/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/88.instance": "M711,2263L732,2291.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/childrenLink/88.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/87.instance": "M732,2291.5L767,2330"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/childrenLink"
@@ -15135,8 +15135,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1100,
-						1655
+						1005.0000000000001,
+						1040.5
 					]
 				},
 				"orientation": {
@@ -15188,13 +15188,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;-937.213081624594,-71.73338644254271%",
-										"0;915.8693354577017,69.67295938515049%"
+										"0;-843.0580613088384,-97.18780627634239%",
+										"0;208.38751225105375,23.548467279042693%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;135.83479577928892"
+									"value": "0;166.37980571075937"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -15222,8 +15222,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/89.instance": "M2040,742L1100,1655",
-						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/89.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M1100,1655L160,2568"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/21.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/89.instance": "M1849.0000000000002,836L1005.0000000000001,1040.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/89.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/1.instance": "M1005.0000000000001,1040.5L161,1245"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/taggedLink"
@@ -15253,8 +15253,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						922.5,
-						1914
+						737.5,
+						1383
 					]
 				},
 				"orientation": {
@@ -15306,13 +15306,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;-619.6026582306798,-68.94477260710379%",
-										"0;656.7577909042841,72.4335442330054%"
+										"0;-582.473061203081,-96.64819161326353%",
+										"0;158.86592766453055,25.673469922974885%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;133.58640748726992"
+									"value": "0;165.12360142491627"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -15340,8 +15340,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/43.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/90.instance": "M1545,1260L922.5,1914",
-						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/90.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/3.instance": "M922.5,1914L300,2568"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/43.instance--/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/90.instance": "M1313,1230L737.5,1383",
+						"/Formalisms/MindMap/MindMap.defaultIcons/taggedLink/90.instance--/Formalisms/MindMap/MindMap.defaultIcons/TagIcon/3.instance": "M737.5,1383L154,1538"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/taggedLink"
@@ -15371,8 +15371,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						1210,
-						1475.5
+						718.5,
+						1735.5
 					]
 				},
 				"orientation": {
@@ -15424,13 +15424,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;-552.4475904481367,-79.09369838279608%",
-										"0;-422.3362520646881,-61.18976120341769%"
+										"0;-97.48259662670637,-86.85228341763933%",
+										"0;-51.02590866329433,-49.564915667658035%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;-142.27316049502826"
+									"value": "0;-150.28743442411675"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -15458,8 +15458,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/69.instance--/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/91.instance": "M1140,1901L1210,1475.5",
-						"/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/91.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance": "M1210,1475.5L660,1050"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/69.instance--/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/91.instance": "M814,1790L718.5,1735.5",
+						"/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/91.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/31.instance": "M718.5,1735.5L623,1681"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/relatedLink"
@@ -15489,8 +15489,8 @@
 				"position": {
 					"type": "list<double>",
 					"value": [
-						800,
-						2271
+						663.5,
+						2174
 					]
 				},
 				"orientation": {
@@ -15542,13 +15542,13 @@
 								"position": {
 									"type": "list<double>",
 									"value": [
-										"0;-67.09412633218119,-68.71998538760825%",
-										"0;76.74879941550444,72.6468416954716%"
+										"0;16.41022034749551,21.06799756193731%",
+										"0;57.15728009752229,97.7555086873891%"
 									]
 								},
 								"orientation": {
 									"type": "double",
-									"value": "0;133.40885972880542"
+									"value": "0;77.83779648031816"
 								},
 								"scale": {
 									"type": "list<double>",
@@ -15576,8 +15576,8 @@
 				"$segments": {
 					"type": "map<string,list<string>>",
 					"value": {
-						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/77.instance--/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/92.instance": "M670,2197L800,2271",
-						"/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/92.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance": "M800,2271L730,2345"
+						"/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/77.instance--/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/92.instance": "M651,2116L663.5,2174",
+						"/Formalisms/MindMap/MindMap.defaultIcons/relatedLink/92.instance--/Formalisms/MindMap/MindMap.defaultIcons/TopicIcon/81.instance": "M663.5,2174L676,2232"
 					}
 				},
 				"$type": "/Formalisms/MindMap/MindMap.defaultIcons/relatedLink"
@@ -15597,7 +15597,7 @@
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 3
 				},
 				"$type": "/Formalisms/MindMap/MindMap/MindMap"
 			},
@@ -15660,7 +15660,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -15710,11 +15710,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 12
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 3
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -15760,11 +15760,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 3
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -15810,7 +15810,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -15860,7 +15860,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -15910,11 +15910,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 3
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -15960,7 +15960,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16010,11 +16010,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 3
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -16060,7 +16060,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16110,7 +16110,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16160,11 +16160,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 10
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 4
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -16210,7 +16210,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 12
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16260,7 +16260,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16310,11 +16310,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 3
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -16360,7 +16360,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16410,7 +16410,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16460,11 +16460,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 11
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 4
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -16510,11 +16510,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 3
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -16560,7 +16560,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16610,7 +16610,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16660,7 +16660,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16710,11 +16710,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 3
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 6
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -16760,7 +16760,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16810,7 +16810,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16860,7 +16860,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 3
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16910,7 +16910,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 4
 				},
 				"nextMarker": {
 					"type": "int",
@@ -16960,7 +16960,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 5
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17010,11 +17010,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 3
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 3
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -17060,7 +17060,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17110,7 +17110,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17160,11 +17160,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 4
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -17210,11 +17210,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 5
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -17260,7 +17260,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17310,7 +17310,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17360,7 +17360,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 3
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17410,7 +17410,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 4
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17460,11 +17460,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 2
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -17510,7 +17510,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17560,11 +17560,11 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 3
 				},
 				"nextMarker": {
 					"type": "int",
-					"value": 1
+					"value": 4
 				},
 				"$type": "/Formalisms/MindMap/MindMap/Topic"
 			},
@@ -17610,7 +17610,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 1
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17660,7 +17660,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 2
 				},
 				"nextMarker": {
 					"type": "int",
@@ -17710,7 +17710,7 @@
 				},
 				"marker": {
 					"type": "int",
-					"value": 0
+					"value": 3
 				},
 				"nextMarker": {
 					"type": "int",
