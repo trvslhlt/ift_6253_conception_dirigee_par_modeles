@@ -77,11 +77,14 @@ export const topicWidth = t =>
 export const TOPIC_HEIGHT = 50;
 export const MAP_DIAMETER = 140;
 export const TAG_DIAMETER = 120;
+// Nothing is placed above this y, so no element ends up under AToMPM's toolbars.
+export const CANVAS_TOP = 400;
 
 // Sets t.pos (top-left) on every topic: columns as wide as their widest topic,
 // y by leaf order, parents centered on their children. Tags sit in a row below.
 export function layout(map, { xGap = 110, yStep = 74 } = {}) {
-	const origin = { x: 40, y: 220 }; // y clears AToMPM's toolbars
+	// The map is centered on its roots, so start low enough that a single root keeps it below CANVAS_TOP.
+	const origin = { x: 40, y: CANVAS_TOP + MAP_DIAMETER / 2 };
 	const widths = [];
 	const measure = (t, depth) => {
 		widths[depth] = Math.max(widths[depth] ?? 0, topicWidth(t));
