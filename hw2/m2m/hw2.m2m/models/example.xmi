@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<latex:Document xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:latex="http://www.iro.umontreal.ca/ift6253/hw2/latex" name="DocumentName" title="TitleOfMyPaper">
+  <sections name="Section1">
+    <subsections name="Subsection11">
+      <subsubsections name="Subsubsection111">
+        <paragraphs text="Paragraph1"/>
+        <paragraphs text="Paragraph2"/>
+      </subsubsections>
+      <subsubsections name="Subsubsection112">
+        <paragraphs text="Paragraph3"/>
+        <paragraphs text="Paragraph4"/>
+      </subsubsections>
+    </subsections>
+    <subsections name="Subsection12">
+      <subsubsections name="Subsubsection121"/>
+      <subsubsections name="Subsubsection122">
+        <paragraphs text="Paragraph6"/>
+      </subsubsections>
+    </subsections>
+    <subsections name="Subsection13"/>
+  </sections>
+  <sections name="Section2">
+    <subsections name="Subsection21">
+      <subsubsections name="Subsubsection211">
+        <paragraphs text="Paragraph7"/>
+        <paragraphs text="Paragraph8"/>
+        <paragraphs text="Paragraph9"/>
+      </subsubsections>
+    </subsections>
+  </sections>
+  <sections name="Section3"/>
+</latex:Document>

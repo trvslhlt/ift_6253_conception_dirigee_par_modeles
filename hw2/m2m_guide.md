@@ -164,6 +164,8 @@ rule SubTopic2SubSection
 
 ## Step 4: Bonus 2
 
+**Status (steps 3 and 4): done.** Checked by running the `.etl` headless on both inputs: one Document per output, no stray elements, example tree as in the figure plus Paragraph8 and Paragraph9.
+
 Two changes:
 
 - `SubTopic2Paragraph` guard becomes `t.depth() >= 3`.
@@ -188,7 +190,7 @@ ETL loads the `.mindmap` through the Xtext language, which is only installed in 
 
 1. Run **Launch Runtime Eclipse (hw2)**. It includes every open workspace plug-in, so both `ift6253.hw2.mindmap` and `ift6253.hw2.latex`.
 2. In the runtime Eclipse: File > Import > Existing Projects into Workspace > `hw2/m2m/hw2.m2m`, **without** "Copy projects into workspace", so the files stay in the repository.
-3. Run > Run Configurations > **ETL Program** > New:
+3. Run > Run Configurations > **ETL Transformation** > New:
    - Source: `/hw2.m2m/MindMap2LaTeX.etl`
    - Models > Add > **EMF Model**:
      - Name `MindMap`, model file `/hw2.m2m/models/courseProject.mindmap`, metamodel URI `http://www.iro.umontreal.ca/ift6253/hw2/mindmap`. Read on load: on. Store on disposal: off.

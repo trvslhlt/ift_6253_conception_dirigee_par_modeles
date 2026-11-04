@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ASCII"?>
+<latex:Document xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:latex="http://www.iro.umontreal.ca/ift6253/hw2/latex" name="ModelGuidedMigration" title="DoModelsHelpAgentsMigrateCode">
+  <sections name="Experiment">
+    <subsections name="ResearchQuestions">
+      <subsubsections name="ValueBeyondStaticAnalysis"/>
+      <subsubsections name="StructureVersusNotes"/>
+      <subsubsections name="OracleCoverage"/>
+      <subsubsections name="CodebaseSize"/>
+    </subsections>
+    <subsections name="Conditions">
+      <subsubsections name="Models"/>
+      <subsubsections name="Plain"/>
+      <subsubsections name="Notes"/>
+      <subsubsections name="Static"/>
+      <subsubsections name="StaticNotes"/>
+      <subsubsections name="StaticModels"/>
+    </subsections>
+    <subsections name="Settings">
+      <subsubsections name="NoOracle"/>
+      <subsubsections name="FullAccess"/>
+    </subsections>
+  </sections>
+  <sections name="Models">
+    <subsections name="Metamodels">
+      <subsubsections name="Domain">
+        <paragraphs text="Entity"/>
+        <paragraphs text="Description"/>
+        <paragraphs text="Traces"/>
+        <paragraphs text="Attributes"/>
+        <paragraphs text="Operations"/>
+        <paragraphs text="Relationship"/>
+        <paragraphs text="Invariant"/>
+      </subsubsections>
+      <subsubsections name="Feature">
+        <paragraphs text="EntryPoint"/>
+        <paragraphs text="Behavior"/>
+        <paragraphs text="ErrorCase"/>
+      </subsubsections>
+      <subsubsections name="Architecture">
+        <paragraphs text="Component"/>
+        <paragraphs text="Interface"/>
+        <paragraphs text="StateOwnership"/>
+      </subsubsections>
+    </subsections>
+    <subsections name="ConcreteSyntax">
+      <subsubsections name="TextualDsl">
+        <paragraphs text="TextXGrammar"/>
+      </subsubsections>
+      <subsubsections name="YamlArchive"/>
+    </subsections>
+    <subsections name="Validation">
+      <subsubsections name="AgainstStaticFacts"/>
+      <subsubsections name="Conformance">
+        <paragraphs text="TraceLinks"/>
+      </subsubsections>
+    </subsections>
+  </sections>
+  <sections name="Migration">
+    <subsections name="TypeScriptSource">
+      <subsubsections name="ErasedTypes"/>
+      <subsubsections name="CompilerFacts"/>
+    </subsections>
+    <subsections name="RustTarget">
+      <subsubsections name="Ownership"/>
+      <subsubsections name="ExplicitErrors"/>
+    </subsections>
+    <subsections name="AgentPipeline">
+      <subsubsections name="Extract"/>
+      <subsubsections name="Understand"/>
+      <subsubsections name="Generate"/>
+      <subsubsections name="Repair"/>
+    </subsections>
+  </sections>
+  <sections name="Evaluation">
+    <subsections name="Corpus">
+      <subsubsections name="Development">
+        <paragraphs text="greet"/>
+        <paragraphs text="todo"/>
+        <paragraphs text="semver_sort"/>
+      </subsubsections>
+      <subsubsections name="Holdout"/>
+    </subsections>
+    <subsections name="HiddenSuite">
+      <subsubsections name="PassRate"/>
+      <subsubsections name="Cost"/>
+    </subsections>
+    <subsections name="Analysis">
+      <subsubsections name="CodeQuality"/>
+      <subsubsections name="Attribution"/>
+      <subsubsections name="RootCauses"/>
+    </subsections>
+  </sections>
+</latex:Document>

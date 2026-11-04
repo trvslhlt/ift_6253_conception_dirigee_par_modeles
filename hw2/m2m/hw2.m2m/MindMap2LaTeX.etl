@@ -1,0 +1,62 @@
+rule MindMap2Document
+	transform m : MindMap!MindMap
+	to d : LaTeX!Document {
+		d.name = m.title;
+		d.title = m.topic.name;
+		d.sections ::= m.topic.maintopics.sortBy(t | t.order());
+	}
+	
+rule MainTopic2Section
+	transform t : MindMap!MainTopic
+	to s : LaTeX!Section {
+		s.name = t.name;
+		s.subsections ::= t.subtopics.sortBy(st | st.order());
+	}
+
+rule SubTopic2SubSection
+	transform t : MindMap!SubTopic
+	to s : LaTeX!SubSection {
+		guard : t.depth() = 1
+		s.name = t.name;
+		s.subsubsections ::= t.subsubtopics.sortBy(sst | sst.order());
+	}
+	
+rule SubTopic2SubSubSection
+	transform t : MindMap!SubTopic
+	to s : LaTeX!SubSubSection {
+		guard : t.depth() = 2
+		s.name = t.name;
+		s.paragraphs ::= t.below();
+	}
+	
+rule SubTopic2Paragraph
+	transform t : MindMap!SubTopic
+	to p : LaTeX!Paragraph {
+		guard : t.depth() >= 3
+		p.text = t.name;
+	}
+	
+
+// siblings ordered by marker number. symbols are strings
+operation MindMap!Topic order() : Integer {
+	return self.marker.symbol.asInteger();
+}
+
+// one under MainTopic. one more per SubTopic level
+operation MindMap!SubTopic depth() : Integer {
+	var parent = self.eContainer();
+	if (parent.isTypeOf(MindMap!MainTopic)) {
+		return 1;
+	}
+	return parent.depth() + 1;
+}
+
+// DFS to build a flattened sequence of SubSubTopics
+operation MindMap!SubTopic below() : Sequence {
+	var result : Sequence;
+	for (c in self.subsubtopics.sortBy(c | c.order())) {
+		result.add(c);
+		result.addAll(c.below());
+	}
+	return result;
+}
