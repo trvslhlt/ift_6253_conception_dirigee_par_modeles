@@ -24,6 +24,10 @@
     <subsections name="Metamodels">
       <subsubsections name="Domain">
         <paragraphs text="Entity"/>
+        <paragraphs text="Description"/>
+        <paragraphs text="Traces"/>
+        <paragraphs text="Attributes"/>
+        <paragraphs text="Operations"/>
         <paragraphs text="Relationship"/>
         <paragraphs text="Invariant"/>
       </subsubsections>

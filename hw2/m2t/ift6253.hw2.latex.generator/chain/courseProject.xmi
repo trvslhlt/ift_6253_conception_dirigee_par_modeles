@@ -81,6 +81,22 @@
           <marker symbol="1"> 
           </marker> 
           <subsubtopics name="Entity"> 
+            <subsubtopics name="Description"> 
+              <marker symbol="1"> 
+              </marker> 
+            </subsubtopics> 
+            <subsubtopics name="Traces"> 
+              <marker symbol="2"> 
+              </marker> 
+            </subsubtopics> 
+            <subsubtopics name="Attributes"> 
+              <marker symbol="3"> 
+              </marker> 
+            </subsubtopics> 
+            <subsubtopics name="Operations"> 
+              <marker symbol="4"> 
+              </marker> 
+            </subsubtopics> 
             <marker symbol="1"> 
             </marker> 
           </subsubtopics> 
