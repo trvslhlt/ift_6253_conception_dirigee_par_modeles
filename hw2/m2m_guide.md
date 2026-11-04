@@ -80,12 +80,14 @@ For the ZIP, `m2m/` needs every project used to run the transformation: the four
 
 Create the project `hw2.m2m` (File > New > Project > General > Project) at `hw2/m2m/hw2.m2m`, with a `models/` folder.
 
+**Status:** both files written and parse with no issues. `courseProject.mindmap` was generated from `courseProject_out.model`: same topics, markers identical to the MoTif output, topics in the original text order (so some siblings are out of marker order, which the ETL's sorting must fix). `Entity` (Models > Metamodels > Domain > Entity, depth 3) has four children at depth 4 for bonus 2: Description, Traces, Attributes, Operations.
+
 **`models/courseProject.mindmap`**: the course project map with every topic marked, as `courseProject_out` came out of MoTif (see `hw2/images/courseProject_out.png`). Start from `hw2/xtext/samples/courseProject.mindmap`:
 
 - Declare `marker 1` to `marker 6` in the header.
 - Mark every topic, the central topic too (`topic 1 DoModelsHelpAgentsMigrateCode`).
-- The deepest topics are at depth 3 (for example Models > Metamodels > Domain > Entity), so the map has paragraphs.
-- It has no depth-4 topic. To show bonus 2 on your own map, add one, such as a child under `Entity`.
+- Topics at depth 3 (for example Models > Metamodels > Domain > Entity) give paragraphs.
+- A topic at depth 4 shows bonus 2 on your own map, such as children under `Entity`.
 
 **`models/example.mindmap`**: the assignment's own example, so your output can be compared with its figure:
 
@@ -199,7 +201,11 @@ ETL loads the `.mindmap` through the Xtext language, which is only installed in 
 
 On `example.xmi`, the tree must match the assignment's figure exactly: Document `DocumentName`, title `TitleOfMyPaper`, Section1 > Subsection11 > Subsubsection111 > Paragraph1, Paragraph2, and so on, with Section3 empty. Without bonus 2, Paragraph8 and Paragraph9 are absent.
 
-On `courseProject.xmi`: 4 sections in marker order (Experiment, Models, Migration, Evaluation), and for example `Conditions` with its six children ordered by their new markers (Models 1, Plain 2, Notes 3, Static 4, StaticNotes 5, StaticModels 6).
+On `courseProject.xmi`:
+
+- 4 sections in marker order: Experiment, Models, Migration, Evaluation.
+- Subsection `Conditions` with its six children as subsubsections, ordered by their markers: Models 1, Plain 2, Notes 3, Static 4, StaticNotes 5, StaticModels 6. Likewise `Settings` (NoOracle, FullAccess) and `Analysis` (CodeQuality, Attribution, RootCauses).
+- Subsubsection `Domain` with paragraphs Entity, Relationship, Invariant. With bonus 2: Entity, Description, Traces, Attributes, Operations, Relationship, Invariant.
 
 ## Step 7: Verification for 2.2
 

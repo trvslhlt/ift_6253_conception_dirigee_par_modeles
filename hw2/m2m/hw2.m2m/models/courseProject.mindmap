@@ -1,0 +1,96 @@
+// The course project map after T_AssignMarkers (hw2/atompm, courseProject_out):
+// every topic has a marker unique among its siblings.
+mindmap ModelGuidedMigration (marker 1, marker 2, marker 3, marker 4, marker 5, marker 6)
+topic 1 DoModelsHelpAgentsMigrateCode includes {
+	* 1 Experiment includes {
+		- 1 ResearchQuestions includes {
+			- 1 ValueBeyondStaticAnalysis
+			- 2 StructureVersusNotes
+			- 3 OracleCoverage
+			- 4 CodebaseSize
+		}
+		- 2 Conditions includes {
+			- 2 Plain
+			- 3 Notes
+			- 1 Models
+			- 4 Static
+			- 5 StaticNotes
+			- 6 StaticModels
+		}
+		- 3 Settings includes {
+			- 2 FullAccess
+			- 1 NoOracle
+		}
+	}
+	* 2 Models includes {
+		- 1 Metamodels includes {
+			- 1 Domain includes {
+				- 1 Entity includes {
+					- 1 Description
+					- 2 Traces
+					- 3 Attributes
+					- 4 Operations
+				}
+				- 2 Relationship
+				- 3 Invariant
+			}
+			- 2 Feature includes {
+				- 1 EntryPoint
+				- 2 Behavior
+				- 3 ErrorCase
+			}
+			- 3 Architecture includes {
+				- 1 Component
+				- 2 Interface
+				- 3 StateOwnership
+			}
+		}
+		- 2 ConcreteSyntax includes {
+			- 1 TextualDsl includes {
+				- 1 TextXGrammar
+			}
+			- 2 YamlArchive
+		}
+		- 3 Validation includes {
+			- 1 AgainstStaticFacts
+			- 2 Conformance includes {
+				- 1 TraceLinks
+			}
+		}
+	}
+	* 3 Migration includes {
+		- 1 TypeScriptSource includes {
+			- 1 ErasedTypes
+			- 2 CompilerFacts
+		}
+		- 2 RustTarget includes {
+			- 1 Ownership
+			- 2 ExplicitErrors
+		}
+		- 3 AgentPipeline includes {
+			- 1 Extract
+			- 2 Understand
+			- 3 Generate
+			- 4 Repair
+		}
+	}
+	* 4 Evaluation includes {
+		- 1 Corpus includes {
+			- 1 Development includes {
+				- 1 greet
+				- 2 todo
+				- 3 semver_sort
+			}
+			- 2 Holdout
+		}
+		- 2 HiddenSuite includes {
+			- 1 PassRate
+			- 2 Cost
+		}
+		- 3 Analysis includes {
+			- 4 RootCauses
+			- 1 CodeQuality
+			- 2 Attribution
+		}
+	}
+}

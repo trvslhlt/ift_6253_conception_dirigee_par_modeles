@@ -1,0 +1,22 @@
+mindmap DocumentName (marker 1, marker 2, marker 3)
+topic 1 TitleOfMyPaper includes {
+	* 1 Section1 includes {
+		- 1 Subsection11 includes {
+			- 1 Subsubsection111 includes { - 1 Paragraph1 - 2 Paragraph2 }
+			- 2 Subsubsection112 includes { - 1 Paragraph3 - 2 Paragraph4 }
+		}
+		- 2 Subsection12 includes {
+			- 1 Subsubsection121
+			- 2 Subsubsection122 includes { - 1 Paragraph6 }
+		}
+		- 3 Subsection13
+	}
+	* 2 Section2 includes {
+		- 1 Subsection21 includes {
+			- 1 Subsubsection211 includes {
+				- 1 Paragraph7 includes { - 1 Paragraph8 - 2 Paragraph9 }
+			}
+		}
+	}
+	* 3 Section3
+}
