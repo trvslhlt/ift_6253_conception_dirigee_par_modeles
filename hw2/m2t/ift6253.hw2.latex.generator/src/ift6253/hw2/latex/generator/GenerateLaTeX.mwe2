@@ -1,0 +1,32 @@
+module ift6253.hw2.latex.generator.GenerateLaTeX
+
+import org.eclipse.emf.mwe.utils.*
+
+var hw2 = "../.."
+
+Workflow {
+	bean = StandaloneSetup {
+		platformUri = hw2
+		registerGeneratedEPackage = "ift6253.hw2.latex.LatexPackage"
+	}
+	
+	component = Reader {
+		uri = "platform:/resource/hw2.m2m/models/courseProject.xmi"
+		modelSlot = "courseProject"
+	}
+	
+	component = LaTeXGeneratorComponent {
+		modelSlot = "courseProject"
+		outputDir = "latex"
+	}
+
+	component = Reader {
+		uri = "platform:/resource/hw2.m2m/models/example.xmi"
+		modelSlot = "example"
+	}
+	
+	component = LaTeXGeneratorComponent {
+		modelSlot = "example"
+		outputDir = "latex"
+	}
+}
