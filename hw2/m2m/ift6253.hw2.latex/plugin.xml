@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated LaTeX -->
+      <package
+            uri="http://www.iro.umontreal.ca/ift6253/hw2/latex"
+            class="ift6253.hw2.latex.LatexPackage"
+            genModel="model/LaTeX.genmodel"/>
+   </extension>
+
+</plugin>

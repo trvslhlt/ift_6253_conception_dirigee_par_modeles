@@ -55,8 +55,10 @@ For the ZIP, `m2m/` needs every project used to run the transformation: the four
 
 ## Step 1: The LaTeX metamodel
 
+**Status: done.** Base Package `ift6253.hw2`, code in `emf-gen/` (ignored by git like the mind map's). EMF left the old package exports in the MANIFEST and `source.. = src/` in `build.properties` after the move; both were fixed by hand.
+
 1. File > New > Other > Eclipse Modeling Framework > **Empty EMF Project**. Name it `ift6253.hw2.latex`, uncheck "Use default location", and set the location to `hw2/m2m/ift6253.hw2.latex`.
-2. In `model/`, create `LaTeX.ecore` (New > Ecore Model). Package: name `latex`, nsPrefix `latex`, nsURI `http://www.iro.umontreal.ca/ift6253/hw2/latex`.
+2. In `model/`, create `LaTeX.ecore` (New > Other > Eclipse Modeling Framework > Ecore Model, root object EPackage). The wizard does not ask for the package's details: in the tree editor, select the package, open the Properties view (right-click > Show Properties View) and set Name `latex`, Ns Prefix `latex`, Ns URI `http://www.iro.umontreal.ca/ift6253/hw2/latex`. Add classes and features with right-click > New Child, and set their name, type, bounds, Containment, Abstract and ESuper Types in the same view. Or right-click the `.ecore` > Initialize Ecore Diagram to draw it.
 3. Add the classes from the assignment's figure:
 
 | Class | Supertype | Features |
@@ -69,7 +71,7 @@ For the ZIP, `m2m/` needs every project used to run the transformation: the four
 | Section | NamedTextContainer | `subsections : SubSection [0..*]`, containment |
 | SubSection | NamedTextContainer | `subsubsections : SubSubSection [0..*]`, containment |
 | SubSubSection | NamedTextContainer | `paragraphs : Paragraph [0..*]`, containment |
-| Document | | `name : EString` (ID = true), `title`, `author : EString`, `packages : EString [0..*]`; `abs : Abstract [0..1]`, `sections : Section [0..*]`, `bib : Bibliography [0..1]`, all containment |
+| Document | | `name : EString` (ID = true), `title`, `author : EString`, `packages : EString [0..*]`; `abstract : Abstract [0..1]`, `sections : Section [0..*]`, `bibliography : Bibliography [0..1]`, all containment. The figure calls the first and last `abs` and `bib`: full names on purpose, note it in the report. |
 
 4. Right-click `LaTeX.ecore` > Validate. Then New > EMF Generator Model from it, named `LaTeX.genmodel`. Set the package's **Base Package** to `ift6253.hw2`, then right-click the root > Generate Model Code.
 5. Check that `plugin.xml` now registers the package (`org.eclipse.emf.ecore.generated_package`, with the URI above) and that the MANIFEST exports `ift6253.hw2.latex.*`.

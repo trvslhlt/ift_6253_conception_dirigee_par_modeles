@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ift6253.hw2.latex/emf-gen" modelPluginID="ift6253.hw2.latex"
+    modelName="LaTeX" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="25.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>LaTeX.ecore</foreignModel>
+  <genPackages prefix="Latex" basePackage="ift6253.hw2" disposableProviderFactory="true"
+      ecorePackage="LaTeX.ecore#/">
+    <genClasses image="false" ecoreClass="LaTeX.ecore#//TextContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LaTeX.ecore#//TextContainer/text"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="LaTeX.ecore#//NamedTextContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LaTeX.ecore#//NamedTextContainer/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LaTeX.ecore#//Abstract"/>
+    <genClasses ecoreClass="LaTeX.ecore#//Paragraph"/>
+    <genClasses ecoreClass="LaTeX.ecore#//Bibliography">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LaTeX.ecore#//Bibliography/style"/>
+    </genClasses>
+    <genClasses ecoreClass="LaTeX.ecore#//Section">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LaTeX.ecore#//Section/subsections"/>
+    </genClasses>
+    <genClasses ecoreClass="LaTeX.ecore#//SubSection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LaTeX.ecore#//SubSection/subsubsections"/>
+    </genClasses>
+    <genClasses ecoreClass="LaTeX.ecore#//SubSubSection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LaTeX.ecore#//SubSubSection/paragraphs"/>
+    </genClasses>
+    <genClasses ecoreClass="LaTeX.ecore#//Document">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LaTeX.ecore#//Document/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LaTeX.ecore#//Document/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LaTeX.ecore#//Document/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LaTeX.ecore#//Document/packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LaTeX.ecore#//Document/abstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LaTeX.ecore#//Document/sections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LaTeX.ecore#//Document/bibliography"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
