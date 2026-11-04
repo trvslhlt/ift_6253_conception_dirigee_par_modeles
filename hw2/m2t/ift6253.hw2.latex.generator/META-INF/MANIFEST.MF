@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generator
+Bundle-SymbolicName: ift6253.hw2.latex.generator
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: ift6253.hw2.latex.generator
+Bundle-RequiredExecutionEnvironment: JavaSE-25
+Require-Bundle: ift6253.hw2.latex,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.mwe2.runtime,
+ org.eclipse.emf.mwe2.lib,
+ org.eclipse.emf.mwe2.launch,
+ org.eclipse.emf.mwe.utils,
+ org.eclipse.xtend.lib

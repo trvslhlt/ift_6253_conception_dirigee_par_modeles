@@ -199,7 +199,11 @@ ETL loads the `.mindmap` through the Xtext language, which is only installed in 
 4. Run it. Open `courseProject.xmi` with the Sample Reflective Ecore Model Editor and compare with the tree in the assignment.
 5. Make a second configuration for `example.mindmap` → `example.xmi`.
 
+**Status:** run from the runtime Eclipse. `MindMap2LaTeX.launch` is shared in `hw2.m2m` and currently set to `example`; a second shared configuration for `courseProject` is still to do.
+
 ## Step 6: Check the output
+
+**Status: done.** Both `.xmi` files have one root (the Document), and are identical element for element to a headless run of the same `.etl`.
 
 On `example.xmi`, the tree must match the assignment's figure exactly: Document `DocumentName`, title `TitleOfMyPaper`, Section1 > Subsection11 > Subsubsection111 > Paragraph1, Paragraph2, and so on, with Section3 empty. Without bonus 2, Paragraph8 and Paragraph9 are absent.
 
