@@ -12,4 +12,10 @@ Require-Bundle: ift6253.hw2.latex,
  org.eclipse.emf.mwe2.lib,
  org.eclipse.emf.mwe2.launch,
  org.eclipse.emf.mwe.utils,
- org.eclipse.xtend.lib
+ org.eclipse.xtend.lib,
+ org.eclipse.epsilon.common, 
+ org.eclipse.epsilon.eol.engine, 
+ org.eclipse.epsilon.erl.engine, 
+ org.eclipse.epsilon.etl.engine, 
+ org.eclipse.epsilon.emc.emf,
+ com.google.guava

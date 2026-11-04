@@ -1,0 +1,47 @@
+module ift6253.hw2.latex.generator.AToMPM2LaTeX
+
+import org.eclipse.emf.mwe.utils.*
+
+var hw2 = "../.."
+var exported = "${hw2}/atompm/exported_to_ecore/courseProject_outModel.xmi"
+
+Workflow {
+	bean = StandaloneSetup {
+		platformUri = hw2
+		registerGeneratedEPackage = "ift6253.hw2.latex.LatexPackage"
+	}
+	
+	// repair AToMPM metamodel export
+	// -> Done manually. Accounts for exporter bugs and semantic differences
+
+	// repair AToMPM model export
+	component = FixExportComponent {
+		source = exported
+		target = "chain/courseProject.xmi"
+	}
+	// mind map to LaTeX model
+	component = EtlComponent {
+		etl = "${hw2}/m2m/hw2.m2m/MindMap2LaTeX.etl"
+		metamodel = "chain/MindMapAToMPM.ecore"
+		source = "chain/courseProject.xmi"
+		target = "chain/courseProject.latex.xmi"
+	}
+	// LaTeX model to text
+	component = Reader {
+		uri = "platform:/resource/ift6253.hw2.latex.generator/chain/courseProject.latex.xmi"
+		modelSlot = "document"
+	}
+	
+	component = LaTeXGeneratorComponent {
+		modelSlot = "document"
+		outputDir = "chain"
+	}
+	
+	// compile the PDF
+	component = PdfLatexComponent {
+		modelSlot = "document"
+		outputDir = "chain"
+		pdflatex = "/Library/TeX/texbin/pdflatex"
+	}
+	
+}

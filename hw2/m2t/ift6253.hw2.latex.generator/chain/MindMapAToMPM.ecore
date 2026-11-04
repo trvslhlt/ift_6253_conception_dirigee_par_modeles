@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MindMap" nsURI="http://MindMap" nsPrefix="MindMap">
+  <eClassifiers xsi:type="ecore:EClass" name="Marker">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MindMap">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="MindMap"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="markers" upperBound="-1"
+        eType="#//Marker" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topic" lowerBound="1" eType="#//CentralTopic"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Topic" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Topic"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="marker" eType="#//Marker"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CentralTopic" eSuperTypes="#//Topic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maintopics" upperBound="-1"
+        eType="#//MainTopic" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainTopic" eSuperTypes="#//Topic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subtopics" upperBound="-1"
+        eType="#//SubTopic" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubTopic" eSuperTypes="#//Topic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subsubtopics" upperBound="-1"
+        eType="#//SubTopic" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

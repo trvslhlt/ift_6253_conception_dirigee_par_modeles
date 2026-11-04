@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<undefined xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://MindMap" title="ModelGuidedMigration"> 
+  <markers symbol="1"> 
+  </markers> 
+  <markers symbol="2"> 
+  </markers> 
+  <markers symbol="3"> 
+  </markers> 
+  <markers symbol="4"> 
+  </markers> 
+  <topic name="DoModelsHelpAgentsMigrateCode"> 
+    <maintopics name="Experiment"> 
+      <marker symbol="1"> 
+      </marker> 
+      <subtopics name="ResearchQuestions"> 
+        <subsubtopics name="ValueBeyondStaticAnalysis"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="StructureVersusNotes"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="OracleCoverage"> 
+          <marker symbol="3"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="CodebaseSize"> 
+          <marker symbol="4"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="1"> 
+        </marker> 
+      </subtopics> 
+      <subtopics name="Conditions"> 
+        <subsubtopics name="Plain"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Notes"> 
+          <marker symbol="3"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Models"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Static"> 
+          <marker symbol="4"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="StaticNotes"> 
+          <marker symbol="5"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="StaticModels"> 
+          <marker symbol="6"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="2"> 
+        </marker> 
+      </subtopics> 
+      <subtopics name="Settings"> 
+        <subsubtopics name="FullAccess"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="NoOracle"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="3"> 
+        </marker> 
+      </subtopics> 
+    </maintopics> 
+    <maintopics name="Models"> 
+      <marker symbol="2"> 
+      </marker> 
+      <subtopics name="Metamodels"> 
+        <subsubtopics name="Domain"> 
+          <marker symbol="1"> 
+          </marker> 
+          <subsubtopics name="Entity"> 
+            <marker symbol="1"> 
+            </marker> 
+          </subsubtopics> 
+          <subsubtopics name="Relationship"> 
+            <marker symbol="2"> 
+            </marker> 
+          </subsubtopics> 
+          <subsubtopics name="Invariant"> 
+            <marker symbol="3"> 
+            </marker> 
+          </subsubtopics> 
+        </subsubtopics> 
+        <subsubtopics name="Feature"> 
+          <marker symbol="2"> 
+          </marker> 
+          <subsubtopics name="EntryPoint"> 
+            <marker symbol="1"> 
+            </marker> 
+          </subsubtopics> 
+          <subsubtopics name="Behavior"> 
+            <marker symbol="2"> 
+            </marker> 
+          </subsubtopics> 
+          <subsubtopics name="ErrorCase"> 
+            <marker symbol="3"> 
+            </marker> 
+          </subsubtopics> 
+        </subsubtopics> 
+        <subsubtopics name="Architecture"> 
+          <marker symbol="3"> 
+          </marker> 
+          <subsubtopics name="Component"> 
+            <marker symbol="1"> 
+            </marker> 
+          </subsubtopics> 
+          <subsubtopics name="Interface"> 
+            <marker symbol="2"> 
+            </marker> 
+          </subsubtopics> 
+          <subsubtopics name="StateOwnership"> 
+            <marker symbol="3"> 
+            </marker> 
+          </subsubtopics> 
+        </subsubtopics> 
+        <marker symbol="1"> 
+        </marker> 
+      </subtopics> 
+      <subtopics name="ConcreteSyntax"> 
+        <subsubtopics name="TextualDsl"> 
+          <subsubtopics name="TextXGrammar"> 
+            <marker symbol="1"> 
+            </marker> 
+          </subsubtopics> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="YamlArchive"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="2"> 
+        </marker> 
+      </subtopics> 
+      <subtopics name="Validation"> 
+        <subsubtopics name="AgainstStaticFacts"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Conformance"> 
+          <subsubtopics name="TraceLinks"> 
+            <marker symbol="1"> 
+            </marker> 
+          </subsubtopics> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="3"> 
+        </marker> 
+      </subtopics> 
+    </maintopics> 
+    <maintopics name="Migration"> 
+      <marker symbol="3"> 
+      </marker> 
+      <subtopics name="TypeScriptSource"> 
+        <subsubtopics name="ErasedTypes"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="CompilerFacts"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="1"> 
+        </marker> 
+      </subtopics> 
+      <subtopics name="RustTarget"> 
+        <subsubtopics name="Ownership"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="ExplicitErrors"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="2"> 
+        </marker> 
+      </subtopics> 
+      <subtopics name="AgentPipeline"> 
+        <subsubtopics name="Extract"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Understand"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Generate"> 
+          <marker symbol="3"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Repair"> 
+          <marker symbol="4"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="3"> 
+        </marker> 
+      </subtopics> 
+    </maintopics> 
+    <maintopics name="Evaluation"> 
+      <marker symbol="4"> 
+      </marker> 
+      <subtopics name="Corpus"> 
+        <subsubtopics name="Development"> 
+          <subsubtopics name="greet"> 
+            <marker symbol="1"> 
+            </marker> 
+          </subsubtopics> 
+          <subsubtopics name="todo"> 
+            <marker symbol="2"> 
+            </marker> 
+          </subsubtopics> 
+          <subsubtopics name="semver_sort"> 
+            <marker symbol="3"> 
+            </marker> 
+          </subsubtopics> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Holdout"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="1"> 
+        </marker> 
+      </subtopics> 
+      <subtopics name="HiddenSuite"> 
+        <subsubtopics name="PassRate"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Cost"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="2"> 
+        </marker> 
+      </subtopics> 
+      <subtopics name="Analysis"> 
+        <subsubtopics name="RootCauses"> 
+          <marker symbol="4"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="CodeQuality"> 
+          <marker symbol="1"> 
+          </marker> 
+        </subsubtopics> 
+        <subsubtopics name="Attribution"> 
+          <marker symbol="2"> 
+          </marker> 
+        </subsubtopics> 
+        <marker symbol="3"> 
+        </marker> 
+      </subtopics> 
+    </maintopics> 
+    <marker symbol="1"> 
+    </marker> 
+  </topic> 
+  <markers symbol="5"> 
+  </markers> 
+  <markers symbol="6"> 
+  </markers> 
+</undefined>
