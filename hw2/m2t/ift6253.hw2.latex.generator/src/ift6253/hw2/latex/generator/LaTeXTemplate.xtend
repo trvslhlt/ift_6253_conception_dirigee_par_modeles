@@ -45,17 +45,25 @@ class LaTeXTemplate {
 		«ENDFOR»
 	'''
 	
-	// tailing empty newline intentional
+	// trailing empty newline intentional
 	def generate(Paragraph it) '''
 		«text.escape»
 		
 	'''
 	
+	// escape special chars, one at a time
 	def escape(String s) {
-		s.replace('\\', '\\textbackslash{}')
-		 .replace('~', '\\textasciitilde{}')
-		 .replace('^', '\\textasciicircum{}')
-		 .replaceAll('([_&%$#{}])', '\\\\$1')
+		val out = new StringBuilder
+		for (c : s.toCharArray.map[toString]) {
+			out.append(switch c {
+				case '\\': '\\textbackslash{}' // \\ would be a line break
+				case '~': '\\textasciitilde{}' // \~ is an accent
+				case '^': '\\textasciicircum{}' // \^ is an accent
+				case '_&%$#{}'.contains(c): '\\' + c // a backslash is enough
+				default: c // not special
+			})
+		}
+		out.toString
 	}
 }
 

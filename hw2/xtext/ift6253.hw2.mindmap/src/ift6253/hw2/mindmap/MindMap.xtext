@@ -8,14 +8,17 @@ MindMap:
 	topic=CentralTopic
 ;
 
+// declared once on the map. topics refer to it by symbol (see MindMapQualifiedNameProvider)
 Marker:
 	'marker' symbol=Symbol
 ;
 
+// digits only, kept as text since symbol is an EString. also the syntax of marker references
 Symbol returns ecore::EString:
 	INT
 ;
 
+// [Marker|Symbol]: a reference to an existing Marker, written as its Symbol
 CentralTopic:
 	'topic' (marker=[Marker|Symbol])? name=ID
 	('includes' '{' maintopics+=MainTopic* '}')?

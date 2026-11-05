@@ -7,25 +7,25 @@ var rootPath = ".."
 
 Workflow {
 
-	// Map platform:/resource/ to the folder holding the projects, and register
-	// the hand-written metamodel so the grammar can import it.
+	// register MindMap.genmodel for the grammar import
 	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
 		scanClassPath = true
 		platformUri = rootPath
 		registerGenModelFile = "platform:/resource/ift6253.hw2.mindmap/model/MindMap.genmodel"
 	}
 
-	// EMF Java code for model/MindMap.ecore, into emf-gen/ (src-gen/ is wiped
-	// by the Xtext generator below).
+	// emf-gen, since xtext wipes src-gen
 	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
 		directory = "${rootPath}/ift6253.hw2.mindmap/emf-gen"
 	}
+	
 	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
 		genModel = "platform:/resource/ift6253.hw2.mindmap/model/MindMap.genmodel"
 		srcPath = "platform:/resource/ift6253.hw2.mindmap/src"
 		srcPath = "platform:/resource/ift6253.hw2.mindmap/emf-gen"
 	}
 
+	// parser, editor and tests from MindMap.xtext. uses the genmodel, doesn't infer one
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {

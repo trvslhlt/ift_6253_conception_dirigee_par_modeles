@@ -30,6 +30,10 @@ class PdfLatexComponent implements IWorkflowComponent {
 			val msg = 'pdflatex failed, see ' + outputDir + '/' + document.name + '.log'
 			throw new IllegalStateException(msg)
 		}
+		// keep only the .pdf. the .log stays on failure
+		for (ext : #['.aux', '.log']) {
+			new File(outputDir, document.name + ext).delete
+		}
 	}
 
 	override postInvoke() {}
