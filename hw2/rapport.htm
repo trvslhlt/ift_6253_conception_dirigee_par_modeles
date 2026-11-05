@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>IFT 6253 - Devoir 2</title>
+<title>IFT 6253 HW2: Mind Map Model Transformations</title>
 <style>
 	body { font-family: sans-serif; max-width: 960px; margin: 2em auto; padding: 0 16px; line-height: 1.45; }
 	pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
@@ -14,30 +14,39 @@
 </head>
 <body>
 
-<h1>IFT 6253 - Devoir maison 2: mind map model transformations</h1>
+<h1>IFT 6253 HW2: Mind Map Model Transformations</h1>
 <p>
 	<b>Name:</b> Travis Holt<br>
-	<b>Matricule (last 4 digits):</b> <span class="todo">XXXX</span><br>
+	<b>Matricule (last 4 digits):</b> <span class="todo">4411</span><br>
 	<b>Email:</b> travis.holt@umontreal.ca<br>
-	<b>Time spent:</b> <span class="todo">XX h</span>
+	<b>Time spent:</b> 20 h
+</p>
+
+<h2>NOTE</h2>
+<p>
+I repeated HW1 from scratch. This time I used the metamodel from the assignment as the target, unchanged. The content of the sample models in both Xtext and AToMPM now reflect the structure of my course research project. Also, this time I did not add optional features or explore additional capabilities of the modeling tooling.
 </p>
 
 <h2>Assumptions</h2>
 <ul>
-	<li>The mind map metamodel is the one of HW1, which is the assignment's metamodel unchanged: a <code>MindMap</code>
-		owns its <code>Marker</code>s (each with a <code>symbol</code>) and one <code>CentralTopic</code>; a topic's
-		marker is a reference to one of those markers. In AToMPM the references are the links <code>markers</code>
-		(map to marker) and <code>marker</code> (topic to marker). No attribute was added for the transformation.</li>
-	<li>Marker symbols are integers, as in the Xtext grammar (<code>Symbol: INT</code>).</li>
-	<li>"Every topic" includes the central topic. It has no siblings, so it simply gets a marker.</li>
+	<li>The mind map metamodel is the one of HW1, which is the assignment's metamodel unchanged.
+	<li>Marker symbols are integers, as in the Xtext grammar.</li>
+	<li>"Every topic" includes the central topic.</li>
 	<li>The assignment does not say which marker an unmarked topic gets, only that it differs from its siblings'.
 		The transformation reuses an existing marker when one is free among the siblings, and creates the next
 		number otherwise.</li>
 	<li>When siblings share a marker, the one whose name comes first alphabetically keeps it, so the result does
 		not depend on the order in which AToMPM finds matches.</li>
+	<li>The input of tasks 2 and 3 has, for every topic, a marker unique among its siblings.</li>
+	<li>There is no notion of <code>author</code> or <code>packages</code> in MindMap.</li>
+	<li><code>Document.name</code> is the filename.</li>
 </ul>
 
 <h2>Task 1: marker assignment with MoTif in AToMPM</h2>
+
+<p>I repeated HW1 from scratch. This time I used the metamodel from the assignment as the target, unchanged. The
+sample models in both Xtext and AToMPM now reflect the structure of my course research project. I also did not add
+optional features or explore additional capabilities of the modeling tooling.</p>
 
 <p>All files are under <a href="atompm/users/travis/">atompm/users/travis/</a>: the formalism in
 <code>Formalisms/MindMap/</code>, the rules, schedule and sample models in <code>Models/MindMap/</code>.</p>
@@ -123,7 +132,8 @@ only.</p>
 	<tr><th>Property</th><th>This transformation</th></tr>
 	<tr><td>Intent</td><td>Model refinement / completion: it adds the markers that are missing and repairs the ones
 		that violate uniqueness, so that the next transformation (to LaTeX) can order topics.</td></tr>
-	<tr><td>In-place / out-place</td><td>In-place: the rules rewrite the input model; nothing is copied.</td></tr>
+	<tr><td>In-place / out-place</td><td>In-place: the rules rewrite the input model; nothing is copied. (The
+		resulting model is saved as a new model to preserve the input model.)</td></tr>
 	<tr><td>Endogenous / exogenous</td><td>Endogenous: input and output conform to the same MindMap metamodel.</td></tr>
 	<tr><td>Horizontal / vertical</td><td>Horizontal: the output is at the same level of abstraction as the input.</td></tr>
 	<tr><td>Syntactic / semantic</td><td>Syntactic: the rules look only at the structure (who is whose sibling,
@@ -163,10 +173,170 @@ output to check that it changes nothing. Small cases with expected results would
 </table>
 
 <h2>Task 2: mind map to LaTeX with ATL/ETL</h2>
-<p class="todo">To do.</p>
+
+<p>The ETL transformation that converts a MindMap into a LaTeX document is
+<a href="m2m/ift6253.hw2.mindmap2latex/MindMap2LaTeX.etl">m2m/ift6253.hw2.mindmap2latex/MindMap2LaTeX.etl</a>.
+The source metamodel is <a href="m2m/ift6253.hw2.mindmap/model/MindMap.ecore">m2m/ift6253.hw2.mindmap/model/MindMap.ecore</a>
+from the hw2 Xtext project (the HW1 metamodel, which already has markers). The target metamodel,
+<a href="m2m/ift6253.hw2.latex/model/LaTeX.ecore">m2m/ift6253.hw2.latex/model/LaTeX.ecore</a>, is based on the
+figure in the assignment and was defined in the Ecore graphical editor.</p>
+
+<h3>Sample models</h3>
+<p>In <a href="m2m/ift6253.hw2.mindmap2latex/models/">m2m/ift6253.hw2.mindmap2latex/models/</a>:</p>
+<table>
+	<tr><th>Source</th><th>Target</th><th>What</th></tr>
+	<tr><td><a href="m2m/ift6253.hw2.mindmap2latex/models/example.mindmap">example.mindmap</a></td>
+		<td><a href="m2m/ift6253.hw2.mindmap2latex/models/example.xmi">example.xmi</a></td>
+		<td>The assignment's example</td></tr>
+	<tr><td><a href="m2m/ift6253.hw2.mindmap2latex/models/courseProject.mindmap">courseProject.mindmap</a></td>
+		<td><a href="m2m/ift6253.hw2.mindmap2latex/models/courseProject.xmi">courseProject.xmi</a></td>
+		<td>My course project, more than 3 levels deep</td></tr>
+</table>
+
+<h3>2.1 Characterization</h3>
+<table>
+	<tr><th>Property</th><th>This transformation</th></tr>
+	<tr><td>Intent</td><td>Translation. Convert a MindMap into a LaTeX document model that meets these criteria:
+		<ol>
+			<li>Document's name is the mindmap's title, and title is the CentralTopic's name.</li>
+			<li>Each MainTopic becomes a Section with the same name.</li>
+			<li>Each SubTopic at depth 1 becomes a SubSection, and at depth 2 a SubSubSection.</li>
+			<li>Each SubTopic at depth 3 or greater becomes a Paragraph with its name as the text.</li>
+			<li>Marker order is preserved for (sub)sections and paragraphs.</li>
+		</ol></td></tr>
+	<tr><td>In-place / out-place</td><td>Out-place: the transformation creates a new LaTeX model; the input model is
+		not modified.</td></tr>
+	<tr><td>Endogenous / exogenous</td><td>Exogenous: different metamodels. The input conforms to the MindMap
+		metamodel and the output to the LaTeX metamodel.</td></tr>
+	<tr><td>Horizontal / vertical</td><td>Horizontal: the input and output are at the same level of abstraction.</td></tr>
+	<tr><td>Syntactic / semantic</td><td>Syntactic: the rules depend only on the type of a topic, its depth and its
+		marker. What a topic means has no bearing on the transformation.</td></tr>
+</table>
+
+<h3>2.2 Why it meets the requirements, and how to verify it</h3>
+<p>The transformation has one rule per target type:</p>
+<table>
+	<tr><th>Rule</th><th>Does</th></tr>
+	<tr><td>MindMap2Document</td><td>Creates the Document, and fills its sections with the MainTopics sorted by
+		marker.</td></tr>
+	<tr><td>MainTopic2Section</td><td>Creates a Section, and fills its subsections with the SubTopics sorted by
+		marker.</td></tr>
+	<tr><td>SubTopic2SubSection</td><td>For depth 1 SubTopics, creates a SubSection, and fills its subsubsections
+		with the children sorted by marker.</td></tr>
+	<tr><td>SubTopic2SubSubSection</td><td>For depth 2 SubTopics, creates a SubSubSection, and fills its paragraphs
+		with all of its descendants, flattened depth first and sorted by marker at each level.</td></tr>
+	<tr><td>SubTopic2Paragraph</td><td>For SubTopics at depth 3 or more, creates a Paragraph with the topic's name
+		as its text.</td></tr>
+</table>
+<p>The guards on depth are mutually exclusive, so every SubTopic is transformed by exactly one rule. The
+<code>::=</code> operator resolves each child topic to the element created from it by another rule, and
+<code>sortBy(order())</code> keeps the marker order. The flattening in <code>below()</code> is what makes topics
+deeper than level 3 become Paragraphs instead of being ignored.</p>
+<p><b>Verification.</b> We can verify the transformation by running it on the assignment's example and comparing
+the output with the <code>.xmi</code> in the assignment. A specification program could also traverse the input and
+output models together, confirming that each topic has exactly one counterpart of the right type and name, in
+marker order.</p>
 
 <h2>Task 3: LaTeX file with Xtend/EGL</h2>
-<p class="todo">To do.</p>
+
+<p>The Xtend M2T transformation is
+<a href="m2t/ift6253.hw2.latex.generator/src/ift6253/hw2/latex/generator/LaTeXTemplate.xtend">m2t/ift6253.hw2.latex.generator/src/ift6253/hw2/latex/generator/LaTeXTemplate.xtend</a>.
+It is run by the MWE2 workflow
+<a href="m2t/ift6253.hw2.latex.generator/src/ift6253/hw2/latex/generator/GenerateLaTeX.mwe2">GenerateLaTeX.mwe2</a>
+(same folder), which reads the <code>.xmi</code> models from task 2 and calls <code>LaTeXGeneratorComponent</code>
+to write <code>&lt;Document.name&gt;.latex</code>.</p>
+
+<h3>Outputs</h3>
+<p>In <a href="m2t/ift6253.hw2.latex.generator/latex/">m2t/ift6253.hw2.latex.generator/latex/</a>:</p>
+<ul>
+	<li><a href="m2t/ift6253.hw2.latex.generator/latex/DocumentName.latex">DocumentName.latex</a> (from the
+		assignment's example)</li>
+	<li><a href="m2t/ift6253.hw2.latex.generator/latex/ModelGuidedMigration.latex">ModelGuidedMigration.latex</a>
+		(from my course project), plus
+		<a href="m2t/ift6253.hw2.latex.generator/latex/ModelGuidedMigration.pdf">ModelGuidedMigration.pdf</a>
+		compiled with pdflatex</li>
+</ul>
+
+<h3>3.1 Characterization</h3>
+<table>
+	<tr><th>Property</th><th>This transformation</th></tr>
+	<tr><td>Intent</td><td>Synthesis (code generation): produce a valid <code>.latex</code> file from a LaTeX
+		model.</td></tr>
+	<tr><td>In-place / out-place</td><td>Out-place: the transformation produces a new text file; the input model is
+		not modified.</td></tr>
+	<tr><td>Endogenous / exogenous</td><td>Exogenous: the input conforms to the LaTeX metamodel, and the output is
+		text in LaTeX's concrete syntax, not a model of the same metamodel.</td></tr>
+	<tr><td>Horizontal / vertical</td><td>Vertical: the output is closer to the final artifact. It is source code
+		that can be compiled into a PDF.</td></tr>
+	<tr><td>Syntactic / semantic</td><td>Syntactic: each template prints its element the same way whatever the
+		content.</td></tr>
+</table>
+
+<h3>3.2 Why it meets the requirements, and how to verify it</h3>
+<p>The transformation is one template per metaclass, dispatched by element type:</p>
+<table>
+	<tr><th>Element</th><th>Prints</th></tr>
+	<tr><td>Document</td><td>The preamble, then each Section</td></tr>
+	<tr><td>Section</td><td><code>\section{name}</code>, then each SubSection</td></tr>
+	<tr><td>SubSection</td><td><code>\subsection{name}</code>, then each SubSubSection</td></tr>
+	<tr><td>SubSubSection</td><td><code>\subsubsection{name}</code>, then each Paragraph</td></tr>
+	<tr><td>Paragraph</td><td>The text and a blank line</td></tr>
+</table>
+<p>The templates follow the containment of the LaTeX model, and the order of the lists was already fixed by the ETL
+transformation, so the text keeps the marker order.</p>
+<p><b>Verification.</b> We can verify the transformation by generating <code>DocumentName.latex</code> from the
+assignment's example and comparing it with the assignment's listing; the two are identical. Compiling the output
+with pdflatex also confirms it is valid LaTeX, and the PDF can be compared with the assignment's figure.</p>
+
+<h2>Bonus 3: from the AToMPM model to a PDF</h2>
+
+<p>The chain is the MWE2 workflow
+<a href="m2t/ift6253.hw2.chain/src/ift6253/hw2/chain/AToMPM2LaTeX.mwe2">m2t/ift6253.hw2.chain/src/ift6253/hw2/chain/AToMPM2LaTeX.mwe2</a>.
+It starts from <code>courseProject_out</code> (the output of task 1), exported with AToMPM's Ecore exporter to
+<a href="atompm/exported_to_ecore/courseProject_outModel.xmi">atompm/exported_to_ecore/courseProject_outModel.xmi</a>,
+and ends with a PDF.</p>
+
+<h3>Outputs</h3>
+<p>In <a href="m2t/ift6253.hw2.chain/output/">m2t/ift6253.hw2.chain/output/</a>:</p>
+<ul>
+	<li><a href="m2t/ift6253.hw2.chain/output/courseProject.xmi">courseProject.xmi</a> (the repaired export)</li>
+	<li><a href="m2t/ift6253.hw2.chain/output/courseProject.latex.xmi">courseProject.latex.xmi</a> (the LaTeX model)</li>
+	<li><a href="m2t/ift6253.hw2.chain/output/ModelGuidedMigration.latex">ModelGuidedMigration.latex</a> and
+		<a href="m2t/ift6253.hw2.chain/output/ModelGuidedMigration.pdf">ModelGuidedMigration.pdf</a></li>
+</ul>
+
+<h3>Exporter bugs</h3>
+<p>The AToMPM exporter has bugs, so its output can't be loaded by EMF as is:</p>
+<ul>
+	<li>Metamodel: <code>upperBound="Infinity"</code> (3 places), only the root class's references are containment,
+		and <code>subsubtopics</code> is single-valued.</li>
+	<li>Model: the root element is <code>&lt;undefined&gt;</code>.</li>
+</ul>
+
+<h3>Workflow</h3>
+<table>
+	<tr><th>Step</th><th>Does</th></tr>
+	<tr><td>FixExportComponent</td><td>Repairs the model export, and saves it as
+		<code>m2t/ift6253.hw2.chain/output/courseProject.xmi</code>.</td></tr>
+	<tr><td>EtlComponent</td><td>Runs task 2's <code>MindMap2LaTeX.etl</code> on it, through Epsilon's Java API, and
+		saves the LaTeX model.</td></tr>
+	<tr><td>Reader + LaTeXGeneratorComponent</td><td>Loads the LaTeX model and applies task 3's templates to write
+		the <code>.latex</code> file.</td></tr>
+	<tr><td>PdfLatexComponent</td><td>Runs pdflatex on the <code>.latex</code> file to produce the PDF.</td></tr>
+</table>
+<p>The metamodel export was repaired once by hand
+(<a href="m2t/ift6253.hw2.chain/model/MindMapAToMPM.ecore">m2t/ift6253.hw2.chain/model/MindMapAToMPM.ecore</a>),
+not in the workflow. The fixes depend on what each reference means (which ones are containment, which are
+many-valued), which the exporter doesn't record. A script would have to be rewritten for every metamodel. The
+metamodel only changes when the formalism does, so a one-time repair is enough.</p>
+<p>The chain uses the AToMPM metamodel instead of the Xtext
+<code>m2m/ift6253.hw2.mindmap/model/MindMap.ecore</code>. The export nests each topic's marker inside the topic,
+and in the Xtext metamodel <code>Topic.marker</code> is a non-containment reference, so the nested markers can't be
+loaded.</p>
+<p>The ETL transformation and the templates are reused unchanged. We can verify the chain by comparing its output
+with task 3's: <code>m2t/ift6253.hw2.chain/output/ModelGuidedMigration.latex</code> is identical to
+<code>m2t/ift6253.hw2.latex.generator/latex/ModelGuidedMigration.latex</code>. To update the PDF after editing the
+model in AToMPM, export it again and rerun the workflow.</p>
 
 <h2>Use of generative AI</h2>
 <p class="todo">Attach the library's declaration form and describe the assistance here.</p>
