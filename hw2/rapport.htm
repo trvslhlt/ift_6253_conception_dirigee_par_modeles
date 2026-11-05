@@ -40,9 +40,7 @@
 <h2>Task 1: marker assignment with MoTif in AToMPM</h2>
 
 <p>All files are under <a href="atompm/users/travis/">atompm/users/travis/</a>: the formalism in
-<code>Formalisms/MindMap/</code>, the rules, schedule and sample models in <code>Models/MindMap/</code>.
-The rules and the schedule were built through AToMPM's own client by
-<a href="atompm/tools/build_transformation.mjs">build_transformation.mjs</a>, which documents each rule.</p>
+<code>Formalisms/MindMap/</code>, the rules, schedule and sample models in <code>Models/MindMap/</code>.</p>
 
 <h3>Rules</h3>
 <p>Labels: the parent is <code>0</code>, topics are <code>1</code> and <code>2</code>, markers are drawn as green
@@ -117,8 +115,7 @@ keeps 1 and <i>Plain</i>, <i>Notes</i> get 2 and 3; <i>FullAccess</i> keeps 2 an
 <img src="images/courseProject_in.png" alt="course project input">
 <img src="images/courseProject_out.png" alt="course project output">
 
-<p>Two things in the output pictures were done after the transformation, by
-<a href="atompm/tools/run_transformation.mjs">run_transformation.mjs</a>, and change only the concrete syntax: the
+<p>Two things in the output pictures were done after the transformation, and change only the concrete syntax: the
 created markers were moved into the marker row (AToMPM places a created node between its neighbours), and the
 numbers in front of topic names were redrawn. Those numbers come from an icon mapper that follows the topic's
 marker link, and AToMPM reruns a mapper only when an attribute of that element changes; the rules change links
@@ -152,14 +149,12 @@ Markers themselves stay distinct: the only new ones are 1 (when there is none) a
 shares its marker with a sibling, and its condition keeps exactly one holder: the first by name. Assign never
 touches a topic that already has a marker (NAC_marked).</p>
 
-<p><b>Verification.</b> I implemented the check rather than only describing it.
-<a href="atompm/tools/markers.mjs">markers.mjs</a> reads the saved input and output models and checks that the
-topics and their parents are unchanged, that every topic has exactly one marker, that siblings have different
-markers, that marker symbols are unique, and that for each marker held by siblings in the input, exactly one of
-them still holds it. <a href="atompm/tools/run_transformation.mjs">run_transformation.mjs</a> applies it to both
-samples, validates the output against the formalism's constraints, and runs the transformation a second time on
-the output to check that it changes nothing. <a href="atompm/tools/test_transformation.mjs">test_transformation.mjs</a>
-runs six small cases with expected results:</p>
+<p><b>Verification.</b> The transformation can be verified with a checking program that reads the saved input
+and output models and checks that the topics and their parents are unchanged, that every topic has exactly one
+marker, that siblings have different markers, that marker symbols are unique, and that for each marker held by
+siblings in the input, exactly one of them still holds it. It would be applied to both samples, along with
+validating the output against the formalism's constraints and running the transformation a second time on the
+output to check that it changes nothing. Small cases with expected results would cover each situation:</p>
 <table>
 	<tr><th>Input</th><th>Expected</th></tr>
 	<tr><td>No markers at all</td><td>Marker 1 is created, then others as needed</td></tr>
@@ -169,7 +164,6 @@ runs six small cases with expected results:</p>
 	<tr><td>The same marker under two parents</td><td>Both kept</td></tr>
 	<tr><td>Conflicts at every level</td><td>One holder kept per group</td></tr>
 </table>
-<p>All of them pass.</p>
 
 <h2>Task 2: mind map to LaTeX with ATL/ETL</h2>
 <p class="todo">To do.</p>
