@@ -1,3 +1,5 @@
+// 'courseProject_out' from task 1 (AToMPM), as text. one-time conversion, not synced
+// generated with an AI-written script, not a .mwe2 workflow
 mindmap ModelGuidedMigration (marker 1, marker 2, marker 3, marker 4, marker 5, marker 6)
 topic 1 DoModelsHelpAgentsMigrateCode includes {
 	* 1 Experiment includes {

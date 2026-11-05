@@ -81,8 +81,16 @@ public class MindMapParsingTest {
 
 	@Test
 	public void needsExactlyOneCentralTopic() throws Exception {
-		assertFalse(parseHelper.parse("mindmap MM").eResource().getErrors().isEmpty());
-		assertFalse(parseHelper.parse("mindmap MM topic CT1 topic CT2").eResource().getErrors().isEmpty());
+		assertFalse(parseHelper
+				.parse("mindmap MM")
+				.eResource()
+				.getErrors()
+				.isEmpty());
+		assertFalse(parseHelper
+				.parse("mindmap MM topic CT1 topic CT2")
+				.eResource()
+				.getErrors()
+				.isEmpty());
 	}
 
 	@Test
