@@ -7,7 +7,6 @@ import org.eclipse.emf.mwe2.runtime.workflow.IWorkflowComponent
 import org.eclipse.emf.mwe2.runtime.workflow.IWorkflowContext
 import org.eclipse.xtend.lib.annotations.Accessors
 
-
 class LaTeXGeneratorComponent implements IWorkflowComponent {
 	@Accessors String modelSlot
 	@Accessors String outputDir
@@ -18,7 +17,8 @@ class LaTeXGeneratorComponent implements IWorkflowComponent {
 		val document = context.get(modelSlot) as Document
 		val file = Paths.get(outputDir, document.name + '.latex')
 		Files.createDirectories(file.parent)
-		Files.writeString(file, new LaTeXTemplate().generate(document))
+		val latexText = new LaTeXTemplate().generate(document)
+		Files.writeString(file, latexText)
 	}
 	
 	override postInvoke() {}

@@ -20,14 +20,14 @@ import ift6253.hw2.mindmap.mindmap.SubTopic;
 import ift6253.hw2.mindmap.mindmap.Topic;
 
 
-// These checks cover what the metamodel can't express.
+// these checks cover what the metamodel can't express
 public class MindMapValidator extends AbstractMindMapValidator {
 
 	public static final String DUPLICATE_MARKER = "duplicateMarker";
 	public static final String DUPLICATE_TOPIC = "duplicateTopic";
 	public static final String UNUSED_MARKER = "unusedMarker";
 
-	// Error if marker symbols are not unique.
+	// error if marker symbols are not unique
 	@Check
 	public void checkMarkerSymbolsUnique(MindMap map) {
 		Set<String> seen = new HashSet<>();
@@ -41,7 +41,7 @@ public class MindMapValidator extends AbstractMindMapValidator {
 		}
 	}
 
-	// Warn if sibling topics are not unique.
+	// warn if sibling topics are not unique
 	@Check
 	public void checkSiblingNamesUnique(Topic topic) {
 		EList<? extends Topic> children = children(topic);
@@ -56,7 +56,7 @@ public class MindMapValidator extends AbstractMindMapValidator {
 		}
 	}
 
-	// Warn about unused markers. 
+	// warn about unused markers 
 	@Check
 	public void checkMarkerUsed(Marker marker) {
 		EObject root = EcoreUtil2.getRootContainer(marker);
@@ -68,7 +68,7 @@ public class MindMapValidator extends AbstractMindMapValidator {
 		}
 	}
 
-	// Helper method for getting topic children.
+	// helper method for getting topic children
 	private static EList<? extends Topic> children(Topic topic) {
 		if (topic instanceof CentralTopic central) return central.getMaintopics();
 		if (topic instanceof MainTopic main) return main.getSubtopics();

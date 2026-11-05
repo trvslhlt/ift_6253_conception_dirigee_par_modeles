@@ -7,45 +7,15 @@ import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
-import ift6253.hw2.mindmap.mindmap.CentralTopic;
-import ift6253.hw2.mindmap.mindmap.MainTopic;
-import ift6253.hw2.mindmap.mindmap.Marker;
-import ift6253.hw2.mindmap.mindmap.MindMap;
-import ift6253.hw2.mindmap.mindmap.SubTopic;
-import ift6253.hw2.mindmap.mindmap.Topic;
-
 /**
- * Outline labels name each element's metaclass, so the outline shows the
- * metamodel topic levels and markers.
+ * Provides labels for EObjects.
+ * 
+ * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#label-provider
  */
 public class MindMapLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
 	public MindMapLabelProvider(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
-	}
-
-	String text(MindMap map) {
-		return "Mind Map " + map.getTitle();
-	}
-
-	String text(Marker marker) {
-		return "Marker " + marker.getSymbol();
-	}
-
-	String text(CentralTopic topic) {
-		return "Central Topic " + withMarker(topic);
-	}
-
-	String text(MainTopic topic) {
-		return "Main Topic " + withMarker(topic);
-	}
-
-	String text(SubTopic topic) {
-		return "Sub Topic " + withMarker(topic);
-	}
-
-	private static String withMarker(Topic topic) {
-		return topic.getMarker() == null ? topic.getName() : topic.getName() + " [" + topic.getMarker().getSymbol() + "]";
 	}
 }

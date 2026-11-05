@@ -8,7 +8,6 @@ import org.eclipse.epsilon.emc.emf.EmfModel
 import org.eclipse.epsilon.etl.EtlModule
 import org.eclipse.xtend.lib.annotations.Accessors
 
-// Names "MindMap" and "LaTeX" must match .etl
 class EtlComponent implements IWorkflowComponent {
 	@Accessors String etl
 	@Accessors String metamodel
@@ -19,7 +18,7 @@ class EtlComponent implements IWorkflowComponent {
 
 	override invoke(IWorkflowContext context) {
 		val mindmap = new EmfModel
-		mindmap.name = 'MindMap'
+		mindmap.name = 'MindMap' // must match .etl
 		mindmap.metamodelFile = new File(metamodel).absolutePath
 		mindmap.modelFile = new File(source).absolutePath
 		mindmap.readOnLoad = true
@@ -27,7 +26,7 @@ class EtlComponent implements IWorkflowComponent {
 		mindmap.load
 
 		val latex = new EmfModel
-		latex.name = 'LaTeX'
+		latex.name = 'LaTeX' // must match .etl
 		latex.metamodelUri = LatexPackage.eNS_URI
 		latex.modelFile = new File(target).absolutePath
 		latex.readOnLoad = false

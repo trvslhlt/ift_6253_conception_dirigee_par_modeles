@@ -16,7 +16,8 @@ class FixExportComponent implements IWorkflowComponent {
 
 	override invoke(IWorkflowContext context) {
 		val text = Files.readString(Paths.get(source))
-		val fixed = text.replaceFirst('<undefined ', '<MindMap ').replace('</undefined>', '</MindMap>')
+		val fixed = text.replaceFirst('<undefined ', '<MindMap ')
+			.replace('</undefined>', '</MindMap>')
 		val file = Paths.get(target)
 		Files.createDirectories(file.parent)
 		Files.writeString(file, fixed)

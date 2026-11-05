@@ -45,6 +45,7 @@ class LaTeXTemplate {
 		«ENDFOR»
 	'''
 	
+	// tailing empty newline intentional
 	def generate(Paragraph it) '''
 		«text.escape»
 		
