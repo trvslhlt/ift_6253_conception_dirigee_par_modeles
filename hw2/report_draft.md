@@ -50,7 +50,7 @@ M2M MindMap to LaTeX
 2. Using the modified Ecore metamodel, implement the model-to-model transformation using the ATL or ETL model transformation language in EMF. You must therefore redefine the metamodel (file .ecore) and define the transformation (file .atlor .etl). You must include the example input model (file .mindmap) and the example output model (file .xmi) of your transformation. The example model must correspond to the minimum map in your project with at least 3 levels (see assignment 1).
     1. Characterize this transformation according to the concepts seen in class: intention, in/outplace, exo/endogenous, horizontal/vertical, syntactic/sematical.
     2. Describe why the transformation you defined satisfies the listed needs. How will you perform this verification? Note that you are not required to do so.
-- The ETL transformation that converts a MindMap into a LaTeX document is `hw2.m2m/MindMap2LaTeX.etl`. The source metamodel is `MindMap.ecore` from the hw2 Xtext project (the HW1 metamodel, which already has markers). The target metamodel, `LaTeX.ecore`, is based on the figure in the assignment and was defined in the Ecore graphical editor.
+- The ETL transformation that converts a MindMap into a LaTeX document is `m2m/ift6253.hw2.mindmap2latex/MindMap2LaTeX.etl`. The source metamodel is `MindMap.ecore` from the hw2 Xtext project (the HW1 metamodel, which already has markers). The target metamodel, `LaTeX.ecore`, is based on the figure in the assignment and was defined in the Ecore graphical editor.
 - Sample source and target models are:
     - `models/example.mindmap` -> `models/example.xmi` (the assignment's example)
     - `models/courseProject.mindmap` -> `models/courseProject.xmi` (my course project, more than 3 levels deep).
@@ -77,7 +77,7 @@ M2T LaTeX to Text
 3. Using the modified Ecore metamodel, implement a model-to-text transformation using the Xtend or EGL model transformation language in EMF. You must therefore define the templates (file .xtendor .egl) and the workflow (file .mwe2) for Xtend. You must include the output model (file .latex) which corresponds to the model produced by the transformation in task 2.
     1. Characterize this transformation according to the concepts seen in class: intention, in/outplace, exo/endogenous, horizontal/vertical, syntactic/sematical.
     2. Describe why the transformation you defined satisfies the listed needs. How will you perform this verification? Note that you are not required to do so.
-- The Xtend M2T transformation is `ift6253.hw2.latex.generator/src/ift6253/hw2/latex/generator/LaTeXTemplate.xtend`. It is run by the MWE2 workflow `GenerateLaTeX.mwe2`, which reads the `.xmi` models from task 2 and calls `LaTeXGeneratorComponent` to write `<Document.name>.latex`.
+- The Xtend M2T transformation is `m2t/ift6253.hw2.latex.generator/src/ift6253/hw2/latex/generator/LaTeXTemplate.xtend`. It is run by the MWE2 workflow `GenerateLaTeX.mwe2`, which reads the `.xmi` models from task 2 and calls `LaTeXGeneratorComponent` to write `<Document.name>.latex`.
 - The outputs are `latex/DocumentName.latex` (from the assignment's example) and `latex/ModelGuidedMigration.latex` (from my course project), plus `ModelGuidedMigration.pdf` compiled with pdflatex.
 - 1. Characterizing the transformation
     - intent: Synthesis (code generation). Produce a valid `.latex` file from a LaTeX model
@@ -95,8 +95,8 @@ M2T LaTeX to Text
 
 E2E AToMPM Model and Metamodel to PDF
 4. Bonus 3: Automate the transformation chain that starts with a mind map model, transforms it into a LaTeX model and then produces the text file. You can use AToMPM's model (and metamodel) exporter to Ecore under /Toolbars/Ecore to get a mind map model already assigned unique markers. The automation would start once the model is exported.
-- The chain is the MWE2 workflow `ift6253.hw2.latex.generator/src/ift6253/hw2/latex/generator/AToMPM2LaTeX.mwe2`. It starts from `courseProject_out` (the output of task 1), exported with AToMPM's Ecore exporter to `atompm/exported_to_ecore/courseProject_outModel.xmi`, and ends with a PDF.
-- The outputs are in `chain/`:
+- The chain is the MWE2 workflow `m2t/ift6253.hw2.chain/src/ift6253/hw2/chain/AToMPM2LaTeX.mwe2`. It starts from `courseProject_out` (the output of task 1), exported with AToMPM's Ecore exporter to `atompm/exported_to_ecore/courseProject_outModel.xmi`, and ends with a PDF.
+- The outputs are in `m2t/ift6253.hw2.chain/output/`:
     - `courseProject.xmi` (the repaired export)
     - `courseProject.latex.xmi` (the LaTeX model)
     - `ModelGuidedMigration.latex` and `ModelGuidedMigration.pdf`
@@ -104,10 +104,10 @@ E2E AToMPM Model and Metamodel to PDF
     - metamodel: `upperBound="Infinity"` (3 places), only the root class's references are containment, and `subsubtopics` is single-valued.
     - model: the root element is `<undefined>`.
 - The workflow has 4 steps:
-    1. FixExportComponent: Repair the model export, and save it as `chain/courseProject.xmi`.
+    1. FixExportComponent: Repair the model export, and save it as `output/courseProject.xmi`.
     2. EtlComponent: Run task 2's `MindMap2LaTeX.etl` on it, through Epsilon's Java API, and save the LaTeX model.
     3. Reader + LaTeXGeneratorComponent: Load the LaTeX model and apply task 3's templates to write the `.latex` file.
     4. PdfLatexComponent: Run pdflatex on the `.latex` file to produce the PDF.
-    The metamodel export was repaired once by hand (`chain/MindMapAToMPM.ecore`), not in the workflow. The fixes depend on what each reference means (which ones are containment, which are many-valued), which the exporter doesn't record. A script would have to be rewritten for every metamodel. The metamodel only changes when the formalism does, so a one-time repair is enough.
+    The metamodel export was repaired once by hand (`model/MindMapAToMPM.ecore`), not in the workflow. The fixes depend on what each reference means (which ones are containment, which are many-valued), which the exporter doesn't record. A script would have to be rewritten for every metamodel. The metamodel only changes when the formalism does, so a one-time repair is enough.
     The chain uses the AToMPM metamodel instead of the Xtext `MindMap.ecore`. The export nests each topic's marker inside the topic, and in the Xtext metamodel `Topic.marker` is a non-containment reference, so the nested markers can't be loaded.
-    The ETL transformation and the templates are reused unchanged. We can verify the chain by comparing its output with task 3's: `chain/ModelGuidedMigration.latex` is identical to `latex/ModelGuidedMigration.latex`. To update the PDF after editing the model in AToMPM, export it again and rerun the workflow.
+    The ETL transformation and the templates are reused unchanged. We can verify the chain by comparing its output with task 3's: `output/ModelGuidedMigration.latex` is identical to `latex/ModelGuidedMigration.latex`. To update the PDF after editing the model in AToMPM, export it again and rerun the workflow.

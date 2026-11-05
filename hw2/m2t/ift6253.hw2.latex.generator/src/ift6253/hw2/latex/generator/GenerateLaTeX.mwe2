@@ -11,7 +11,7 @@ Workflow {
 	}
 	
 	component = Reader {
-		uri = "platform:/resource/hw2.m2m/models/courseProject.xmi"
+		uri = "platform:/resource/ift6253.hw2.mindmap2latex/models/courseProject.xmi"
 		modelSlot = "courseProject"
 	}
 	
@@ -21,7 +21,7 @@ Workflow {
 	}
 
 	component = Reader {
-		uri = "platform:/resource/hw2.m2m/models/example.xmi"
+		uri = "platform:/resource/ift6253.hw2.mindmap2latex/models/example.xmi"
 		modelSlot = "example"
 	}
 	
