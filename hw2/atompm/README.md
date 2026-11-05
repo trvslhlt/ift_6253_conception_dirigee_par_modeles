@@ -10,7 +10,6 @@ owned by the map, a topic's marker is its `marker` link). The report is
 | `users/travis/Models/MindMap/R_*.model` | The 10 rules |
 | `users/travis/Models/MindMap/T_AssignMarkers.model` | The schedule |
 | `users/travis/Models/MindMap/*_in.model`, `*_out.model` | Sample input and output: `research` (the assignment's example) and `courseProject` |
-| `samples/*.mindmap` | The sample inputs as text |
 
 ## Run
 

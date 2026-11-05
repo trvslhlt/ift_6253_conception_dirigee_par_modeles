@@ -1,5 +1,3 @@
-// The course project map after T_AssignMarkers (hw2/atompm, courseProject_out):
-// every topic has a marker unique among its siblings.
 mindmap ModelGuidedMigration (marker 1, marker 2, marker 3, marker 4, marker 5, marker 6)
 topic 1 DoModelsHelpAgentsMigrateCode includes {
 	* 1 Experiment includes {

@@ -1,7 +1,7 @@
 # AToMPM with all user state (models, formalisms, icons) stored in ./users.
 # Requires the upstream atompmvm:latest image (see Dockerfile).
 
-IMAGE     := atompm-hw1
+IMAGE     := atompm-hw2
 CONTAINER := atompm-hw2
 PORT      := 8124
 USERS     := $(CURDIR)/users
@@ -13,7 +13,7 @@ EXPORTS   := $(CURDIR)/exported_to_ecore
 help: ## List targets
 	@grep -E '^[a-z]+:.*##' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  make %-8s %s\n", $$1, $$2}'
 
-build: ## Build the atompm-hw1 image
+build: ## Build the atompm-hw2 image
 	docker build -q -t $(IMAGE) .
 
 # A bind mount of an empty folder hides the image's users/(default) template and

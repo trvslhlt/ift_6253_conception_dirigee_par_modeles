@@ -39,7 +39,7 @@ Assign markers in AToMPM
     1. Create first marker: If the model has no markers, create one for use in subsequent phases (`CreateFirstMarker`).
     2. Deduplicate markers: While two siblings share a marker, remove it from the one whose name comes later (`Dedup*`).
     3. Assign markers: Link each unmarked topic to a marker none of its siblings has (`Assign*`).
-    4. Check: If no topic is unmarked, the transformation ends in success (`HasUnmarkedTopic`).
+    4. Check: If no topic is unmarked, the transformation ends in success (`HasUnmarkedTopic`). (this could not be added as a NAC in `CreateMarker` because of a bug in AToMPM)
     5. Create new markers: Otherwise every marker is taken by a sibling, so create the largest + 1 and return to phase 3 (`CreateMarker`).
     - The schedule begins by ensuring there is a at least one marker. It then deduplicates topic markers. Next it assigns markers to topics. This continues until there are no unassigned numbers or un-marked topics. In the former case, one is created and the schedule returns to the assignment rules. In the later case the transformation is complete. We can verify the transformation by checking the output model with a specification program. This program can traverse the model to confirm all of our desired topic/marker criteria are met. 
     - Requirement 1: The schedule only reaches EndSuccess when HasUnmarkedTopic fails (when no topic lacks a marker).
