@@ -3359,7 +3359,7 @@
 			"13": {
 				"Action": {
 					"type": "code",
-					"value": "setAttr('name', getAttr('name', '2'), '2')"
+					"value": "pass"
 				},
 				"$type": "/Formalisms/__Transformations__/TransformationRule/TransformationRule/RHS"
 			},

@@ -4524,7 +4524,7 @@
 			"23": {
 				"Action": {
 					"type": "code",
-					"value": "setAttr('name', getAttr('name', '1'), '1')"
+					"value": "pass"
 				},
 				"$type": "/Formalisms/__Transformations__/TransformationRule/TransformationRule/RHS"
 			},

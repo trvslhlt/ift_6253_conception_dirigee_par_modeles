@@ -18,11 +18,6 @@ owned by the map, a topic's marker is its `marker` link). The report is
 cd hw2/atompm && make run            # AToMPM on http://localhost:8124/atompm
 ```
 
-Open a `*_in.model`, load `T_AssignMarkers.model` in the transformation
-controller and press play. The green numbers in front of topic names are drawn
-by mappers that only rerun when a topic's attributes change, so they may not
-update during the run; the marker links do.
-
 ## Engine bug worked around
 
 In `mt/ptcal/pytcore/tcore/matcher.py`, the loop over bound NACs assigns each
